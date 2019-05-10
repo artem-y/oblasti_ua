@@ -31,6 +31,11 @@
                             <constraint firstItem="Ece-RW-v4c" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="u2q-bN-ceK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Ece-RW-v4c"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

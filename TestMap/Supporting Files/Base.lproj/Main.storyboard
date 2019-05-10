@@ -200,7 +200,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MS0-s0-nUq"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dkf-Pj-iir"/>
                     <connections>
                         <outlet property="modeButton" destination="qpi-uT-xOU" id="ulU-JW-hr6"/>
                         <outlet property="startButton" destination="yyv-Uh-ZBL" id="1Kl-Bh-Jfv"/>
@@ -1022,6 +1021,6 @@
         <image name="settingsButtonLightBlue" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IMN-RV-1jG"/>
+        <segue reference="Pp2-nk-7RN"/>
     </inferredMetricsTieBreakers>
 </document>

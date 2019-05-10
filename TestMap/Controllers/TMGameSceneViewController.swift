@@ -40,7 +40,10 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     }
     // MARK: - Custom properties
     var mapView: TMMapView!
+    
+    // TODO: Replace with settings implementation
     var showsTime = false
+    
     var gameController = TMGameController(game: TMGame(mode: .classic, regions: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths), regionsLeft: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths)))
     var isShowingSelectionResult = false
     let animationDuration: Double = 0.2
@@ -54,7 +57,15 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         }
     }
     var singleTapRecognizer: UITapGestureRecognizer!
-    var regionLang = Locale.current.languageCode! // TODO: Set region lang safely, also from settings
+    // TODO: Set region lang in a safer way
+    var regionLang: String {
+        get {
+            return TMSettingsController.shared.settings.regionNameLanguageIdentifier
+        }
+        set {
+            TMSettingsController.shared.settings.regionNameLanguageIdentifier = newValue
+        }
+    }
     
     // MARK: - UIViewController methods
     override func viewDidLoad() {
@@ -131,18 +142,20 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
                         }
                         regionLabel.textColor = .selectedRegionColor
                         
-                        // Animation: View with 'confirm' button slides out into the screen from the right
-                        singleTapRecognizer.isEnabled = false
-                        let oldFrame = bottomRightConfirmationView.frame
-                        bottomRightConfirmationView.frame = CGRect(origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y), size: oldFrame.size)
-                        bottomRightConfirmationView.isHidden = false
-                        
-                        UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseOut, animations: {
-                            [unowned self] in
-                            self.bottomRightConfirmationView.frame = oldFrame
-                            // This prevents reenabling tap gestures after the game is finished
-                            self.singleTapRecognizer.isEnabled = self.isRunningGame
-                        })
+                        if TMSettingsController.shared.settings.showsButtons {
+                            // Animation: View with 'confirm' button slides out into the screen from the right
+                            singleTapRecognizer.isEnabled = false
+                            let oldFrame = bottomRightConfirmationView.frame
+                            bottomRightConfirmationView.frame = CGRect(origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y), size: oldFrame.size)
+                            bottomRightConfirmationView.isHidden = false
+                            
+                            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseOut, animations: {
+                                [unowned self] in
+                                self.bottomRightConfirmationView.frame = oldFrame
+                                // This prevents reenabling tap gestures after the game is finished
+                                self.singleTapRecognizer.isEnabled = self.isRunningGame
+                            })
+                        }
                         
                         regionsContainLocation = true
                         break
@@ -197,19 +210,21 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     }
     
     func hideControls() {
-        singleTapRecognizer.isEnabled = false
-        let oldFrame: CGRect = bottomRightConfirmationView.frame
-        
-        UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseIn, animations: { [unowned self] in
+        if TMSettingsController.shared.settings.showsButtons {
+            singleTapRecognizer.isEnabled = false
+            let oldFrame: CGRect = bottomRightConfirmationView.frame
             
-            self.bottomRightConfirmationView.frame = CGRect(origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y), size: oldFrame.size)
-        }) { [unowned self]
-            (completed) in
-            if completed {
-                self.bottomRightConfirmationView.isHidden = true
-                self.bottomRightConfirmationView.frame = oldFrame
-                // This prevents reenabling tap gestures after the game is finished
-                self.singleTapRecognizer.isEnabled = self.isRunningGame
+            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseIn, animations: { [unowned self] in
+                
+                self.bottomRightConfirmationView.frame = CGRect(origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y), size: oldFrame.size)
+            }) { [unowned self]
+                (completed) in
+                if completed {
+                    self.bottomRightConfirmationView.isHidden = true
+                    self.bottomRightConfirmationView.frame = oldFrame
+                    // This prevents reenabling tap gestures after the game is finished
+                    self.singleTapRecognizer.isEnabled = self.isRunningGame
+                }
             }
         }
     }
@@ -225,20 +240,22 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     
     func cancelSelection() {
 //        singleTapRecognizer.isEnabled = false
-        let oldFrame = self.bottomLeftChoiceView.frame
-
-        UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseIn, animations: { [unowned self] in
-            let newX: CGFloat = oldFrame.origin.x - oldFrame.width
+        if TMSettingsController.shared.settings.showsButtons {
+            let oldFrame = self.bottomLeftChoiceView.frame
             
-            self.bottomLeftChoiceView.frame = CGRect(origin: CGPoint(x: newX, y: oldFrame.origin.y), size: oldFrame.size)
-
-        }) { [unowned self]
-            (completed) in
-            
-            if completed {
-                self.bottomLeftChoiceView.isHidden = true
-                self.bottomLeftChoiceView.frame = oldFrame
-//                self.singleTapRecognizer.isEnabled = true
+            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseIn, animations: { [unowned self] in
+                let newX: CGFloat = oldFrame.origin.x - oldFrame.width
+                
+                self.bottomLeftChoiceView.frame = CGRect(origin: CGPoint(x: newX, y: oldFrame.origin.y), size: oldFrame.size)
+                
+            }) { [unowned self]
+                (completed) in
+                
+                if completed {
+                    self.bottomLeftChoiceView.isHidden = true
+                    self.bottomLeftChoiceView.frame = oldFrame
+                    //                self.singleTapRecognizer.isEnabled = true
+                }
             }
         }
         
@@ -256,26 +273,28 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         regionLabel.textColor = selectionColor
         mapView.selectedLayer?.fillColor = selectionColor.cgColor
         
-        // Image representations of right/wrong choice
-        let imageName = isCorrect ? TMResources.ImageName.correctChoice : TMResources.ImageName.wrongChoice
-        bottomLeftIndicator.image = UIImage(named: imageName)
-        
-        // Animation: Message view slides out into the screen from the left
-//        singleTapRecognizer.isEnabled = false
-        let oldFrame = bottomLeftChoiceView.frame
-        bottomLeftChoiceView.frame.origin = CGPoint(x: oldFrame.origin.x - oldFrame.width, y: oldFrame.origin.y)
-        bottomLeftChoiceView.isHidden = false
-        UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseOut, animations: {
-            [unowned self] in
-            self.bottomLeftChoiceView.frame = oldFrame
-        })
-//        { [unowned self]
-//            (completed) in
-//            if completed {
-//                // This prevents reenabling tap gestures after the game is finished
-//                self.singleTapRecognizer.isEnabled = self.isRunningGame
-//            }
-//        }
+        if TMSettingsController.shared.settings.showsButtons {
+            // Image representations of right/wrong choice
+            let imageName = isCorrect ? TMResources.ImageName.correctChoice : TMResources.ImageName.wrongChoice
+            bottomLeftIndicator.image = UIImage(named: imageName)
+            
+            // Animation: Message view slides out into the screen from the left
+            //        singleTapRecognizer.isEnabled = false
+            let oldFrame = bottomLeftChoiceView.frame
+            bottomLeftChoiceView.frame.origin = CGPoint(x: oldFrame.origin.x - oldFrame.width, y: oldFrame.origin.y)
+            bottomLeftChoiceView.isHidden = false
+            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseOut, animations: {
+                [unowned self] in
+                self.bottomLeftChoiceView.frame = oldFrame
+            })
+            //        { [unowned self]
+            //            (completed) in
+            //            if completed {
+            //                // This prevents reenabling tap gestures after the game is finished
+            //                self.singleTapRecognizer.isEnabled = self.isRunningGame
+            //            }
+            //        }
+        }
         
     }
     
