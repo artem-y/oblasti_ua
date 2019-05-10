@@ -400,6 +400,8 @@
                         <outlet property="formatDescriptionLabel" destination="kLO-P7-YhB" id="W3m-04-mfK"/>
                         <outlet property="languageNameLagel" destination="3qf-ha-wbJ" id="xPn-3k-3aq"/>
                         <outlet property="modeNameLabel" destination="hV1-VB-09M" id="NLV-kj-ktb"/>
+                        <outlet property="showButtonsCell" destination="pQB-Lo-Djw" id="zrW-1o-sGi"/>
+                        <outlet property="showButtonsSwitch" destination="YUj-G2-sPg" id="D2b-hZ-Xui"/>
                         <outlet property="showTimeCell" destination="kKK-7d-VBY" id="NmN-sC-fLO"/>
                         <outlet property="showTimeSwitch" destination="qjb-Ua-ItT" id="BIN-1r-1bE"/>
                     </connections>

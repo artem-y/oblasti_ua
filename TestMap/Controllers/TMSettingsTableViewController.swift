@@ -13,6 +13,8 @@ class TMSettingsTableViewController: UITableViewController {
     // MARK: - @IBOutlets
     @IBOutlet weak var showTimeCell: UITableViewCell!
     @IBOutlet weak var showTimeSwitch: UISwitch!
+    @IBOutlet weak var showButtonsCell: UITableViewCell!
+    @IBOutlet weak var showButtonsSwitch: UISwitch!
     @IBOutlet weak var modeNameLabel: UILabel!
     @IBOutlet weak var languageNameLagel: UILabel!
     @IBOutlet weak var formatDescriptionLabel: UILabel!
@@ -23,17 +25,14 @@ class TMSettingsTableViewController: UITableViewController {
         updateUI()
     }
     
-    // MARK: - UITableView delegate and datasource methods
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if tableView.cellForRow(at: indexPath) == showTimeCell {
-            tableView.deselectRow(at: indexPath, animated: true)
-            showsTime = !showsTime
+    var settings: TMSettings {
+        get {
+            return TMSettingsController.shared.settings
         }
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return section == 1 ? exampleFooterText : nil
+        set {
+            TMSettingsController.shared.settings = newValue
+            updateUI()
+        }
     }
     
     var showsTime: Bool = true {
@@ -49,11 +48,27 @@ class TMSettingsTableViewController: UITableViewController {
     }
     
     private var exampleFooterText: String = ""
+    
+    // MARK: - UITableView delegate and datasource methods
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // No need to tableView.deselectRow here because UI will be updated on these properties' didSet event
+        switch tableView.cellForRow(at: indexPath) {
+        case showTimeCell:
+            showsTime = !showsTime
+        case showButtonsCell:
+            settings.showsButtons = !settings.showsButtons
+        default:
+            break
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return section == 1 ? exampleFooterText : nil
+    }
 
+    // MARK: - Updating UI
     private func updateUI(){
         print("updateUI()")
-        
-        let settings = TMSettingsController.shared.settings
         
         if mode == .pointer {
             showTimeSwitch.setOn(false, animated: true)
@@ -62,6 +77,7 @@ class TMSettingsTableViewController: UITableViewController {
             showTimeSwitch.setOn(showsTime, animated: true)
             showTimeCell.isUserInteractionEnabled = true
         }
+        showButtonsSwitch.setOn(settings.showsButtons, animated: true)
         modeNameLabel.text = NSLocalizedString(mode.rawValue, comment: "").capitalized
         languageNameLagel.text = Locale.current.localizedString(forLanguageCode: settings.regionNameLanguageIdentifier) ?? NSLocalizedString(settings.regionNameLanguageIdentifier, comment: "")
         
