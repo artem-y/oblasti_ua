@@ -1,0 +1,60 @@
+
+/* Class = "UITextView"; text = "Будь-ласка, зверніть увагу: межі регіонів та кордони України зображені приблизно і можуть не збігатися з реальними пропорціями та географічними координатами."; ObjectID = "3IK-kW-DEU"; */
+"3IK-kW-DEU.text" = "Будь-ласка, зверніть увагу: межі регіонів та кордони України зображені приблизно і можуть не збігатися з реальними пропорціями та географічними координатами.";
+
+/* Class = "UILabel"; text = "00:00"; ObjectID = "3Mx-wt-o0x"; */
+"3Mx-wt-o0x.text" = "00:00";
+
+/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "Py8-Bb-shT"; */
+"Py8-Bb-shT.normalTitle" = "OK";
+
+/* Class = "UIButton"; normalTitle = "МЕНЮ"; ObjectID = "jg3-73-wGR"; */
+"jg3-73-wGR.normalTitle" = "МЕНЮ";
+
+/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "psy-vb-mWa"; */
+"psy-vb-mWa.normalTitle" = "OK";
+
+/* Class = "UIButton"; normalTitle = "Відображати час"; ObjectID = "qpi-uT-xOU"; */
+"qpi-uT-xOU.normalTitle" = "Відображати час";
+
+/* Class = "UIButton"; normalTitle = "ПРОДОВЖИТИ"; ObjectID = "vXC-ZA-MHC"; */
+"vXC-ZA-MHC.normalTitle" = "ПРОДОВЖИТИ";
+
+/* Class = "UILabel"; text = "Знайдіть область"; ObjectID = "yDD-6g-BWL"; */
+"yDD-6g-BWL.text" = "Знайдіть область";
+
+/* Class = "UIButton"; normalTitle = "ПОЧАТИ"; ObjectID = "yyv-Uh-ZBL"; */
+"yyv-Uh-ZBL.normalTitle" = "ПОЧАТИ";
+
+/* Class = "UILabel"; text = "Ви впевнені?"; ObjectID = "j8L-ru-eNu"; */
+"j8L-ru-eNu.text" = "Ви впевнені?";
+
+/* Class = "UILabel"; text = "Гру не буде збережено"; ObjectID = "Bwf-pB-QJH"; */
+"Bwf-pB-QJH.text" = "Гру не буде збережено";
+
+/* Class = "UIButton"; normalTitle = "ТАК"; ObjectID = "LM7-6e-2pV"; */
+"LM7-6e-2pV.normalTitle" = "ТАК";
+
+/* Class = "UIButton"; normalTitle = "НІ"; ObjectID = "tRb-sk-Ugx"; */
+"tRb-sk-Ugx.normalTitle" = "НІ";
+
+/* Class = "UINavigationItem"; "4Zb-ZX-Yce.title" = "Settings"; ObjectID = "4Zb-ZX-Yce"; */
+"4Zb-ZX-Yce.title" = "Налаштування";
+
+/* Class = "UILabel"; text = "Показувати час"; ObjectID = "W57-oX-WyM"; */
+"W57-oX-WyM.text" = "Показувати час";
+
+/* Class = "UILabel"; text = "Mode"; ObjectID = "f1I-1W-our"; */
+"f1I-1W-our.text" = "Режим";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "74L-Yk-irJ"; */
+"74L-Yk-irJ.text" = "Мова";
+
+/* Class = "UILabel"; text = "Format"; ObjectID = "v6G-rx-Bpf"; */
+"v6G-rx-Bpf.text" = "Формат";
+
+/* Class = "UILabel"; headerTitle = "General"; ObjectID = "Udg-Wb-oD8"; */
+"Udg-Wb-oD8.headerTitle" = "Загальні";
+
+/* Class = "UILabel"; headerTitle = "Region Names"; ObjectID = "jAi-4Z-lJt"; */
+"jAi-4Z-lJt.headerTitle" = "Назви областей";

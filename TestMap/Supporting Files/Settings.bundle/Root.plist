@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StringsTable</key>
+	<string>Root</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Title</key>
+			<string>Show time</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Key</key>
+			<string>showsTimeSetting</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
+			<false/>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Region Names</string>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Language</string>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Key</key>
+			<string>regionNameLanguageSetting</string>
+			<key>DefaultValue</key>
+			<string>en</string>
+			<key>Titles</key>
+			<array>
+				<string>Ukrainian</string>
+				<string>English</string>
+				<string>Russian</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>uk</string>
+				<string>en</string>
+				<string>ru</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Format</string>
+			<key>Key</key>
+			<string>regionNameFormatSetting</string>
+			<key>Titles</key>
+			<array>
+				<string>Uppercased</string>
+				<string>Capitalized</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>uppercased</string>
+				<string>capitalized</string>
+			</array>
+			<key>DefaultValue</key>
+			<string>uppercased</string>
+		</dict>
+	</array>
+</dict>
+</plist>

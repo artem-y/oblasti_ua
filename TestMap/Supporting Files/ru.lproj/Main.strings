@@ -1,0 +1,117 @@
+
+/* Class = "UITextView"; text = "Будь-ласка, зверніть увагу: межі регіонів та кордони України зображені приблизно і можуть не збігатися з реальними пропорціями та географічними координатами."; ObjectID = "3IK-kW-DEU"; */
+"3IK-kW-DEU.text" = "Пожалуйста, обратите внимание: границы регионов и Украины изображены приблизительно и могут не совпадать с реальными пропорциями и географическими координатами.";
+
+/* Class = "UILabel"; text = "00:00"; ObjectID = "3Mx-wt-o0x"; */
+"3Mx-wt-o0x.text" = "00:00";
+
+/* Class = "UILabel"; text = "Українська"; ObjectID = "3qf-ha-wbJ"; */
+"3qf-ha-wbJ.text" = "Українська";
+
+/* Class = "UINavigationItem"; title = "Налаштування"; ObjectID = "4Zb-ZX-Yce"; */
+"4Zb-ZX-Yce.title" = "Настройки";
+
+/* Class = "UILabel"; text = "Мова"; ObjectID = "74L-Yk-irJ"; */
+"74L-Yk-irJ.text" = "Язык";
+
+/* Class = "UIButton"; normalTitle = "Попередження"; ObjectID = "7fh-uD-60M"; */
+"7fh-uD-60M.normalTitle" = "Предупреждение";
+
+/* Class = "UITableViewController"; title = "Режим: класичний"; ObjectID = "B36-X3-Qfo"; */
+"B36-X3-Qfo.title" = "Режим: классический";
+
+/* Class = "UILabel"; text = "Всі літери великі"; ObjectID = "B9q-ds-qrm"; */
+"B9q-ds-qrm.text" = "Все буквы большие";
+
+/* Class = "UILabel"; text = "Гру не буде збережено"; ObjectID = "Bwf-pB-QJH"; */
+"Bwf-pB-QJH.text" = "Игра не будет сохранена";
+
+/* Class = "UITableViewController"; title = "Формат назв областей"; ObjectID = "EHn-QS-aL1"; */
+"EHn-QS-aL1.title" = "Формат названий областей";
+
+/* Class = "UILabel"; text = "З великої літери"; ObjectID = "Gkh-I6-Fx2"; */
+"Gkh-I6-Fx2.text" = "С большой буквы";
+
+/* Class = "UIButton"; normalTitle = "ТАК"; ObjectID = "LM7-6e-2pV"; */
+"LM7-6e-2pV.normalTitle" = "ДА";
+
+/* Class = "UILabel"; text = "Івано-Франківська"; ObjectID = "MVF-AB-Fhz"; */
+"MVF-AB-Fhz.text" = "Ивано-Франковская";
+
+/* Class = "UIButton"; normalTitle = "Інструкція"; ObjectID = "Mxk-mn-rm2"; */
+"Mxk-mn-rm2.normalTitle" = "Инструкция";
+
+/* Class = "UITableViewSection"; headerTitle = "Наприклад:"; ObjectID = "U1x-dl-SD3"; */
+"U1x-dl-SD3.headerTitle" = "Например:";
+
+/* Class = "UITableViewSection"; headerTitle = "Загальні"; ObjectID = "Udg-Wb-oD8"; Note = "Main settings section"; */
+"Udg-Wb-oD8.headerTitle" = "Общие";
+
+/* Class = "UILabel"; text = "Показувати час"; ObjectID = "W57-oX-WyM"; */
+"W57-oX-WyM.text" = "Показывать время";
+
+/* Class = "UITableViewSection"; headerTitle = "Регістр"; ObjectID = "dOq-w0-rF7"; */
+"dOq-w0-rF7.headerTitle" = "Регистр";
+
+/* Class = "UILabel"; text = "Режим"; ObjectID = "f1I-1W-our"; */
+"f1I-1W-our.text" = "Режим";
+
+/* Class = "UILabel"; text = "Класичний"; ObjectID = "hV1-VB-09M"; */
+"hV1-VB-09M.text" = "Классический";
+
+/* Class = "UILabel"; text = "Ви впевнені?"; ObjectID = "j8L-ru-eNu"; */
+"j8L-ru-eNu.text" = "Вы уверены?";
+
+/* Class = "UITableViewSection"; footerTitle = "Наприклад: Івано-Франківська"; ObjectID = "jAi-4Z-lJt"; Note = "Region names section"; */
+"jAi-4Z-lJt.footerTitle" = "Например: Ивано-Франковская";
+
+/* Class = "UITableViewSection"; headerTitle = "Назви областей"; ObjectID = "jAi-4Z-lJt"; Note = "Region names section"; */
+"jAi-4Z-lJt.headerTitle" = "Названия областей";
+
+/* Class = "UIButton"; normalTitle = "МЕНЮ"; ObjectID = "jg3-73-wGR"; */
+"jg3-73-wGR.normalTitle" = "МЕНЮ";
+
+/* Class = "UILabel"; text = "Language Target Name"; ObjectID = "jiu-Xs-idg"; */
+"jiu-Xs-idg.text" = "Language Target Name";
+
+/* Class = "UILabel"; text = "Всі літери великі"; ObjectID = "kLO-P7-YhB"; */
+"kLO-P7-YhB.text" = "Все буквы большие";
+
+/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "psy-vb-mWa"; */
+"psy-vb-mWa.normalTitle" = "ОК";
+
+/* Class = "UIButton"; normalTitle = "Режим: без повторів"; ObjectID = "qpi-uT-xOU"; */
+"qpi-uT-xOU.normalTitle" = "Режим: без повторов";
+
+/* Class = "UILabel"; text = "Опис режиму"; ObjectID = "tEF-5K-mDz"; */
+"tEF-5K-mDz.text" = "Описание режима";
+
+/* Class = "UIButton"; normalTitle = "НІ"; ObjectID = "tRb-sk-Ugx"; */
+"tRb-sk-Ugx.normalTitle" = "НЕТ";
+
+/* Class = "UIButton"; normalTitle = "Рекорд"; ObjectID = "tZ5-78-1wO"; */
+"tZ5-78-1wO.normalTitle" = "Рекорд";
+
+/* Class = "UILabel"; text = "Формат"; ObjectID = "v6G-rx-Bpf"; */
+"v6G-rx-Bpf.text" = "Формат";
+
+/* Class = "UIButton"; normalTitle = "ПРОДОВЖИТИ"; ObjectID = "vXC-ZA-MHC"; */
+"vXC-ZA-MHC.normalTitle" = "ПРОДОЛЖИТЬ";
+
+/* Class = "UILabel"; text = "Знайдіть область"; ObjectID = "yDD-6g-BWL"; */
+"yDD-6g-BWL.text" = "Найдите область";
+
+/* Class = "UIButton"; normalTitle = "ПОЧАТИ"; ObjectID = "yyv-Uh-ZBL"; */
+"yyv-Uh-ZBL.normalTitle" = "НАЧАТЬ";
+
+/* Class = "UILabel"; text = "Назва режиму"; ObjectID = "z7K-bX-fQJ"; */
+"z7K-bX-fQJ.text" = "Название режима";
+
+/* Class = "UILabel"; text = "Localized Language Name"; ObjectID = "zM2-Ye-N1e"; */
+"zM2-Ye-N1e.text" = "Localized Language Name";
+
+/* Class = "UIButton"; normalTitle = "Налаштування"; ObjectID = "zZd-9v-sXi"; */
+"zZd-9v-sXi.normalTitle" = "Настройки";
+
+/* Class = "UITableViewController"; title = "Мови назв областей"; ObjectID = "zhA-Xz-SdZ"; */
+"zhA-Xz-SdZ.title" = "Языки названий областей";
