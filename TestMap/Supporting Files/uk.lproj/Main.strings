@@ -58,3 +58,6 @@
 
 /* Class = "UILabel"; headerTitle = "Region Names"; ObjectID = "jAi-4Z-lJt"; */
 "jAi-4Z-lJt.headerTitle" = "Назви областей";
+
+/* Class = "UILabel"; text = "Гра з кнопками"; ObjectID = "yGN-td-sPn"; */
+"yGN-td-sPn.text" = "Game with buttons"

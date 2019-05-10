@@ -103,3 +103,6 @@
 
 /* Class = "UITableViewController"; title = "Мови назв областей"; ObjectID = "zhA-Xz-SdZ"; */
 "zhA-Xz-SdZ.title" = "Region name settings";
+
+/* Class = "UILabel"; text = "Гра з кнопками"; ObjectID = "yGN-td-sPn"; */
+"yGN-td-sPn.text" = "Game with buttons"
