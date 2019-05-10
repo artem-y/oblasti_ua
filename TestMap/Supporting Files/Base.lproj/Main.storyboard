@@ -104,7 +104,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 </variation>
                                                 <connections>
-                                                    <action selector="presentSettings:" destination="4HK-7n-0Pl" eventType="touchUpInside" id="QtQ-eF-boh"/>
+                                                    <action selector="modeButtonTapped:" destination="4HK-7n-0Pl" eventType="touchUpInside" id="pif-6Z-PPL"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyv-Uh-ZBL" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
@@ -165,7 +165,7 @@
                                         <state key="selected" image="settingsButtonLightBlue"/>
                                         <state key="highlighted" image="settingsButtonLightBlue"/>
                                         <connections>
-                                            <action selector="presentSettings:" destination="4HK-7n-0Pl" eventType="touchUpInside" id="5Bd-sB-f1c"/>
+                                            <segue destination="ZvX-xE-haP" kind="presentation" identifier="presentSettingsSegue" modalPresentationStyle="pageSheet" id="AIk-29-LaM"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fh-uD-60M">
@@ -202,9 +202,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="dkf-Pj-iir"/>
                     <connections>
-                        <outlet property="showTimeButton" destination="qpi-uT-xOU" id="ulU-JW-hr6"/>
+                        <outlet property="modeButton" destination="qpi-uT-xOU" id="ulU-JW-hr6"/>
                         <outlet property="startButton" destination="yyv-Uh-ZBL" id="1Kl-Bh-Jfv"/>
-                        <segue destination="ZvX-xE-haP" kind="presentation" identifier="presentSettingsSegue" modalPresentationStyle="pageSheet" id="SgN-Y5-B4R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOA-a0-fof" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -249,7 +248,7 @@
                                         </tableViewCellContentView>
                                         <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="B36-X3-Qfo" kind="show" id="IMN-RV-1jG"/>
+                                            <segue destination="B36-X3-Qfo" kind="show" identifier="showModeSettingFromSettingsControllerSegue" id="IMN-RV-1jG"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kKK-7d-VBY">
@@ -389,12 +388,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Налаштування" id="4Zb-ZX-Yce">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="X4C-uQ-XkV">
+                        <barButtonItem key="rightBarButtonItem" title="Close" style="done" id="MzO-eR-PD2">
                             <connections>
-                                <segue destination="D22-0f-Wtc" kind="unwind" unwindAction="unwindToMenuViewController:" id="tNn-HJ-pUk"/>
+                                <action selector="dismissNavigationController:" destination="sfa-e7-oRC" id="wA2-hS-nFb"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MzO-eR-PD2"/>
                     </navigationItem>
                     <connections>
                         <outlet property="formatDescriptionLabel" destination="kLO-P7-YhB" id="W3m-04-mfK"/>
@@ -407,14 +405,13 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yNl-o6-b1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="D22-0f-Wtc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="75" y="897"/>
+            <point key="canvasLocation" x="67" y="1045"/>
         </scene>
         <!--Режим: класичний-->
         <scene sceneID="3HL-jC-1Io">
             <objects>
-                <tableViewController title="Режим: класичний" id="B36-X3-Qfo" sceneMemberID="viewController">
+                <tableViewController title="Режим: класичний" modalPresentationStyle="pageSheet" id="B36-X3-Qfo" customClass="TMModeSettingTableViewController" customModule="TestMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ImX-Us-luz">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -459,6 +456,21 @@
                             <outlet property="delegate" destination="B36-X3-Qfo" id="Kic-6o-dig"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Режим: класичний" id="2KZ-P8-B8E">
+                        <barButtonItem key="rightBarButtonItem" title="Close" style="done" id="qei-1A-vxR">
+                            <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <attributedString key="userComments">
+                                <fragment content="Bar button item"/>
+                            </attributedString>
+                            <connections>
+                                <action selector="dismissNavigationController:" destination="B36-X3-Qfo" id="A2B-nH-2ZE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="modalNavBar" destination="2KZ-P8-B8E" id="hSg-Zy-LWF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nl4-3Y-vzF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -964,10 +976,10 @@
             </objects>
             <point key="canvasLocation" x="1883.7890624999998" y="-124.21875"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Settings Navigation Controller-->
         <scene sceneID="4pV-2L-Noh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZvX-xE-haP" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZvX-xE-haP" customClass="TMSettingsNavigationController" customModule="TestMap" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="38O-tJ-EBh">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
@@ -980,6 +992,7 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="sfa-e7-oRC" kind="relationship" relationship="rootViewController" id="cXJ-Hj-OR3"/>
+                        <segue destination="B36-X3-Qfo" kind="show" identifier="showOnlyModeSettingSegue" id="Pp2-nk-7RN"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5z-ww-zEM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1008,4 +1021,7 @@
         <image name="settingsButtonGrayBackground" width="200" height="200"/>
         <image name="settingsButtonLightBlue" width="200" height="200"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="IMN-RV-1jG"/>
+    </inferredMetricsTieBreakers>
 </document>

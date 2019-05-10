@@ -19,12 +19,7 @@ class TMSettingsTableViewController: UITableViewController {
     @IBOutlet weak var languageNameLagel: UILabel!
     @IBOutlet weak var formatDescriptionLabel: UILabel!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        updateUI()
-    }
-    
+    // MARK: - Properties to change
     var settings: TMSettings {
         get {
             return TMSettingsController.shared.settings
@@ -48,6 +43,13 @@ class TMSettingsTableViewController: UITableViewController {
     }
     
     private var exampleFooterText: String = ""
+    
+    // MARK: - UIViewController methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateUI()
+    }
     
     // MARK: - UITableView delegate and datasource methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -94,6 +96,19 @@ class TMSettingsTableViewController: UITableViewController {
         
     }
     
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == TMResources.SegueIdentifier.showModeSettingFromSettingsControllerSegue {
+            if let destinationVC = segue.destination as? TMModeSettingTableViewController {
+                
+                destinationVC.hidesBackButton = false
+            }
+        }
+    }
     
-    
+    deinit {
+        print(self, "deinit!")
+    }
 }

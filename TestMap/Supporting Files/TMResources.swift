@@ -28,6 +28,8 @@ class TMResources {
         static let startGameSegue = "startGameSegue"
         static let presentSettingsSegue = "presentSettingsSegue"
         static let regionNameFormatSettingSegue = "regionNameFormatSettingSegue"
+        static let showOnlyModeSettingSegue = "showOnlyModeSettingSegue"
+        static let showModeSettingFromSettingsControllerSegue = "showModeSettingFromSettingsControllerSegue"
     }
     
     func loadRegions(fromFileNamed fileName: String) -> [TMRegion] {

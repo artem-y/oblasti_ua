@@ -11,16 +11,24 @@ import UIKit
 class TMMenuViewController: UIViewController {
 
     // MARK: - @IBOutlets
-    @IBOutlet weak var showTimeButton: UIButton!
+    @IBOutlet weak var modeButton: UIButton!
     @IBOutlet weak var startButton: TMRoundCornerButton!
     
-    @IBAction func presentSettings(_ sender: UIButton) {
-        performSegue(withIdentifier: TMResources.SegueIdentifier.presentSettingsSegue, sender: self)
+    // MARK: - @IBActions
+    @IBAction func modeButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: TMResources.SegueIdentifier.presentSettingsSegue, sender: sender)
     }
     
     // MARK: - Variables
     // TODO: Replace language and other settings with better (not hardcoded implementation)
-    var settings: TMSettings = TMSettings(regionNamesUppercased: true, showsButtons: true, regionNameLanguageIdentifier: Locale.preferredLanguages[0])
+    var settings: TMSettings {
+        get {
+            return TMSettingsController.shared.settings
+        }
+        set {
+            TMSettingsController.shared.settings = newValue
+        }
+    }
     var game: TMGame = TMGame(
         mode: .classic,
         regions: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths),
@@ -42,17 +50,28 @@ class TMMenuViewController: UIViewController {
     private func updateUI() {
         let modeDescription = NSLocalizedString(game.mode.rawValue, comment: "")
         let modeHint = NSLocalizedString("Mode:", comment: "")
-        showTimeButton.setTitle(modeHint + " " + modeDescription, for: .normal)
+        modeButton.setTitle(modeHint + " " + modeDescription, for: .normal)
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
-        if segue.identifier == TMResources.SegueIdentifier.startGameSegue, let destinationVC = segue.destination as? TMGameSceneViewController {
-            // TODO: Send game settings
-            destinationVC.showsTime = game.showsTime
-
+        switch segue.identifier {
+        case TMResources.SegueIdentifier.startGameSegue:
+            if let destinationVC = segue.destination as? TMGameSceneViewController {
+                // TODO: Send game settings
+                destinationVC.showsTime = game.showsTime
+                
+            }
+        case TMResources.SegueIdentifier.presentSettingsSegue:
+            if let destinationVC = segue.destination as? UINavigationController {
+                if let sender = sender as? UIButton, sender == modeButton {
+                    destinationVC.performSegue(withIdentifier: TMResources.SegueIdentifier.showOnlyModeSettingSegue, sender: nil)
+                }
+            }
+        default:
+            break
         }
         
     }
