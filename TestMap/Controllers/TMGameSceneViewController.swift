@@ -88,9 +88,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
             gameController.startTimer()
         }
         
-        if let currentRegion = gameController.currentRegion {
-            regionLabel.text = currentRegion.key.rawValue.localized(in: regionLang).uppercased()
-        }
+        reloadCurrentRegionName()
         
         regionLabel.textColor = .neutralTextColor
         
@@ -137,9 +135,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
                     if region.path.contains(location) {
                         
                         mapView.selectedLayer = mapView.sublayer(named: region.key.rawValue)
-                        if let currentRegion = gameController.currentRegion {
-                            regionLabel.text = currentRegion.key.rawValue.localized(in: regionLang).uppercased()
-                        }
+                        reloadCurrentRegionName()
                         regionLabel.textColor = .selectedRegionColor
                         
                         if TMSettingsController.shared.settings.showsButtons {
@@ -259,9 +255,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
             }
         }
         
-        if let currentRegion = gameController.currentRegion {
-            regionLabel.text = currentRegion.key.rawValue.localized(in: regionLang).uppercased()
-        }
+        reloadCurrentRegionName()
         mapView.selectedLayer = nil
         hideControls()
         regionLabel.textColor = .neutralTextColor
@@ -296,6 +290,15 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
             //        }
         }
         
+    }
+    
+    /// If game controller has current region, sets region label text to its translated and formatted name
+    private func reloadCurrentRegionName() {
+        
+        if let currentRegion = gameController.currentRegion {
+            let regionName = currentRegion.key.rawValue.localized(in: regionLang)
+            regionLabel.text = (TMSettingsController.shared.settings.regionNamesUppercased) ? regionName.uppercased() : regionName.capitalized
+        }
     }
     
     // MARK: - GameControllerDelegate methods

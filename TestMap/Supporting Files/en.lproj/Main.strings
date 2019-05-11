@@ -105,7 +105,7 @@
 "yGN-td-sPn.text" = "Game with buttons";
 
 /* Class = "UIButton"; normalTitle = "ПОЧАТИ"; ObjectID = "yyv-Uh-ZBL"; */
-"yyv-Uh-ZBL.normalTitle" = "ПОЧАТИ";
+"yyv-Uh-ZBL.normalTitle" = "START";
 
 /* Class = "UILabel"; text = "Назва режиму"; ObjectID = "z7K-bX-fQJ"; */
 "z7K-bX-fQJ.text" = "Mode name";
