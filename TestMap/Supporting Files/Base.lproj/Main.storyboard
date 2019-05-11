@@ -83,7 +83,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Bpi-EO-O3S">
-                                <rect key="frame" x="323.5" y="70" width="377" height="388"/>
+                                <rect key="frame" x="323.5" y="80" width="377" height="388"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UkraineLogo_351_246" translatesAutoresizingMaskIntoConstraints="NO" id="LHx-ST-b9m">
                                         <rect key="frame" x="0.0" y="0.0" width="377" height="264"/>
@@ -126,11 +126,13 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <variation key="heightClass=compact" distribution="fillEqually"/>
                                     </stackView>
                                 </subviews>
+                                <variation key="heightClass=compact" distribution="fillEqually"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ENs-zS-oEd">
-                                <rect key="frame" x="400" y="512" width="224" height="50"/>
+                                <rect key="frame" x="400" y="523" width="224" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZ5-78-1wO">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -194,9 +196,15 @@
                             <constraint firstItem="Bpi-EO-O3S" firstAttribute="centerX" secondItem="dgH-7I-NlQ" secondAttribute="centerX" id="9dl-C3-n7O"/>
                             <constraint firstItem="ENs-zS-oEd" firstAttribute="top" secondItem="Bpi-EO-O3S" secondAttribute="bottom" multiplier="1.1" constant="8" symbolic="YES" id="EHX-cu-yXR"/>
                             <constraint firstItem="ENs-zS-oEd" firstAttribute="centerX" secondItem="dgH-7I-NlQ" secondAttribute="centerX" id="J8f-ZY-QZQ"/>
-                            <constraint firstItem="MS0-s0-nUq" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ENs-zS-oEd" secondAttribute="bottom" constant="50" id="KxH-ZZ-jEr"/>
-                            <constraint firstItem="Bpi-EO-O3S" firstAttribute="centerY" secondItem="dgH-7I-NlQ" secondAttribute="centerY" priority="999" constant="-120" id="xBR-pv-ozI"/>
-                            <constraint firstItem="Bpi-EO-O3S" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MS0-s0-nUq" secondAttribute="top" constant="30" id="yyN-TW-2Mx"/>
+                            <constraint firstItem="MS0-s0-nUq" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ENs-zS-oEd" secondAttribute="bottom" constant="50" id="KxH-ZZ-jEr">
+                                <variation key="heightClass=compact" constant="10"/>
+                            </constraint>
+                            <constraint firstItem="Bpi-EO-O3S" firstAttribute="centerY" secondItem="dgH-7I-NlQ" secondAttribute="centerY" priority="999" constant="-110" id="xBR-pv-ozI">
+                                <variation key="heightClass=compact" constant="-50"/>
+                            </constraint>
+                            <constraint firstItem="Bpi-EO-O3S" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MS0-s0-nUq" secondAttribute="top" constant="30" id="yyN-TW-2Mx">
+                                <variation key="heightClass=compact" constant="10"/>
+                            </constraint>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MS0-s0-nUq"/>
                     </view>
