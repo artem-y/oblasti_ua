@@ -43,6 +43,10 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     var settings: TMSettings {
         return TMSettingsController.shared.settings
     }
+    var showsButtons: Bool {
+        return settings.gameMode != .pointer && settings.showsButtons
+    }
+    
     var gameController = TMGameController(game: TMGame(mode: TMSettingsController.shared.settings.gameMode, regions: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths), regionsLeft: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths)))
     var isShowingSelectionResult = false
     let animationDuration: Double = 0.2
@@ -74,12 +78,15 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         
         // TODO: Replace with function
         print("settings.showsTime = \(settings.showsTime)")
-        if settings.showsTime {
+        if settings.gameMode != .pointer && settings.showsTime {
             timeLabel.text = "0:00"
             timeLabel.isHidden = false
             gameController.startTimer()
         }
         
+        if settings.gameMode == .pointer {
+            gameController.currentRegion = nil
+        }
         reloadCurrentRegionName()
         
         regionLabel.textColor = .neutralTextColor
@@ -117,7 +124,11 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
                 // Check if it is second tap on already selected layer. If yes, confirm selection and return
                 if let selectedRegionPath = mapView.selectedLayer?.path,
                     selectedRegionPath.contains(location) {
-                    confirmSelection()
+                    if settings.gameMode == .pointer {
+                        cancelSelection()
+                    } else {
+                        confirmSelection()
+                    }
                     return
                 }
                 
@@ -127,10 +138,13 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
                     if region.path.contains(location) {
                         
                         mapView.selectedLayer = mapView.sublayer(named: region.key.rawValue)
+                        if settings.gameMode == .pointer {
+                            gameController.currentRegion = region
+                        }
                         reloadCurrentRegionName()
                         regionLabel.textColor = .selectedRegionColor
                         
-                        if settings.showsButtons {
+                        if showsButtons {
                             // Animation: View with 'confirm' button slides out into the screen from the right
                             singleTapRecognizer.isEnabled = false
                             let oldFrame = bottomRightConfirmationView.frame
@@ -198,7 +212,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     }
     
     func hideControls() {
-        if settings.showsButtons {
+        if showsButtons {
             singleTapRecognizer.isEnabled = false
             let oldFrame: CGRect = bottomRightConfirmationView.frame
             
@@ -228,7 +242,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     
     func cancelSelection() {
 //        singleTapRecognizer.isEnabled = false
-        if settings.showsButtons {
+        if showsButtons {
             let oldFrame = self.bottomLeftChoiceView.frame
             
             UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseIn, animations: { [unowned self] in
@@ -247,6 +261,9 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
             }
         }
         
+        if settings.gameMode == .pointer {
+            gameController.currentRegion = nil
+        }
         reloadCurrentRegionName()
         mapView.selectedLayer = nil
         hideControls()
@@ -259,7 +276,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         regionLabel.textColor = selectionColor
         mapView.selectedLayer?.fillColor = selectionColor.cgColor
         
-        if settings.showsButtons {
+        if showsButtons {
             // Image representations of right/wrong choice
             let imageName = isCorrect ? TMResources.ImageName.correctChoice : TMResources.ImageName.wrongChoice
             bottomLeftIndicator.image = UIImage(named: imageName)
@@ -290,6 +307,8 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         if let currentRegion = gameController.currentRegion {
             let regionName = currentRegion.key.rawValue.localized(in: settings.regionNameLanguageIdentifier)
             regionLabel.text = settings.regionNamesUppercased ? regionName.uppercased() : regionName.capitalized
+        } else {
+            regionLabel.text = ""
         }
     }
     

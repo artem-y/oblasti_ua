@@ -68,13 +68,13 @@ class TMGameController {
     
     func checkSelection(named name: String) {
         if currentRegion?.key.rawValue == name {
-            // TODO: Maybe replace with other way of removal
-            game.regionsLeft.removeAll { (region) -> Bool in
-                return currentRegion == region
-            }
+            removeCurrentRegion()
             delegate?.reactToCorrectChoice()
         } else {
             game.mistakesCount += 1
+            if game.mode == .norepeat {
+                removeCurrentRegion()
+            }
             delegate?.reactToWrongChoice()
         }
         
@@ -85,6 +85,15 @@ class TMGameController {
         }
         
     }
+    
+    /// Removes region that equals current region from the collection of regions left
+    func removeCurrentRegion() {
+        // TODO: Maybe replace with other way of removal
+        game.regionsLeft.removeAll { (region) -> Bool in
+            return currentRegion == region
+        }
+    }
+    
     deinit {
         print(self, "deinit!")
     }
