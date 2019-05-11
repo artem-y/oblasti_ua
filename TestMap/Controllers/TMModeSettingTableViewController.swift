@@ -10,8 +10,6 @@ import UIKit
 
 class TMModeSettingTableViewController: UITableViewController {
     
-    @IBOutlet weak var modalNavBar: UINavigationItem!
-    
     // MARK: - @IBActions
     @IBAction func dismiss(_ sender: Any) {
         navigationController?.dismiss(animated: true, completion: nil)
@@ -26,11 +24,15 @@ class TMModeSettingTableViewController: UITableViewController {
         }
         set {
             TMSettingsController.shared.settings.gameMode = newValue
-            tableView.reloadData()
-            navigationItem.title = "\(NSLocalizedString("Mode:", comment: "")) \(NSLocalizedString(newValue.rawValue, comment: ""))"
+            updateUI()
         }
     }
     var hidesBackButton = true
+    
+    func updateUI(){
+        tableView.reloadData()
+        navigationItem.title = "\(NSLocalizedString("Mode:", comment: "")) \(NSLocalizedString(mode.rawValue, comment: ""))"
+    }
     
     // MARK: - UITableViewController delegate & datasource methods
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -59,6 +61,7 @@ class TMModeSettingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = hidesBackButton
+        updateUI()
 //        if !hidesBackButton {
 //            navigationItem.setRightBarButton(nil, animated: true)
 //        }

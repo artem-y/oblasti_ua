@@ -472,9 +472,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <connections>
-                        <outlet property="modalNavBar" destination="2KZ-P8-B8E" id="hSg-Zy-LWF"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nl4-3Y-vzF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
