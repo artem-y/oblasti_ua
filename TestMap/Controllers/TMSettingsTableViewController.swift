@@ -30,12 +30,6 @@ class TMSettingsTableViewController: UITableViewController {
         }
     }
     
-    var showsTime: Bool = true {
-        didSet {
-            updateUI()
-        }
-    }
-    
     var mode: TMGame.Mode = .classic {
         didSet {
             updateUI()
@@ -56,7 +50,7 @@ class TMSettingsTableViewController: UITableViewController {
         // No need to tableView.deselectRow here because UI will be updated on these properties' didSet event
         switch tableView.cellForRow(at: indexPath) {
         case showTimeCell:
-            showsTime = !showsTime
+            settings.showsTime = !settings.showsTime
         case showButtonsCell:
             settings.showsButtons = !settings.showsButtons
         default:
@@ -76,7 +70,7 @@ class TMSettingsTableViewController: UITableViewController {
             showTimeSwitch.setOn(false, animated: true)
             showTimeCell.isUserInteractionEnabled = false
         } else {
-            showTimeSwitch.setOn(showsTime, animated: true)
+            showTimeSwitch.setOn(settings.showsTime, animated: true)
             showTimeCell.isUserInteractionEnabled = true
         }
         showButtonsSwitch.setOn(settings.showsButtons, animated: true)

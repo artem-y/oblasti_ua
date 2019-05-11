@@ -58,12 +58,6 @@ class TMMenuViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
 
         switch segue.identifier {
-        case TMResources.SegueIdentifier.startGameSegue:
-            if let destinationVC = segue.destination as? TMGameSceneViewController {
-                // TODO: Send game settings
-                destinationVC.showsTime = game.showsTime
-                
-            }
         case TMResources.SegueIdentifier.presentSettingsSegue:
             if let destinationVC = segue.destination as? UINavigationController {
                 if let sender = sender as? UIButton, sender == modeButton {

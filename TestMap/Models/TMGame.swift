@@ -23,11 +23,6 @@ struct TMGame: Equatable {
         case pointer = "pointerMode"
     }
     
-    // TODO: Maybe, remove from model
-    var showsTime: Bool {
-        return gameMode != .pointer
-    }
-    
     // MARK: - Constant properties
     // These will be assigned only once - at initialization
     private let gameMode: Mode

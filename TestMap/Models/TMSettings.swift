@@ -18,6 +18,7 @@ struct TMSettings {
     
     /// Defines how to show region names. If false, will show capitalized names
     var regionNamesUppercased: Bool
+    var showsTime: Bool
     var showsButtons: Bool
     var regionNameLanguageIdentifier: String
     

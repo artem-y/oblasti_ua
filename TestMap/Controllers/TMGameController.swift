@@ -21,7 +21,7 @@ class TMGameController {
     var currentRegion: TMRegion?
     private var timer: Timer!
     private var timerStartDate: Date?
-    var timePassed: TimeInterval { return game.timePassed }
+    
     // TODO: Implement optional keeping/showing of count of made mistakes
     var mistakesCount: Int { return game.mistakesCount }
     
@@ -34,7 +34,7 @@ class TMGameController {
     
     func startTimer() {
         // This makes function reusable (like when timer resumes after pausing the game)
-        timerStartDate = Date().addingTimeInterval(-timePassed)
+        timerStartDate = Date().addingTimeInterval(-game.timePassed)
         
         let newTimer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { [weak self]
             (timer) in
@@ -54,7 +54,7 @@ class TMGameController {
         }
         
         // To improve performance, send changes to UI only when seconds change, not milliseconds
-        if timePassed.truncatingRemainder(dividingBy: 1) < 0.001 {
+        if game.timePassed.truncatingRemainder(dividingBy: 1) < 0.001 {
             delegate?.reactToTimerValueChange()
         }
         

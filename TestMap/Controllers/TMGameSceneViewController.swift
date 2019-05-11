@@ -40,10 +40,9 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     }
     // MARK: - Custom properties
     var mapView: TMMapView!
-    
-    // TODO: Replace with settings implementation
-    var showsTime = false
-    
+    var settings: TMSettings {
+        return TMSettingsController.shared.settings
+    }
     var gameController = TMGameController(game: TMGame(mode: .classic, regions: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths), regionsLeft: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths)))
     var isShowingSelectionResult = false
     let animationDuration: Double = 0.2
@@ -57,15 +56,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         }
     }
     var singleTapRecognizer: UITapGestureRecognizer!
-    // TODO: Set region lang in a safer way
-    var regionLang: String {
-        get {
-            return TMSettingsController.shared.settings.regionNameLanguageIdentifier
-        }
-        set {
-            TMSettingsController.shared.settings.regionNameLanguageIdentifier = newValue
-        }
-    }
+    
     
     // MARK: - UIViewController methods
     override func viewDidLoad() {
@@ -82,7 +73,8 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         loadMapView()
         
         // TODO: Replace with function
-        if showsTime {
+        print("settings.showsTime = \(settings.showsTime)")
+        if settings.showsTime {
             timeLabel.text = "0:00"
             timeLabel.isHidden = false
             gameController.startTimer()
@@ -138,7 +130,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
                         reloadCurrentRegionName()
                         regionLabel.textColor = .selectedRegionColor
                         
-                        if TMSettingsController.shared.settings.showsButtons {
+                        if settings.showsButtons {
                             // Animation: View with 'confirm' button slides out into the screen from the right
                             singleTapRecognizer.isEnabled = false
                             let oldFrame = bottomRightConfirmationView.frame
@@ -206,7 +198,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     }
     
     func hideControls() {
-        if TMSettingsController.shared.settings.showsButtons {
+        if settings.showsButtons {
             singleTapRecognizer.isEnabled = false
             let oldFrame: CGRect = bottomRightConfirmationView.frame
             
@@ -236,7 +228,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     
     func cancelSelection() {
 //        singleTapRecognizer.isEnabled = false
-        if TMSettingsController.shared.settings.showsButtons {
+        if settings.showsButtons {
             let oldFrame = self.bottomLeftChoiceView.frame
             
             UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseIn, animations: { [unowned self] in
@@ -267,7 +259,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         regionLabel.textColor = selectionColor
         mapView.selectedLayer?.fillColor = selectionColor.cgColor
         
-        if TMSettingsController.shared.settings.showsButtons {
+        if settings.showsButtons {
             // Image representations of right/wrong choice
             let imageName = isCorrect ? TMResources.ImageName.correctChoice : TMResources.ImageName.wrongChoice
             bottomLeftIndicator.image = UIImage(named: imageName)
@@ -296,8 +288,8 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     private func reloadCurrentRegionName() {
         
         if let currentRegion = gameController.currentRegion {
-            let regionName = currentRegion.key.rawValue.localized(in: regionLang)
-            regionLabel.text = (TMSettingsController.shared.settings.regionNamesUppercased) ? regionName.uppercased() : regionName.capitalized
+            let regionName = currentRegion.key.rawValue.localized(in: settings.regionNameLanguageIdentifier)
+            regionLabel.text = settings.regionNamesUppercased ? regionName.uppercased() : regionName.capitalized
         }
     }
     
@@ -315,7 +307,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         timeFormatter.allowsFractionalUnits = true
         timeFormatter.allowedUnits = [.minute, .second]
         timeFormatter.zeroFormattingBehavior = .pad
-        let formattedTimeString = timeFormatter.string(from: gameController.timePassed)
+        let formattedTimeString = timeFormatter.string(from: gameController.gameResult.timePassed)
         timeLabel.text = formattedTimeString
     }
     

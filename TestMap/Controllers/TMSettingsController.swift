@@ -11,7 +11,7 @@ import Foundation
 class TMSettingsController {
     static let shared = TMSettingsController()
     
-    var settings = TMSettings(regionNamesUppercased: true, showsButtons: true, regionNameLanguageIdentifier: Locale.current.languageCode!)
+    var settings = TMSettings(regionNamesUppercased: true, showsTime: true, showsButtons: true, regionNameLanguageIdentifier: Locale.current.languageCode!)
     
     init(){
         
