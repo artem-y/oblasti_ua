@@ -11,9 +11,21 @@ import Foundation
 class TMSettingsController {
     static let shared = TMSettingsController()
     
-    var settings = TMSettings(regionNamesUppercased: true, showsTime: true, showsButtons: true, regionNameLanguageIdentifier: Locale.current.languageCode!)
+    var settings = TMSettings(gameMode: .classic, regionNamesUppercased: true, showsTime: true, showsButtons: true, regionNameLanguageIdentifier: Locale.current.languageCode!) {
+        didSet {
+            if oldValue.gameMode != settings.gameMode {
+                NotificationCenter.default.post(Notification(name: .TMGameModeChanged))
+            }
+        }
+    }
     
     init(){
         
     }
+    
+    
+}
+
+extension Notification.Name {
+    static let TMGameModeChanged = Notification.Name("TMGameModeChangedNotification")
 }

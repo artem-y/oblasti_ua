@@ -21,7 +21,7 @@ class TMMenuViewController: UIViewController {
     
     // MARK: - Variables
     // TODO: Replace language and other settings with better (not hardcoded implementation)
-    var settings: TMSettings {
+    private var settings: TMSettings {
         get {
             return TMSettingsController.shared.settings
         }
@@ -29,26 +29,26 @@ class TMMenuViewController: UIViewController {
             TMSettingsController.shared.settings = newValue
         }
     }
-    var game: TMGame = TMGame(
-        mode: .classic,
-        regions: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths),
-        regionsLeft: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths)
-    ) {
-        didSet {
-            updateUI()
-        }
-    }
+    
+    
     
     // MARK: - ViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateModeButtonTitle()
         
-        updateUI()
+        NotificationCenter.default.addObserver(forName: .TMGameModeChanged, object: nil, queue: nil) { [unowned self]
+            (notification) in
+            self.updateModeButtonTitle()
+        }
+
     }
     
+  
+    
     // MARK: - Update UI
-    private func updateUI() {
-        let modeDescription = NSLocalizedString(game.mode.rawValue, comment: "")
+    private func updateModeButtonTitle() {
+        let modeDescription = NSLocalizedString(settings.gameMode.rawValue, comment: "")
         let modeHint = NSLocalizedString("Mode:", comment: "")
         modeButton.setTitle(modeHint + " " + modeDescription, for: .normal)
     }
@@ -71,7 +71,8 @@ class TMMenuViewController: UIViewController {
     }
     
     @IBAction func unwindToMenuViewController(_ unwindSegue: UIStoryboardSegue) {
-        
+
     }
 
 }
+

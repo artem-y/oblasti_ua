@@ -32,6 +32,10 @@ struct TMResources {
         static let showModeSettingFromSettingsControllerSegue = "showModeSettingFromSettingsControllerSegue"
     }
     
+    struct CellIdentifier {
+        static let gameModeCell = "gameModeCell"
+    }
+    
     func loadRegions(fromFileNamed fileName: String) -> [TMRegion] {
         
         var regions: [TMRegion] = []

@@ -12,7 +12,7 @@ import Foundation
 struct TMGame: Equatable {
     
     /// Game mode type
-    enum Mode: String {
+    enum Mode: String, CaseIterable {
         /// User is finding regions on the map until all regions are found. Regions that were guessed wrong will still be appearing.
         case classic = "classicMode"
         

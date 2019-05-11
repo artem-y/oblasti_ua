@@ -30,12 +30,6 @@ class TMSettingsTableViewController: UITableViewController {
         }
     }
     
-    var mode: TMGame.Mode = .classic {
-        didSet {
-            updateUI()
-        }
-    }
-    
     private var exampleFooterText: String = ""
     
     // MARK: - UIViewController methods
@@ -66,15 +60,20 @@ class TMSettingsTableViewController: UITableViewController {
     private func updateUI(){
         print("updateUI()")
         
-        if mode == .pointer {
-            showTimeSwitch.setOn(false, animated: true)
-            showTimeCell.isUserInteractionEnabled = false
-        } else {
-            showTimeSwitch.setOn(settings.showsTime, animated: true)
-            showTimeCell.isUserInteractionEnabled = true
-        }
-        showButtonsSwitch.setOn(settings.showsButtons, animated: true)
-        modeNameLabel.text = NSLocalizedString(mode.rawValue, comment: "").capitalized
+        // TODO: Replace with non-repeating implementation (perhaps, with function)
+        let isPointerMode = settings.gameMode == .pointer
+        let isShowingTime = isPointerMode ? false : settings.showsTime
+        let isShowingButtons = isPointerMode ? false : settings.showsButtons
+        
+        showTimeCell.contentView.alpha = isPointerMode ? 0.5 : 1.0
+        showTimeCell.isUserInteractionEnabled = !isPointerMode
+        showTimeSwitch.setOn(isShowingTime, animated: true)
+        
+        showButtonsCell.contentView.alpha = isPointerMode ? 0.5 : 1.0
+        showButtonsCell.isUserInteractionEnabled = !isPointerMode
+        showButtonsSwitch.setOn(isShowingButtons, animated: true)
+
+        modeNameLabel.text = NSLocalizedString(settings.gameMode.rawValue, comment: "").capitalized
         languageNameLagel.text = Locale.current.localizedString(forLanguageCode: settings.regionNameLanguageIdentifier) ?? NSLocalizedString(settings.regionNameLanguageIdentifier, comment: "")
         
         // TODO: Replace with keyed implementation or enum

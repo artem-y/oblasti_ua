@@ -43,7 +43,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     var settings: TMSettings {
         return TMSettingsController.shared.settings
     }
-    var gameController = TMGameController(game: TMGame(mode: .classic, regions: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths), regionsLeft: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths)))
+    var gameController = TMGameController(game: TMGame(mode: TMSettingsController.shared.settings.gameMode, regions: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths), regionsLeft: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths)))
     var isShowingSelectionResult = false
     let animationDuration: Double = 0.2
     var isRunningGame = true {

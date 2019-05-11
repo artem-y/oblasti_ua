@@ -16,6 +16,7 @@ struct TMSettings {
         static let regionNameFormat = "regionNameFormatSetting"
     }
     
+    var gameMode: TMGame.Mode = .classic
     /// Defines how to show region names. If false, will show capitalized names
     var regionNamesUppercased: Bool
     var showsTime: Bool
