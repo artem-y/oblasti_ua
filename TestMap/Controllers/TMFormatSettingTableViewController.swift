@@ -42,6 +42,9 @@ class TMFormatSettingTableViewController: UITableViewController {
         caseUppercasedCell.accessoryType = settings.regionNamesUppercased ? .checkmark : .none
         caseCapitalizedCell.accessoryType = settings.regionNamesUppercased ? .none : .checkmark
         
+        caseUppercasedCell.textLabel?.textColor = settings.regionNamesUppercased ? .selectedRegionColor : .darkText
+        caseCapitalizedCell.textLabel?.textColor = settings.regionNamesUppercased ? .darkText : .selectedRegionColor
+        
         let localizedRegionName = TMRegion.Key.ivanofrankivska.rawValue.localized(in: settings.regionNameLanguageIdentifier)
         exampleLabel.text = settings.regionNamesUppercased ? localizedRegionName.uppercased() : localizedRegionName.capitalized
     }

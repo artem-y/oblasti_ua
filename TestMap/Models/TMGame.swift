@@ -21,6 +21,17 @@ struct TMGame: Equatable {
         
         /// No right or wrong choices, map will just be showing names of regions
         case pointer = "pointerMode"
+        
+        var description: String {
+            switch self {
+            case .classic:
+                return "User is finding regions on the map until all regions are found. Regions that were guessed wrong will still be appearing."
+            case .norepeat:
+                return "Every region is only shown once. If confirmed wrong selection, user will not have a chance to find it again."
+            case .pointer:
+                return "No right or wrong choices, map will just be showing names of regions"
+            }
+        }
     }
     
     // MARK: - Constant properties

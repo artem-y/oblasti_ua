@@ -27,6 +27,7 @@ class TMModeSettingTableViewController: UITableViewController {
         set {
             TMSettingsController.shared.settings.gameMode = newValue
             tableView.reloadData()
+            navigationItem.title = "\(NSLocalizedString("Mode:", comment: "")) \(NSLocalizedString(newValue.rawValue, comment: ""))"
         }
     }
     var hidesBackButton = true
@@ -44,7 +45,9 @@ class TMModeSettingTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: TMResources.CellIdentifier.gameModeCell, for: IndexPath(row: 0, section: 0))
         let cellMode = availableModes[indexPath.row]
         cell.textLabel?.text = NSLocalizedString(cellMode.rawValue, comment: "").capitalized
+        cell.detailTextLabel?.text = NSLocalizedString(cellMode.description, comment: "")
         cell.accessoryType = (cellMode == mode) ? .checkmark : .none
+        cell.textLabel?.textColor = (cellMode == mode) ? .selectedRegionColor : .darkText
         return cell
     }
     
