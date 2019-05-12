@@ -46,7 +46,7 @@ class TMModeSettingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TMResources.CellIdentifier.gameModeCell, for: IndexPath(row: 0, section: 0))
         let cellMode = availableModes[indexPath.row]
-        cell.textLabel?.text = NSLocalizedString(cellMode.rawValue, comment: "").capitalized
+        cell.textLabel?.text = NSLocalizedString(cellMode.rawValue, comment: "")
         cell.detailTextLabel?.text = NSLocalizedString(cellMode.description, comment: "")
         cell.accessoryType = (cellMode == mode) ? .checkmark : .none
         cell.textLabel?.textColor = (cellMode == mode) ? .selectedRegionColor : .darkText

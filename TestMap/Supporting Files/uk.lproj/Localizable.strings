@@ -78,13 +78,13 @@
 "Mode:" = "Режим:";
 
 /* TMGame.Mode.classic */
-"classicMode" = "класичний";
+"classicMode" = "Класичний";
 
 /* TMGame.Mode.pointer */
-"pointerMode" = "вказівка";
+"pointerMode" = "Вказівка";
 
 /* TMGame.Mode.norepeat */
-"noRepeatMode" = "без повторів";
+"noRepeatMode" = "Без повторів";
 
 /* Description of region name format option "uppercasedRegionName": "Uppercased" */
 "uppercasedRegionName" = "Всі літери великі";

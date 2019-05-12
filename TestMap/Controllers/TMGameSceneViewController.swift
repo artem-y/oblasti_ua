@@ -306,7 +306,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         
         if let currentRegion = gameController.currentRegion {
             let regionName = currentRegion.key.rawValue.localized(in: settings.regionNameLanguageIdentifier)
-            regionLabel.text = settings.regionNamesUppercased ? regionName.uppercased() : regionName.capitalized
+            regionLabel.text = settings.regionNamesUppercased ? regionName.uppercased() : regionName.capitalized.replacingOccurrences(of: "Ар ", with: "АР ") // In case of adding more regions, this hardcoded solution must be replaced
         } else {
             regionLabel.text = ""
         }

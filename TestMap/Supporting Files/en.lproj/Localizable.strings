@@ -78,13 +78,13 @@
 "Mode:" = "Mode:";
 
 /* TMGame.Mode.classic */
-"classicMode" = "classic";
+"classicMode" = "Classic";
 
 /* TMGame.Mode.pointer */
-"pointerMode" = "pointer";
+"pointerMode" = "Pointer";
 
 /* TMGame.Mode.norepeat */
-"noRepeatMode" = "no repetitions";
+"noRepeatMode" = "No Repetitions";
 
 /* Description of region name format option "uppercasedRegionName": "All Caps" */
 "uppercasedRegionName" = "All Caps";

@@ -73,7 +73,7 @@ class TMSettingsTableViewController: UITableViewController {
         showButtonsCell.isUserInteractionEnabled = !isPointerMode
         showButtonsSwitch.setOn(isShowingButtons, animated: true)
 
-        modeNameLabel.text = NSLocalizedString(settings.gameMode.rawValue, comment: "").capitalized
+        modeNameLabel.text = NSLocalizedString(settings.gameMode.rawValue, comment: "")
         languageNameLagel.text = Locale.current.localizedString(forLanguageCode: settings.regionNameLanguageIdentifier) ?? NSLocalizedString(settings.regionNameLanguageIdentifier, comment: "")
         
         // TODO: Replace with keyed implementation or enum
