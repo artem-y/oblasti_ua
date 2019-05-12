@@ -25,11 +25,11 @@ struct TMGame: Equatable {
         var description: String {
             switch self {
             case .classic:
-                return "User is finding regions on the map until all regions are found. Regions that were guessed wrong will still be appearing."
+                return "Each region keeps appearing until it is guessed correctly."
             case .norepeat:
-                return "Every region is only shown once. If confirmed wrong selection, user will not have a chance to find it again."
+                return "Each region is only shown once, even if guessed wrong."
             case .pointer:
-                return "No right or wrong choices, map will just be showing names of regions"
+                return "Map just shows the name of selected region."
             }
         }
     }
