@@ -94,3 +94,12 @@
 
 /* Start of line in settings region name format example; "For example:" = "For example:"; */
 "For example:" = "For example:";
+
+/* 'Classic' game mode description */
+"Each region keeps appearing until it is guessed correctly." = "Each region keeps appearing until it is guessed correctly.";
+
+/* 'No repetitions' game mode description */
+"Each region is only shown once, even if guessed wrong." = "Each region is only shown once, even if guessed wrong.";
+
+/* 'Pointer' game mode description */
+"Map just shows the name of selected region." = "Map just shows the name of selected region.";

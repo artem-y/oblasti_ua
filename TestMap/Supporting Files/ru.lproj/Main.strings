@@ -1,4 +1,7 @@
 
+/* Class = "UINavigationItem"; title = "Режим: класичний"; ObjectID = "2KZ-P8-B8E"; */
+"2KZ-P8-B8E.title" = "Режим: классический";
+
 /* Class = "UITextView"; text = "Будь-ласка, зверніть увагу: межі регіонів та кордони України зображені приблизно і можуть не збігатися з реальними пропорціями та географічними координатами."; ObjectID = "3IK-kW-DEU"; */
 "3IK-kW-DEU.text" = "Пожалуйста, обратите внимание: границы регионов и Украины изображены приблизительно и могут не совпадать с реальными пропорциями и географическими координатами.";
 
@@ -41,6 +44,9 @@
 /* Class = "UIButton"; normalTitle = "Інструкція"; ObjectID = "Mxk-mn-rm2"; */
 "Mxk-mn-rm2.normalTitle" = "Инструкция";
 
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "MzO-eR-PD2"; */
+"MzO-eR-PD2.title" = "Закрыть";
+
 /* Class = "UITableViewSection"; headerTitle = "Наприклад:"; ObjectID = "U1x-dl-SD3"; */
 "U1x-dl-SD3.headerTitle" = "Например:";
 
@@ -80,6 +86,9 @@
 /* Class = "UIButton"; normalTitle = "OK"; ObjectID = "psy-vb-mWa"; */
 "psy-vb-mWa.normalTitle" = "ОК";
 
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "qei-1A-vxR"; Note = "Bar button item"; */
+"qei-1A-vxR.title" = "Закрыть";
+
 /* Class = "UIButton"; normalTitle = "Режим: без повторів"; ObjectID = "qpi-uT-xOU"; */
 "qpi-uT-xOU.normalTitle" = "Режим: без повторов";
 
@@ -101,6 +110,9 @@
 /* Class = "UILabel"; text = "Знайдіть область"; ObjectID = "yDD-6g-BWL"; */
 "yDD-6g-BWL.text" = "Найдите область";
 
+/* Class = "UILabel"; text = "Гра з кнопками"; ObjectID = "yGN-td-sPn"; */
+"yGN-td-sPn.text" = "Игра с кнопками";
+
 /* Class = "UIButton"; normalTitle = "ПОЧАТИ"; ObjectID = "yyv-Uh-ZBL"; */
 "yyv-Uh-ZBL.normalTitle" = "НАЧАТЬ";
 
@@ -115,6 +127,3 @@
 
 /* Class = "UITableViewController"; title = "Мови назв областей"; ObjectID = "zhA-Xz-SdZ"; */
 "zhA-Xz-SdZ.title" = "Языки названий областей";
-
-/* Class = "UILabel"; text = "Гра з кнопками"; ObjectID = "yGN-td-sPn"; */
-"yGN-td-sPn.text" = "Игра с кнопками";
