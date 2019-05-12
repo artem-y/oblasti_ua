@@ -50,6 +50,7 @@
 		B05E15C322746CDF007C85AF /* TMRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMRegion.swift; sourceTree = "<group>"; };
 		B07A9ED2227CFC4400C4D2F0 /* TMResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMResources.swift; sourceTree = "<group>"; };
 		B07B999D228828E60043B703 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		B07B999F22882B9D0043B703 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		B07C5F6C2280435D009059A7 /* TMGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGame.swift; sourceTree = "<group>"; };
 		B07C5F6E22805F12009059A7 /* TMSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettingsTableViewController.swift; sourceTree = "<group>"; };
 		B0904F8F226F858E007842CA /* TestMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +61,6 @@
 		B0904F9C226F858F007842CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0904FA8226F8656007842CA /* TMMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMapView.swift; sourceTree = "<group>"; };
 		B09A154E2284E7E3005BD56F /* TMFormatSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMFormatSettingTableViewController.swift; sourceTree = "<group>"; };
-		B09A15512284F7BB005BD56F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		B09CF0CA22832ABA00BC7FED /* TMSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettings.swift; sourceTree = "<group>"; };
 		B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized(in language.swift"; sourceTree = "<group>"; };
 		B0AAE782228480DB002D7264 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -295,8 +295,8 @@
 			children = (
 				B0904F97226F858E007842CA /* Base */,
 				B0E1847A2281E397008E5C6D /* uk */,
-				B09A15512284F7BB005BD56F /* ru */,
 				B07B999D228828E60043B703 /* en */,
+				B07B999F22882B9D0043B703 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
