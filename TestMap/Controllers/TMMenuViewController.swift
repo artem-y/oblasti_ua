@@ -59,7 +59,7 @@ class TMMenuViewController: UIViewController {
 
         switch segue.identifier {
         case TMResources.SegueIdentifier.presentSettingsSegue:
-            if let destinationVC = segue.destination as? UINavigationController {
+            if let destinationVC = segue.destination as? TMSettingsNavigationController {
                 if let sender = sender as? UIButton, sender == modeButton {
                     destinationVC.performSegue(withIdentifier: TMResources.SegueIdentifier.showOnlyModeSettingSegue, sender: nil)
                 }

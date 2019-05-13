@@ -30,6 +30,7 @@ struct TMResources {
         static let regionNameFormatSettingSegue = "regionNameFormatSettingSegue"
         static let showOnlyModeSettingSegue = "showOnlyModeSettingSegue"
         static let showModeSettingFromSettingsControllerSegue = "showModeSettingFromSettingsControllerSegue"
+        static let showSettingsFromGamePauseSegue = "showSettingsFromGamePauseSegue"
     }
     
     struct CellIdentifier {

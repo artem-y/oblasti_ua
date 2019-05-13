@@ -404,6 +404,7 @@
                     <connections>
                         <outlet property="formatDescriptionLabel" destination="kLO-P7-YhB" id="W3m-04-mfK"/>
                         <outlet property="languageNameLagel" destination="3qf-ha-wbJ" id="xPn-3k-3aq"/>
+                        <outlet property="modeCell" destination="kbp-rl-ucq" id="jVc-Ek-zA5"/>
                         <outlet property="modeNameLabel" destination="hV1-VB-09M" id="NLV-kj-ktb"/>
                         <outlet property="showButtonsCell" destination="pQB-Lo-Djw" id="zrW-1o-sGi"/>
                         <outlet property="showButtonsSwitch" destination="YUj-G2-sPg" id="D2b-hZ-Xui"/>
@@ -734,18 +735,57 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3B-Tj-3zw">
                                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="29Q-8c-8i7">
-                                                        <rect key="frame" x="294.5" y="574" width="435" height="54"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="29Q-8c-8i7">
+                                                        <rect key="frame" x="287" y="243.5" width="450" height="261"/>
                                                         <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXC-ZA-MHC" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="450" height="54"/>
+                                                                <color key="backgroundColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <state key="normal" title="ПРОДОВЖИТИ">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <variation key="heightClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                                </variation>
+                                                                <connections>
+                                                                    <action selector="playPauseButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Ws-Ez-QAA"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zz0-V4-API" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="69" width="450" height="54"/>
+                                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal" title="НАЛАШТУВАННЯ">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <variation key="heightClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                                </variation>
+                                                                <connections>
+                                                                    <segue destination="ZvX-xE-haP" kind="presentation" identifier="showSettingsFromGamePauseSegue" modalPresentationStyle="pageSheet" id="qyJ-dd-H0o"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnW-0o-Q3m" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="138" width="450" height="54"/>
+                                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal" title="ВИЙТИ І ЗБЕРЕГТИ">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <variation key="heightClass=regular">
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                                </variation>
+                                                            </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jg3-73-wGR" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="170" height="54"/>
+                                                                <rect key="frame" x="0.0" y="207" width="450" height="54"/>
                                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="170" id="rwt-jc-YF0"/>
-                                                                </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <state key="normal" title="МЕНЮ">
+                                                                <state key="normal" title="ВИЙТИ НЕ ЗБЕРІГАЮЧИ">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                                 <variation key="heightClass=regular">
@@ -755,30 +795,16 @@
                                                                     <action selector="exitToMenuButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1vg-wu-FJv"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXC-ZA-MHC" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
-                                                                <rect key="frame" x="185" y="0.0" width="250" height="54"/>
-                                                                <color key="backgroundColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="KMp-2N-jk8"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                                <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <state key="normal" title="ПРОДОВЖИТИ">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="playPauseButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Ws-Ez-QAA"/>
-                                                                </connections>
-                                                            </button>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="450" id="MOK-et-KRL"/>
+                                                        </constraints>
                                                         <variation key="widthClass=regular" spacing="15"/>
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="29Q-8c-8i7" secondAttribute="bottom" constant="50" id="1uD-ta-yW3">
-                                                        <variation key="heightClass=regular" constant="120"/>
-                                                    </constraint>
-                                                    <constraint firstItem="29Q-8c-8i7" firstAttribute="centerX" secondItem="M3B-Tj-3zw" secondAttribute="centerX" id="kH8-RP-V0z"/>
+                                                    <constraint firstItem="29Q-8c-8i7" firstAttribute="centerX" secondItem="M3B-Tj-3zw" secondAttribute="centerX" id="7BE-xc-OjN"/>
+                                                    <constraint firstItem="29Q-8c-8i7" firstAttribute="centerY" secondItem="M3B-Tj-3zw" secondAttribute="centerY" id="GU5-Yi-h3U"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -976,7 +1002,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dC1-uY-Uo8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="VrE-Oh-TLy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1883.7890624999998" y="-124.21875"/>
+            <point key="canvasLocation" x="1839" y="120"/>
         </scene>
         <!--Settings Navigation Controller-->
         <scene sceneID="4pV-2L-Noh">
@@ -1024,6 +1050,7 @@
         <image name="settingsButtonLightBlue" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="qyJ-dd-H0o"/>
         <segue reference="IMN-RV-1jG"/>
     </inferredMetricsTieBreakers>
 </document>

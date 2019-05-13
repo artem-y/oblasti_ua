@@ -139,6 +139,20 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         
     }
     
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch segue.identifier {
+        case TMResources.SegueIdentifier.showSettingsFromGamePauseSegue:
+            if let destinationVC = segue.destination as? TMSettingsNavigationController, let topVC = destinationVC.topViewController as? TMSettingsTableViewController {
+                topVC.gameInProgressGameMode = gameMode
+            }
+        default:
+            break
+        }
+    }
+    
     // MARK: - Game control methods
     private func configureGestureRecognizers() {
         singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTouch))

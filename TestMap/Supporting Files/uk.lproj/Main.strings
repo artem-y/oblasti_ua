@@ -75,7 +75,7 @@
 "jAi-4Z-lJt.headerTitle" = "Назви областей";
 
 /* Class = "UIButton"; normalTitle = "МЕНЮ"; ObjectID = "jg3-73-wGR"; */
-"jg3-73-wGR.normalTitle" = "МЕНЮ";
+//"jg3-73-wGR.normalTitle" = "МЕНЮ";
 
 /* Class = "UILabel"; text = "Language Target Name"; ObjectID = "jiu-Xs-idg"; */
 "jiu-Xs-idg.text" = "Language Target Name";
