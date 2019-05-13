@@ -103,3 +103,6 @@
 
 /* 'Pointer' game mode description */
 "Map just shows the name of selected region." = "Map just shows the name of selected region.";
+
+/*  Region names in 'customLanguage' are defined by user - no matter what language user will type them in. */
+"customLanguage" = "Custom region names";

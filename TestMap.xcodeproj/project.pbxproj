@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B00A0B342286C89A00468B26 /* TMLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00A0B332286C89A00468B26 /* TMLanguage.swift */; };
 		B02EFFFB227B445900825656 /* TMMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02EFFFA227B445900825656 /* TMMenuViewController.swift */; };
 		B043EB05227C2A9F00F87F1F /* TMInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB04227C2A9F00F87F1F /* TMInfoViewController.swift */; };
 		B043EB07227C312A00F87F1F /* TMRoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB06227C312A00F87F1F /* TMRoundCornerButton.swift */; };
@@ -32,13 +31,13 @@
 		B0AAE783228480DB002D7264 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0AAE782228480DB002D7264 /* Settings.bundle */; };
 		B0AAE785228497BA002D7264 /* TMSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAE784228497BA002D7264 /* TMSettingsController.swift */; };
 		B0C49DEB227A2B2400561892 /* GameColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */; };
+		B0C7D80F2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7D80E2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift */; };
 		B0CC90FB2273B3D50075931E /* UIBezierPath+initFromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC90FA2273B3D50075931E /* UIBezierPath+initFromString.swift */; };
 		B0D2F2C822733065007B1E38 /* pathText in Resources */ = {isa = PBXBuildFile; fileRef = B0D2F2C722733065007B1E38 /* pathText */; };
 		B0E1846D2281AA21008E5C6D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0E1846F2281AA21008E5C6D /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B00A0B332286C89A00468B26 /* TMLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMLanguage.swift; sourceTree = "<group>"; };
 		B02EFFFA227B445900825656 /* TMMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMenuViewController.swift; sourceTree = "<group>"; };
 		B043EB04227C2A9F00F87F1F /* TMInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMInfoViewController.swift; sourceTree = "<group>"; };
 		B043EB06227C312A00F87F1F /* TMRoundCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMRoundCornerButton.swift; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		B0AAE782228480DB002D7264 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B0AAE784228497BA002D7264 /* TMSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettingsController.swift; sourceTree = "<group>"; };
 		B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColorExtensions.swift; sourceTree = "<group>"; };
+		B0C7D80E2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMLanguageSettingTalbeViewController.swift; sourceTree = "<group>"; };
 		B0CC90FA2273B3D50075931E /* UIBezierPath+initFromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+initFromString.swift"; sourceTree = "<group>"; };
 		B0D2F2C722733065007B1E38 /* pathText */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pathText; sourceTree = "<group>"; };
 		B0E1846E2281AA21008E5C6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -92,7 +92,6 @@
 				B05E15C322746CDF007C85AF /* TMRegion.swift */,
 				B07C5F6C2280435D009059A7 /* TMGame.swift */,
 				B09CF0CA22832ABA00BC7FED /* TMSettings.swift */,
-				B00A0B332286C89A00468B26 /* TMLanguage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,6 +163,7 @@
 				B043EB04227C2A9F00F87F1F /* TMInfoViewController.swift */,
 				B09A154E2284E7E3005BD56F /* TMFormatSettingTableViewController.swift */,
 				B04DE47F22858F8D00939C4E /* TMModeSettingTableViewController.swift */,
+				B0C7D80E2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift */,
 				B0904F94226F858E007842CA /* TMGameSceneViewController.swift */,
 				B05E15C122746C9C007C85AF /* TMGameController.swift */,
 				B0AAE784228497BA002D7264 /* TMSettingsController.swift */,
@@ -280,10 +280,10 @@
 				B02EFFFB227B445900825656 /* TMMenuViewController.swift in Sources */,
 				B07C5F6D2280435D009059A7 /* TMGame.swift in Sources */,
 				B0C49DEB227A2B2400561892 /* GameColorExtensions.swift in Sources */,
-				B00A0B342286C89A00468B26 /* TMLanguage.swift in Sources */,
 				B09CF0CD2283391E00BC7FED /* String+localized(in language.swift in Sources */,
 				B05E15C422746CDF007C85AF /* TMRegion.swift in Sources */,
 				B05E15C222746C9C007C85AF /* TMGameController.swift in Sources */,
+				B0C7D80F2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

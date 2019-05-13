@@ -34,6 +34,11 @@ struct TMResources {
     
     struct CellIdentifier {
         static let gameModeCell = "gameModeCell"
+        static let languageCell = "languageCell"
+    }
+    
+    struct LanguageCode {
+        static let custom = "customLanguage"
     }
     
     func loadRegions(fromFileNamed fileName: String) -> [TMRegion] {

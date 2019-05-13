@@ -103,3 +103,6 @@
 
 /* 'Pointer' game mode description */
 "Map just shows the name of selected region." = "Мапа просто показує назву вибраної області.";
+
+/*  Region names in 'customLanguage' are defined by user - no matter what language user will type them in. */
+"customLanguage" = "Свій варіант назв";

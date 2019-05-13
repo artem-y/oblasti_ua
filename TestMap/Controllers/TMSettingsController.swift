@@ -11,7 +11,7 @@ import Foundation
 class TMSettingsController {
     static let shared = TMSettingsController()
     
-    var settings = TMSettings(gameMode: .classic, regionNamesUppercased: true, showsTime: true, showsButtons: true, regionNameLanguageIdentifier: Locale.current.languageCode!) {
+    var settings = TMSettings(gameMode: .classic, regionNamesUppercased: true, showsTime: true, showsButtons: true, regionNameLanguageIdentifier: "en") {
         didSet {
             if oldValue.gameMode != settings.gameMode {
                 NotificationCenter.default.post(Notification(name: .TMGameModeChanged))
@@ -19,8 +19,16 @@ class TMSettingsController {
         }
     }
     
+    /// Languages contain all available localizatons for region names and user-defined region names
+    var availableLanguages: [String] = Bundle.main.localizations.filter { $0 != "Base" } + [TMResources.LanguageCode.custom]
+    
     init(){
+        // TODO: Add fetching settings from UserDefaults
         
+        if let currentLanguageCode = Locale.current.languageCode, availableLanguages.contains(currentLanguageCode) {
+            
+            settings.regionNameLanguageIdentifier = currentLanguageCode
+        }
     }
     
     
