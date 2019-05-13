@@ -12,14 +12,15 @@ extension String {
     /// Returns corresponding localization string from .strings files in 'language'.lproj forder. If unable to find translation, returns untranslated string
     /// - parameters:
     ///   - language: Language code, in the format of .lproj folder name without extension (for example, "en" for "en.lproj")
-    func localized(in language: String) -> String {
+    ///   - tableName: Optional localization table name, where to look for string localization. If not specified, will look in the default table (most likely, 'Localizable')
+    func localized(in language: String, fromTable tableName: String? = nil) -> String {
         
         var localizedString: String = self
         
         if let bundlePath = Bundle.path(forResource: language, ofType: "lproj", inDirectory: Bundle.main.bundlePath),
             let bundle = Bundle(path: bundlePath) {
             
-            localizedString = NSLocalizedString(self, tableName: nil, bundle: bundle, comment: "")
+            localizedString = NSLocalizedString(self, tableName: tableName, bundle: bundle, comment: "")
         }
         
         return localizedString

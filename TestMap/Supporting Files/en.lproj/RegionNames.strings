@@ -1,0 +1,82 @@
+/* 
+  RegionNames.strings
+  TestMap
+
+  Created by Artem Yelizarov on 5/13/19.
+  Copyright © 2019 Artem Yelizarov. All rights reserved.
+*/
+
+/* Region name */
+"vinnytska" = "Vinnytska";
+
+/* Region name */
+"volynska" = "Volynska";
+
+/* Region name */
+"dnipropetrovska" = "Dnipropetrovska";
+
+/* Region name */
+"donetska" = "Donetska";
+
+/* Region name */
+"zhytomyrska" = "Zhytomyrska";
+
+/* Region name */
+"ivano-frankivska" = "Ivano-frankivska";
+
+/* Region name */
+"kirovogradska" = "Kirovogradska";
+
+/* Region name */
+"kyivska" = "Kyivska";
+
+/* Region name */
+"crimea" = "Crimea";
+
+/* Region name */
+"lvivska" = "Lvivska";
+
+/* Region name */
+"luganska" = "Luganska";
+
+/* Region name */
+"mykolaivska" = "Mykolaivska";
+
+/* Region name */
+"odeska" = "Odeska";
+
+/* Region name */
+"poltavska" = "Poltavska";
+
+/* Region name */
+"rivnenska" = "Rivnenska";
+
+/* Region name */
+"sumska" = "Sumska";
+
+/* Region name */
+"ternopilska" = "Ternopilska";
+
+/* Region name */
+"kharkivska" = "Kharkivska";
+
+/* Region name */
+"khersonska" = "Khersonska";
+
+/* Region name */
+"khmelnytska" = "Khmelnytska";
+
+/* Region name */
+"cherkaska" = "Cherkaska";
+
+/* Region name */
+"chernivetska" = "Chernivetska";
+
+/* Region name */
+"chernihivska" = "Chernihivska";
+
+/* Region name */
+"zakarpatska" = "Zakarpatska";
+
+/* Region name */
+"zaporizka" = "Zaporizka";

@@ -41,6 +41,10 @@ struct TMResources {
         static let custom = "customLanguage"
     }
     
+    struct LocalizationTable {
+        static let regionNames = "RegionNames"
+    }
+    
     func loadRegions(fromFileNamed fileName: String) -> [TMRegion] {
         
         var regions: [TMRegion] = []

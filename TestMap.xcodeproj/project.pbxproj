@@ -35,6 +35,7 @@
 		B0CC90FB2273B3D50075931E /* UIBezierPath+initFromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC90FA2273B3D50075931E /* UIBezierPath+initFromString.swift */; };
 		B0D2F2C822733065007B1E38 /* pathText in Resources */ = {isa = PBXBuildFile; fileRef = B0D2F2C722733065007B1E38 /* pathText */; };
 		B0E1846D2281AA21008E5C6D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0E1846F2281AA21008E5C6D /* Localizable.strings */; };
+		B0EF924B22898611000DC283 /* RegionNames.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0EF924D22898611000DC283 /* RegionNames.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,9 @@
 		B0E184772281B6C6008E5C6D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0E184782281B6C6008E5C6D /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0E8559722820D0A00265D68 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0EF924C22898611000DC283 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RegionNames.strings; sourceTree = "<group>"; };
+		B0EF924E2289862C000DC283 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RegionNames.strings; sourceTree = "<group>"; };
+		B0EF924F22898637000DC283 /* uk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/RegionNames.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,7 @@
 				B0D2F2C722733065007B1E38 /* pathText */,
 				B0904F96226F858E007842CA /* Main.storyboard */,
 				B0E1846F2281AA21008E5C6D /* Localizable.strings */,
+				B0EF924D22898611000DC283 /* RegionNames.strings */,
 				B0904F9B226F858F007842CA /* LaunchScreen.storyboard */,
 				B0AAE782228480DB002D7264 /* Settings.bundle */,
 			);
@@ -250,6 +255,7 @@
 				B0904F9D226F858F007842CA /* LaunchScreen.storyboard in Resources */,
 				B0904F9A226F858F007842CA /* Assets.xcassets in Resources */,
 				B0D2F2C822733065007B1E38 /* pathText in Resources */,
+				B0EF924B22898611000DC283 /* RegionNames.strings in Resources */,
 				B0AAE783228480DB002D7264 /* Settings.bundle in Resources */,
 				B0904F98226F858E007842CA /* Main.storyboard in Resources */,
 			);
@@ -318,6 +324,17 @@
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
+		};
+		B0EF924D22898611000DC283 /* RegionNames.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0EF924C22898611000DC283 /* en */,
+				B0EF924E2289862C000DC283 /* ru */,
+				B0EF924F22898637000DC283 /* uk */,
+			);
+			name = RegionNames.strings;
+			path = "/Users/EasyRider/Desktop/Development/TestMap/TestMap/Supporting Files";
+			sourceTree = "<absolute>";
 		};
 /* End PBXVariantGroup section */
 

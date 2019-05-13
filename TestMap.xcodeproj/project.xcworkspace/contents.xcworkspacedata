@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TestMap.xcodeproj">
+      location = "group:/Users/EasyRider/Desktop/Development/TestMap/TestMap/Supporting Files/RegionNames.strings">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
