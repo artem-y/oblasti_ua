@@ -1,0 +1,82 @@
+/* 
+  RegionNames.strings
+  TestMap
+
+  Created by Artem Yelizarov on 5/13/19.
+  Copyright © 2019 Artem Yelizarov. All rights reserved.
+*/
+
+/* Region name */
+"vinnytska" = "文尼察州";
+
+/* Region name */
+"volynska" = "沃伦州";
+
+/* Region name */
+"dnipropetrovska" = "第聂伯罗彼得罗夫斯克州";
+
+/* Region name */
+"donetska" = "顿涅茨克州";
+
+/* Region name */
+"zhytomyrska" = "日托米尔州";
+
+/* Region name */
+"ivano-frankivska" = "伊万诺-弗兰科夫斯克州";
+
+/* Region name */
+"kirovogradska" = "基洛夫格勒州";
+
+/* Region name */
+"kyivska" = "基辅州";
+
+/* Region name */
+"crimea" = "克里米亚自治共和国";
+
+/* Region name */
+"lvivska" = "利沃夫州";
+
+/* Region name */
+"luganska" = "卢甘斯克州";
+
+/* Region name */
+"mykolaivska" = "尼古拉耶夫州";
+
+/* Region name */
+"odeska" = "敖德萨州";
+
+/* Region name */
+"poltavska" = "波尔塔瓦州";
+
+/* Region name */
+"rivnenska" = "罗夫诺州";
+
+/* Region name */
+"sumska" = "苏梅州";
+
+/* Region name */
+"ternopilska" = "捷尔诺波尔州";
+
+/* Region name */
+"kharkivska" = "哈尔科夫州";
+
+/* Region name */
+"khersonska" = "赫尔松州";
+
+/* Region name */
+"khmelnytska" = "赫梅利尼茨基州";
+
+/* Region name */
+"cherkaska" = "切尔卡瑟州";
+
+/* Region name */
+"chernivetska" = "切尔诺夫策州";
+
+/* Region name */
+"chernihivska" = "切尔尼戈夫州";
+
+/* Region name */
+"zakarpatska" = "外喀尔巴阡州";
+
+/* Region name */
+"zaporizka" = "扎波罗热州";

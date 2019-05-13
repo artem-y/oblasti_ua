@@ -54,6 +54,7 @@
 		B07B99A122882D2F0043B703 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		B07C5F6C2280435D009059A7 /* TMGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGame.swift; sourceTree = "<group>"; };
 		B07C5F6E22805F12009059A7 /* TMSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettingsTableViewController.swift; sourceTree = "<group>"; };
+		B082A4352289934B0029C1CF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RegionNames.strings"; sourceTree = "<group>"; };
 		B0904F8F226F858E007842CA /* TestMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0904F92226F858E007842CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0904F94226F858E007842CA /* TMGameSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameSceneViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +236,7 @@
 				Base,
 				ru,
 				uk,
+				"zh-Hans",
 			);
 			mainGroup = B0904F86226F858E007842CA;
 			productRefGroup = B0904F90226F858E007842CA /* Products */;
@@ -331,6 +333,7 @@
 				B0EF924C22898611000DC283 /* en */,
 				B0EF924E2289862C000DC283 /* ru */,
 				B0EF924F22898637000DC283 /* uk */,
+				B082A4352289934B0029C1CF /* zh-Hans */,
 			);
 			name = RegionNames.strings;
 			path = "/Users/EasyRider/Desktop/Development/TestMap/TestMap/Supporting Files";
