@@ -43,11 +43,14 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     var settings: TMSettings {
         return TMSettingsController.shared.settings
     }
-    var showsButtons: Bool {
-        return settings.gameMode != .pointer && settings.showsButtons
-    }
     
     var gameController = TMGameController(game: TMGame(mode: TMSettingsController.shared.settings.gameMode, regions: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths), regionsLeft: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths)))
+    
+    var gameMode: TMGame.Mode { return gameController.gameResult.mode }
+    
+    var showsButtons: Bool { return gameMode != .pointer && settings.showsButtons }
+    var showsTime: Bool { return gameMode != .pointer && settings.showsTime }
+    
     var isShowingSelectionResult = false
     let animationDuration: Double = 0.2
     var isRunningGame = true {
@@ -69,7 +72,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         gameController.delegate = self
         
         // This will be called from AppDelegate's "applicationWillResignActive" function
-        (UIApplication.shared.delegate as! AppDelegate).pauseApp = pauseGame
+        AppDelegate.shared.pauseApp = pauseGame
         
         if let blurView = gameCoverView.viewWithTag(10101) as? UIVisualEffectView {
             blurView.effect = UIBlurEffect(style: .extraLight)
@@ -77,14 +80,13 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         loadMapView()
         
         // TODO: Replace with function
-        print("settings.showsTime = \(settings.showsTime)")
-        if settings.gameMode != .pointer && settings.showsTime {
+        if showsTime {
             timeLabel.text = "0:00"
             timeLabel.isHidden = false
             gameController.startTimer()
         }
         
-        if settings.gameMode == .pointer {
+        if gameMode == .pointer {
             gameController.currentRegion = nil
         }
         reloadCurrentRegionName()
@@ -107,13 +109,13 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         topRightInfoView.isHidden = true
 
         // This is needed to prevent memory leak caused by holding a reference to this instance of TMGameSceneViewController in app delegate
-        (UIApplication.shared.delegate as! AppDelegate).pauseApp = nil
+        AppDelegate.shared.pauseApp = nil
 
         // It is better to use unwind segue because this way it will be easier to pass information to menu view controller
         performSegue(withIdentifier: TMResources.SegueIdentifier.unwindToMainMenuSegue, sender: self)
     }
     
-    @IBAction func didTouch(_ sender: UITapGestureRecognizer){
+    @objc func didTouch(_ sender: UITapGestureRecognizer){
         if sender.state == .ended {
             if isShowingSelectionResult {
                 isShowingSelectionResult = false
@@ -124,7 +126,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
                 // Check if it is second tap on already selected layer. If yes, confirm selection and return
                 if let selectedRegionPath = mapView.selectedLayer?.path,
                     selectedRegionPath.contains(location) {
-                    if settings.gameMode == .pointer {
+                    if gameMode == .pointer {
                         cancelSelection()
                     } else {
                         confirmSelection()
@@ -138,7 +140,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
                     if region.path.contains(location) {
                         
                         mapView.selectedLayer = mapView.sublayer(named: region.key.rawValue)
-                        if settings.gameMode == .pointer {
+                        if gameMode == .pointer {
                             gameController.currentRegion = region
                         }
                         reloadCurrentRegionName()
@@ -261,7 +263,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
             }
         }
         
-        if settings.gameMode == .pointer {
+        if gameMode == .pointer {
             gameController.currentRegion = nil
         }
         reloadCurrentRegionName()
