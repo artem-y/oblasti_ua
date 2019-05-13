@@ -24,6 +24,32 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     @IBOutlet weak var bottomLeftIndicator: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     
+    // MARK: - Custom properties
+    private var mapView: TMMapView!
+    private var settings: TMSettings {
+        return TMSettingsController.shared.settings
+    }
+    
+    private var gameController = TMGameController(game: TMGame(mode: TMSettingsController.shared.settings.gameMode, regions: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths), regionsLeft: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths)))
+    
+    private var gameMode: TMGame.Mode { return gameController.gameResult.mode }
+    
+    private var showsButtons: Bool { return gameMode != .pointer && settings.showsButtons }
+    private var showsTime: Bool { return gameMode != .pointer && settings.showsTime }
+    
+    private var isShowingSelectionResult = false
+    private let animationDuration: Double = 0.2
+    private var isRunningGame = true {
+        didSet {
+            if isRunningGame { gameController.startTimer() } else { gameController.stopTimer() }
+            let imageName = isRunningGame ? TMResources.ImageName.pause : TMResources.ImageName.play
+            pauseButton.setImage(UIImage(named: imageName), for: .normal)
+            gameCoverView.isHidden = isRunningGame
+            singleTapRecognizer.isEnabled = isRunningGame
+        }
+    }
+    private var singleTapRecognizer: UITapGestureRecognizer!
+    
     // MARK: - @IBActions
     @IBAction func confirmButtonPressed(_ sender: Any) {
         confirmSelection()
@@ -38,32 +64,23 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         topRightInfoView.alpha = 0.2
         performSegue(withIdentifier: TMResources.SegueIdentifier.exitConfirmationSegue, sender: self)
     }
-    // MARK: - Custom properties
-    var mapView: TMMapView!
-    var settings: TMSettings {
-        return TMSettingsController.shared.settings
+    
+    @IBAction func unwindToGameSceneViewController(_ segue: UIStoryboardSegue) {
+        topRightInfoView.alpha = 1.0
     }
     
-    var gameController = TMGameController(game: TMGame(mode: TMSettingsController.shared.settings.gameMode, regions: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths), regionsLeft: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths)))
-    
-    var gameMode: TMGame.Mode { return gameController.gameResult.mode }
-    
-    var showsButtons: Bool { return gameMode != .pointer && settings.showsButtons }
-    var showsTime: Bool { return gameMode != .pointer && settings.showsTime }
-    
-    var isShowingSelectionResult = false
-    let animationDuration: Double = 0.2
-    var isRunningGame = true {
-        didSet {
-            if isRunningGame { gameController.startTimer() } else { gameController.stopTimer() }
-            let imageName = isRunningGame ? TMResources.ImageName.pause : TMResources.ImageName.play
-            pauseButton.setImage(UIImage(named: imageName), for: .normal)
-            gameCoverView.isHidden = isRunningGame
-            singleTapRecognizer.isEnabled = isRunningGame
-        }
+    @IBAction func dismissGameSceneViewController(_ segue: UIStoryboardSegue){
+
+        exitToMenuButton.isHidden = true
+        continueButton.isHidden = true
+        topRightInfoView.isHidden = true
+
+        // This is needed to prevent memory leak caused by holding a reference to this instance of TMGameSceneViewController in app delegate
+        AppDelegate.shared.pauseApp = nil
+
+        // It is better to use unwind segue because this way it will be easier to pass information to menu view controller
+        performSegue(withIdentifier: TMResources.SegueIdentifier.unwindToMainMenuSegue, sender: self)
     }
-    var singleTapRecognizer: UITapGestureRecognizer!
-    
     
     // MARK: - UIViewController methods
     override func viewDidLoad() {
@@ -98,24 +115,38 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         view.addGestureRecognizer(singleTapRecognizer)
     }
     
-    @IBAction func unwindToGameSceneViewController(_ segue: UIStoryboardSegue) {
-        topRightInfoView.alpha = 1.0
+    // MARK: - UI initialization methods
+    /// Initializes and configures mapView. Has to be called after gameController is already initialized.
+    private func loadMapView() {
+        var regionKeysAndPaths: [String: UIBezierPath] = [:]
+        gameController.regions.forEach { (region) in
+            regionKeysAndPaths[region.key.rawValue] = region.path
+        }
+        
+        mapView = TMMapView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 900.0, height: 610.0)), sublayerNamesAndPaths: regionKeysAndPaths)
+
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+        
+        let widthScale: CGFloat = gameView.frame.width / mapView.frame.width
+        let heightScale: CGFloat = gameView.frame.height / mapView.frame.height
+        let scale: CGFloat = (widthScale < heightScale) ? widthScale : heightScale
+        
+        mapView.transform = CGAffineTransform(scaleX: scale, y: scale)
+        mapView.center = gameView.center
+
+        gameView.addSubview(mapView)
+        
     }
     
-    @IBAction func dismissGameSceneViewController(_ segue: UIStoryboardSegue){
-
-        exitToMenuButton.isHidden = true
-        continueButton.isHidden = true
-        topRightInfoView.isHidden = true
-
-        // This is needed to prevent memory leak caused by holding a reference to this instance of TMGameSceneViewController in app delegate
-        AppDelegate.shared.pauseApp = nil
-
-        // It is better to use unwind segue because this way it will be easier to pass information to menu view controller
-        performSegue(withIdentifier: TMResources.SegueIdentifier.unwindToMainMenuSegue, sender: self)
+    // MARK: - Game control methods
+    private func configureGestureRecognizers() {
+        singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTouch))
+        singleTapRecognizer.numberOfTouchesRequired = 1
+        singleTapRecognizer.numberOfTapsRequired = 1
     }
     
-    @objc func didTouch(_ sender: UITapGestureRecognizer){
+    @objc private func didTouch(_ sender: UITapGestureRecognizer){
         if sender.state == .ended {
             if isShowingSelectionResult {
                 isShowingSelectionResult = false
@@ -174,37 +205,6 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         }
     }
     
-    // MARK: - UI initialization methods
-    /// Initializes and configures mapView. Has to be called after gameController is already initialized.
-    func loadMapView() {
-        var regionKeysAndPaths: [String: UIBezierPath] = [:]
-        gameController.regions.forEach { (region) in
-            regionKeysAndPaths[region.key.rawValue] = region.path
-        }
-        
-        mapView = TMMapView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 900.0, height: 610.0)), sublayerNamesAndPaths: regionKeysAndPaths)
-
-        view.setNeedsLayout()
-        view.layoutIfNeeded()
-        
-        let widthScale: CGFloat = gameView.frame.width / mapView.frame.width
-        let heightScale: CGFloat = gameView.frame.height / mapView.frame.height
-        let scale: CGFloat = (widthScale < heightScale) ? widthScale : heightScale
-        
-        mapView.transform = CGAffineTransform(scaleX: scale, y: scale)
-        mapView.center = gameView.center
-
-        gameView.addSubview(mapView)
-        
-    }
-    
-    // MARK: - Game control methods
-    func configureGestureRecognizers() {
-        singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTouch))
-        singleTapRecognizer.numberOfTouchesRequired = 1
-        singleTapRecognizer.numberOfTapsRequired = 1
-    }
-    
     @objc func pauseGame() {
         isRunningGame = false
     }
@@ -213,7 +213,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         isRunningGame = true
     }
     
-    func hideControls() {
+    private func hideControls() {
         if showsButtons {
             singleTapRecognizer.isEnabled = false
             let oldFrame: CGRect = bottomRightConfirmationView.frame
@@ -233,7 +233,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         }
     }
     
-    func confirmSelection() {
+    private func confirmSelection() {
         isShowingSelectionResult = true
         
         if let layerName = mapView.selectedLayer?.name {
@@ -242,7 +242,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         hideControls()
     }
     
-    func cancelSelection() {
+    private func cancelSelection() {
 //        singleTapRecognizer.isEnabled = false
         if showsButtons {
             let oldFrame = self.bottomLeftChoiceView.frame
@@ -272,7 +272,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         regionLabel.textColor = .neutralTextColor
     }
     
-    func showChoiceResult(isCorrect: Bool) {
+    private func showChoiceResult(isCorrect: Bool) {
         // Colors based on right/wrong choice (basically, green and red)
         let selectionColor: UIColor = isCorrect ? .correctSelectionColor : .wrongSelectionColor
         regionLabel.textColor = selectionColor
@@ -341,6 +341,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         
     }
     
+    // TODO: - Remove "deinit!"
     deinit {
         print(self, "deinit!")
     }

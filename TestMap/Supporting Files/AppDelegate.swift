@@ -10,6 +10,8 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
 
     /// Returns delegate of UIApplication's shared instance, casted to AppDelegate
     static var shared: AppDelegate {
