@@ -37,7 +37,7 @@ class TMLanguageSettingTalbeViewController: UITableViewController {
         let languageCode = languages[indexPath.row]
         let languageNativeLocale = Locale(identifier: languageCode)
         let languageCell = tableView.dequeueReusableCell(withIdentifier: TMResources.CellIdentifier.languageCell, for: indexPath)
-        languageCell.textLabel?.text = languageNativeLocale.localizedString(forLanguageCode: languageCode)?.capitalized ?? NSLocalizedString(languageCode, comment: "")
+        languageCell.textLabel?.text = languageNativeLocale.localizedString(forLanguageCode: languageCode)?.capitalized ?? languageCode.localized()
         languageCell.detailTextLabel?.text = Locale.current.localizedString(forLanguageCode: languageCode)?.capitalized
         
         let isSelectedCell = languageCode == regionNameLanguage

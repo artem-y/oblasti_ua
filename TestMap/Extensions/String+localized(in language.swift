@@ -11,9 +11,11 @@ import Foundation
 extension String {
     /// Returns corresponding localization string from .strings files in 'language'.lproj forder. If unable to find translation, returns untranslated string
     /// - parameters:
-    ///   - language: Language code, in the format of .lproj folder name without extension (for example, "en" for "en.lproj")
+    ///   - language: Language code, in the format of .lproj folder name without extension (for example, "en" for "en.lproj"). If 'language' is nil, returns standard localization
     ///   - tableName: Optional localization table name, where to look for string localization. If not specified, will look in the default table (most likely, 'Localizable')
-    func localized(in language: String, fromTable tableName: String? = nil) -> String {
+    func localized(in language: String? = nil, fromTable tableName: String? = nil) -> String {
+        
+        guard let language = language else { return NSLocalizedString(self, comment: "") }
         
         var localizedString: String = self
         

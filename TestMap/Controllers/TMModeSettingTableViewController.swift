@@ -31,7 +31,7 @@ class TMModeSettingTableViewController: UITableViewController {
     
     func updateUI(){
         tableView.reloadData()
-        navigationItem.title = "\(NSLocalizedString("Mode:", comment: "")) \(NSLocalizedString(mode.rawValue, comment: ""))"
+        navigationItem.title = "\("Mode:".localized()) \(mode.rawValue.localized())"
     }
     
     // MARK: - UITableViewController delegate & datasource methods
@@ -46,8 +46,8 @@ class TMModeSettingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TMResources.CellIdentifier.gameModeCell, for: IndexPath(row: 0, section: 0))
         let cellMode = availableModes[indexPath.row]
-        cell.textLabel?.text = NSLocalizedString(cellMode.rawValue, comment: "")
-        cell.detailTextLabel?.text = NSLocalizedString(cellMode.description, comment: "")
+        cell.textLabel?.text = cellMode.rawValue.localized()
+        cell.detailTextLabel?.text = cellMode.description.localized()
         cell.accessoryType = (cellMode == mode) ? .checkmark : .none
         cell.textLabel?.textColor = (cellMode == mode) ? .selectedRegionColor : .darkText
         return cell

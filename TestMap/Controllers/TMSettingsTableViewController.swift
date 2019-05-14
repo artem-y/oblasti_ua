@@ -67,10 +67,9 @@ class TMSettingsTableViewController: UITableViewController {
 
     // MARK: - Updating UI
     private func updateUI(){
-        print("updateUI()")
+        // This happens only if there is a game in progress
         if gameInProgressGameMode != nil {
-        modeCell.isUserInteractionEnabled = false
-            modeCell.contentView.alpha = 0.5
+            modeCell.set(enabled: false)
             modeNameLabel.textColor = .darkText
         }
         
@@ -79,22 +78,20 @@ class TMSettingsTableViewController: UITableViewController {
         let isShowingTime = isPointerMode ? false : settings.showsTime
         let isShowingButtons = isPointerMode ? false : settings.showsButtons
         
-        showTimeCell.contentView.alpha = isPointerMode ? 0.5 : 1.0
-        showTimeCell.isUserInteractionEnabled = !isPointerMode
+        showTimeCell.set(enabled: !isPointerMode)
         showTimeSwitch.setOn(isShowingTime, animated: true)
         
-        showButtonsCell.contentView.alpha = isPointerMode ? 0.5 : 1.0
-        showButtonsCell.isUserInteractionEnabled = !isPointerMode
+        showButtonsCell.set(enabled: !isPointerMode)
         showButtonsSwitch.setOn(isShowingButtons, animated: true)
 
-        modeNameLabel.text = NSLocalizedString(currentGameMode.rawValue, comment: "")
-        languageNameLagel.text = Locale.current.localizedString(forLanguageCode: settings.regionNameLanguageIdentifier) ?? NSLocalizedString(settings.regionNameLanguageIdentifier, comment: "")
+        modeNameLabel.text = currentGameMode.rawValue.localized()
+        languageNameLagel.text = Locale.current.localizedString(forLanguageCode: settings.regionNameLanguageIdentifier) ?? settings.regionNameLanguageIdentifier.localized()
         
         // TODO: Replace with keyed implementation or enum
         let formatKey = settings.regionNamesUppercased ? "uppercasedRegionName" : "capitalizedRegionName"
-        formatDescriptionLabel.text = NSLocalizedString(formatKey, comment: "")
+        formatDescriptionLabel.text = formatKey.localized()
         
-        let forExampleText = NSLocalizedString("For example:", comment: "")
+        let forExampleText = "For example:".localized()
         let ivanoFrankivskaTextUnprocessed = TMRegion.Key.ivanofrankivska.rawValue.localized(in: settings.regionNameLanguageIdentifier)
         let ivanoFrankivskaText: String = settings.regionNamesUppercased ? ivanoFrankivskaTextUnprocessed.uppercased() : ivanoFrankivskaTextUnprocessed.capitalized
         

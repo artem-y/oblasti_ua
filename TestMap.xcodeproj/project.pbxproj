@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B02EFFFB227B445900825656 /* TMMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02EFFFA227B445900825656 /* TMMenuViewController.swift */; };
+		B040E8A0228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */; };
 		B043EB05227C2A9F00F87F1F /* TMInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB04227C2A9F00F87F1F /* TMInfoViewController.swift */; };
 		B043EB07227C312A00F87F1F /* TMRoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB06227C312A00F87F1F /* TMRoundCornerButton.swift */; };
 		B04DE48022858F8D00939C4E /* TMModeSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE47F22858F8D00939C4E /* TMModeSettingTableViewController.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		B02EFFFA227B445900825656 /* TMMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMenuViewController.swift; sourceTree = "<group>"; };
+		B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+set(enabled.swift"; sourceTree = "<group>"; };
 		B043EB04227C2A9F00F87F1F /* TMInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMInfoViewController.swift; sourceTree = "<group>"; };
 		B043EB06227C312A00F87F1F /* TMRoundCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMRoundCornerButton.swift; sourceTree = "<group>"; };
 		B04DE47F22858F8D00939C4E /* TMModeSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMModeSettingTableViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				B04DE4832285B2A700939C4E /* UIViewController+dismissNavigationController.swift */,
+				B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */,
 				B0CC90FA2273B3D50075931E /* UIBezierPath+initFromString.swift */,
 				B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */,
 				B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */,
@@ -284,6 +287,7 @@
 				B0904F93226F858E007842CA /* AppDelegate.swift in Sources */,
 				B09CF0CB22832ABA00BC7FED /* TMSettings.swift in Sources */,
 				B043EB05227C2A9F00F87F1F /* TMInfoViewController.swift in Sources */,
+				B040E8A0228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift in Sources */,
 				B04DE4822285A6A500939C4E /* TMSettingsNavigationController.swift in Sources */,
 				B02EFFFB227B445900825656 /* TMMenuViewController.swift in Sources */,
 				B07C5F6D2280435D009059A7 /* TMGame.swift in Sources */,

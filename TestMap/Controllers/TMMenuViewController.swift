@@ -48,8 +48,8 @@ class TMMenuViewController: UIViewController {
     
     // MARK: - Update UI
     private func updateModeButtonTitle() {
-        let modeDescription = NSLocalizedString(settings.gameMode.rawValue, comment: "").lowercased()
-        let modeHint = NSLocalizedString("Mode:", comment: "")
+        let modeDescription = settings.gameMode.rawValue.localized().lowercased()
+        let modeHint = "Mode:".localized()
         modeButton.setTitle(modeHint + " " + modeDescription, for: .normal)
     }
     
