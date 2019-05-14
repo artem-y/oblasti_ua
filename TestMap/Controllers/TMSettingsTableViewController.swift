@@ -92,7 +92,7 @@ class TMSettingsTableViewController: UITableViewController {
         formatDescriptionLabel.text = formatKey.localized()
         
         let forExampleText = "For example:".localized()
-        let ivanoFrankivskaTextUnprocessed = TMRegion.Key.ivanofrankivska.rawValue.localized(in: settings.regionNameLanguageIdentifier)
+        let ivanoFrankivskaTextUnprocessed = TMRegion.Key.ivanofrankivska.rawValue.localized(in: settings.regionNameLanguageIdentifier, fromTable: TMResources.LocalizationTable.regionNames)
         let ivanoFrankivskaText: String = settings.regionNamesUppercased ? ivanoFrankivskaTextUnprocessed.uppercased() : ivanoFrankivskaTextUnprocessed.capitalized
         
         exampleFooterText = "\(forExampleText) \(ivanoFrankivskaText)"
