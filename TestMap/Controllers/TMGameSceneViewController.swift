@@ -44,7 +44,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
             if isRunningGame { gameController.startTimer() } else { gameController.stopTimer() }
             let imageName = isRunningGame ? TMResources.ImageName.pause : TMResources.ImageName.play
             pauseButton.setImage(UIImage(named: imageName), for: .normal)
-            gameCoverView.isHidden = isRunningGame
+            gameCoverView.animateSet(hidden: isRunningGame, withDuration: animationDuration)
             singleTapRecognizer.isEnabled = isRunningGame
         }
     }
@@ -351,7 +351,6 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         singleTapRecognizer.isEnabled = false
         perform(#selector(pauseGame), with: nil, afterDelay: animationDuration * 4)
         topRightInfoView.isHidden = true
-        continueButton.isHidden = true
         
     }
     

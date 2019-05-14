@@ -11,7 +11,7 @@ import UIKit
 extension UITableViewCell {
     /// Enables/disables user interaction and makes cell non-transparent/half-transparent.
     /// - Note: Doesn't change cell's contents, including colors. If necessary, it has to be done separately.
-    func set(enabled: Bool) {
+    func animateSet(enabled: Bool) {
         self.contentView.alpha = enabled ? 1.0 : 0.5
         self.isUserInteractionEnabled = enabled
     }

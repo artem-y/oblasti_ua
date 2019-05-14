@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B02EFFFB227B445900825656 /* TMMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02EFFFA227B445900825656 /* TMMenuViewController.swift */; };
 		B040E8A0228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */; };
+		B040E8A2228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */; };
 		B043EB05227C2A9F00F87F1F /* TMInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB04227C2A9F00F87F1F /* TMInfoViewController.swift */; };
 		B043EB07227C312A00F87F1F /* TMRoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB06227C312A00F87F1F /* TMRoundCornerButton.swift */; };
 		B04DE48022858F8D00939C4E /* TMModeSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE47F22858F8D00939C4E /* TMModeSettingTableViewController.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		B02EFFFA227B445900825656 /* TMMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMenuViewController.swift; sourceTree = "<group>"; };
 		B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+set(enabled.swift"; sourceTree = "<group>"; };
+		B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+set(hidden animationDuration.swift"; sourceTree = "<group>"; };
 		B043EB04227C2A9F00F87F1F /* TMInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMInfoViewController.swift; sourceTree = "<group>"; };
 		B043EB06227C312A00F87F1F /* TMRoundCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMRoundCornerButton.swift; sourceTree = "<group>"; };
 		B04DE47F22858F8D00939C4E /* TMModeSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMModeSettingTableViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				B04DE4832285B2A700939C4E /* UIViewController+dismissNavigationController.swift */,
 				B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */,
 				B0CC90FA2273B3D50075931E /* UIBezierPath+initFromString.swift */,
+				B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */,
 				B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */,
 				B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */,
 			);
@@ -295,6 +298,7 @@
 				B09CF0CD2283391E00BC7FED /* String+localized(in language.swift in Sources */,
 				B05E15C422746CDF007C85AF /* TMRegion.swift in Sources */,
 				B05E15C222746C9C007C85AF /* TMGameController.swift in Sources */,
+				B040E8A2228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift in Sources */,
 				B0C7D80F2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

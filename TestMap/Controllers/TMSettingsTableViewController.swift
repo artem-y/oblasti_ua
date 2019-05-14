@@ -69,7 +69,7 @@ class TMSettingsTableViewController: UITableViewController {
     private func updateUI(){
         // This happens only if there is a game in progress
         if gameInProgressGameMode != nil {
-            modeCell.set(enabled: false)
+            modeCell.animateSet(enabled: false)
             modeNameLabel.textColor = .darkText
         }
         
@@ -78,10 +78,10 @@ class TMSettingsTableViewController: UITableViewController {
         let isShowingTime = isPointerMode ? false : settings.showsTime
         let isShowingButtons = isPointerMode ? false : settings.showsButtons
         
-        showTimeCell.set(enabled: !isPointerMode)
+        showTimeCell.animateSet(enabled: !isPointerMode)
         showTimeSwitch.setOn(isShowingTime, animated: true)
         
-        showButtonsCell.set(enabled: !isPointerMode)
+        showButtonsCell.animateSet(enabled: !isPointerMode)
         showButtonsSwitch.setOn(isShowingButtons, animated: true)
 
         modeNameLabel.text = currentGameMode.rawValue.localized()
