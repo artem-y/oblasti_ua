@@ -148,6 +148,15 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
             if let destinationVC = segue.destination as? TMSettingsNavigationController, let topVC = destinationVC.topViewController as? TMSettingsTableViewController {
                 topVC.gameInProgressGameMode = gameMode
             }
+        case TMResources.SegueIdentifier.showGameResultSegue:
+            if let destinationVC = segue.destination as? TMGameResultViewController {
+                mapView.isHidden = true
+                topRightInfoView.isHidden = true
+                regionLabel.isHidden = true
+                bottomLeftChoiceView.isHidden = true
+                bottomRightConfirmationView.isHidden = true
+                destinationVC.gameResult = gameController.gameResult
+            }
         default:
             break
         }
@@ -348,9 +357,10 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     
     func reactToEndOfGame() {
         // Turning off tap gestures (some users can tap very fast =))
-        singleTapRecognizer.isEnabled = false
-        perform(#selector(pauseGame), with: nil, afterDelay: animationDuration * 4)
-        topRightInfoView.isHidden = true
+//        singleTapRecognizer.isEnabled = false
+//        perform(#selector(pauseGame), with: nil, afterDelay: animationDuration * 4)
+        performSegue(withIdentifier: TMResources.SegueIdentifier.showGameResultSegue, sender: self)
+//        topRightInfoView.isHidden = true
         
     }
     

@@ -11,7 +11,7 @@ import UIKit
 struct TMRegion: Equatable {
     // MARK: - TMRegion.Key type
     /// Iterable, equatable key with string raw value containing lowercase region name (in English).
-    enum Key: String, CaseIterable, Equatable {
+    enum Key: String, CaseIterable, Equatable, Codable {
         // If not assigned explicitly, raw value strings are created automatically
         case vinnytska
         case volynska

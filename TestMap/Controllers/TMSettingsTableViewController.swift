@@ -73,7 +73,7 @@ class TMSettingsTableViewController: UITableViewController {
             modeNameLabel.textColor = .darkText
         }
         
-        // TODO: Replace with non-repeating implementation (perhaps, with function)
+        // TODO: Try to improve code, it is too long
         let isPointerMode = currentGameMode == .pointer
         let isShowingTime = isPointerMode ? false : settings.showsTime
         let isShowingButtons = isPointerMode ? false : settings.showsButtons

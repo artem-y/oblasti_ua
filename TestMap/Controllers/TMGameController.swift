@@ -22,7 +22,6 @@ class TMGameController {
     private var timer: Timer!
     private var timerStartDate: Date?
     
-    // TODO: Implement optional keeping/showing of count of made mistakes
     var mistakesCount: Int { return game.mistakesCount }
     
     init(game: TMGame){
@@ -81,6 +80,7 @@ class TMGameController {
         if game.regionsLeft.count > 0 {
             nextQuestion()
         } else {
+            stopTimer()
             delegate?.reactToEndOfGame()
         }
         

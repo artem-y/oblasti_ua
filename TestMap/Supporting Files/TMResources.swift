@@ -16,6 +16,10 @@ struct TMResources {
         static let pause = "pauseButton"
         static let correctChoice = "greenCorrectChoice"
         static let wrongChoice = "redWrongChoice"
+        static let clockIcon = "clockIcon"
+        static let cupIcon = "cupIcon"
+        static let correctIcon = "correctIcon"
+        static let mistakesIcon = "mistakesIcon"
     }
     
     struct FileName {
@@ -31,6 +35,7 @@ struct TMResources {
         static let showOnlyModeSettingSegue = "showOnlyModeSettingSegue"
         static let showModeSettingFromSettingsControllerSegue = "showModeSettingFromSettingsControllerSegue"
         static let showSettingsFromGamePauseSegue = "showSettingsFromGamePauseSegue"
+        static let showGameResultSegue = "showGameResultSegue"
     }
     
     struct CellIdentifier {
@@ -44,6 +49,11 @@ struct TMResources {
     
     struct LocalizationTable {
         static let regionNames = "RegionNames"
+    }
+    
+    struct UserDefaultsKey {
+        static let classicHighscore = "classicHighscore"
+        static let norepeatHighscore = "norepeatHighscore"
     }
     
     func loadRegions(fromFileNamed fileName: String) -> [TMRegion] {

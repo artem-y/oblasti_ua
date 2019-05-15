@@ -6,13 +6,13 @@
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // TODO: Make game model comparable and equatable
 struct TMGame: Equatable {
     
     /// Game mode type
-    enum Mode: String, CaseIterable {
+    enum Mode: String, CaseIterable, Codable {
         /// User is finding regions on the map until all regions are found. Regions that were guessed wrong will still be appearing.
         case classic = "classicMode"
         
@@ -85,9 +85,63 @@ extension TMGame: Comparable {
     // TODO: Replace with comparison function
     static func < (lhs: TMGame, rhs: TMGame) -> Bool {
         
-        let lhsMistakesPercent = lhs.gameRegions.count / lhs.mistakesCount
-        let rhsMistakesPercent = rhs.gameRegions.count / rhs.mistakesCount
+        let lhsMistakesPercent: Double = lhs.mistakesCount == 0 ? 0.0 : Double(lhs.mistakesCount) / Double(lhs.gameRegions.count)
+        let rhsMistakesPercent: Double = rhs.mistakesCount == 0 ? 0.0 : Double(rhs.mistakesCount) / Double(rhs.gameRegions.count)
         
         return (lhsMistakesPercent == rhsMistakesPercent) ? lhs.timePassed > rhs.timePassed : lhsMistakesPercent > rhsMistakesPercent
+    }
+}
+
+// MARK: - 'Codable' protocol
+extension TMGame: Codable {
+    enum CodingKeys: String, CodingKey {
+        case gameMode
+        case gameRegions
+        case regionsLeft
+        case mistakesCount
+        case timePassed
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        gameMode = try values.decode(TMGame.Mode.self, forKey: .gameMode)
+
+        let gameRegionsNames = try values.decode([String].self, forKey: .gameRegions)
+        gameRegions = gameRegionsNames
+            .filter({
+                TMRegion.Key.init(rawValue: $0) != nil
+            })
+            .map({
+                TMRegion(key: TMRegion.Key(rawValue: $0)!, path: UIBezierPath())
+            })
+    
+        let regionsLeftNames = try values.decode([String].self, forKey: .gameRegions)
+        regionsLeft = regionsLeftNames
+            .filter({
+                TMRegion.Key.init(rawValue: $0) != nil && gameRegionsNames.contains($0)
+            })
+            .map({
+                TMRegion(key: TMRegion.Key(rawValue: $0)!, path: UIBezierPath())
+            })
+        
+        mistakesCount = try values.decode(Int.self, forKey: .mistakesCount)
+        timePassed = try values.decode(TimeInterval.self, forKey: .timePassed)
+        
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(gameMode, forKey: .gameMode)
+        
+        // Game regions are encoded as array of regions names
+        let gameRegionNames: [String] = gameRegions.map { $0.key.rawValue }
+        try container.encode(gameRegionNames, forKey: .gameRegions)
+        
+        // Regions left are encoded as array of region names
+        let regionsLeftNames: [String] = regionsLeft.map { $0.key.rawValue }
+        try container.encode(regionsLeftNames, forKey: .regionsLeft)
+        
+        try container.encode(mistakesCount, forKey: .mistakesCount)
+        try container.encode(timePassed, forKey: .timePassed)
     }
 }

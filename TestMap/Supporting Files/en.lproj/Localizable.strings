@@ -31,3 +31,9 @@
 
 /*  Region names in 'customLanguage' are defined by user - no matter what language user will type them in. */
 "customLanguage" = "Custom region names";
+
+/* 'Time:' will be at the beginning of the sentence on game result screen showing time that player used to complete the game. Example: 'Time: 0h 1m 3s 407ms' */
+"Time:" = "Time:";
+
+/* 'New Highscore:' - this will be the beginning of game result title if user hits new highscore. Example: 'New Highscore: classic' */
+"New Highscore:" = "New Highscore:";

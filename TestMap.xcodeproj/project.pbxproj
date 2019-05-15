@@ -12,6 +12,7 @@
 		B040E8A2228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */; };
 		B043EB05227C2A9F00F87F1F /* TMInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB04227C2A9F00F87F1F /* TMInfoViewController.swift */; };
 		B043EB07227C312A00F87F1F /* TMRoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB06227C312A00F87F1F /* TMRoundCornerButton.swift */; };
+		B04DDB78228B4EB8008B9DD9 /* TMGameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DDB77228B4EB8008B9DD9 /* TMGameResultViewController.swift */; };
 		B04DE48022858F8D00939C4E /* TMModeSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE47F22858F8D00939C4E /* TMModeSettingTableViewController.swift */; };
 		B04DE4822285A6A500939C4E /* TMSettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE4812285A6A500939C4E /* TMSettingsNavigationController.swift */; };
 		B04DE4842285B2A700939C4E /* UIViewController+dismissNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE4832285B2A700939C4E /* UIViewController+dismissNavigationController.swift */; };
@@ -46,6 +47,7 @@
 		B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+set(hidden animationDuration.swift"; sourceTree = "<group>"; };
 		B043EB04227C2A9F00F87F1F /* TMInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMInfoViewController.swift; sourceTree = "<group>"; };
 		B043EB06227C312A00F87F1F /* TMRoundCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMRoundCornerButton.swift; sourceTree = "<group>"; };
+		B04DDB77228B4EB8008B9DD9 /* TMGameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameResultViewController.swift; sourceTree = "<group>"; };
 		B04DE47F22858F8D00939C4E /* TMModeSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMModeSettingTableViewController.swift; sourceTree = "<group>"; };
 		B04DE4812285A6A500939C4E /* TMSettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettingsNavigationController.swift; sourceTree = "<group>"; };
 		B04DE4832285B2A700939C4E /* UIViewController+dismissNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissNavigationController.swift"; sourceTree = "<group>"; };
@@ -150,8 +152,8 @@
 				B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */,
 				B0CC90FA2273B3D50075931E /* UIBezierPath+initFromString.swift */,
 				B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */,
-				B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */,
 				B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */,
+				B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -171,6 +173,7 @@
 				B02EFFFA227B445900825656 /* TMMenuViewController.swift */,
 				B07C5F6E22805F12009059A7 /* TMSettingsTableViewController.swift */,
 				B04DE4812285A6A500939C4E /* TMSettingsNavigationController.swift */,
+				B04DDB77228B4EB8008B9DD9 /* TMGameResultViewController.swift */,
 				B043EB04227C2A9F00F87F1F /* TMInfoViewController.swift */,
 				B09A154E2284E7E3005BD56F /* TMFormatSettingTableViewController.swift */,
 				B04DE47F22858F8D00939C4E /* TMModeSettingTableViewController.swift */,
@@ -283,6 +286,7 @@
 				B0AAE785228497BA002D7264 /* TMSettingsController.swift in Sources */,
 				B07A9ED3227CFC4400C4D2F0 /* TMResources.swift in Sources */,
 				B05A2AAE227A553400D8BA5C /* TMGameControllerDelegate.swift in Sources */,
+				B04DDB78228B4EB8008B9DD9 /* TMGameResultViewController.swift in Sources */,
 				B07C5F6F22805F12009059A7 /* TMSettingsTableViewController.swift in Sources */,
 				B09A154F2284E7E3005BD56F /* TMFormatSettingTableViewController.swift in Sources */,
 				B0CC90FB2273B3D50075931E /* UIBezierPath+initFromString.swift in Sources */,

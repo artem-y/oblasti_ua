@@ -20,7 +20,6 @@ class TMMenuViewController: UIViewController {
     }
     
     // MARK: - Variables
-    // TODO: Replace language and other settings with better (not hardcoded implementation)
     private var settings: TMSettings {
         get {
             return TMSettingsController.shared.settings
