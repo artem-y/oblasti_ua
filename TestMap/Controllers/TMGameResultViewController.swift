@@ -80,11 +80,7 @@ class TMGameResultViewController: UIViewController {
         }
         mistakesLabel.text = mistakesText
         
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .brief
-        formatter.allowedUnits = [.hour, .minute, .second]
-        formatter.allowsFractionalUnits = true
-        formatter.zeroFormattingBehavior = .pad
+        let formatter = DateComponentsFormatter.gameDefault
         let timeString = formatter.string(from: gameResult.timePassed)!
         
         let remainder = Int(gameResult.timePassed.truncatingRemainder(dividingBy: 1.0) * 1000.0)

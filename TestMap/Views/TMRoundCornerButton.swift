@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 class TMRoundCornerButton: UIButton {
 
     // Initialization from storyboard
@@ -16,15 +17,37 @@ class TMRoundCornerButton: UIButton {
         adjustCorners()
     }
     
+    @IBInspectable
+    var cornerRaius: Float = 20.0 {
+        didSet {
+            adjustCorners()
+        }
+    }
+    
+    @IBInspectable
+    var edgeInsets: Float = 15.0 {
+        didSet {
+            adjustEdgeInsets()
+        }
+    }
+    
     // Just in case of programmatical initialization =)
     override init(frame: CGRect) {
         super.init(frame: frame)
-        adjustCorners()
+        adjustUI()
     }
 
+    private func adjustUI() {
+        adjustCorners()
+        adjustEdgeInsets()
+    }
+    
     private func adjustCorners() {
-        self.layer.cornerRadius = 20.0
-        self.titleEdgeInsets.left = 15.0
-        self.titleEdgeInsets.right = 15.0
+        self.layer.cornerRadius = CGFloat(cornerRaius)
+    }
+    
+    private func adjustEdgeInsets(){
+        self.titleEdgeInsets.left = CGFloat(edgeInsets)
+        self.titleEdgeInsets.right = CGFloat(edgeInsets)
     }
 }

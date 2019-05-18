@@ -13,6 +13,8 @@ class TMMenuViewController: UIViewController {
     // MARK: - @IBOutlets
     @IBOutlet weak var modeButton: UIButton!
     @IBOutlet weak var startButton: TMRoundCornerButton!
+    @IBOutlet weak var highscoreButton: UIButton!
+    
     
     // MARK: - @IBActions
     @IBAction func modeButtonTapped(_ sender: UIButton) {
@@ -41,6 +43,12 @@ class TMMenuViewController: UIViewController {
             self.updateModeButtonTitle()
         }
 
+        var hasHighscore = false
+        if UserDefaults.standard.value(forKey: TMResources.UserDefaultsKey.classicHighscore) != nil || UserDefaults.standard.value(forKey: TMResources.UserDefaultsKey.norepeatHighscore) != nil {
+            
+            hasHighscore = true
+        }
+        highscoreButton.isEnabled = hasHighscore
     }
     
   
