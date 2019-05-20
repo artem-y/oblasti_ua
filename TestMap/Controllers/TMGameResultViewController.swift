@@ -80,11 +80,9 @@ class TMGameResultViewController: UIViewController {
         }
         mistakesLabel.text = mistakesText
         
-        let formatter = DateComponentsFormatter.gameDefault
-        let timeString = formatter.string(from: gameResult.timePassed)!
+        let timeString = TMGameTimeFormatter().string(for: gameResult.timePassed)
+                timeLabel.text = "\("Time:".localized()) \(timeString)"
         
-        let remainder = Int(gameResult.timePassed.truncatingRemainder(dividingBy: 1.0) * 1000.0)
-        timeLabel.text = "\("Time:".localized()) \(timeString) \(remainder)мс" // TODO: Localize properly
         let timeImageName: String = isNewHighscore ? TMResources.ImageName.cupIcon : TMResources.ImageName.clockIcon
         timeImageView.image = UIImage(named: timeImageName)
     }

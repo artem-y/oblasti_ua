@@ -42,8 +42,6 @@ class TMHighscoreViewController: UIViewController {
         
         let jsonDecoder = JSONDecoder()
         
-        let timeFormatter = DateComponentsFormatter.gameDefault
-        
         let isCompactWidth: Bool = UIScreen.main.traitCollection.horizontalSizeClass == .compact
 
         let timeStringPrefix = isCompactWidth ? "" : ("Time:".localized() + " ")
@@ -55,9 +53,8 @@ class TMHighscoreViewController: UIViewController {
             classicMistakesIndicator.image = UIImage(named: mistakesIndicatorName)
             classicMistakesLabel.text = "Помилок: \(classicHighscore.mistakesCount)"
             
-            let timeString = timeFormatter.string(from: classicHighscore.timePassed)!
-            let millisecondsString = timeFormatter.millisecondsNoUnitAbbreviationString(from: classicHighscore.timePassed)
-            classicTimeLabel.text = "\(timeStringPrefix)\(timeString) \(millisecondsString)мс"
+            let timeString = TMGameTimeFormatter().string(for: classicHighscore.timePassed)
+            classicTimeLabel.text = "\(timeStringPrefix)\(timeString)"
         } else {
             for outlet in [classicMistakesIndicator, classicMistakesLabel, classicTimeIndicator, classicTimeLabel] {
                 outlet?.isHidden = true
@@ -71,10 +68,8 @@ class TMHighscoreViewController: UIViewController {
             norepeatMistakesIndicator.image = UIImage(named: mistakesIndicatorName)
             norepeatMistakesLabel.text = "Помилок: \(norepeatHighscore.mistakesCount)/\(norepeatHighscore.regions.count)"
             
-            let timeString = timeFormatter.string(from: norepeatHighscore.timePassed)!
-            
-            let millisecondsString = timeFormatter.millisecondsNoUnitAbbreviationString(from: norepeatHighscore.timePassed)
-            norepeatTimeLabel.text = "\(timeStringPrefix)\(timeString) \(millisecondsString)мс"
+            let timeString = TMGameTimeFormatter().string(for: norepeatHighscore.timePassed)
+            norepeatTimeLabel.text = "\(timeStringPrefix)\(timeString)"
         } else {
             for outlet in [norepeatMistakesIndicator, norepeatMistakesLabel, norepeatTimeIndicator, norepeatTimeLabel] {
                 outlet?.isHidden = true
