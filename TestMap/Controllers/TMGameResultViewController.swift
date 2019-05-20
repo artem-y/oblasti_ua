@@ -74,7 +74,7 @@ class TMGameResultViewController: UIViewController {
         
         let mistakesImageName: String = gameResult.mistakesCount == 0 ? TMResources.ImageName.correctIcon : TMResources.ImageName.mistakesIcon
         mistakesImageView.image = UIImage(named: mistakesImageName)
-        var mistakesText = "Помилок: \(gameResult.mistakesCount)"
+        var mistakesText = "\("Mistakes:".localized()) \(gameResult.mistakesCount)"
         if gameResult.mode == .norepeat {
             mistakesText += "/\(gameResult.regions.count)"
         }

@@ -127,7 +127,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YeI-mq-lAi">
-                                                        <rect key="frame" x="0.0" y="95.999999999999986" width="230.66666666666666" height="40.000000000000014"/>
+                                                        <rect key="frame" x="0.0" y="95.999999999999986" width="231" height="40.000000000000014"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="nXK-YY-xTQ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -138,8 +138,8 @@
                                                                     </constraint>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30хв 08с 216мс" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5go-ty-aM5">
-                                                                <rect key="frame" x="47.999999999999986" y="0.0" width="182.66666666666663" height="40"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Час: 00:00:000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5go-ty-aM5">
+                                                                <rect key="frame" x="48" y="0.0" width="183" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                                 <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -214,7 +214,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Tb3-bm-zTL">
-                                                        <rect key="frame" x="0.0" y="95.999999999999986" width="230.66666666666666" height="40.000000000000014"/>
+                                                        <rect key="frame" x="0.0" y="95.999999999999986" width="231" height="40.000000000000014"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="WcF-z5-ghv">
                                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -225,8 +225,8 @@
                                                                     <constraint firstAttribute="width" secondItem="WcF-z5-ghv" secondAttribute="height" multiplier="1:1" id="bCc-ah-nW2"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30хв 08с 216мс" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HeD-mm-Cpu">
-                                                                <rect key="frame" x="47.999999999999986" y="0.0" width="182.66666666666663" height="40"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Час: 00:00:000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HeD-mm-Cpu">
+                                                                <rect key="frame" x="48" y="0.0" width="183" height="40"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                                 <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -1173,7 +1173,10 @@
                                     <constraint firstItem="72U-I0-rJV" firstAttribute="top" secondItem="0ka-ff-Lxo" secondAttribute="top" id="CQI-ZZ-SW7"/>
                                     <constraint firstAttribute="bottom" secondItem="EEF-Fy-3Fo" secondAttribute="bottom" id="EhS-W5-zqY"/>
                                     <constraint firstItem="ebd-fz-0zR" firstAttribute="width" secondItem="0ka-ff-Lxo" secondAttribute="width" multiplier="0.19" id="GJi-2p-hVK"/>
-                                    <constraint firstAttribute="bottom" secondItem="LxS-QF-g2Q" secondAttribute="bottom" id="HRl-e7-svr"/>
+                                    <constraint firstAttribute="bottom" secondItem="LxS-QF-g2Q" secondAttribute="bottom" id="HRl-e7-svr">
+                                        <variation key="heightClass=compact" constant="5"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                                    </constraint>
                                     <constraint firstItem="Wvq-jc-Iwo" firstAttribute="leading" secondItem="0ka-ff-Lxo" secondAttribute="leading" id="JeC-o3-k4k">
                                         <variation key="heightClass=compact-widthClass=regular" constant="-50"/>
                                     </constraint>

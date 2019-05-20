@@ -42,19 +42,17 @@ class TMHighscoreViewController: UIViewController {
         
         let jsonDecoder = JSONDecoder()
         
-        let isCompactWidth: Bool = UIScreen.main.traitCollection.horizontalSizeClass == .compact
-
-        let timeStringPrefix = isCompactWidth ? "" : ("Time:".localized() + " ")
+        let timeStringPrefix = "Time:".localized()
         
         // Classic mode highscore view
         if let classicHighscoreData = UserDefaults.standard.value(forKey: TMResources.UserDefaultsKey.classicHighscore) as? Data, let classicHighscore: TMGame = try? jsonDecoder.decode(TMGame.self, from: classicHighscoreData) {
             
             let mistakesIndicatorName = classicHighscore.mistakesCount == 0 ? TMResources.ImageName.correctIcon : TMResources.ImageName.mistakesIcon
             classicMistakesIndicator.image = UIImage(named: mistakesIndicatorName)
-            classicMistakesLabel.text = "Помилок: \(classicHighscore.mistakesCount)"
+            classicMistakesLabel.text = "\("Mistakes:".localized()) \(classicHighscore.mistakesCount)"
             
             let timeString = TMGameTimeFormatter().string(for: classicHighscore.timePassed)
-            classicTimeLabel.text = "\(timeStringPrefix)\(timeString)"
+            classicTimeLabel.text = "\(timeStringPrefix) \(timeString)"
         } else {
             for outlet in [classicMistakesIndicator, classicMistakesLabel, classicTimeIndicator, classicTimeLabel] {
                 outlet?.isHidden = true
@@ -66,10 +64,10 @@ class TMHighscoreViewController: UIViewController {
             
             let mistakesIndicatorName = norepeatHighscore.mistakesCount == 0 ? TMResources.ImageName.correctIcon : TMResources.ImageName.mistakesIcon
             norepeatMistakesIndicator.image = UIImage(named: mistakesIndicatorName)
-            norepeatMistakesLabel.text = "Помилок: \(norepeatHighscore.mistakesCount)/\(norepeatHighscore.regions.count)"
+            norepeatMistakesLabel.text = "\("Mistakes:".localized()) \(norepeatHighscore.mistakesCount)/\(norepeatHighscore.regions.count)"
             
             let timeString = TMGameTimeFormatter().string(for: norepeatHighscore.timePassed)
-            norepeatTimeLabel.text = "\(timeStringPrefix)\(timeString)"
+            norepeatTimeLabel.text = "\(timeStringPrefix) \(timeString)"
         } else {
             for outlet in [norepeatMistakesIndicator, norepeatMistakesLabel, norepeatTimeIndicator, norepeatTimeLabel] {
                 outlet?.isHidden = true
