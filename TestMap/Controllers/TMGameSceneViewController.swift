@@ -25,6 +25,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     @IBOutlet weak var timeLabel: UILabel!
     
     // MARK: - Custom properties
+    var savedGame: TMGame?
     private var mapView: TMMapView!
     private var settings: TMSettings {
         return TMSettingsController.shared.settings
@@ -59,6 +60,15 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         isRunningGame = !isRunningGame
     }
     
+    @IBAction func saveAndExitButtonTapped(_ sender: TMRoundCornerButton) {
+        
+        let jsonEncoder = JSONEncoder()
+        if let jsonData = try? jsonEncoder.encode(gameController.gameResult) {
+            UserDefaults.standard.set(jsonData, forKey: TMResources.UserDefaultsKey.lastUnfinishedGame)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func exitToMenuButtonTapped(_ sender: TMRoundCornerButton) {
         
         topRightInfoView.alpha = 0.2
@@ -86,7 +96,18 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let savedGame = savedGame {
+
+            let regions: [TMRegion] = TMResources.shared.loadRegions(withKeys: savedGame.regions.map({ $0.key }), fromFileNamed: TMResources.FileName.allRegionPaths)
+            let regionsLeft: [TMRegion] = TMResources.shared.loadRegions(withKeys: savedGame.regionsLeft.map({ $0.key }), fromFileNamed: TMResources.FileName.allRegionPaths)
+            
+            // Creation of a 'copy' of the saved game is necessary to replace regions and regions left with just keys by regions with real UIBezier paths
+            let savedGameCopy = TMGame(mode: savedGame.mode, regions: regions, regionsLeft: regionsLeft, timePassed: savedGame.timePassed, mistakesCount: savedGame.mistakesCount)
+            gameController = TMGameController(game: savedGameCopy)
+        }
         gameController.delegate = self
+        
+        UserDefaults.standard.removeObject(forKey: TMResources.UserDefaultsKey.lastUnfinishedGame)
         
         // This will be called from AppDelegate's "applicationWillResignActive" function
         AppDelegate.shared.pauseApp = pauseGame
@@ -98,7 +119,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         
         // TODO: Replace with function
         if showsTime {
-            timeLabel.text = "0:00"
+            reactToTimerValueChange()
             timeLabel.isHidden = false
             gameController.startTimer()
         }
@@ -356,12 +377,8 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     }
     
     func reactToEndOfGame() {
-        // Turning off tap gestures (some users can tap very fast =))
-//        singleTapRecognizer.isEnabled = false
-//        perform(#selector(pauseGame), with: nil, afterDelay: animationDuration * 4)
+        UserDefaults.standard.removeObject(forKey: TMResources.UserDefaultsKey.lastUnfinishedGame)
         performSegue(withIdentifier: TMResources.SegueIdentifier.showGameResultSegue, sender: self)
-//        topRightInfoView.isHidden = true
-        
     }
     
     // TODO: - Remove "deinit!"

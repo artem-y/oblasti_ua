@@ -61,10 +61,12 @@ struct TMGame: Equatable {
     }
 
     // MARK: - Initialization
-    init(mode: Mode, regions: [TMRegion], regionsLeft: [TMRegion]) {
+    init(mode: Mode, regions: [TMRegion], regionsLeft: [TMRegion], timePassed: TimeInterval = 0.0, mistakesCount: Int = 0) {
         gameMode = mode
         gameRegions = regions
         self.regionsLeft = regionsLeft
+        self.timePassed = timePassed
+        self.mistakesCount = mistakesCount
     }
     
     // MARK: - 'Equatable' protocol methods
@@ -115,7 +117,7 @@ extension TMGame: Codable {
                 TMRegion(key: TMRegion.Key(rawValue: $0)!, path: UIBezierPath())
             })
     
-        let regionsLeftNames = try values.decode([String].self, forKey: .gameRegions)
+        let regionsLeftNames = try values.decode([String].self, forKey: .regionsLeft)
         regionsLeft = regionsLeftNames
             .filter({
                 TMRegion.Key.init(rawValue: $0) != nil && gameRegionsNames.contains($0)

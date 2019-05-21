@@ -12,6 +12,7 @@ class TMMenuViewController: UIViewController {
 
     // MARK: - @IBOutlets
     @IBOutlet weak var modeButton: UIButton!
+    @IBOutlet weak var continueButton: TMRoundCornerButton!
     @IBOutlet weak var startButton: TMRoundCornerButton!
     @IBOutlet weak var highscoreButton: UIButton!
     
@@ -19,6 +20,13 @@ class TMMenuViewController: UIViewController {
     // MARK: - @IBActions
     @IBAction func modeButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: TMResources.SegueIdentifier.presentSettingsSegue, sender: sender)
+    }
+    
+    @IBAction func startGame(_ sender: TMRoundCornerButton) {
+        if sender == startButton {
+            UserDefaults.standard.removeObject(forKey: TMResources.UserDefaultsKey.lastUnfinishedGame)
+        }
+        performSegue(withIdentifier: TMResources.SegueIdentifier.startGameSegue, sender: self)
     }
     
     // MARK: - Variables
@@ -51,7 +59,11 @@ class TMMenuViewController: UIViewController {
         highscoreButton.isEnabled = hasHighscore
     }
     
-  
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        continueButton.isHidden = UserDefaults.standard.value(forKey: TMResources.UserDefaultsKey.lastUnfinishedGame) == nil
+    }
     
     // MARK: - Update UI
     private func updateModeButtonTitle() {
@@ -62,7 +74,6 @@ class TMMenuViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
 
         switch segue.identifier {
         case TMResources.SegueIdentifier.presentSettingsSegue:
@@ -70,6 +81,16 @@ class TMMenuViewController: UIViewController {
                 if let sender = sender as? UIButton, sender == modeButton {
                     destinationVC.performSegue(withIdentifier: TMResources.SegueIdentifier.showOnlyModeSettingSegue, sender: nil)
                 }
+            }
+        case TMResources.SegueIdentifier.startGameSegue:
+            let savedGameKey = TMResources.UserDefaultsKey.lastUnfinishedGame
+            
+            if
+                let savedGameData = UserDefaults.standard.value(forKey: savedGameKey) as? Data,
+                let savedGame: TMGame = try? JSONDecoder().decode(TMGame.self, from: savedGameData),
+                let destinationVC = segue.destination as? TMGameSceneViewController
+            {    
+                destinationVC.savedGame = savedGame
             }
         default:
             break

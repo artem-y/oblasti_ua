@@ -54,10 +54,11 @@ struct TMResources {
     struct UserDefaultsKey {
         static let classicHighscore = "classicHighscore"
         static let norepeatHighscore = "norepeatHighscore"
+        static let lastUnfinishedGame = "lastUnfinishedGame"
     }
     
-    func loadRegions(fromFileNamed fileName: String) -> [TMRegion] {
-        
+    func loadRegions(withKeys regionKeys: [TMRegion.Key]? = nil, fromFileNamed fileName: String) -> [TMRegion] {
+
         var regions: [TMRegion] = []
         
         // If file not found, will return an empty array, so using try? is ok here
@@ -66,10 +67,18 @@ struct TMResources {
             let pathStringComponents: [(name: String, path: String)] = fileContentsString
                 .components(separatedBy: "\n")
                 .filter({ $0.contains(" : ") })
-                .map { (element) -> (name: String, path: String) in
+                .map({ (element) -> (name: String, path: String) in
                     
                     let components = element.components(separatedBy: " : ")
                     return (name: components[0], path: components[1])
+            })
+                .filter {
+                    guard let regionKeys = regionKeys, regionKeys.isEmpty == false else { return true }
+
+                    if let regionKey = TMRegion.Key(rawValue: $0.name.lowercased()) {
+                        return regionKeys.contains(regionKey)
+                    }
+                    return false
             }
             
             for component in pathStringComponents {
