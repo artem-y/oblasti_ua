@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMMenuViewController: UIViewController {
+class TMMenuViewController: UIViewController, TMRemovableObserver {
 
     // MARK: - @IBOutlets
     @IBOutlet weak var modeButton: UIButton!
@@ -46,11 +46,9 @@ class TMMenuViewController: UIViewController {
         super.viewDidLoad()
         updateModeButtonTitle()
         
-        NotificationCenter.default.addObserver(forName: .TMGameModeChanged, object: nil, queue: nil) { [unowned self]
-            (notification) in
-            self.updateModeButtonTitle()
-        }
-
+        self.addToNotificationCenter()
+        AppDelegate.shared.menuModeObserver = self
+        
         var hasHighscore = false
         if UserDefaults.standard.value(forKey: TMResources.UserDefaultsKey.classicHighscore) != nil || UserDefaults.standard.value(forKey: TMResources.UserDefaultsKey.norepeatHighscore) != nil {
             
@@ -65,8 +63,12 @@ class TMMenuViewController: UIViewController {
         continueButton.isHidden = UserDefaults.standard.value(forKey: TMResources.UserDefaultsKey.lastUnfinishedGame) == nil
     }
     
+    deinit {
+        removeFromNotificationCenter()
+    }
+    
     // MARK: - Update UI
-    private func updateModeButtonTitle() {
+    @objc private func updateModeButtonTitle() {
         let modeDescription = settings.gameMode.rawValue.localized().lowercased()
         let modeHint = "Mode:".localized()
         modeButton.setTitle(modeHint + " " + modeDescription, for: .normal)
@@ -100,6 +102,11 @@ class TMMenuViewController: UIViewController {
     
     @IBAction func unwindToMenuViewController(_ unwindSegue: UIStoryboardSegue) {
 
+    }
+    
+    // MARK: - TMRemovableObserver conformance methods
+    func addToNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateModeButtonTitle), name: .TMGameModeChanged, object: nil)
     }
 
 }
