@@ -636,6 +636,38 @@
                                         </tableViewCellContentView>
                                         <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="jqG-sm-Q1y">
+                                        <rect key="frame" x="0.0" y="187.5" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jqG-sm-Q1y" id="NkV-z2-q5J">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" clipsSubviews="YES" contentMode="center" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="U02-mc-pvB">
+                                                    <rect key="frame" x="20" y="6.5" width="728" height="31"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Автоматична зміна області" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOA-h9-n5T">
+                                                            <rect key="frame" x="0.0" y="3.5" width="671" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEl-eb-93X">
+                                                            <rect key="frame" x="679" y="0.0" width="51" height="31"/>
+                                                            <color key="tintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="onTintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </switch>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="U02-mc-pvB" firstAttribute="centerY" secondItem="NkV-z2-q5J" secondAttribute="centerY" id="Dfp-Fe-hBo"/>
+                                                <constraint firstItem="U02-mc-pvB" firstAttribute="leading" secondItem="NkV-z2-q5J" secondAttribute="leading" constant="20" symbolic="YES" id="br8-yv-ghc"/>
+                                                <constraint firstAttribute="trailing" secondItem="U02-mc-pvB" secondAttribute="trailing" constant="20" symbolic="YES" id="ep4-fw-GuF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
                                 </cells>
                                 <attributedString key="userComments">
                                     <fragment content="Main settings section"/>
@@ -644,7 +676,7 @@
                             <tableViewSection headerTitle="Назви областей" footerTitle="Наприклад: Івано-Франківська" id="jAi-4Z-lJt">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="74L-Yk-irJ" detailTextLabel="3qf-ha-wbJ" style="IBUITableViewCellStyleValue1" id="q9X-BY-sWF">
-                                        <rect key="frame" x="0.0" y="251" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="295" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q9X-BY-sWF" id="KUd-hJ-eF5">
                                             <rect key="frame" x="0.0" y="0.0" width="730" height="43.5"/>
@@ -671,7 +703,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="v6G-rx-Bpf" detailTextLabel="kLO-P7-YhB" style="IBUITableViewCellStyleValue1" id="0pm-2S-0Je">
-                                        <rect key="frame" x="0.0" y="295" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="339" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0pm-2S-0Je" id="AVT-QP-KIO">
                                             <rect key="frame" x="0.0" y="0.0" width="730" height="43.5"/>
@@ -716,6 +748,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="automaticNextRegionCell" destination="jqG-sm-Q1y" id="29Y-bh-s8X"/>
+                        <outlet property="automaticNextRegionSwitch" destination="dEl-eb-93X" id="A2M-9O-nT6"/>
                         <outlet property="formatDescriptionLabel" destination="kLO-P7-YhB" id="W3m-04-mfK"/>
                         <outlet property="languageNameLagel" destination="3qf-ha-wbJ" id="xPn-3k-3aq"/>
                         <outlet property="modeCell" destination="kbp-rl-ucq" id="jVc-Ek-zA5"/>

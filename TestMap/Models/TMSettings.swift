@@ -21,6 +21,7 @@ struct TMSettings {
     var regionNamesUppercased: Bool
     var showsTime: Bool
     var showsButtons: Bool
+    var changesRegionAutomatically: Bool
     var regionNameLanguageIdentifier: String
     
 }

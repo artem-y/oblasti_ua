@@ -17,6 +17,11 @@ class TMSettingsTableViewController: UITableViewController {
     @IBOutlet weak var showButtonsCell: UITableViewCell!
     @IBOutlet weak var showButtonsSwitch: UISwitch!
     @IBOutlet weak var modeNameLabel: UILabel!
+    
+    @IBOutlet weak var automaticNextRegionCell: UITableViewCell!
+    @IBOutlet weak var automaticNextRegionSwitch: UISwitch!
+    
+    
     @IBOutlet weak var languageNameLagel: UILabel!
     @IBOutlet weak var formatDescriptionLabel: UILabel!
     
@@ -56,6 +61,8 @@ class TMSettingsTableViewController: UITableViewController {
             settings.showsTime = !settings.showsTime
         case showButtonsCell:
             settings.showsButtons = !settings.showsButtons
+        case automaticNextRegionCell:
+            settings.changesRegionAutomatically = !settings.changesRegionAutomatically
         default:
             break
         }
@@ -77,12 +84,16 @@ class TMSettingsTableViewController: UITableViewController {
         let isPointerMode = currentGameMode == .pointer
         let isShowingTime = isPointerMode ? false : settings.showsTime
         let isShowingButtons = isPointerMode ? false : settings.showsButtons
+        let isChangingNextRegionAutomatically = isPointerMode ? false : settings.changesRegionAutomatically
         
         showTimeCell.animateSet(enabled: !isPointerMode)
         showTimeSwitch.setOn(isShowingTime, animated: true)
         
         showButtonsCell.animateSet(enabled: !isPointerMode)
         showButtonsSwitch.setOn(isShowingButtons, animated: true)
+        
+        automaticNextRegionCell.animateSet(enabled: !isPointerMode)
+        automaticNextRegionSwitch.setOn(isChangingNextRegionAutomatically, animated: true)
 
         modeNameLabel.text = currentGameMode.rawValue.localized()
         languageNameLagel.text = Locale.current.localizedString(forLanguageCode: settings.regionNameLanguageIdentifier) ?? settings.regionNameLanguageIdentifier.localized()

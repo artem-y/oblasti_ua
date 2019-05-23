@@ -193,7 +193,6 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     @objc private func didTouch(_ sender: UITapGestureRecognizer){
         if sender.state == .ended {
             if isShowingSelectionResult {
-                isShowingSelectionResult = false
                 cancelSelection()
             } else {
                 let location = gameView.convert(sender.location(in: gameView), to: mapView)
@@ -270,24 +269,26 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
                 if completed {
                     self.bottomRightConfirmationView.isHidden = true
                     self.bottomRightConfirmationView.frame = oldFrame
-                    // This prevents reenabling tap gestures after the game is finished
-                    self.singleTapRecognizer.isEnabled = self.isRunningGame
+                    // This prevents reenabling tap gestures:
+                    //  - if region auto-change is enabled and selection result (right/wrong) is still on the screen
+                    //  - after the game is finished
+                    self.singleTapRecognizer.isEnabled = (self.settings.changesRegionAutomatically && self.isShowingSelectionResult) ? false : self.isRunningGame
                 }
             }
+        } else {
+            singleTapRecognizer.isEnabled = isRunningGame
         }
     }
     
     private func confirmSelection() {
-        isShowingSelectionResult = true
-        
         if let layerName = mapView.selectedLayer?.name {
             gameController.checkSelection(named: layerName)
         }
         hideControls()
     }
     
-    private func cancelSelection() {
-//        singleTapRecognizer.isEnabled = false
+    @objc private func cancelSelection() {
+        singleTapRecognizer.isEnabled = false
         if showsButtons {
             let oldFrame = self.bottomLeftChoiceView.frame
             
@@ -302,7 +303,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
                 if completed {
                     self.bottomLeftChoiceView.isHidden = true
                     self.bottomLeftChoiceView.frame = oldFrame
-                    //                self.singleTapRecognizer.isEnabled = true
+                    //                self.isRecognizerEnabled = true
                 }
             }
         }
@@ -314,9 +315,14 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         mapView.selectedLayer = nil
         hideControls()
         regionLabel.textColor = .neutralTextColor
+        
+        isShowingSelectionResult = false
     }
     
     private func showChoiceResult(isCorrect: Bool) {
+        isShowingSelectionResult = true
+//        self.isRecognizerEnabled = false
+        
         // Colors based on right/wrong choice (basically, green and red)
         let selectionColor: UIColor = isCorrect ? .correctSelectionColor : .wrongSelectionColor
         regionLabel.textColor = selectionColor
@@ -328,7 +334,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
             bottomLeftIndicator.image = UIImage(named: imageName)
             
             // Animation: Message view slides out into the screen from the left
-            //        singleTapRecognizer.isEnabled = false
+            singleTapRecognizer.isEnabled = false
             let oldFrame = bottomLeftChoiceView.frame
             bottomLeftChoiceView.frame.origin = CGPoint(x: oldFrame.origin.x - oldFrame.width, y: oldFrame.origin.y)
             bottomLeftChoiceView.isHidden = false
@@ -336,20 +342,27 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
                 [unowned self] in
                 self.bottomLeftChoiceView.frame = oldFrame
             })
-            //        { [unowned self]
-            //            (completed) in
-            //            if completed {
-            //                // This prevents reenabling tap gestures after the game is finished
-            //                self.singleTapRecognizer.isEnabled = self.isRunningGame
-            //            }
-            //        }
+                    { [unowned self]
+                        (completed) in
+                        if completed {
+                            // This prevents reenabling tap gestures after the game is finished
+//                            self.isRecognizerEnabled = self.isRunningGame
+                            if self.settings.changesRegionAutomatically {
+                                self.singleTapRecognizer.isEnabled = false
+                                self.perform(#selector(self.cancelSelection), with: nil, afterDelay: self.animationDuration * 1.5)
+                            }
+                        }
+                    }
+        } else {
+            if settings.changesRegionAutomatically {
+                self.singleTapRecognizer.isEnabled = false
+                perform(#selector(cancelSelection), with: nil, afterDelay: animationDuration * 1.5)
+            }
         }
-        
     }
     
     /// If game controller has current region, sets region label text to its translated and formatted name
     private func reloadCurrentRegionName() {
-        
         if let currentRegion = gameController.currentRegion {
             let regionName = currentRegion.key.rawValue.localized(in: settings.regionNameLanguageIdentifier, fromTable: TMResources.LocalizationTable.regionNames)
             regionLabel.text = settings.regionNamesUppercased ? regionName.uppercased() : regionName.capitalized.replacingOccurrences(of: "Ар ", with: "АР ") // In case of adding more regions, this hardcoded solution must be replaced
