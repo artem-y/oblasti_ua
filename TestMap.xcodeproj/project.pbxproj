@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B01BA8D9229810270035ED9D /* TMCustomRegionNamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8D8229810270035ED9D /* TMCustomRegionNamesTableViewController.swift */; };
+		B01BA8DB2298230D0035ED9D /* TMCustomRegionNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8DA2298230D0035ED9D /* TMCustomRegionNameCell.swift */; };
 		B02EFFFB227B445900825656 /* TMMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02EFFFA227B445900825656 /* TMMenuViewController.swift */; };
 		B040E8A0228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */; };
 		B040E8A2228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B01BA8D8229810270035ED9D /* TMCustomRegionNamesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMCustomRegionNamesTableViewController.swift; sourceTree = "<group>"; };
+		B01BA8DA2298230D0035ED9D /* TMCustomRegionNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMCustomRegionNameCell.swift; sourceTree = "<group>"; };
 		B02EFFFA227B445900825656 /* TMMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMenuViewController.swift; sourceTree = "<group>"; };
 		B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+set(enabled.swift"; sourceTree = "<group>"; };
 		B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+set(hidden animationDuration.swift"; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			children = (
 				B0904FA8226F8656007842CA /* TMMapView.swift */,
 				B043EB06227C312A00F87F1F /* TMRoundCornerButton.swift */,
+				B01BA8DA2298230D0035ED9D /* TMCustomRegionNameCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 				B043EB04227C2A9F00F87F1F /* TMInfoViewController.swift */,
 				B0E164B7228C4BD700615DC5 /* TMHighscoreViewController.swift */,
 				B09A154E2284E7E3005BD56F /* TMFormatSettingTableViewController.swift */,
+				B01BA8D8229810270035ED9D /* TMCustomRegionNamesTableViewController.swift */,
 				B04DE47F22858F8D00939C4E /* TMModeSettingTableViewController.swift */,
 				B0C7D80E2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift */,
 				B0904F94226F858E007842CA /* TMGameSceneViewController.swift */,
@@ -302,6 +308,7 @@
 				B07099AA2292B743005D0C3E /* TMGameTimeFormatter.swift in Sources */,
 				B0CC90FB2273B3D50075931E /* UIBezierPath+initFromString.swift in Sources */,
 				B0904FA9226F8656007842CA /* TMMapView.swift in Sources */,
+				B01BA8D9229810270035ED9D /* TMCustomRegionNamesTableViewController.swift in Sources */,
 				B0E164B8228C4BD700615DC5 /* TMHighscoreViewController.swift in Sources */,
 				B0904F93226F858E007842CA /* AppDelegate.swift in Sources */,
 				B09CF0CB22832ABA00BC7FED /* TMSettings.swift in Sources */,
@@ -311,6 +318,7 @@
 				B02EFFFB227B445900825656 /* TMMenuViewController.swift in Sources */,
 				B07C5F6D2280435D009059A7 /* TMGame.swift in Sources */,
 				B0C49DEB227A2B2400561892 /* GameColorExtensions.swift in Sources */,
+				B01BA8DB2298230D0035ED9D /* TMCustomRegionNameCell.swift in Sources */,
 				B09CF0CD2283391E00BC7FED /* String+localized(in language.swift in Sources */,
 				B05E15C422746CDF007C85AF /* TMRegion.swift in Sources */,
 				B05E15C222746C9C007C85AF /* TMGameController.swift in Sources */,

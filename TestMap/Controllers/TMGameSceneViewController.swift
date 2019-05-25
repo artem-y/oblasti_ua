@@ -30,7 +30,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     private var settings: TMSettings {
         return TMSettingsController.shared.settings
     }
-    
+    private var customRegionNames: [String: String] = [:]
     private var gameController = TMGameController(game: TMGame(mode: TMSettingsController.shared.settings.gameMode, regions: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths), regionsLeft: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths)))
     
     private var gameMode: TMGame.Mode { return gameController.gameResult.mode }
@@ -127,13 +127,19 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         if gameMode == .pointer {
             gameController.currentRegion = nil
         }
-        reloadCurrentRegionName()
         
         regionLabel.textColor = .neutralTextColor
         
         // Adding gesture recognizers
         configureGestureRecognizers()
         view.addGestureRecognizer(singleTapRecognizer)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        reloadCustomNames()
+        reloadCurrentRegionName()
     }
     
     // MARK: - UI initialization methods
@@ -364,10 +370,30 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     /// If game controller has current region, sets region label text to its translated and formatted name
     private func reloadCurrentRegionName() {
         if let currentRegion = gameController.currentRegion {
-            let regionName = currentRegion.key.rawValue.localized(in: settings.regionNameLanguageIdentifier, fromTable: TMResources.LocalizationTable.regionNames)
-            regionLabel.text = settings.regionNamesUppercased ? regionName.uppercased() : regionName.capitalized.replacingOccurrences(of: "Ар ", with: "АР ") // In case of adding more regions, this hardcoded solution must be replaced
+            let languageIdentifier = settings.regionNameLanguageIdentifier
+            var regionName = ""
+            
+            if languageIdentifier == TMResources.LanguageCode.custom {
+                if let customRegionName = customRegionNames[currentRegion.key.rawValue], customRegionName.isEmpty == false {
+                    regionName = customRegionName
+                } else {
+                    regionName = currentRegion.key.rawValue.localized(in: "en", fromTable: TMResources.LocalizationTable.regionNames)
+                }
+            } else {
+                regionName = currentRegion.key.rawValue.localized(in: languageIdentifier, fromTable: TMResources.LocalizationTable.regionNames)
+            }
+            
+            regionLabel.text = settings.regionNamesUppercased ? regionName.uppercased() : regionName
         } else {
             regionLabel.text = ""
+        }
+    }
+    
+    /// Tries to fetch custom (user-defined) region names from UserDefaults.
+    private func reloadCustomNames() {
+        let jsonDecoder = JSONDecoder()
+        if let jsonData = UserDefaults.standard.value(forKey: TMResources.UserDefaultsKey.customRegionNames) as? Data, let regionNames = try? jsonDecoder.decode([String: String].self, from: jsonData) {
+            customRegionNames = regionNames
         }
     }
     

@@ -336,7 +336,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URi-mn-CDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bYm-Sy-a5A" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="66.549295774647888" y="-1166.25"/>
+            <point key="canvasLocation" x="210" y="-1066"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="Ey9-zW-Pfv">
@@ -763,20 +763,20 @@
             <objects>
                 <tableViewController title="Режим: класичний" id="B36-X3-Qfo" customClass="TMModeSettingTableViewController" customModule="TestMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ImX-Us-luz">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="748"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="hbp-eA-mr6" userLabel="footerView">
-                            <rect key="frame" x="0.0" y="72" width="768" height="44"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="hbp-eA-mr6" userLabel="footerView">
+                            <rect key="frame" x="0.0" y="72" width="1024" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="gameModeCell" textLabel="z7K-bX-fQJ" detailTextLabel="tEF-5K-mDz" style="IBUITableViewCellStyleSubtitle" id="mIx-WX-3fS">
-                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="1024" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mIx-WX-3fS" id="vXV-Xp-DkF">
-                                    <rect key="frame" x="0.0" y="0.0" width="724" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="980" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Назва режиму" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z7K-bX-fQJ">
@@ -865,10 +865,76 @@
                             <outlet property="delegate" destination="zhA-Xz-SdZ" id="SNV-IP-gKS"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Мови назв областей" id="gDB-cZ-Tfw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="cHF-rg-Xuq">
+                            <connections>
+                                <segue destination="z3K-Dw-5fj" kind="show" id="egR-T2-rMn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editBarButtonItem" destination="cHF-rg-Xuq" id="t2v-C2-mRe"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IEO-hb-cR5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="98" y="1748"/>
+            <point key="canvasLocation" x="700" y="2306"/>
+        </scene>
+        <!--Свій варіант назв-->
+        <scene sceneID="9Ah-a6-dSK">
+            <objects>
+                <tableViewController title="Свій варіант назв" id="z3K-Dw-5fj" customClass="TMCustomRegionNamesTableViewController" customModule="TestMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="C4k-Ox-Ct4">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="748"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customRegionNameCell" id="fhD-Ex-qop" customClass="TMCustomRegionNameCell" customModule="TestMap" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fhD-Ex-qop" id="jfG-7i-RP2">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5nI-ND-Uyy">
+                                            <rect key="frame" x="20" y="11.5" width="728" height="21"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Івано-Франківська" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRd-AT-Glx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="360" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ivano-Frankivska" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZDR-c8-G93">
+                                                    <rect key="frame" x="368" y="0.0" width="360" height="21"/>
+                                                    <color key="textColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="address-level1"/>
+                                                </textField>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5nI-ND-Uyy" firstAttribute="leading" secondItem="jfG-7i-RP2" secondAttribute="leading" constant="20" symbolic="YES" id="4yq-Xm-CG6"/>
+                                        <constraint firstItem="5nI-ND-Uyy" firstAttribute="centerY" secondItem="jfG-7i-RP2" secondAttribute="centerY" id="QmT-eX-BFS"/>
+                                        <constraint firstAttribute="trailing" secondItem="5nI-ND-Uyy" secondAttribute="trailing" constant="20" symbolic="YES" id="XHo-qC-uYu"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="customNameTextField" destination="ZDR-c8-G93" id="THo-du-CGd"/>
+                                    <outlet property="regionNameLabel" destination="oRd-AT-Glx" id="oil-9o-qzL"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="z3K-Dw-5fj" id="Vwo-UK-bTd"/>
+                            <outlet property="delegate" destination="z3K-Dw-5fj" id="z7i-gD-A2S"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zjF-nh-PqA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1459" y="2301"/>
         </scene>
         <!--Формат назв областей-->
         <scene sceneID="iht-YA-CzN">
@@ -1544,6 +1610,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="AIk-29-LaM"/>
-        <segue reference="IMN-RV-1jG"/>
+        <segue reference="Pp2-nk-7RN"/>
     </inferredMetricsTieBreakers>
 </document>

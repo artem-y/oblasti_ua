@@ -10,9 +10,14 @@ import UIKit
 
 class TMLanguageSettingTalbeViewController: UITableViewController {
     
-    var languages: [String] { return TMSettingsController.shared.availableLanguages }
+    // MARK: - @IBOutlets
+    @IBOutlet var editBarButtonItem: UIBarButtonItem!
     
-    var regionNameLanguage: String {
+    // MARK: - Languages
+    private let languages: [String] = TMSettingsController.shared.availableLanguages
+    private var customRegionNames: [String] = []
+
+    private var regionNameLanguage: String {
         get {
             return TMSettingsController.shared.settings.regionNameLanguageIdentifier
         }
@@ -22,7 +27,23 @@ class TMLanguageSettingTalbeViewController: UITableViewController {
         }
     }
     
+    // MARK: - Loading
+    private func loadCustomRegionNames() {
+        let jsonDecoder = JSONDecoder()
+        if let jsonData = UserDefaults.standard.data(forKey: TMResources.UserDefaultsKey.customRegionNames), let regionNamesDict = try? jsonDecoder.decode([String: String].self, from: jsonData) {
+            customRegionNames = regionNamesDict.values.filter { !$0.isEmpty }
+        }
+    }
+    
     // MARK: - UITableViewController methods
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadCustomRegionNames()
+        tableView.reloadData()
+        
+        navigationItem.rightBarButtonItem = (regionNameLanguage == TMResources.LanguageCode.custom) ? editBarButtonItem : nil
+    }
+    
     deinit {
         print(self, "deinit!")
     }
@@ -38,7 +59,17 @@ class TMLanguageSettingTalbeViewController: UITableViewController {
         let languageNativeLocale = Locale(identifier: languageCode)
         let languageCell = tableView.dequeueReusableCell(withIdentifier: TMResources.CellIdentifier.languageCell, for: indexPath)
         languageCell.textLabel?.text = languageNativeLocale.localizedString(forLanguageCode: languageCode)?.capitalized ?? languageCode.localized()
-        languageCell.detailTextLabel?.text = Locale.current.localizedString(forLanguageCode: languageCode)?.capitalized
+        
+        var detailText: String?
+        if languageCode == TMResources.LanguageCode.custom {
+            detailText = customRegionNames.reduce(into: String(), {
+                if !$0.isEmpty { $0 += ", " }
+                $0 += $1
+            })
+        } else {
+            detailText = Locale.current.localizedString(forLanguageCode: languageCode)?.capitalized
+        }
+        languageCell.detailTextLabel?.text = detailText
         
         let isSelectedCell = languageCode == regionNameLanguage
         languageCell.accessoryType = isSelectedCell ? .checkmark : .none
@@ -47,7 +78,9 @@ class TMLanguageSettingTalbeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        regionNameLanguage = languages[indexPath.row]
+        let language = languages[indexPath.row]
+        regionNameLanguage = language
+        navigationItem.rightBarButtonItem = (language == TMResources.LanguageCode.custom) ? editBarButtonItem : nil
     }
     
 }

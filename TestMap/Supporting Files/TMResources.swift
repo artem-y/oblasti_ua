@@ -41,6 +41,7 @@ struct TMResources {
     struct CellIdentifier {
         static let gameModeCell = "gameModeCell"
         static let languageCell = "languageCell"
+        static let customRegionNameCell = "customRegionNameCell"
     }
     
     struct LanguageCode {
@@ -55,6 +56,7 @@ struct TMResources {
         static let classicHighscore = "classicHighscore"
         static let norepeatHighscore = "norepeatHighscore"
         static let lastUnfinishedGame = "lastUnfinishedGame"
+        static let customRegionNames = "customRegionNames"
     }
     
     func loadRegions(withKeys regionKeys: [TMRegion.Key]? = nil, fromFileNamed fileName: String) -> [TMRegion] {
