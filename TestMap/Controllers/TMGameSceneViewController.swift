@@ -42,7 +42,11 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     private let animationDuration: Double = 0.2
     private var isRunningGame = true {
         didSet {
-            if isRunningGame { gameController.startTimer() } else { gameController.stopTimer() }
+            if isRunningGame {
+                gameController.startTimer()
+                reloadCustomNames()
+                reloadCurrentRegionName()
+            } else { gameController.stopTimer() }
             let imageName = isRunningGame ? TMResources.ImageName.pause : TMResources.ImageName.play
             pauseButton.setImage(UIImage(named: imageName), for: .normal)
             gameCoverView.animateSet(hidden: isRunningGame, withDuration: animationDuration)
@@ -316,6 +320,8 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         
         if gameMode == .pointer {
             gameController.currentRegion = nil
+        } else {
+            gameController.nextQuestion()
         }
         reloadCurrentRegionName()
         mapView.selectedLayer = nil

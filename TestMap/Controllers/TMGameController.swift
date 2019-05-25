@@ -61,8 +61,15 @@ class TMGameController {
     }
     
     func nextQuestion() {
-        let randomIndex = Int(arc4random_uniform(UInt32(game.regionsLeft.count)))
-        currentRegion = game.regionsLeft[randomIndex]
+        
+        if game.regionsLeft.count > 0 {
+            let randomIndex = Int(arc4random_uniform(UInt32(game.regionsLeft.count)))
+            currentRegion = game.regionsLeft[randomIndex]
+        } else {
+            stopTimer()
+            delegate?.reactToEndOfGame()
+        }
+        
     }
     
     func checkSelection(named name: String) {
@@ -75,13 +82,6 @@ class TMGameController {
                 removeCurrentRegion()
             }
             delegate?.reactToWrongChoice()
-        }
-        
-        if game.regionsLeft.count > 0 {
-            nextQuestion()
-        } else {
-            stopTimer()
-            delegate?.reactToEndOfGame()
         }
         
     }
