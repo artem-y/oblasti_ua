@@ -1,0 +1,19 @@
+/*
+ Root.strings
+ TestMap
+ 
+ Created by Artem Yelizarov on 5/26/19.
+ Copyright © 2019 Artem Yelizarov. All rights reserved.
+ */
+
+"Show time" = "Показывать время";
+"Show buttons" = "Показывать кнопки";
+"Automatic region change" = "Автоматическая смена области";
+"Region Names" = "Названия областей";
+"Language" = "Язык";
+"Ukrainian" = "Украинский";
+"English" = "Английский";
+"Russian" = "Русский";
+"Chinese (simplified)" = "Китайский (упрощенный)";
+"Custom region names" = "Свой вариант названий";
+"All caps" = "Все буквы большие";

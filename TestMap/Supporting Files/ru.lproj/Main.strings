@@ -1,4 +1,7 @@
 
+/* Class = "UILabel"; text = "Помилок: 0"; ObjectID = "27w-tp-ers"; */
+"27w-tp-ers.text" = "Ошибок: 0";
+
 /* Class = "UINavigationItem"; title = "Режим: класичний"; ObjectID = "2KZ-P8-B8E"; */
 "2KZ-P8-B8E.title" = "Режим: классический";
 
@@ -14,32 +17,44 @@
 /* Class = "UINavigationItem"; title = "Налаштування"; ObjectID = "4Zb-ZX-Yce"; */
 "4Zb-ZX-Yce.title" = "Настройки";
 
+/* Class = "UILabel"; text = "Час: 00:00:000"; ObjectID = "5go-ty-aM5"; */
+"5go-ty-aM5.text" = "Время: 00:00:000";
+
+/* Class = "UILabel"; text = "Класичний"; ObjectID = "6QQ-Fx-Nuc"; */
+"6QQ-Fx-Nuc.text" = "Классический";
+
 /* Class = "UILabel"; text = "Мова"; ObjectID = "74L-Yk-irJ"; */
 "74L-Yk-irJ.text" = "Язык";
 
 /* Class = "UIButton"; normalTitle = "Попередження"; ObjectID = "7fh-uD-60M"; */
 "7fh-uD-60M.normalTitle" = "Предупреждение";
 
+/* Class = "UILabel"; text = "Помилок: 0"; ObjectID = "ACb-Mh-g9s"; */
+"ACb-Mh-g9s.text" = "Ошибок: 0";
+
+/* Class = "UILabel"; text = "Помилок: 0"; ObjectID = "AaG-wr-vqE"; */
+"AaG-wr-vqE.text" = "Ошибок: 0";
+
 /* Class = "UITableViewController"; title = "Режим: класичний"; ObjectID = "B36-X3-Qfo"; */
 "B36-X3-Qfo.title" = "Режим: классический";
-
-/* Class = "UILabel"; text = "Всі літери великі"; ObjectID = "B9q-ds-qrm"; */
-"B9q-ds-qrm.text" = "Все буквы большие";
 
 /* Class = "UILabel"; text = "Гру не буде збережено"; ObjectID = "Bwf-pB-QJH"; */
 "Bwf-pB-QJH.text" = "Игра не будет сохранена";
 
-/* Class = "UITableViewController"; title = "Формат назв областей"; ObjectID = "EHn-QS-aL1"; */
-"EHn-QS-aL1.title" = "Формат названий областей";
+/* Class = "UILabel"; text = "Час: 00:00:000"; ObjectID = "Gt5-pm-pW4"; */
+"Gt5-pm-pW4.text" = "Время: 00:00:000";
 
-/* Class = "UILabel"; text = "З великої літери"; ObjectID = "Gkh-I6-Fx2"; */
-"Gkh-I6-Fx2.text" = "С большой буквы";
+/* Class = "UILabel"; text = "Час: 00:00:000"; ObjectID = "HeD-mm-Cpu"; */
+"HeD-mm-Cpu.text" = "Время: 00:00:000";
+
+/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "IaH-9J-Nh9"; */
+"IaH-9J-Nh9.normalTitle" = "ОК";
 
 /* Class = "UIButton"; normalTitle = "ТАК"; ObjectID = "LM7-6e-2pV"; */
 "LM7-6e-2pV.normalTitle" = "ДА";
 
-/* Class = "UILabel"; text = "Івано-Франківська"; ObjectID = "MVF-AB-Fhz"; */
-"MVF-AB-Fhz.text" = "Ивано-Франковская";
+/* Class = "UIButton"; normalTitle = "ВИЙТИ І ЗБЕРЕГТИ"; ObjectID = "LnW-0o-Q3m"; */
+"LnW-0o-Q3m.normalTitle" = "ВЫЙТИ И СОХРАНИТЬ";
 
 /* Class = "UIButton"; normalTitle = "Інструкція"; ObjectID = "Mxk-mn-rm2"; */
 "Mxk-mn-rm2.normalTitle" = "Инструкция";
@@ -47,8 +62,14 @@
 /* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "MzO-eR-PD2"; */
 "MzO-eR-PD2.title" = "Закрыть";
 
-/* Class = "UITableViewSection"; headerTitle = "Наприклад:"; ObjectID = "U1x-dl-SD3"; */
-"U1x-dl-SD3.headerTitle" = "Например:";
+/* Class = "UILabel"; text = "Всі літери великі"; ObjectID = "QVj-ph-XzT"; */
+"QVj-ph-XzT.text" = "Все буквы большие";
+
+/* Class = "UILabel"; text = "Режим: класичний"; ObjectID = "Rh6-BA-aLv"; */
+"Rh6-BA-aLv.text" = "Режим: классический";
+
+/* Class = "UIButton"; normalTitle = "ДОБРЕ"; ObjectID = "TxI-Fw-tkC"; */
+"TxI-Fw-tkC.normalTitle" = "ХОРОШО";
 
 /* Class = "UITableViewSection"; headerTitle = "Загальні"; ObjectID = "Udg-Wb-oD8"; Note = "Main settings section"; */
 "Udg-Wb-oD8.headerTitle" = "Общие";
@@ -56,11 +77,20 @@
 /* Class = "UILabel"; text = "Показувати час"; ObjectID = "W57-oX-WyM"; */
 "W57-oX-WyM.text" = "Показывать время";
 
-/* Class = "UITableViewSection"; headerTitle = "Регістр"; ObjectID = "dOq-w0-rF7"; */
-"dOq-w0-rF7.headerTitle" = "Регистр";
+/* Class = "UITextField"; placeholder = "Ivano-Frankivska"; ObjectID = "ZDR-c8-G93"; */
+"ZDR-c8-G93.placeholder" = "Ивано-Франковская";
+
+/* Class = "UIButton"; normalTitle = "НАЛАШТУВАННЯ"; ObjectID = "Zz0-V4-API"; */
+"Zz0-V4-API.normalTitle" = "НАСТРОЙКИ";
+
+/* Class = "UIButton"; normalTitle = "ПРОДОВЖИТИ"; ObjectID = "aNY-Rc-yXA"; */
+"aNY-Rc-yXA.normalTitle" = "ПРОДОЛЖИТЬ";
 
 /* Class = "UILabel"; text = "Режим"; ObjectID = "f1I-1W-our"; */
 "f1I-1W-our.text" = "Режим";
+
+/* Class = "UINavigationItem"; title = "Мови назв областей"; ObjectID = "gDB-cZ-Tfw"; */
+"gDB-cZ-Tfw.title" = "Язык названий областей";
 
 /* Class = "UILabel"; text = "Класичний"; ObjectID = "hV1-VB-09M"; */
 "hV1-VB-09M.text" = "Классический";
@@ -74,17 +104,23 @@
 /* Class = "UITableViewSection"; headerTitle = "Назви областей"; ObjectID = "jAi-4Z-lJt"; Note = "Region names section"; */
 "jAi-4Z-lJt.headerTitle" = "Названия областей";
 
-/* Class = "UIButton"; normalTitle = "МЕНЮ"; ObjectID = "jg3-73-wGR"; */
-"jg3-73-wGR.normalTitle" = "МЕНЮ";
+/* Class = "UIButton"; normalTitle = "ВИЙТИ НЕ ЗБЕРІГАЮЧИ"; ObjectID = "jg3-73-wGR"; */
+"jg3-73-wGR.normalTitle" = "ВЫЙТИ НЕ СОХРАНЯЯ";
 
 /* Class = "UILabel"; text = "Language Target Name"; ObjectID = "jiu-Xs-idg"; */
-"jiu-Xs-idg.text" = "Language Target Name";
+"jiu-Xs-idg.text" = "Название языка";
 
-/* Class = "UILabel"; text = "Всі літери великі"; ObjectID = "kLO-P7-YhB"; */
-"kLO-P7-YhB.text" = "Все буквы большие";
+/* Class = "UILabel"; text = "Автоматична зміна області"; ObjectID = "oOA-h9-n5T"; */
+"oOA-h9-n5T.text" = "Автоматическая смена области";
+
+/* Class = "UILabel"; text = "Івано-Франківська"; ObjectID = "oRd-AT-Glx"; */
+"oRd-AT-Glx.text" = "Ивано-Франковская";
 
 /* Class = "UIButton"; normalTitle = "OK"; ObjectID = "psy-vb-mWa"; */
 "psy-vb-mWa.normalTitle" = "ОК";
+
+/* Class = "UILabel"; text = "Без повторів"; ObjectID = "pxB-4O-cIO"; */
+"pxB-4O-cIO.text" = "Без повторов";
 
 /* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "qei-1A-vxR"; Note = "Bar button item"; */
 "qei-1A-vxR.title" = "Закрыть";
@@ -101,9 +137,6 @@
 /* Class = "UIButton"; normalTitle = "Рекорд"; ObjectID = "tZ5-78-1wO"; */
 "tZ5-78-1wO.normalTitle" = "Рекорд";
 
-/* Class = "UILabel"; text = "Формат"; ObjectID = "v6G-rx-Bpf"; */
-"v6G-rx-Bpf.text" = "Формат";
-
 /* Class = "UIButton"; normalTitle = "ПРОДОВЖИТИ"; ObjectID = "vXC-ZA-MHC"; */
 "vXC-ZA-MHC.normalTitle" = "ПРОДОЛЖИТЬ";
 
@@ -113,14 +146,17 @@
 /* Class = "UILabel"; text = "Гра з кнопками"; ObjectID = "yGN-td-sPn"; */
 "yGN-td-sPn.text" = "Игра с кнопками";
 
-/* Class = "UIButton"; normalTitle = "ПОЧАТИ"; ObjectID = "yyv-Uh-ZBL"; */
-"yyv-Uh-ZBL.normalTitle" = "НАЧАТЬ";
+/* Class = "UIButton"; normalTitle = "НОВА ГРА"; ObjectID = "yyv-Uh-ZBL"; */
+"yyv-Uh-ZBL.normalTitle" = "НОВАЯ ИГРА";
+
+/* Class = "UITableViewController"; title = "Свій варіант назв"; ObjectID = "z3K-Dw-5fj"; */
+"z3K-Dw-5fj.title" = "Свой вариант названий";
 
 /* Class = "UILabel"; text = "Назва режиму"; ObjectID = "z7K-bX-fQJ"; */
 "z7K-bX-fQJ.text" = "Название режима";
 
 /* Class = "UILabel"; text = "Localized Language Name"; ObjectID = "zM2-Ye-N1e"; */
-"zM2-Ye-N1e.text" = "Localized Language Name";
+"zM2-Ye-N1e.text" = "Переведенное название языка";
 
 /* Class = "UIButton"; normalTitle = "Налаштування"; ObjectID = "zZd-9v-sXi"; */
 "zZd-9v-sXi.normalTitle" = "Настройки";
