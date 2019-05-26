@@ -15,6 +15,7 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     @IBOutlet weak var regionLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var gameCoverView: UIView!
+    @IBOutlet weak var saveAndExitButton: TMRoundCornerButton!
     @IBOutlet weak var exitToMenuButton: TMRoundCornerButton!
     @IBOutlet weak var continueButton: TMRoundCornerButton!
     @IBOutlet weak var pauseButton: UIButton!
@@ -76,9 +77,12 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     }
     
     @IBAction func exitToMenuButtonTapped(_ sender: TMRoundCornerButton) {
-        
-        topRightInfoView.alpha = 0.2
-        performSegue(withIdentifier: TMResources.SegueIdentifier.exitConfirmationSegue, sender: self)
+        if gameMode == .pointer {
+            dismiss(animated: true, completion: nil)
+        } else {
+            topRightInfoView.alpha = 0.2
+            performSegue(withIdentifier: TMResources.SegueIdentifier.exitConfirmationSegue, sender: self)
+        }
     }
     
     @IBAction func unwindToGameSceneViewController(_ segue: UIStoryboardSegue) {
@@ -132,6 +136,7 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
         
         if gameMode == .pointer {
             gameController.currentRegion = nil
+            saveAndExitButton.isHidden = true
         }
         
         regionLabel.textColor = .neutralTextColor

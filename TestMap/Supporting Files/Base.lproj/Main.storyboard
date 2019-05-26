@@ -773,7 +773,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="hbp-eA-mr6" userLabel="footerView">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="hbp-eA-mr6" userLabel="footerView">
                             <rect key="frame" x="0.0" y="72" width="768" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </view>
@@ -1263,6 +1263,7 @@
                         <outlet property="gameView" destination="mA0-Od-fSJ" id="X0G-qd-ilU"/>
                         <outlet property="pauseButton" destination="BL4-Fh-Vtn" id="xR4-G3-tn0"/>
                         <outlet property="regionLabel" destination="yDD-6g-BWL" id="Q0l-WR-T2K"/>
+                        <outlet property="saveAndExitButton" destination="LnW-0o-Q3m" id="aff-wP-xFL"/>
                         <outlet property="timeLabel" destination="3Mx-wt-o0x" id="e0w-96-BoR"/>
                         <outlet property="topRightInfoView" destination="72U-I0-rJV" id="kxT-EK-Vcq"/>
                         <segue destination="5rb-k2-kmi" kind="presentation" identifier="exitConfirmationSegue" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="pJQ-E9-LUq"/>
