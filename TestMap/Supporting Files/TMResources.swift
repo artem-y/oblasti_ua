@@ -57,6 +57,16 @@ struct TMResources {
         static let norepeatHighscore = "norepeatHighscore"
         static let lastUnfinishedGame = "lastUnfinishedGame"
         static let customRegionNames = "customRegionNames"
+        
+        // Settings
+        struct Setting {
+            static let lastGameMode = "lastGameModeSetting" // Should only be changed from within app's inner settings menu
+            static let showsTime = "showsTimeSetting"
+            static let showsButtons = "showsButtonsSetting"
+            static let automaticRegionChange = "automaticRegionChangeSetting"
+            static let regionNameLanguage = "regionNameLanguageSetting"
+            static let regionNamesUppercased = "regionNamesUppercasedSetting"
+        }
     }
     
     func loadRegions(withKeys regionKeys: [TMRegion.Key]? = nil, fromFileNamed fileName: String) -> [TMRegion] {
