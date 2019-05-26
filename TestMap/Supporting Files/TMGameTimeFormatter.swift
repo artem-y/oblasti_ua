@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TMGameTimeFormatter {
+final class TMGameTimeFormatter {
     var timeFormat: String = "mm:ss:SSS"
     
     func string(for timeInterval: TimeInterval) -> String {

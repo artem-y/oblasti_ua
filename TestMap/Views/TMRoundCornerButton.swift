@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class TMRoundCornerButton: UIButton {
+final class TMRoundCornerButton: UIButton {
 
     // Initialization from storyboard
     required init?(coder aDecoder: NSCoder) {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMLanguageSettingTalbeViewController: UITableViewController {
+final class TMLanguageSettingTalbeViewController: UITableViewController, TMDefaultsKeyControllable {
     
     // MARK: - @IBOutlets
     @IBOutlet var editBarButtonItem: UIBarButtonItem!
@@ -30,7 +30,7 @@ class TMLanguageSettingTalbeViewController: UITableViewController {
     // MARK: - Loading
     private func loadCustomRegionNames() {
         let jsonDecoder = JSONDecoder()
-        if let jsonData = UserDefaults.standard.data(forKey: TMResources.UserDefaultsKey.customRegionNames), let regionNamesDict = try? jsonDecoder.decode([String: String].self, from: jsonData) {
+        if let jsonData = standardDefaults.data(forKey: DefaultsKey.customRegionNames), let regionNamesDict = try? jsonDecoder.decode([String: String].self, from: jsonData) {
             customRegionNames = regionNamesDict.values.filter { !$0.isEmpty }
         }
     }

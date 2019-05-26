@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMModeSettingTableViewController: UITableViewController {
+final class TMModeSettingTableViewController: UITableViewController {
     
     // MARK: - @IBActions
     @IBAction func dismiss(_ sender: Any) {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMCustomRegionNamesTableViewController: UITableViewController, UITextFieldDelegate {
+final class TMCustomRegionNamesTableViewController: UITableViewController, TMDefaultsKeyControllable, UITextFieldDelegate {
     
     // MARK: - Data properties
     private var regionNames: [String: String] = [:] {
@@ -38,7 +38,7 @@ class TMCustomRegionNamesTableViewController: UITableViewController, UITextField
     // MARK: - Data methods
     private func loadRegionNames() {
         // First, try to fetch names from UserDefaults
-        if let jsonData = UserDefaults.standard.value(forKey: TMResources.UserDefaultsKey.customRegionNames) as? Data, let savedRegionNames: [String: String] = try? JSONDecoder().decode([String: String].self, from: jsonData) {
+        if let jsonData = standardDefaults.value(forKey: DefaultsKey.customRegionNames) as? Data, let savedRegionNames: [String: String] = try? JSONDecoder().decode([String: String].self, from: jsonData) {
             regionNames = savedRegionNames
             
         // If there are no names in UserDefaults, list all region names with blank translations
@@ -56,7 +56,7 @@ class TMCustomRegionNamesTableViewController: UITableViewController, UITextField
     private func saveRegionNames() {
         let jsonEncoder = JSONEncoder()
         if let jsonData = try? jsonEncoder.encode(regionNames) {
-            UserDefaults.standard.set(jsonData, forKey: TMResources.UserDefaultsKey.customRegionNames)
+            standardDefaults.set(jsonData, forKey: DefaultsKey.customRegionNames)
         }
     }
     

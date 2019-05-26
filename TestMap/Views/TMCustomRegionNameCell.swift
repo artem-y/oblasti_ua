@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMCustomRegionNameCell: UITableViewCell {
+final class TMCustomRegionNameCell: UITableViewCell {
     @IBOutlet weak var regionNameLabel: UILabel!
     @IBOutlet weak var customNameTextField: UITextField!
 }

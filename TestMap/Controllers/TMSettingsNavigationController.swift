@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMSettingsNavigationController: UINavigationController, UIGestureRecognizerDelegate {
+final class TMSettingsNavigationController: UINavigationController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()

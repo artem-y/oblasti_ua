@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMMenuViewController: UIViewController, TMRemovableObserver {
+final class TMMenuViewController: UIViewController, TMDefaultsKeyControllable, TMRemovableObserver {
 
     // MARK: - @IBOutlets
     @IBOutlet weak var modeButton: UIButton!
@@ -24,7 +24,7 @@ class TMMenuViewController: UIViewController, TMRemovableObserver {
     
     @IBAction func startGame(_ sender: TMRoundCornerButton) {
         if sender == startButton {
-            UserDefaults.standard.removeObject(forKey: TMResources.UserDefaultsKey.lastUnfinishedGame)
+            standardDefaults.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
         }
         performSegue(withIdentifier: TMResources.SegueIdentifier.startGameSegue, sender: self)
     }
@@ -50,7 +50,7 @@ class TMMenuViewController: UIViewController, TMRemovableObserver {
         AppDelegate.shared.menuModeObserver = self
         
         var hasHighscore = false
-        if UserDefaults.standard.value(forKey: TMResources.UserDefaultsKey.classicHighscore) != nil || UserDefaults.standard.value(forKey: TMResources.UserDefaultsKey.norepeatHighscore) != nil {
+        if standardDefaults.value(forKey: DefaultsKey.classicHighscore) != nil || standardDefaults.value(forKey: DefaultsKey.norepeatHighscore) != nil {
             
             hasHighscore = true
         }
@@ -60,7 +60,7 @@ class TMMenuViewController: UIViewController, TMRemovableObserver {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        continueButton.isHidden = UserDefaults.standard.value(forKey: TMResources.UserDefaultsKey.lastUnfinishedGame) == nil
+        continueButton.isHidden = standardDefaults.value(forKey: DefaultsKey.lastUnfinishedGame) == nil
     }
     
     deinit {
@@ -85,10 +85,10 @@ class TMMenuViewController: UIViewController, TMRemovableObserver {
                 }
             }
         case TMResources.SegueIdentifier.startGameSegue:
-            let savedGameKey = TMResources.UserDefaultsKey.lastUnfinishedGame
+            let savedGameKey = DefaultsKey.lastUnfinishedGame
             
             if
-                let savedGameData = UserDefaults.standard.value(forKey: savedGameKey) as? Data,
+                let savedGameData = standardDefaults.value(forKey: savedGameKey) as? Data,
                 let savedGame: TMGame = try? JSONDecoder().decode(TMGame.self, from: savedGameData),
                 let destinationVC = segue.destination as? TMGameSceneViewController
             {    

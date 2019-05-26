@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMGameResultViewController: UIViewController {
+final class TMGameResultViewController: UIViewController, TMDefaultsKeyControllable {
     
     // MARK: - Public API
     var gameResult: TMGame?
@@ -29,21 +29,21 @@ class TMGameResultViewController: UIViewController {
             var highscoreKey = ""
             switch gameResult.mode {
             case .classic:
-                highscoreKey = TMResources.UserDefaultsKey.classicHighscore
+                highscoreKey = DefaultsKey.classicHighscore
             case .norepeat:
-                highscoreKey = TMResources.UserDefaultsKey.norepeatHighscore
+                highscoreKey = DefaultsKey.norepeatHighscore
             default:
                 break
             }
             
-            if let highscoreData = UserDefaults.standard.value(forKey: highscoreKey) as? Data, let highscore = try? JSONDecoder().decode(TMGame.self, from: highscoreData) {
+            if let highscoreData = standardDefaults.value(forKey: highscoreKey) as? Data, let highscore = try? JSONDecoder().decode(TMGame.self, from: highscoreData) {
                 
                 if gameResult > highscore {
                     isNewHighscore = true
 
                     let jsonEncoder = JSONEncoder()
                     if let jsonData = try? jsonEncoder.encode(gameResult) {
-                        UserDefaults.standard.set(jsonData, forKey: highscoreKey)
+                        standardDefaults.set(jsonData, forKey: highscoreKey)
                     }
                 }
             } else {
@@ -51,7 +51,7 @@ class TMGameResultViewController: UIViewController {
                 
                 let jsonEncoder = JSONEncoder()
                 if let jsonData = try? jsonEncoder.encode(gameResult) {
-                    UserDefaults.standard.set(jsonData, forKey: highscoreKey)
+                    standardDefaults.set(jsonData, forKey: highscoreKey)
                 }
             }
         }

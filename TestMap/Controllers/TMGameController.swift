@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMGameController {
+final class TMGameController {
     
     private var game: TMGame
     var gameResult: TMGame { return game }

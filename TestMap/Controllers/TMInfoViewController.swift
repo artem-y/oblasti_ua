@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMInfoViewController: UIViewController {
+final class TMInfoViewController: UIViewController {
     
     // TODO: Add text
     @IBOutlet weak var textView: UITextView!

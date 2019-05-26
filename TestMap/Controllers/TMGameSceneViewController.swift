@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
+final class TMGameSceneViewController: UIViewController, TMGameControllerDelegate, TMDefaultsKeyControllable {
     
     // MARK: - @IBOutlets
     @IBOutlet weak var gameView: UIView!
@@ -24,8 +24,10 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     @IBOutlet weak var bottomLeftIndicator: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     
-    // MARK: - Custom properties
+    // MARK: - Public Properties
     var savedGame: TMGame?
+    
+    // MARK: - Private Properties
     private var mapView: TMMapView!
     private var settings: TMSettings {
         return TMSettingsController.shared.settings
@@ -68,7 +70,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         
         let jsonEncoder = JSONEncoder()
         if let jsonData = try? jsonEncoder.encode(gameController.gameResult) {
-            UserDefaults.standard.set(jsonData, forKey: TMResources.UserDefaultsKey.lastUnfinishedGame)
+            standardDefaults.set(jsonData, forKey: DefaultsKey.lastUnfinishedGame)
         }
         dismiss(animated: true, completion: nil)
     }
@@ -111,7 +113,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
         }
         gameController.delegate = self
         
-        UserDefaults.standard.removeObject(forKey: TMResources.UserDefaultsKey.lastUnfinishedGame)
+        standardDefaults.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
         
         // This will be called from AppDelegate's "applicationWillResignActive" function
         AppDelegate.shared.pauseApp = pauseGame
@@ -398,7 +400,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     /// Tries to fetch custom (user-defined) region names from UserDefaults.
     private func reloadCustomNames() {
         let jsonDecoder = JSONDecoder()
-        if let jsonData = UserDefaults.standard.value(forKey: TMResources.UserDefaultsKey.customRegionNames) as? Data, let regionNames = try? jsonDecoder.decode([String: String].self, from: jsonData) {
+        if let jsonData = standardDefaults.value(forKey: DefaultsKey.customRegionNames) as? Data, let regionNames = try? jsonDecoder.decode([String: String].self, from: jsonData) {
             customRegionNames = regionNames
         }
     }
@@ -422,7 +424,7 @@ class TMGameSceneViewController: UIViewController, TMGameControllerDelegate {
     }
     
     func reactToEndOfGame() {
-        UserDefaults.standard.removeObject(forKey: TMResources.UserDefaultsKey.lastUnfinishedGame)
+        standardDefaults.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
         performSegue(withIdentifier: TMResources.SegueIdentifier.showGameResultSegue, sender: self)
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMSettingsTableViewController: UITableViewController {
+final class TMSettingsTableViewController: UITableViewController {
     
     // MARK: - @IBOutlets
     @IBOutlet weak var modeCell: UITableViewCell!

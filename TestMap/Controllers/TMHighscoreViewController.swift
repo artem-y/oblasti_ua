@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TMHighscoreViewController: UIViewController {
+final class TMHighscoreViewController: UIViewController, TMDefaultsKeyControllable {
     
     // MARK: - @IBOutlets
     @IBOutlet weak var classicBackgroundView: UIView!
@@ -45,7 +45,7 @@ class TMHighscoreViewController: UIViewController {
         let timeStringPrefix = "Time:".localized()
         
         // Classic mode highscore view
-        if let classicHighscoreData = UserDefaults.standard.value(forKey: TMResources.UserDefaultsKey.classicHighscore) as? Data, let classicHighscore: TMGame = try? jsonDecoder.decode(TMGame.self, from: classicHighscoreData) {
+        if let classicHighscoreData = standardDefaults.value(forKey: DefaultsKey.classicHighscore) as? Data, let classicHighscore: TMGame = try? jsonDecoder.decode(TMGame.self, from: classicHighscoreData) {
             
             let mistakesIndicatorName = classicHighscore.mistakesCount == 0 ? TMResources.ImageName.correctIcon : TMResources.ImageName.mistakesIcon
             classicMistakesIndicator.image = UIImage(named: mistakesIndicatorName)
@@ -60,7 +60,7 @@ class TMHighscoreViewController: UIViewController {
         }
         
         // No Repetitions mode highscore view
-        if let norepeatHighscoreData = UserDefaults.standard.value(forKey: TMResources.UserDefaultsKey.norepeatHighscore) as? Data, let norepeatHighscore: TMGame = try? jsonDecoder.decode(TMGame.self, from: norepeatHighscoreData) {
+        if let norepeatHighscoreData = standardDefaults.value(forKey: DefaultsKey.norepeatHighscore) as? Data, let norepeatHighscore: TMGame = try? jsonDecoder.decode(TMGame.self, from: norepeatHighscoreData) {
             
             let mistakesIndicatorName = norepeatHighscore.mistakesCount == 0 ? TMResources.ImageName.correctIcon : TMResources.ImageName.mistakesIcon
             norepeatMistakesIndicator.image = UIImage(named: mistakesIndicatorName)

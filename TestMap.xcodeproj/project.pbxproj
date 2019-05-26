@@ -21,6 +21,7 @@
 		B05A2AAE227A553400D8BA5C /* TMGameControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05A2AAD227A553400D8BA5C /* TMGameControllerDelegate.swift */; };
 		B05E15C222746C9C007C85AF /* TMGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E15C122746C9C007C85AF /* TMGameController.swift */; };
 		B05E15C422746CDF007C85AF /* TMRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E15C322746CDF007C85AF /* TMRegion.swift */; };
+		B06F0E54229AFCAF00AD9A25 /* TMDefaultsKeyControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F0E53229AFCAF00AD9A25 /* TMDefaultsKeyControllable.swift */; };
 		B07099AA2292B743005D0C3E /* TMGameTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07099A92292B743005D0C3E /* TMGameTimeFormatter.swift */; };
 		B07A9ED3227CFC4400C4D2F0 /* TMResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A9ED2227CFC4400C4D2F0 /* TMResources.swift */; };
 		B07C5F6D2280435D009059A7 /* TMGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C5F6C2280435D009059A7 /* TMGame.swift */; };
@@ -60,6 +61,7 @@
 		B05A2AAD227A553400D8BA5C /* TMGameControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameControllerDelegate.swift; sourceTree = "<group>"; };
 		B05E15C122746C9C007C85AF /* TMGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameController.swift; sourceTree = "<group>"; };
 		B05E15C322746CDF007C85AF /* TMRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMRegion.swift; sourceTree = "<group>"; };
+		B06F0E53229AFCAF00AD9A25 /* TMDefaultsKeyControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDefaultsKeyControllable.swift; sourceTree = "<group>"; };
 		B07099A92292B743005D0C3E /* TMGameTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameTimeFormatter.swift; sourceTree = "<group>"; };
 		B07A9ED2227CFC4400C4D2F0 /* TMResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMResources.swift; sourceTree = "<group>"; };
 		B07B999D228828E60043B703 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			children = (
 				B05A2AAD227A553400D8BA5C /* TMGameControllerDelegate.swift */,
 				B0BFD4F92297151E002EA6EF /* TMRemovableObserver.swift */,
+				B06F0E53229AFCAF00AD9A25 /* TMDefaultsKeyControllable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				B09CF0CD2283391E00BC7FED /* String+localized(in language.swift in Sources */,
 				B05E15C422746CDF007C85AF /* TMRegion.swift in Sources */,
 				B05E15C222746C9C007C85AF /* TMGameController.swift in Sources */,
+				B06F0E54229AFCAF00AD9A25 /* TMDefaultsKeyControllable.swift in Sources */,
 				B040E8A2228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift in Sources */,
 				B0C7D80F2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift in Sources */,
 			);
