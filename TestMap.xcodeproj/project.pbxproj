@@ -31,7 +31,6 @@
 		B0904F9A226F858F007842CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0904F99226F858F007842CA /* Assets.xcassets */; };
 		B0904F9D226F858F007842CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0904F9B226F858F007842CA /* LaunchScreen.storyboard */; };
 		B0904FA9226F8656007842CA /* TMMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0904FA8226F8656007842CA /* TMMapView.swift */; };
-		B09A154F2284E7E3005BD56F /* TMFormatSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09A154E2284E7E3005BD56F /* TMFormatSettingTableViewController.swift */; };
 		B09CF0CB22832ABA00BC7FED /* TMSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CA22832ABA00BC7FED /* TMSettings.swift */; };
 		B09CF0CD2283391E00BC7FED /* String+localized(in language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */; };
 		B0AAE783228480DB002D7264 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0AAE782228480DB002D7264 /* Settings.bundle */; };
@@ -76,7 +75,6 @@
 		B0904F99226F858F007842CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0904F9C226F858F007842CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0904FA8226F8656007842CA /* TMMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMapView.swift; sourceTree = "<group>"; };
-		B09A154E2284E7E3005BD56F /* TMFormatSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMFormatSettingTableViewController.swift; sourceTree = "<group>"; };
 		B09CF0CA22832ABA00BC7FED /* TMSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettings.swift; sourceTree = "<group>"; };
 		B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized(in language.swift"; sourceTree = "<group>"; };
 		B0AAE782228480DB002D7264 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 				B04DDB77228B4EB8008B9DD9 /* TMGameResultViewController.swift */,
 				B043EB04227C2A9F00F87F1F /* TMInfoViewController.swift */,
 				B0E164B7228C4BD700615DC5 /* TMHighscoreViewController.swift */,
-				B09A154E2284E7E3005BD56F /* TMFormatSettingTableViewController.swift */,
 				B01BA8D8229810270035ED9D /* TMCustomRegionNamesTableViewController.swift */,
 				B04DE47F22858F8D00939C4E /* TMModeSettingTableViewController.swift */,
 				B0C7D80E2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift */,
@@ -303,7 +300,6 @@
 				B05A2AAE227A553400D8BA5C /* TMGameControllerDelegate.swift in Sources */,
 				B04DDB78228B4EB8008B9DD9 /* TMGameResultViewController.swift in Sources */,
 				B07C5F6F22805F12009059A7 /* TMSettingsTableViewController.swift in Sources */,
-				B09A154F2284E7E3005BD56F /* TMFormatSettingTableViewController.swift in Sources */,
 				B0BFD4FA2297151E002EA6EF /* TMRemovableObserver.swift in Sources */,
 				B07099AA2292B743005D0C3E /* TMGameTimeFormatter.swift in Sources */,
 				B0CC90FB2273B3D50075931E /* UIBezierPath+initFromString.swift in Sources */,

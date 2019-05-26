@@ -23,7 +23,9 @@ class TMSettingsTableViewController: UITableViewController {
     
     
     @IBOutlet weak var languageNameLagel: UILabel!
-    @IBOutlet weak var formatDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var regionNamesUppercasedCell: UITableViewCell!
+    @IBOutlet weak var regionNamesUppercasedSwitch: UISwitch!
     
     // MARK: - Properties to change
     var settings: TMSettings {
@@ -63,6 +65,8 @@ class TMSettingsTableViewController: UITableViewController {
             settings.showsButtons = !settings.showsButtons
         case automaticNextRegionCell:
             settings.changesRegionAutomatically = !settings.changesRegionAutomatically
+        case regionNamesUppercasedCell:
+            settings.regionNamesUppercased = !settings.regionNamesUppercased
         default:
             break
         }
@@ -98,9 +102,7 @@ class TMSettingsTableViewController: UITableViewController {
         modeNameLabel.text = currentGameMode.rawValue.localized()
         languageNameLagel.text = Locale.current.localizedString(forLanguageCode: settings.regionNameLanguageIdentifier) ?? settings.regionNameLanguageIdentifier.localized()
         
-        // TODO: Replace with keyed implementation or enum
-        let formatKey = settings.regionNamesUppercased ? "uppercasedRegionName" : "capitalizedRegionName"
-        formatDescriptionLabel.text = formatKey.localized()
+        regionNamesUppercasedSwitch.setOn(settings.regionNamesUppercased, animated: true)
         
         let forExampleText = "For example:".localized()
         let ivanoFrankivskaTextUnprocessed = TMRegion.Key.ivanofrankivska.rawValue.localized(in: settings.regionNameLanguageIdentifier, fromTable: TMResources.LocalizationTable.regionNames)
