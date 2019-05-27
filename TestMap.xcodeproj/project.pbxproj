@@ -18,6 +18,7 @@
 		B04DE48022858F8D00939C4E /* TMModeSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE47F22858F8D00939C4E /* TMModeSettingTableViewController.swift */; };
 		B04DE4822285A6A500939C4E /* TMSettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE4812285A6A500939C4E /* TMSettingsNavigationController.swift */; };
 		B04DE4842285B2A700939C4E /* UIViewController+dismissNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE4832285B2A700939C4E /* UIViewController+dismissNavigationController.swift */; };
+		B05844F9229BD7F7004836FE /* Custom Notification Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05844F8229BD7F7004836FE /* Custom Notification Names.swift */; };
 		B05A2AAE227A553400D8BA5C /* TMGameControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05A2AAD227A553400D8BA5C /* TMGameControllerDelegate.swift */; };
 		B05E15C222746C9C007C85AF /* TMGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E15C122746C9C007C85AF /* TMGameController.swift */; };
 		B05E15C422746CDF007C85AF /* TMRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E15C322746CDF007C85AF /* TMRegion.swift */; };
@@ -58,6 +59,7 @@
 		B04DE47F22858F8D00939C4E /* TMModeSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMModeSettingTableViewController.swift; sourceTree = "<group>"; };
 		B04DE4812285A6A500939C4E /* TMSettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettingsNavigationController.swift; sourceTree = "<group>"; };
 		B04DE4832285B2A700939C4E /* UIViewController+dismissNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissNavigationController.swift"; sourceTree = "<group>"; };
+		B05844F8229BD7F7004836FE /* Custom Notification Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Notification Names.swift"; sourceTree = "<group>"; };
 		B05A2AAD227A553400D8BA5C /* TMGameControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameControllerDelegate.swift; sourceTree = "<group>"; };
 		B05E15C122746C9C007C85AF /* TMGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameController.swift; sourceTree = "<group>"; };
 		B05E15C322746CDF007C85AF /* TMRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMRegion.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */,
 				B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */,
 				B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */,
+				B05844F8229BD7F7004836FE /* Custom Notification Names.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				B0CC90FB2273B3D50075931E /* UIBezierPath+initFromString.swift in Sources */,
 				B0904FA9226F8656007842CA /* TMMapView.swift in Sources */,
 				B01BA8D9229810270035ED9D /* TMCustomRegionNamesTableViewController.swift in Sources */,
+				B05844F9229BD7F7004836FE /* Custom Notification Names.swift in Sources */,
 				B0E164B8228C4BD700615DC5 /* TMHighscoreViewController.swift in Sources */,
 				B0904F93226F858E007842CA /* AppDelegate.swift in Sources */,
 				B09CF0CB22832ABA00BC7FED /* TMSettings.swift in Sources */,

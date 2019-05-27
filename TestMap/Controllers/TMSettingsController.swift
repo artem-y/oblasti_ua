@@ -21,6 +21,9 @@ final class TMSettingsController: NSObject, TMDefaultsKeyControllable {
                 if oldValue?.gameMode != settings.gameMode {
                     NotificationCenter.default.post(Notification(name: .TMGameModeChanged))
                 }
+                if oldValue?.showsTime != settings.showsTime {
+                    NotificationCenter.default.post(Notification(name: .TMShowTimeSettingChanged))
+                }
             }
         }
     }
@@ -73,8 +76,4 @@ final class TMSettingsController: NSObject, TMDefaultsKeyControllable {
         AppDelegate.shared.settingsController = self
     }
     
-}
-
-extension Notification.Name {
-    static let TMGameModeChanged = Notification.Name("TMGameModeChangedNotification")
 }

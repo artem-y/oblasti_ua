@@ -27,14 +27,16 @@ final class TMSettingsTableViewController: UITableViewController {
     @IBOutlet weak var regionNamesUppercasedCell: UITableViewCell!
     @IBOutlet weak var regionNamesUppercasedSwitch: UISwitch!
     
-    // MARK: - Properties to change
+    // MARK: - Public Properties
     var settings: TMSettings {
         get {
             return TMSettingsController.shared.settings
         }
         set {
-            TMSettingsController.shared.settings = newValue
-            updateUI()
+            if TMSettingsController.shared.settings != newValue {
+                TMSettingsController.shared.settings = newValue
+                updateUI()
+            }
         }
     }
     

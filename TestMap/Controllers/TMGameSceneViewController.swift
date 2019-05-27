@@ -45,11 +45,17 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     private let animationDuration: Double = 0.2
     private var isRunningGame = true {
         didSet {
+            AppDelegate.shared.gameSceneShowTimeObserver = isRunningGame ? nil : self
             if isRunningGame {
+                removeFromNotificationCenter()
                 gameController.startTimer()
+                updateTimerLabel()
                 reloadCustomNames()
                 reloadCurrentRegionName()
-            } else { gameController.stopTimer() }
+            } else {
+                addToNotificationCenter()
+                gameController.stopTimer()
+            }
             let imageName = isRunningGame ? TMResources.ImageName.pause : TMResources.ImageName.play
             pauseButton.setImage(UIImage(named: imageName), for: .normal)
             gameCoverView.animateSet(hidden: isRunningGame, withDuration: animationDuration)
@@ -128,16 +134,13 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
         loadMapView()
         
         // TODO: Replace with function
-        if showsTime {
-            reactToTimerValueChange()
-            timeLabel.isHidden = false
+        if gameMode != .pointer {
             gameController.startTimer()
-        }
-        
-        if gameMode == .pointer {
+        } else {
             gameController.currentRegion = nil
             saveAndExitButton.isHidden = true
         }
+        updateTimerLabel()
         
         regionLabel.textColor = .neutralTextColor
         
@@ -151,6 +154,7 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
         
         reloadCustomNames()
         reloadCurrentRegionName()
+        updateTimerLabel()
     }
     
     // MARK: - UI initialization methods
@@ -410,6 +414,22 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
         }
     }
     
+    @objc private func updateTimerLabel() {
+        if showsTime {
+            reloadTimerLabelTitle()
+        }
+        timeLabel.isHidden = !showsTime
+    }
+    
+    private func reloadTimerLabelTitle() {
+        let timeFormatter = DateComponentsFormatter()
+        timeFormatter.allowsFractionalUnits = true
+        timeFormatter.allowedUnits = [.minute, .second]
+        timeFormatter.zeroFormattingBehavior = .pad
+        let formattedTimeString = timeFormatter.string(from: gameController.gameResult.timePassed)
+        timeLabel.text = formattedTimeString
+    }
+    
     // MARK: - GameControllerDelegate methods
     func reactToCorrectChoice() {
         showChoiceResult(isCorrect: true)
@@ -420,12 +440,7 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     }
     
     func reactToTimerValueChange() {
-        let timeFormatter = DateComponentsFormatter()
-        timeFormatter.allowsFractionalUnits = true
-        timeFormatter.allowedUnits = [.minute, .second]
-        timeFormatter.zeroFormattingBehavior = .pad
-        let formattedTimeString = timeFormatter.string(from: gameController.gameResult.timePassed)
-        timeLabel.text = formattedTimeString
+        reloadTimerLabelTitle()
     }
     
     func reactToEndOfGame() {
@@ -440,3 +455,9 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     
 }
 
+// MARK: - TMRemovableObserver protocol methods
+extension TMGameSceneViewController: TMRemovableObserver {
+    func addToNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTimerLabel), name: .TMShowTimeSettingChanged, object: nil)
+    }
+}

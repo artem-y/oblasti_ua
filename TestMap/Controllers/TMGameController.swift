@@ -35,11 +35,12 @@ final class TMGameController {
         // This makes function reusable (like when timer resumes after pausing the game)
         timerStartDate = Date().addingTimeInterval(-game.timePassed)
         
-        let newTimer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { [weak self]
+        timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { [weak self]
             (timer) in
             self?.timerValueDidChange()
         }
-        timer = newTimer
+        
+        delegate?.reactToTimerValueChange()
     }
     
     func stopTimer() {
@@ -52,11 +53,12 @@ final class TMGameController {
             game.timePassed = Date().timeIntervalSince(startDate)
         }
         
-        // To improve performance, send changes to UI only when seconds change, not milliseconds
-        if game.timePassed.truncatingRemainder(dividingBy: 1) < 0.001 {
-            delegate?.reactToTimerValueChange()
+        if TMSettingsController.shared.settings.showsTime {
+            // To improve performance, send changes to UI only when seconds change, not milliseconds
+            if game.timePassed.truncatingRemainder(dividingBy: 1) < 0.001 {
+                delegate?.reactToTimerValueChange()
+            }
         }
-        
         
     }
     

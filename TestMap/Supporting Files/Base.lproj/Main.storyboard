@@ -434,7 +434,7 @@
                                 <variation key="heightClass=compact" distribution="fillEqually"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ENs-zS-oEd">
-                                <rect key="frame" x="400" y="523" width="224" height="50"/>
+                                <rect key="frame" x="429" y="523" width="166" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZ5-78-1wO">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -450,8 +450,8 @@
                                             <segue destination="iQS-j2-Zv0" kind="presentation" modalPresentationStyle="fullScreen" id="o1e-Cf-ujt"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mxk-mn-rm2">
-                                        <rect key="frame" x="58" y="0.0" width="50" height="50"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mxk-mn-rm2">
+                                        <rect key="frame" x="54" y="25" width="0.0" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Mxk-mn-rm2" secondAttribute="height" multiplier="1:1" id="aR8-xy-hj3"/>
                                         </constraints>
@@ -462,7 +462,7 @@
                                         <state key="highlighted" image="litLightbulbButtonOrange"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZd-9v-sXi">
-                                        <rect key="frame" x="116" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="58" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="zZd-9v-sXi" secondAttribute="height" multiplier="1:1" id="oTl-0g-cHs"/>
                                         </constraints>
@@ -476,7 +476,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fh-uD-60M">
-                                        <rect key="frame" x="174" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="116" y="0.0" width="50" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="7fh-uD-60M" secondAttribute="height" multiplier="1:1" id="S9J-JQ-HTC"/>
                                         </constraints>
@@ -1523,7 +1523,7 @@
         <image name="settingsButtonLightBlue" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qyJ-dd-H0o"/>
+        <segue reference="AIk-29-LaM"/>
         <segue reference="IMN-RV-1jG"/>
     </inferredMetricsTieBreakers>
 </document>
