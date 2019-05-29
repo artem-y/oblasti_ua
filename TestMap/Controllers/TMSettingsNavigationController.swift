@@ -8,13 +8,20 @@
 
 import UIKit
 
-final class TMSettingsNavigationController: UINavigationController, UIGestureRecognizerDelegate {
+final class TMSettingsNavigationController: UINavigationController, TMPresentationStyleAdjustable, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    // MARK: - Initialization
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        adjustModalPresentationStyle()
+    }
+    
+    // TODO: - Remove 'deinit'
     deinit {
         print(self, "deinit!")
     }

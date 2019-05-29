@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class TMInfoViewController: UIViewController {
+final class TMInfoViewController: UIViewController, TMPresentationStyleAdjustable {
     
     // TODO: Add text
     @IBOutlet weak var textView: UITextView!
@@ -19,6 +19,12 @@ final class TMInfoViewController: UIViewController {
         // TODO: Maybe, replace with other (real) text
         // Because of old Apple bug, textfields sometimes do not localize from storyboard
         textView.text = NSLocalizedString("3IK-kW-DEU.text", tableName: "Main", bundle: Bundle(path: Bundle.path(forResource: Locale.current.languageCode!, ofType: "lproj", inDirectory: Bundle.main.bundlePath)!)!, value: "", comment: "")
+    }
+    
+    // MARK: - Initialization
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        adjustModalPresentationStyle()
     }
 
 }

@@ -31,6 +31,7 @@ struct TMResources {
         static let unwindToMainMenuSegue = "unwindToMainMenuSegue"
         static let startGameSegue = "startGameSegue"
         static let presentSettingsSegue = "presentSettingsSegue"
+        static let showInfoSegue = "showInfoSegue"
         static let regionNameFormatSettingSegue = "regionNameFormatSettingSegue"
         static let showOnlyModeSettingSegue = "showOnlyModeSettingSegue"
         static let showModeSettingFromSettingsControllerSegue = "showModeSettingFromSettingsControllerSegue"
