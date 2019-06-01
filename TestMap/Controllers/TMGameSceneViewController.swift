@@ -201,6 +201,7 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     @objc private func didTouch(_ sender: UITapGestureRecognizer){
         if sender.state == .ended {
             if isShowingSelectionResult {
+                gameController.nextQuestion()
                 cancelSelection()
             } else {
                 let location = gameView.convert(sender.location(in: gameView), to: mapView)
@@ -318,8 +319,6 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
         
         if gameMode == .pointer {
             gameController.currentRegion = nil
-        } else {
-            gameController.nextQuestion()
         }
         reloadCurrentRegionName()
         mapView.selectedLayer = nil
