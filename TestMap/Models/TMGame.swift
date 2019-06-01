@@ -11,6 +11,9 @@ import UIKit
 // TODO: Make game model comparable and equatable
 struct TMGame: Equatable {
     
+    /// Immutable default game instance.
+    static let `default` = TMGame(mode: TMSettingsController.shared.settings.gameMode, regions: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths), regionsLeft: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths))
+    
     /// Game mode type
     enum Mode: String, CaseIterable, Codable {
         /// User is finding regions on the map until all regions are found. Regions that were guessed wrong will still be appearing.

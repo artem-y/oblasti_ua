@@ -84,16 +84,7 @@ final class TMMenuViewController: UIViewController, TMDefaultsKeyControllable, T
                     destinationVC.performSegue(withIdentifier: TMResources.SegueIdentifier.showOnlyModeSettingSegue, sender: nil)
                 }
             }
-        case TMResources.SegueIdentifier.startGameSegue:
-            let savedGameKey = DefaultsKey.lastUnfinishedGame
-            
-            if
-                let savedGameData = standardDefaults.value(forKey: savedGameKey) as? Data,
-                let savedGame: TMGame = try? JSONDecoder().decode(TMGame.self, from: savedGameData),
-                let destinationVC = segue.destination as? TMGameSceneViewController
-            {    
-                destinationVC.savedGame = savedGame
-            }
+
         default:
             break
         }

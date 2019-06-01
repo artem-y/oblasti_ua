@@ -34,18 +34,16 @@ final class TMSettingsController: NSObject, TMDefaultsKeyControllable {
     // MARK: - Public Methods
     func loadSettings() {
         
+        let defaultGameMode: TMGame.Mode = TMSettings.default.gameMode
         let gameModeString: String? = standardDefaults.string(forKey: SettingKey.lastGameMode)
-        let gameMode: TMGame.Mode = (gameModeString == nil) ? .classic : TMGame.Mode(rawValue: gameModeString!) ?? .classic
+        let gameMode: TMGame.Mode = (gameModeString == nil) ? defaultGameMode : TMGame.Mode(rawValue: gameModeString!) ?? defaultGameMode
         
-        // This is necessary to avoid 'false' as default if there is no value
-        let showsTime: Bool = standardDefaults.value(forKey: SettingKey.showsTime) as? Bool ?? true
-        let showsButtons: Bool = standardDefaults.value(forKey: SettingKey.showsButtons) as? Bool ?? true
+        let showsTime: Bool = standardDefaultsBool(forKey: SettingKey.showsTime) ?? TMSettings.default.showsTime
+        let showsButtons: Bool = standardDefaultsBool(forKey: SettingKey.showsButtons) ?? TMSettings.default.showsButtons
+        let automaticRegionChange: Bool = standardDefaultsBool(forKey: SettingKey.automaticRegionChange) ?? TMSettings.default.changesRegionAutomatically
+        let regionNamesUppercased: Bool = standardDefaultsBool(forKey: SettingKey.regionNamesUppercased) ?? TMSettings.default.regionNamesUppercased
         
-        // Default is 'false' (if there is no value)
-        let automaticRegionChange: Bool = standardDefaults.bool(forKey: SettingKey.automaticRegionChange)
-        let regionNamesUppercased: Bool = standardDefaults.bool(forKey: SettingKey.regionNamesUppercased)
-        
-        var currentLanguageIdentifier = "en"
+        var currentLanguageIdentifier = TMSettings.default.regionNameLanguageIdentifier
         if let currentLanguageCode = Locale.current.languageCode, availableLanguages.contains(currentLanguageCode) {
             currentLanguageIdentifier = currentLanguageCode
         }
@@ -67,6 +65,14 @@ final class TMSettingsController: NSObject, TMDefaultsKeyControllable {
         standardDefaults.set(settings.regionNamesUppercased, forKey: SettingKey.regionNamesUppercased)
         standardDefaults.set(settings.regionNameLanguageIdentifier, forKey: SettingKey.regionNameLanguage)
 
+    }
+    
+    /// This method is necessary to avoid 'false' as default if there is no value stored
+    /// - Parameters:
+    ///   - forKey: String key, that was used to store boolean value in standard user defaults
+    /// - Returns: Nullable boolean value for key from standard User Defaults.
+    private func standardDefaultsBool(forKey userDefaultsKey: String) -> Bool? {
+        return standardDefaults.value(forKey: userDefaultsKey) as? Bool
     }
     
     // MARK: - Initialization

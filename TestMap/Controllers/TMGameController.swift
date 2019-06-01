@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class TMGameController {
+final class TMGameController: TMDefaultsKeyControllable {
     
     private var game: TMGame
     var gameResult: TMGame { return game }
@@ -24,9 +24,30 @@ final class TMGameController {
     
     var mistakesCount: Int { return game.mistakesCount }
     
-    init(game: TMGame){
-        self.game = game
-        
+    init(game: TMGame? = nil){
+        if let game = game {
+            self.game = game
+        } else {
+            let savedGameKey = DefaultsKey.lastUnfinishedGame
+            let jsonDecoder = JSONDecoder()
+            
+            if let savedGameData = UserDefaults.standard.data(forKey: savedGameKey),
+                let savedGame = try? jsonDecoder.decode(TMGame.self, from: savedGameData)
+            {
+                let regions: [TMRegion] = TMResources.shared.loadRegions(withKeys: savedGame.regions.map({ $0.key }), fromFileNamed: TMResources.FileName.allRegionPaths)
+                let regionsLeft: [TMRegion] = TMResources.shared.loadRegions(withKeys: savedGame.regionsLeft.map({ $0.key }), fromFileNamed: TMResources.FileName.allRegionPaths)
+                
+                // Creation of a copy of the saved game is necessary to replace regions and regions left with just keys by regions with real UIBezier paths
+                self.game = TMGame(mode: savedGame.mode, regions: regions, regionsLeft: regionsLeft, timePassed: savedGame.timePassed, mistakesCount: savedGame.mistakesCount)
+            } else {
+                
+                self.game = TMGame.default
+                
+            }
+ 
+        }
+        UserDefaults.standard.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
+
         nextQuestion()
         
     }

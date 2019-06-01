@@ -11,6 +11,9 @@ import Foundation
 /// Game settings model
 struct TMSettings: Equatable {
     
+    /// Immutable default settings instance.
+    static let `default` = TMSettings(gameMode: .classic, regionNamesUppercased: false, showsTime: true, showsButtons: true, changesRegionAutomatically: true, regionNameLanguageIdentifier: "en")
+    
     /// Game mode from last saved user settings. Should not be changed from device settings app.
     var gameMode: TMGame.Mode = .classic
     

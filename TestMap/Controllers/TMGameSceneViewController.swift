@@ -34,7 +34,7 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
         return TMSettingsController.shared.settings
     }
     private var customRegionNames: [String: String] = [:]
-    private var gameController = TMGameController(game: TMGame(mode: TMSettingsController.shared.settings.gameMode, regions: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths), regionsLeft: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths)))
+    private var gameController = TMGameController()
     
     private var gameMode: TMGame.Mode { return gameController.gameResult.mode }
     
@@ -112,18 +112,7 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let savedGame = savedGame {
-
-            let regions: [TMRegion] = TMResources.shared.loadRegions(withKeys: savedGame.regions.map({ $0.key }), fromFileNamed: TMResources.FileName.allRegionPaths)
-            let regionsLeft: [TMRegion] = TMResources.shared.loadRegions(withKeys: savedGame.regionsLeft.map({ $0.key }), fromFileNamed: TMResources.FileName.allRegionPaths)
-            
-            // Creation of a 'copy' of the saved game is necessary to replace regions and regions left with just keys by regions with real UIBezier paths
-            let savedGameCopy = TMGame(mode: savedGame.mode, regions: regions, regionsLeft: regionsLeft, timePassed: savedGame.timePassed, mistakesCount: savedGame.mistakesCount)
-            gameController = TMGameController(game: savedGameCopy)
-        }
         gameController.delegate = self
-        
-        standardDefaults.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
         
         // This will be called from AppDelegate's "applicationWillResignActive" function
         AppDelegate.shared.pauseApp = pauseGame
@@ -141,8 +130,6 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
             saveAndExitButton.isHidden = true
         }
         updateTimerLabel()
-        
-        regionLabel.textColor = .neutralTextColor
         
         // Adding gesture recognizers
         configureGestureRecognizers()
