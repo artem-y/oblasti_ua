@@ -26,6 +26,8 @@ final class TMSettingsTableViewController: UITableViewController {
     
     @IBOutlet weak var regionNamesUppercasedCell: UITableViewCell!
     @IBOutlet weak var regionNamesUppercasedSwitch: UISwitch!
+
+    @IBOutlet weak var restoreDefaultsCell: UITableViewCell!
     
     // MARK: - Public Properties
     var settings: TMSettings {
@@ -69,6 +71,8 @@ final class TMSettingsTableViewController: UITableViewController {
             settings.changesRegionAutomatically = !settings.changesRegionAutomatically
         case regionNamesUppercasedCell:
             settings.regionNamesUppercased = !settings.regionNamesUppercased
+        case restoreDefaultsCell:
+            settings = TMSettings.default
         default:
             break
         }
