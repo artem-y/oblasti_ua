@@ -12,7 +12,7 @@ import Foundation
 struct TMSettings: Equatable {
     
     /// Immutable default settings instance.
-    static let `default` = TMSettings(gameMode: .classic, regionNamesUppercased: false, showsTime: true, showsButtons: true, changesRegionAutomatically: true, regionNameLanguageIdentifier: "en")
+    static let `default` = TMSettings(gameMode: .classic, regionNamesUppercased: false, showsTime: true, showsButtons: true, changesRegionAutomatically: true, showsCorrectAnswer: true, regionNameLanguageIdentifier: "en")
     
     /// Game mode from last saved user settings. Should not be changed from device settings app.
     var gameMode: TMGame.Mode = .classic
@@ -28,6 +28,9 @@ struct TMSettings: Equatable {
     
     /// Tells the app whether to automatically switch to next region after a brief display of 'right/wrong' result. If app shows buttons, should also tell the app whether to hide 'right/wrong' result indicators automatically
     var changesRegionAutomatically: Bool
+    
+    /// Tells the app whether to show where was the correct region, if wrong region was selected
+    var showsCorrectAnswer: Bool
     
     /// Tells the app only the language in which region names are presented during the game. Should not affect app's menu language
     var regionNameLanguageIdentifier: String

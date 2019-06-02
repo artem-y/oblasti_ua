@@ -43,13 +43,15 @@ final class TMSettingsController: NSObject, TMDefaultsKeyControllable {
         let automaticRegionChange: Bool = standardDefaultsBool(forKey: SettingKey.automaticRegionChange) ?? TMSettings.default.changesRegionAutomatically
         let regionNamesUppercased: Bool = standardDefaultsBool(forKey: SettingKey.regionNamesUppercased) ?? TMSettings.default.regionNamesUppercased
         
+        let showsCorrectAnswer: Bool = standardDefaultsBool(forKey: SettingKey.showsCorrectAnswer) ?? TMSettings.default.showsCorrectAnswer
+        
         var currentLanguageIdentifier = TMSettings.default.regionNameLanguageIdentifier
         if let currentLanguageCode = Locale.current.languageCode, availableLanguages.contains(currentLanguageCode) {
             currentLanguageIdentifier = currentLanguageCode
         }
         let regionNameLanguage: String = standardDefaults.string(forKey: SettingKey.regionNameLanguage) ?? currentLanguageIdentifier
         
-        settings = TMSettings(gameMode: gameMode, regionNamesUppercased: regionNamesUppercased, showsTime: showsTime, showsButtons: showsButtons, changesRegionAutomatically: automaticRegionChange, regionNameLanguageIdentifier: regionNameLanguage)
+        settings = TMSettings(gameMode: gameMode, regionNamesUppercased: regionNamesUppercased, showsTime: showsTime, showsButtons: showsButtons, changesRegionAutomatically: automaticRegionChange, showsCorrectAnswer: showsCorrectAnswer, regionNameLanguageIdentifier: regionNameLanguage)
 
     }
     
@@ -63,6 +65,7 @@ final class TMSettingsController: NSObject, TMDefaultsKeyControllable {
         standardDefaults.set(settings.showsButtons, forKey: SettingKey.showsButtons)
         standardDefaults.set(settings.changesRegionAutomatically, forKey: SettingKey.automaticRegionChange)
         standardDefaults.set(settings.regionNamesUppercased, forKey: SettingKey.regionNamesUppercased)
+        standardDefaults.set(settings.showsCorrectAnswer, forKey: SettingKey.showsCorrectAnswer)
         standardDefaults.set(settings.regionNameLanguageIdentifier, forKey: SettingKey.regionNameLanguage)
 
     }

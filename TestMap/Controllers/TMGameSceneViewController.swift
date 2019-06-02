@@ -337,6 +337,13 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
         regionLabel.textColor = selectionColor
         mapView.selectedLayer?.fillColor = selectionColor.cgColor
         
+        // If enabled in settings, show where was the correct region
+        if settings.showsCorrectAnswer && !isCorrect {
+            if let currentRegion = gameController.currentRegion, let correctRegionLayer = mapView.sublayer(named: currentRegion.key.rawValue) {
+                correctRegionLayer.fillColor = .correctSelectionColor
+            }
+        }
+        
         if showsButtons {
             // Image representations of right/wrong choice
             let imageName = isCorrect ? TMResources.ImageName.correctChoice : TMResources.ImageName.wrongChoice

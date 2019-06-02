@@ -21,6 +21,8 @@ final class TMSettingsTableViewController: UITableViewController {
     @IBOutlet weak var automaticNextRegionCell: UITableViewCell!
     @IBOutlet weak var automaticNextRegionSwitch: UISwitch!
     
+    @IBOutlet weak var showCorrectAnswerCell: UITableViewCell!
+    @IBOutlet weak var showCorrectAnswerSwitch: UISwitch!
     
     @IBOutlet weak var languageNameLagel: UILabel!
     
@@ -71,6 +73,8 @@ final class TMSettingsTableViewController: UITableViewController {
             settings.changesRegionAutomatically = !settings.changesRegionAutomatically
         case regionNamesUppercasedCell:
             settings.regionNamesUppercased = !settings.regionNamesUppercased
+        case showCorrectAnswerCell:
+            settings.showsCorrectAnswer = !settings.showsCorrectAnswer
         case restoreDefaultsCell:
             settings = TMSettings.default
         default:
@@ -95,6 +99,7 @@ final class TMSettingsTableViewController: UITableViewController {
         let isShowingTime = isPointerMode ? false : settings.showsTime
         let isShowingButtons = isPointerMode ? false : settings.showsButtons
         let isChangingNextRegionAutomatically = isPointerMode ? false : settings.changesRegionAutomatically
+        let isShowingCorrectAnswer = isPointerMode ? false : settings.showsCorrectAnswer
         
         showTimeCell.animateSet(enabled: !isPointerMode)
         showTimeSwitch.setOn(isShowingTime, animated: true)
@@ -104,6 +109,9 @@ final class TMSettingsTableViewController: UITableViewController {
         
         automaticNextRegionCell.animateSet(enabled: !isPointerMode)
         automaticNextRegionSwitch.setOn(isChangingNextRegionAutomatically, animated: true)
+        
+        showCorrectAnswerCell.animateSet(enabled: !isPointerMode)
+        showCorrectAnswerSwitch.setOn(isShowingCorrectAnswer, animated: true)
 
         modeNameLabel.text = currentGameMode.rawValue.localized()
         languageNameLagel.text = Locale.current.localizedString(forLanguageCode: settings.regionNameLanguageIdentifier) ?? settings.regionNameLanguageIdentifier.localized()

@@ -66,6 +66,7 @@ struct TMResources {
             static let showsButtons = "showsButtonsSetting"
             static let automaticRegionChange = "automaticRegionChangeSetting"
             static let regionNameLanguage = "regionNameLanguageSetting"
+            static let showsCorrectAnswer = "showsCorrectAnswerSetting"
             static let regionNamesUppercased = "regionNamesUppercasedSetting"
         }
     }
