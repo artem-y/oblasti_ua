@@ -363,17 +363,20 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
                         if completed {
                             // This prevents reenabling tap gestures after the game is finished
 //                            self.isRecognizerEnabled = self.isRunningGame
-                            if self.settings.changesRegionAutomatically {
-                                self.singleTapRecognizer.isEnabled = false
-                                self.perform(#selector(self.cancelSelection), with: nil, afterDelay: self.animationDuration * 1.5)
-                            }
+                            self.completeShowingChoiceResult()
                         }
                     }
         } else {
-            if settings.changesRegionAutomatically {
-                self.singleTapRecognizer.isEnabled = false
-                perform(#selector(cancelSelection), with: nil, afterDelay: animationDuration * 1.5)
-            }
+            completeShowingChoiceResult()
+        }
+    }
+    
+    /// If enabled in settings, calls next region and cancels selection
+    private func completeShowingChoiceResult() {
+        if settings.changesRegionAutomatically {
+            singleTapRecognizer.isEnabled = false
+            gameController.nextQuestion()
+            perform(#selector(cancelSelection), with: nil, afterDelay: animationDuration * 1.5)
         }
     }
     

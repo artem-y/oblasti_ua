@@ -40,8 +40,8 @@ final class TMGameController: TMDefaultsKeyControllable {
                 // Creation of a copy of the saved game is necessary to replace regions and regions left with just keys by regions with real UIBezier paths
                 self.game = TMGame(mode: savedGame.mode, regions: regions, regionsLeft: regionsLeft, timePassed: savedGame.timePassed, mistakesCount: savedGame.mistakesCount)
             } else {
-                
-                self.game = TMGame.default
+                let defaultGame = TMGame.default
+                self.game = TMGame(mode: TMSettingsController.shared.settings.gameMode, regions: defaultGame.regions, regionsLeft: defaultGame.regionsLeft, timePassed: defaultGame.timePassed, mistakesCount: defaultGame.mistakesCount)
                 
             }
  
