@@ -40,6 +40,7 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     
     private var showsButtons: Bool { return gameMode != .pointer && settings.showsButtons }
     private var showsTime: Bool { return gameMode != .pointer && settings.showsTime }
+    private var autoConfirmsSelection: Bool { return gameMode != .pointer && settings.autoConfirmsSelection }
     
     private var isShowingSelectionResult = false
     private let animationDuration: Double = 0.2
@@ -229,7 +230,7 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
                         reloadCurrentRegionName()
                         regionLabel.textColor = .selectedRegionColor
                         
-                        if showsButtons {
+                        if showsButtons && !autoConfirmsSelection {
                             // Animation: View with 'confirm' button slides out into the screen from the right
                             singleTapRecognizer.isEnabled = false
                             let oldFrame = bottomRightConfirmationView.frame
@@ -250,8 +251,15 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
                 }
                 
                 // Check if tapped anywhere outside the regions
-                if !regionsContainLocation && mapView.layer.contains(location) {
-                    cancelSelection()
+                if regionsContainLocation {
+                    if autoConfirmsSelection {
+                        singleTapRecognizer.isEnabled = false
+                        perform(#selector(confirmSelection), with: nil, afterDelay: animationDuration * 1.5)
+                    }
+                } else {
+                    if mapView.layer.contains(location) {
+                        cancelSelection()
+                    }
                 }
             }
         }
@@ -289,7 +297,7 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
         }
     }
     
-    private func confirmSelection() {
+    @objc private func confirmSelection() {
         if let layerName = mapView.selectedLayer?.name {
             gameController.checkSelection(named: layerName)
         }

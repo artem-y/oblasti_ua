@@ -12,7 +12,7 @@ import Foundation
 struct TMSettings: Equatable {
     
     /// Immutable default settings instance.
-    static let `default` = TMSettings(gameMode: .classic, regionNamesUppercased: false, showsTime: true, showsButtons: true, changesRegionAutomatically: true, showsCorrectAnswer: true, regionNameLanguageIdentifier: "en")
+    static let `default` = TMSettings(gameMode: .classic, regionNamesUppercased: false, showsTime: true, showsButtons: true, autoConfirmsSelection: true, changesRegionAutomatically: true, showsCorrectAnswer: true, regionNameLanguageIdentifier: "en")
     
     /// Game mode from last saved user settings. Should not be changed from device settings app.
     var gameMode: TMGame.Mode = .classic
@@ -25,6 +25,9 @@ struct TMSettings: Equatable {
     
     /// Tells the app whether to show confirmation button and right/wrong choice indicator buttons during the game
     var showsButtons: Bool
+    
+    /// Tells the app whether to automatically confirm selection after region is chosen with single tap
+    var autoConfirmsSelection: Bool
     
     /// Tells the app whether to automatically switch to next region after a brief display of 'right/wrong' result. If app shows buttons, should also tell the app whether to hide 'right/wrong' result indicators automatically
     var changesRegionAutomatically: Bool

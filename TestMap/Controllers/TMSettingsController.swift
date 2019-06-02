@@ -40,6 +40,7 @@ final class TMSettingsController: NSObject, TMDefaultsKeyControllable {
         
         let showsTime: Bool = standardDefaultsBool(forKey: SettingKey.showsTime) ?? TMSettings.default.showsTime
         let showsButtons: Bool = standardDefaultsBool(forKey: SettingKey.showsButtons) ?? TMSettings.default.showsButtons
+        let autoConfirmsSelection: Bool = standardDefaultsBool(forKey: SettingKey.autoConfirmsSelection) ?? TMSettings.default.autoConfirmsSelection
         let automaticRegionChange: Bool = standardDefaultsBool(forKey: SettingKey.automaticRegionChange) ?? TMSettings.default.changesRegionAutomatically
         let regionNamesUppercased: Bool = standardDefaultsBool(forKey: SettingKey.regionNamesUppercased) ?? TMSettings.default.regionNamesUppercased
         
@@ -51,7 +52,7 @@ final class TMSettingsController: NSObject, TMDefaultsKeyControllable {
         }
         let regionNameLanguage: String = standardDefaults.string(forKey: SettingKey.regionNameLanguage) ?? currentLanguageIdentifier
         
-        settings = TMSettings(gameMode: gameMode, regionNamesUppercased: regionNamesUppercased, showsTime: showsTime, showsButtons: showsButtons, changesRegionAutomatically: automaticRegionChange, showsCorrectAnswer: showsCorrectAnswer, regionNameLanguageIdentifier: regionNameLanguage)
+        settings = TMSettings(gameMode: gameMode, regionNamesUppercased: regionNamesUppercased, showsTime: showsTime, showsButtons: showsButtons, autoConfirmsSelection: autoConfirmsSelection, changesRegionAutomatically: automaticRegionChange, showsCorrectAnswer: showsCorrectAnswer, regionNameLanguageIdentifier: regionNameLanguage)
 
     }
     
@@ -63,6 +64,7 @@ final class TMSettingsController: NSObject, TMDefaultsKeyControllable {
         standardDefaults.set(settings.gameMode.rawValue, forKey: SettingKey.lastGameMode)
         standardDefaults.set(settings.showsTime, forKey: SettingKey.showsTime)
         standardDefaults.set(settings.showsButtons, forKey: SettingKey.showsButtons)
+        standardDefaults.set(settings.autoConfirmsSelection, forKey: SettingKey.autoConfirmsSelection)
         standardDefaults.set(settings.changesRegionAutomatically, forKey: SettingKey.automaticRegionChange)
         standardDefaults.set(settings.regionNamesUppercased, forKey: SettingKey.regionNamesUppercased)
         standardDefaults.set(settings.showsCorrectAnswer, forKey: SettingKey.showsCorrectAnswer)

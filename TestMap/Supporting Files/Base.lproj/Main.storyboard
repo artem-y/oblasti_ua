@@ -630,8 +630,40 @@
                                         </tableViewCellContentView>
                                         <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="jqG-sm-Q1y">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tIj-Sh-zCe">
                                         <rect key="frame" x="0.0" y="187.5" width="768" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tIj-Sh-zCe" id="y8X-lk-axn">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" clipsSubviews="YES" contentMode="center" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="S9T-fT-ZuT">
+                                                    <rect key="frame" x="20" y="6.5" width="728" height="31"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Автоматичне підтвердження" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuK-eM-qmK">
+                                                            <rect key="frame" x="0.0" y="3.5" width="671" height="24"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mQh-gh-2ww">
+                                                            <rect key="frame" x="679" y="0.0" width="51" height="31"/>
+                                                            <color key="tintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="onTintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </switch>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="S9T-fT-ZuT" secondAttribute="trailing" constant="20" symbolic="YES" id="Ix9-lp-2zt"/>
+                                                <constraint firstItem="S9T-fT-ZuT" firstAttribute="leading" secondItem="y8X-lk-axn" secondAttribute="leading" constant="20" symbolic="YES" id="QjS-yw-tlJ"/>
+                                                <constraint firstItem="S9T-fT-ZuT" firstAttribute="centerY" secondItem="y8X-lk-axn" secondAttribute="centerY" id="UkU-Qz-L2V"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="jqG-sm-Q1y">
+                                        <rect key="frame" x="0.0" y="231.5" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jqG-sm-Q1y" id="NkV-z2-q5J">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
@@ -663,7 +695,7 @@
                                         <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dHd-kl-k6H">
-                                        <rect key="frame" x="0.0" y="231.5" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="275.5" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dHd-kl-k6H" id="vo2-xP-62W">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
@@ -702,7 +734,7 @@
                             <tableViewSection headerTitle="Назви областей" footerTitle="Наприклад: Івано-Франківська" id="jAi-4Z-lJt">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="74L-Yk-irJ" detailTextLabel="3qf-ha-wbJ" style="IBUITableViewCellStyleValue1" id="q9X-BY-sWF">
-                                        <rect key="frame" x="0.0" y="339" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="383" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q9X-BY-sWF" id="KUd-hJ-eF5">
                                             <rect key="frame" x="0.0" y="0.0" width="730" height="43.5"/>
@@ -729,7 +761,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="I2y-f2-ybr">
-                                        <rect key="frame" x="0.0" y="383" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="427" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I2y-f2-ybr" id="nGR-FT-jt6">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
@@ -768,7 +800,7 @@
                             <tableViewSection id="Mwf-iZ-pwy">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Egh-NP-JfS">
-                                        <rect key="frame" x="0.0" y="475" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="519" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Egh-NP-JfS" id="87n-c1-cEx">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
@@ -807,6 +839,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="autoConfirmationCell" destination="tIj-Sh-zCe" id="YVK-cv-dEp"/>
+                        <outlet property="autoConfirmationSwitch" destination="mQh-gh-2ww" id="p0b-Du-87H"/>
                         <outlet property="automaticNextRegionCell" destination="jqG-sm-Q1y" id="29Y-bh-s8X"/>
                         <outlet property="automaticNextRegionSwitch" destination="dEl-eb-93X" id="A2M-9O-nT6"/>
                         <outlet property="languageNameLagel" destination="3qf-ha-wbJ" id="xPn-3k-3aq"/>

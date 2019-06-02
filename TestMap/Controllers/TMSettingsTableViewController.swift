@@ -18,6 +18,10 @@ final class TMSettingsTableViewController: UITableViewController {
     @IBOutlet weak var showButtonsSwitch: UISwitch!
     @IBOutlet weak var modeNameLabel: UILabel!
     
+    @IBOutlet weak var autoConfirmationCell: UITableViewCell!
+    
+    @IBOutlet weak var autoConfirmationSwitch: UISwitch!
+    
     @IBOutlet weak var automaticNextRegionCell: UITableViewCell!
     @IBOutlet weak var automaticNextRegionSwitch: UISwitch!
     
@@ -71,6 +75,8 @@ final class TMSettingsTableViewController: UITableViewController {
             settings.showsButtons = !settings.showsButtons
         case automaticNextRegionCell:
             settings.changesRegionAutomatically = !settings.changesRegionAutomatically
+        case autoConfirmationCell:
+            settings.autoConfirmsSelection = !settings.autoConfirmsSelection
         case regionNamesUppercasedCell:
             settings.regionNamesUppercased = !settings.regionNamesUppercased
         case showCorrectAnswerCell:
@@ -98,6 +104,7 @@ final class TMSettingsTableViewController: UITableViewController {
         let isPointerMode = currentGameMode == .pointer
         let isShowingTime = isPointerMode ? false : settings.showsTime
         let isShowingButtons = isPointerMode ? false : settings.showsButtons
+        let isAutoConfirmingSelection = isPointerMode ? false : settings.autoConfirmsSelection
         let isChangingNextRegionAutomatically = isPointerMode ? false : settings.changesRegionAutomatically
         let isShowingCorrectAnswer = isPointerMode ? false : settings.showsCorrectAnswer
         
@@ -106,6 +113,9 @@ final class TMSettingsTableViewController: UITableViewController {
         
         showButtonsCell.animateSet(enabled: !isPointerMode)
         showButtonsSwitch.setOn(isShowingButtons, animated: true)
+        
+        autoConfirmationCell.animateSet(enabled: !isPointerMode)
+        autoConfirmationSwitch.setOn(isAutoConfirmingSelection, animated: true)
         
         automaticNextRegionCell.animateSet(enabled: !isPointerMode)
         automaticNextRegionSwitch.setOn(isChangingNextRegionAutomatically, animated: true)

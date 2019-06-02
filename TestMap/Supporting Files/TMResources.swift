@@ -64,6 +64,7 @@ struct TMResources {
             static let lastGameMode = "lastGameModeSetting" // Should only be changed from within app's inner settings menu
             static let showsTime = "showsTimeSetting"
             static let showsButtons = "showsButtonsSetting"
+            static let autoConfirmsSelection = "autoConfirmsSelectionSetting"
             static let automaticRegionChange = "automaticRegionChangeSetting"
             static let regionNameLanguage = "regionNameLanguageSetting"
             static let showsCorrectAnswer = "showsCorrectAnswerSetting"
