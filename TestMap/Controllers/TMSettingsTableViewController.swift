@@ -82,7 +82,7 @@ final class TMSettingsTableViewController: UITableViewController {
         case showCorrectAnswerCell:
             settings.showsCorrectAnswer = !settings.showsCorrectAnswer
         case restoreDefaultsCell:
-            settings = TMSettings.default
+            performSegue(withIdentifier: TMResources.SegueIdentifier.restoreDefaultsConfirmationSegue, sender: self)
         default:
             break
         }
@@ -133,6 +133,9 @@ final class TMSettingsTableViewController: UITableViewController {
         let ivanoFrankivskaText: String = settings.regionNamesUppercased ? ivanoFrankivskaTextUnprocessed.uppercased() : ivanoFrankivskaTextUnprocessed.capitalized
         
         exampleFooterText = "\(forExampleText) \(ivanoFrankivskaText)"
+        
+        restoreDefaultsCell.isHidden = (settings == TMSettings.default)
+        
         tableView.reloadData()
         
     }
@@ -141,11 +144,22 @@ final class TMSettingsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        if segue.identifier == TMResources.SegueIdentifier.showModeSettingFromSettingsControllerSegue {
+        switch segue.identifier {
+        case TMResources.SegueIdentifier.showModeSettingFromSettingsControllerSegue:
             if let destinationVC = segue.destination as? TMModeSettingTableViewController {
                 
                 destinationVC.hidesBackButton = false
             }
+        case TMResources.SegueIdentifier.restoreDefaultsConfirmationSegue:
+            if let destinationVC = segue.destination as? TMConfirmationViewController {
+                
+                destinationVC.messageText = "Settings will be reset to defaults. This action cannot be undone.".localized()
+                destinationVC.confirmationHandler = { [unowned self] in
+                    self.settings = TMSettings.default
+                }
+            }
+        default:
+            break
         }
     }
     

@@ -855,6 +855,7 @@
                         <outlet property="showCorrectAnswerSwitch" destination="FTe-jx-6Fu" id="2Dd-il-TY7"/>
                         <outlet property="showTimeCell" destination="kKK-7d-VBY" id="NmN-sC-fLO"/>
                         <outlet property="showTimeSwitch" destination="qjb-Ua-ItT" id="BIN-1r-1bE"/>
+                        <segue destination="5rb-k2-kmi" kind="presentation" identifier="restoreDefaultsConfirmationSegue" id="M0D-vz-7yd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yNl-o6-b1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -866,20 +867,20 @@
             <objects>
                 <tableViewController title="Режим: класичний" id="B36-X3-Qfo" customClass="TMModeSettingTableViewController" customModule="TestMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ImX-Us-luz">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="748"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="hbp-eA-mr6" userLabel="footerView">
-                            <rect key="frame" x="0.0" y="72" width="768" height="44"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="hbp-eA-mr6" userLabel="footerView">
+                            <rect key="frame" x="0.0" y="72" width="1024" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="gameModeCell" textLabel="z7K-bX-fQJ" detailTextLabel="tEF-5K-mDz" style="IBUITableViewCellStyleSubtitle" id="mIx-WX-3fS">
-                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="1024" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mIx-WX-3fS" id="vXV-Xp-DkF">
-                                    <rect key="frame" x="0.0" y="0.0" width="724" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="980" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Назва режиму" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z7K-bX-fQJ">
@@ -921,7 +922,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nl4-3Y-vzF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829" y="708"/>
+            <point key="canvasLocation" x="1038" y="1438"/>
         </scene>
         <!--Мови назв областей-->
         <scene sceneID="c4A-Aj-uGT">
@@ -1363,7 +1364,7 @@
                         <outlet property="saveAndExitButton" destination="LnW-0o-Q3m" id="aff-wP-xFL"/>
                         <outlet property="timeLabel" destination="3Mx-wt-o0x" id="e0w-96-BoR"/>
                         <outlet property="topRightInfoView" destination="72U-I0-rJV" id="kxT-EK-Vcq"/>
-                        <segue destination="5rb-k2-kmi" kind="presentation" identifier="exitConfirmationSegue" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="pJQ-E9-LUq"/>
+                        <segue destination="5rb-k2-kmi" kind="presentation" identifier="exitConfirmationSegue" modalTransitionStyle="coverVertical" id="pJQ-E9-LUq"/>
                         <segue destination="w5R-I8-qTW" kind="unwind" identifier="unwindToMainMenuSegue" unwindAction="unwindToMenuViewController:" id="e7H-uC-Ayd"/>
                         <segue destination="wxR-yU-a36" kind="presentation" identifier="showGameResultSegue" modalPresentationStyle="fullScreen" id="Q4x-fN-Rkc"/>
                     </connections>
@@ -1494,31 +1495,36 @@
             </objects>
             <point key="canvasLocation" x="1804" y="-660"/>
         </scene>
-        <!--View Controller-->
+        <!--Confirmation View Controller-->
         <scene sceneID="z65-V7-fvk">
             <objects>
-                <viewController id="5rb-k2-kmi" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="confirmationViewControllerIdentifier" modalPresentationStyle="pageSheet" id="5rb-k2-kmi" customClass="TMConfirmationViewController" customModule="TestMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="center" id="npg-bO-Un0">
-                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Y96-pv-CSj">
-                                <rect key="frame" x="138.5" y="221" width="263" height="178"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Y96-pv-CSj">
+                                <rect key="frame" x="84" y="303" width="600" height="142"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ви впевнені?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8L-ru-eNu">
-                                        <rect key="frame" x="29.5" y="0.0" width="204.5" height="54"/>
+                                        <rect key="frame" x="198" y="0.0" width="204.5" height="42"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <color key="textColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Гру не буде збережено" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwf-pB-QJH">
-                                        <rect key="frame" x="0.0" y="62" width="263" height="54"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Гру не буде збережено" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bwf-pB-QJH">
+                                        <rect key="frame" x="0.0" y="50" width="600" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="500" id="xNp-yv-ScW">
+                                                <variation key="heightClass=regular-widthClass=regular" constant="600"/>
+                                            </constraint>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                         <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OJT-no-c3x">
-                                        <rect key="frame" x="7.5" y="124" width="248" height="54"/>
+                                        <rect key="frame" x="176" y="88" width="248" height="54"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LM7-6e-2pV" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="54"/>
@@ -1535,7 +1541,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                 </variation>
                                                 <connections>
-                                                    <segue destination="VrE-Oh-TLy" kind="unwind" unwindAction="dismissGameSceneViewController:" id="utL-MG-9db"/>
+                                                    <action selector="didChooseAction:" destination="5rb-k2-kmi" eventType="touchUpInside" id="U6I-cU-3fy"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRb-sk-Ugx" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
@@ -1550,7 +1556,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                 </variation>
                                                 <connections>
-                                                    <segue destination="VrE-Oh-TLy" kind="unwind" unwindAction="unwindToGameSceneViewController:" id="QRT-3j-pQw"/>
+                                                    <action selector="didChooseAction:" destination="5rb-k2-kmi" eventType="touchUpInside" id="QAo-mf-IhU"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1565,11 +1571,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kdG-ZJ-sdD"/>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="tRb-sk-Ugx" id="UgG-SM-UHz"/>
+                        <outlet property="confirmButton" destination="LM7-6e-2pV" id="wSe-4G-RhO"/>
+                        <outlet property="messageLabel" destination="Bwf-pB-QJH" id="foi-4h-Xpy"/>
+                        <outlet property="titleLabel" destination="j8L-ru-eNu" id="WyN-ci-huE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dC1-uY-Uo8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="VrE-Oh-TLy" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1839" y="120"/>
+            <point key="canvasLocation" x="1280" y="659"/>
         </scene>
         <!--Settings Navigation Controller-->
         <scene sceneID="4pV-2L-Noh">
@@ -1621,6 +1632,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qyJ-dd-H0o"/>
-        <segue reference="IMN-RV-1jG"/>
+        <segue reference="M0D-vz-7yd"/>
+        <segue reference="Pp2-nk-7RN"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -41,6 +41,7 @@
 		B0BFD4FA2297151E002EA6EF /* TMRemovableObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BFD4F92297151E002EA6EF /* TMRemovableObserver.swift */; };
 		B0C49DEB227A2B2400561892 /* GameColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */; };
 		B0C7D80F2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7D80E2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift */; };
+		B0C95BD522A45135005A18A8 /* TMConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C95BD422A45135005A18A8 /* TMConfirmationViewController.swift */; };
 		B0CC90FB2273B3D50075931E /* UIBezierPath+initFromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC90FA2273B3D50075931E /* UIBezierPath+initFromString.swift */; };
 		B0D0EA2C229E010000278597 /* TMPresentationStyleAdjustable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0EA2B229E010000278597 /* TMPresentationStyleAdjustable.swift */; };
 		B0D2F2C822733065007B1E38 /* pathText in Resources */ = {isa = PBXBuildFile; fileRef = B0D2F2C722733065007B1E38 /* pathText */; };
@@ -91,6 +92,7 @@
 		B0BFD4F92297151E002EA6EF /* TMRemovableObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMRemovableObserver.swift; sourceTree = "<group>"; };
 		B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColorExtensions.swift; sourceTree = "<group>"; };
 		B0C7D80E2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMLanguageSettingTalbeViewController.swift; sourceTree = "<group>"; };
+		B0C95BD422A45135005A18A8 /* TMConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMConfirmationViewController.swift; sourceTree = "<group>"; };
 		B0CC90FA2273B3D50075931E /* UIBezierPath+initFromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+initFromString.swift"; sourceTree = "<group>"; };
 		B0D0EA2B229E010000278597 /* TMPresentationStyleAdjustable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMPresentationStyleAdjustable.swift; sourceTree = "<group>"; };
 		B0D2F2C722733065007B1E38 /* pathText */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pathText; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				B0904F94226F858E007842CA /* TMGameSceneViewController.swift */,
 				B05E15C122746C9C007C85AF /* TMGameController.swift */,
 				B0AAE784228497BA002D7264 /* TMSettingsController.swift */,
+				B0C95BD422A45135005A18A8 /* TMConfirmationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				B043EB07227C312A00F87F1F /* TMRoundCornerButton.swift in Sources */,
 				B0D0EA2C229E010000278597 /* TMPresentationStyleAdjustable.swift in Sources */,
 				B0904F95226F858E007842CA /* TMGameSceneViewController.swift in Sources */,
+				B0C95BD522A45135005A18A8 /* TMConfirmationViewController.swift in Sources */,
 				B0AAE785228497BA002D7264 /* TMSettingsController.swift in Sources */,
 				B07A9ED3227CFC4400C4D2F0 /* TMResources.swift in Sources */,
 				B05A2AAE227A553400D8BA5C /* TMGameControllerDelegate.swift in Sources */,

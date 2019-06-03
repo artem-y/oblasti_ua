@@ -187,6 +187,13 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
                 bottomRightConfirmationView.isHidden = true
                 destinationVC.gameResult = gameController.gameResult
             }
+        case TMResources.SegueIdentifier.exitConfirmationSegue:
+            if let destinationVC = segue.destination as? TMConfirmationViewController {
+                destinationVC.messageText = "The game will not be saved".localized()
+                destinationVC.confirmationHandler = { [unowned self] in
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
         default:
             break
         }

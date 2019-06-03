@@ -40,3 +40,18 @@
 
 /* 'New Highscore:' - this will be the beginning of game result title if user hits new highscore. Example: 'New Highscore: classic' */
 "New Highscore:" = "Новий рекорд:";
+
+/* 'Are you sure?' is the default title of confirmation prompt */
+"Are you sure?" = "Ви впевнені?";
+
+/* 'The game will not be saved' is the message of confirmation prompt shown when user tries to quit without saving */
+"The game will not be saved" = "Гру не буде збережено";
+
+/* '"Settings will be reset to defaults. This action cannot be undone."' - message of confirmation prompt shown when user tries to restore default settings */
+"Settings will be reset to defaults. This action cannot be undone." = "Налаштування будуть змінені на значення за замовчуванням. Цю дію не можна скасувати.";
+
+/* 'YES' - Confirmation prompt's default confirm button title */
+"YES" = "ТАК";
+
+/* 'NO' - Confirmation prompt's default cancel button title */
+"NO" = "НІ";

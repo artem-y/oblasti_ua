@@ -27,6 +27,7 @@ struct TMResources {
     }
     
     struct SegueIdentifier {
+        static let restoreDefaultsConfirmationSegue = "restoreDefaultsConfirmationSegue"
         static let exitConfirmationSegue = "exitConfirmationSegue"
         static let unwindToMainMenuSegue = "unwindToMainMenuSegue"
         static let startGameSegue = "startGameSegue"
