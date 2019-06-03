@@ -12,7 +12,7 @@ import Foundation
 struct TMSettings: Equatable {
     
     /// Immutable default settings instance.
-    static let `default` = TMSettings(gameMode: .classic, regionNamesUppercased: false, showsTime: true, showsButtons: true, autoConfirmsSelection: true, changesRegionAutomatically: true, showsCorrectAnswer: true, regionNameLanguageIdentifier: "en")
+    static let `default` = TMSettings(gameMode: .classic, regionNamesUppercased: false, showsTime: true, showsButtons: true, autoConfirmsSelection: true, changesRegionAutomatically: true, showsCorrectAnswer: true, regionNameLanguageIdentifier: Locale.current.languageCode)
     
     /// Game mode from last saved user settings. Should not be changed from device settings app.
     var gameMode: TMGame.Mode = .classic
@@ -37,5 +37,23 @@ struct TMSettings: Equatable {
     
     /// Tells the app only the language in which region names are presented during the game. Should not affect app's menu language
     var regionNameLanguageIdentifier: String
+    
+    // MARK: - Initialization
+    init(gameMode: TMGame.Mode, regionNamesUppercased: Bool, showsTime: Bool, showsButtons: Bool, autoConfirmsSelection: Bool, changesRegionAutomatically: Bool, showsCorrectAnswer: Bool, regionNameLanguageIdentifier: String?) {
+        self.gameMode = gameMode
+        self.regionNamesUppercased = regionNamesUppercased
+        self.showsTime = showsTime
+        self.showsButtons = showsButtons
+        self.autoConfirmsSelection = autoConfirmsSelection
+        self.changesRegionAutomatically = changesRegionAutomatically
+        self.showsCorrectAnswer = showsCorrectAnswer
+        
+        if let regionNameLanguageIdentifier = regionNameLanguageIdentifier, Bundle.main.localizations.contains(regionNameLanguageIdentifier) {
+            self.regionNameLanguageIdentifier = regionNameLanguageIdentifier
+        } else {
+            self.regionNameLanguageIdentifier = "en"
+        }
+        
+    }
     
 }
