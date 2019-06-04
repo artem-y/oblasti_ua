@@ -11,13 +11,10 @@ import UIKit
 final class TMGameSceneViewController: UIViewController, TMGameControllerDelegate, TMDefaultsKeyControllable {
     
     // MARK: - @IBOutlets
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var gameView: UIView!
     @IBOutlet weak var regionLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
-    @IBOutlet weak var gameCoverView: UIView!
-    @IBOutlet weak var saveAndExitButton: TMRoundCornerButton!
-    @IBOutlet weak var exitToMenuButton: TMRoundCornerButton!
-    @IBOutlet weak var continueButton: TMRoundCornerButton!
     @IBOutlet weak var pauseButton: UIButton!
     @IBOutlet weak var topRightInfoView: UIView!
     @IBOutlet weak var bottomRightConfirmationView: UIView!
@@ -46,67 +43,37 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     private let animationDuration: Double = 0.2
     private var isRunningGame = true {
         didSet {
-            AppDelegate.shared.gameSceneShowTimeObserver = isRunningGame ? nil : self
             if isRunningGame {
-                removeFromNotificationCenter()
                 gameController.startTimer()
                 updateTimerLabel()
                 reloadCustomNames()
                 reloadCurrentRegionName()
             } else {
-                addToNotificationCenter()
                 gameController.stopTimer()
             }
-            let imageName = isRunningGame ? TMResources.ImageName.pause : TMResources.ImageName.play
-            pauseButton.setImage(UIImage(named: imageName), for: .normal)
-            gameCoverView.animateSet(hidden: isRunningGame, withDuration: animationDuration)
+            
             singleTapRecognizer.isEnabled = isRunningGame
         }
     }
     private var singleTapRecognizer: UITapGestureRecognizer!
     
     // MARK: - @IBActions
-    @IBAction func confirmButtonPressed(_ sender: Any) {
+    @IBAction func confirmButtonTapped(_ sender: Any) {
         confirmSelection()
     }
     
-    @IBAction func playPauseButtonPressed(_ sender: UIButton) {
-        isRunningGame = !isRunningGame
+    @IBAction func pauseButtonTapped(_ sender: UIButton) {
+        pauseGame()
     }
     
-    @IBAction func saveAndExitButtonTapped(_ sender: TMRoundCornerButton) {
-        
-        let jsonEncoder = JSONEncoder()
-        if let jsonData = try? jsonEncoder.encode(gameController.gameResult) {
-            standardDefaults.set(jsonData, forKey: DefaultsKey.lastUnfinishedGame)
-        }
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func exitToMenuButtonTapped(_ sender: TMRoundCornerButton) {
-        if gameMode == .pointer {
-            dismiss(animated: true, completion: nil)
-        } else {
-            topRightInfoView.alpha = 0.2
-            performSegue(withIdentifier: TMResources.SegueIdentifier.exitConfirmationSegue, sender: self)
-        }
-    }
-    
-    @IBAction func unwindToGameSceneViewController(_ segue: UIStoryboardSegue) {
-        topRightInfoView.alpha = 1.0
-    }
-    
-    @IBAction func dismissGameSceneViewController(_ segue: UIStoryboardSegue){
+    @IBAction func dismissGameSceneViewController(_ segue: UIStoryboardSegue? = nil){
 
-        exitToMenuButton.isHidden = true
-        continueButton.isHidden = true
-        topRightInfoView.isHidden = true
+        backgroundView.isHidden = true
 
         // This is needed to prevent memory leak caused by holding a reference to this instance of TMGameSceneViewController in app delegate
         AppDelegate.shared.pauseApp = nil
 
-        // It is better to use unwind segue because this way it will be easier to pass information to menu view controller
-        performSegue(withIdentifier: TMResources.SegueIdentifier.unwindToMainMenuSegue, sender: self)
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - UIViewController methods
@@ -118,9 +85,6 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
         // This will be called from AppDelegate's "applicationWillResignActive" function
         AppDelegate.shared.pauseApp = pauseGame
         
-        if let blurView = gameCoverView.viewWithTag(10101) as? UIVisualEffectView {
-            blurView.effect = UIBlurEffect(style: .extraLight)
-        }
         loadMapView()
         
         // TODO: Replace with function
@@ -128,7 +92,6 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
             gameController.startTimer()
         } else {
             gameController.currentRegion = nil
-            saveAndExitButton.isHidden = true
         }
         updateTimerLabel()
         
@@ -174,9 +137,10 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
         super.prepare(for: segue, sender: sender)
         
         switch segue.identifier {
-        case TMResources.SegueIdentifier.showSettingsFromGamePauseSegue:
-            if let destinationVC = segue.destination as? TMSettingsNavigationController, let topVC = destinationVC.topViewController as? TMSettingsTableViewController {
-                topVC.gameInProgressGameMode = gameMode
+        case TMResources.SegueIdentifier.pauseGameSegue:
+            if let destinationVC = segue.destination as? TMPauseViewController {
+                destinationVC.gameController = gameController
+                destinationVC.delegate = self
             }
         case TMResources.SegueIdentifier.showGameResultSegue:
             if let destinationVC = segue.destination as? TMGameResultViewController {
@@ -187,13 +151,6 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
                 bottomRightConfirmationView.isHidden = true
                 destinationVC.gameResult = gameController.gameResult
             }
-        case TMResources.SegueIdentifier.exitConfirmationSegue:
-            if let destinationVC = segue.destination as? TMConfirmationViewController {
-                destinationVC.messageText = "The game will not be saved".localized()
-                destinationVC.confirmationHandler = { [unowned self] in
-                    self.dismiss(animated: true, completion: nil)
-                }
-            }
         default:
             break
         }
@@ -201,12 +158,12 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     
     // MARK: - Game control methods
     private func configureGestureRecognizers() {
-        singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTouch))
+        singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
         singleTapRecognizer.numberOfTouchesRequired = 1
         singleTapRecognizer.numberOfTapsRequired = 1
     }
     
-    @objc private func didTouch(_ sender: UITapGestureRecognizer){
+    @objc private func didTap(_ sender: UITapGestureRecognizer){
         if sender.state == .ended {
             if isShowingSelectionResult {
                 gameController.nextQuestion()
@@ -274,10 +231,8 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     
     @objc func pauseGame() {
         isRunningGame = false
-    }
-    
-    func continueGame() {
-        isRunningGame = true
+        guard self.presentedViewController == nil else { return }
+        performSegue(withIdentifier: TMResources.SegueIdentifier.pauseGameSegue, sender: self)
     }
     
     private func hideControls() {
@@ -433,12 +388,9 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     }
     
     private func reloadTimerLabelTitle() {
-        let timeFormatter = DateComponentsFormatter()
-        timeFormatter.allowsFractionalUnits = true
-        timeFormatter.allowedUnits = [.minute, .second]
-        timeFormatter.zeroFormattingBehavior = .pad
-        let formattedTimeString = timeFormatter.string(from: gameController.gameResult.timePassed)
-        timeLabel.text = formattedTimeString
+        let timeFormatter = TMGameTimeFormatter()
+        timeFormatter.timeFormat = "mm:ss"
+        timeLabel.text = timeFormatter.string(for: gameController.gameResult.timePassed)
     }
     
     // MARK: - GameControllerDelegate methods
@@ -466,9 +418,12 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     
 }
 
-// MARK: - TMRemovableObserver protocol methods
-extension TMGameSceneViewController: TMRemovableObserver {
-    func addToNotificationCenter() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTimerLabel), name: .TMShowTimeSettingChanged, object: nil)
+extension TMGameSceneViewController: TMPauseViewControllerDelegate {
+    func continueGame() {
+        isRunningGame = true
+    }
+    
+    func quitGame() {
+        dismissGameSceneViewController()
     }
 }

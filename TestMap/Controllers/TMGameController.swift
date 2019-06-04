@@ -117,6 +117,13 @@ final class TMGameController: TMDefaultsKeyControllable {
         }
     }
     
+    func saveGame() {
+        let jsonEncoder = JSONEncoder()
+        if let jsonData = try? jsonEncoder.encode(gameResult) {
+            standardDefaults.set(jsonData, forKey: DefaultsKey.lastUnfinishedGame)
+        }
+    }
+    
     deinit {
         print(self, "deinit!")
     }

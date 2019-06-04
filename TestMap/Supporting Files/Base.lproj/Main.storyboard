@@ -72,7 +72,316 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gTu-S7-k4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bPp-RE-6rV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="829" y="-1066"/>
+            <point key="canvasLocation" x="565" y="-1088"/>
+        </scene>
+        <!--Pause View Controller-->
+        <scene sceneID="Kye-ov-Vbv">
+            <objects>
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="rwN-mc-SvK" customClass="TMPauseViewController" customModule="TestMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="TGL-uS-Auz">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zTF-yz-jbH">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <subviews>
+                                    <view clearsContextBeforeDrawing="NO" tag="10101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rd-Sp-mux" customClass="UIVisualEffectView">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                    </view>
+                                    <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMN-ET-dpd">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                        <subviews>
+                                            <stackView clearsContextBeforeDrawing="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oJE-go-Umz">
+                                                <rect key="frame" x="287" y="253.5" width="450" height="261"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHb-Kb-ejW" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="450" height="54"/>
+                                                        <color key="backgroundColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="ПРОДОВЖИТИ">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
+                                                                <real key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <variation key="heightClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="continueButtonTapped:" destination="rwN-mc-SvK" eventType="touchUpInside" id="DqN-jK-y52"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNz-X4-uNN" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="69" width="450" height="54"/>
+                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="НАЛАШТУВАННЯ">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
+                                                                <real key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <variation key="heightClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <segue destination="ZvX-xE-haP" kind="show" identifier="showSettingsFromGamePauseSegue" id="sHo-1N-eHk"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgr-27-abm" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="138" width="450" height="54"/>
+                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="ВИЙТИ І ЗБЕРЕГТИ">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
+                                                                <real key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <variation key="heightClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="saveAndExitButtonTapped:" destination="rwN-mc-SvK" eventType="touchUpInside" id="gt6-m5-SWP"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIo-Fr-0Oy" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="207" width="450" height="54"/>
+                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="ВИЙТИ НЕ ЗБЕРІГАЮЧИ">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
+                                                                <real key="value" value="15"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <variation key="heightClass=regular">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                        </variation>
+                                                        <connections>
+                                                            <action selector="exitToMenuButtonTapped:" destination="rwN-mc-SvK" eventType="touchUpInside" id="koC-TB-FiW"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="450" id="Mwg-tZ-rag">
+                                                        <variation key="heightClass=compact" constant="360"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <variation key="widthClass=regular" spacing="15"/>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="oJE-go-Umz" firstAttribute="centerY" secondItem="RMN-ET-dpd" secondAttribute="centerY" id="XJo-aI-WHu"/>
+                                            <constraint firstItem="oJE-go-Umz" firstAttribute="centerX" secondItem="RMN-ET-dpd" secondAttribute="centerX" id="z7o-mg-TDE"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jD7-wp-OhY">
+                                        <rect key="frame" x="737.5" y="20" width="286.5" height="122"/>
+                                        <subviews>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBa-TZ-adO">
+                                                <rect key="frame" x="62.5" y="20" width="136" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="HoK-yT-O4E"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="widthClass=compact">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                </variation>
+                                            </label>
+                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQj-j1-RYp">
+                                                <rect key="frame" x="206.5" y="20" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="PQj-j1-RYp" secondAttribute="height" multiplier="1:1" id="PbY-H8-blX"/>
+                                                    <constraint firstAttribute="height" constant="60" id="s7D-ok-9bH">
+                                                        <variation key="heightClass=compact" constant="40"/>
+                                                    </constraint>
+                                                </constraints>
+                                                <color key="tintColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                                <state key="normal" image="playButton"/>
+                                                <connections>
+                                                    <action selector="continueButtonTapped:" destination="rwN-mc-SvK" eventType="touchUpInside" id="IoV-dh-Vah"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="xBa-TZ-adO" firstAttribute="centerY" secondItem="PQj-j1-RYp" secondAttribute="centerY" id="KAl-o0-811"/>
+                                            <constraint firstAttribute="trailing" secondItem="PQj-j1-RYp" secondAttribute="trailing" constant="20" symbolic="YES" id="dVI-7G-q0o">
+                                                <variation key="widthClass=compact" constant="15"/>
+                                            </constraint>
+                                            <constraint firstItem="PQj-j1-RYp" firstAttribute="leading" secondItem="xBa-TZ-adO" secondAttribute="trailing" constant="8" symbolic="YES" id="oJE-nN-Urz"/>
+                                            <constraint firstItem="PQj-j1-RYp" firstAttribute="top" secondItem="jD7-wp-OhY" secondAttribute="top" constant="20" symbolic="YES" id="qqb-A5-lVL"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="3rd-Sp-mux" firstAttribute="top" secondItem="zTF-yz-jbH" secondAttribute="top" id="ECg-NO-Iln"/>
+                                    <constraint firstAttribute="bottom" secondItem="RMN-ET-dpd" secondAttribute="bottom" id="ISC-im-3n4"/>
+                                    <constraint firstItem="jD7-wp-OhY" firstAttribute="width" secondItem="RMN-ET-dpd" secondAttribute="width" multiplier="0.28" id="QSS-RA-Iqp"/>
+                                    <constraint firstAttribute="trailing" secondItem="jD7-wp-OhY" secondAttribute="trailing" id="VKE-E6-55h"/>
+                                    <constraint firstItem="RMN-ET-dpd" firstAttribute="leading" secondItem="zTF-yz-jbH" secondAttribute="leading" id="bJE-Tw-C4H"/>
+                                    <constraint firstAttribute="trailing" secondItem="RMN-ET-dpd" secondAttribute="trailing" id="gow-8I-w4q"/>
+                                    <constraint firstAttribute="bottom" secondItem="3rd-Sp-mux" secondAttribute="bottom" id="kuB-C1-ib5"/>
+                                    <constraint firstItem="3rd-Sp-mux" firstAttribute="leading" secondItem="zTF-yz-jbH" secondAttribute="leading" id="oSp-cB-l3w"/>
+                                    <constraint firstAttribute="trailing" secondItem="3rd-Sp-mux" secondAttribute="trailing" id="ous-2J-sSu"/>
+                                    <constraint firstItem="RMN-ET-dpd" firstAttribute="top" secondItem="zTF-yz-jbH" secondAttribute="top" id="qO7-MB-UJH"/>
+                                    <constraint firstItem="jD7-wp-OhY" firstAttribute="height" secondItem="RMN-ET-dpd" secondAttribute="height" multiplier="0.25" constant="-70" id="sL0-w0-m6H"/>
+                                    <constraint firstItem="jD7-wp-OhY" firstAttribute="top" secondItem="zTF-yz-jbH" secondAttribute="top" constant="20" symbolic="YES" id="xtK-gF-9dI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="zTF-yz-jbH" secondAttribute="bottom" id="Jvg-fL-riJ"/>
+                            <constraint firstItem="zTF-yz-jbH" firstAttribute="leading" secondItem="TGL-uS-Auz" secondAttribute="leading" id="aEy-ip-ytX"/>
+                            <constraint firstItem="zTF-yz-jbH" firstAttribute="trailing" secondItem="TGL-uS-Auz" secondAttribute="trailing" id="aP8-lj-qKV"/>
+                            <constraint firstItem="zTF-yz-jbH" firstAttribute="top" secondItem="TGL-uS-Auz" secondAttribute="top" id="oGq-Si-zYM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XFy-Ue-eLZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="blurView" destination="3rd-Sp-mux" id="T3b-5d-96M"/>
+                        <outlet property="continueButton" destination="lHb-Kb-ejW" id="b6T-Mu-ADY"/>
+                        <outlet property="exitToMenuButton" destination="GIo-Fr-0Oy" id="xcc-cx-BJa"/>
+                        <outlet property="playButton" destination="PQj-j1-RYp" id="ZnT-uf-u9i"/>
+                        <outlet property="saveAndExitButton" destination="jgr-27-abm" id="831-Pb-Uf2"/>
+                        <outlet property="timeLabel" destination="xBa-TZ-adO" id="p9c-hQ-u47"/>
+                        <segue destination="5rb-k2-kmi" kind="presentation" identifier="exitConfirmationSegue" id="hZV-nb-FTk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9vN-NF-x17" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view hidden="YES" contentMode="scaleToFill" id="9fG-Pi-P3O">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view tag="10101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEg-dE-Cn3" customClass="UIVisualEffectView">
+                            <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZP4-ME-nwk">
+                            <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6ne-tC-cD3">
+                                    <rect key="frame" x="287" y="243.5" width="450" height="261"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIW-Bg-IES" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="450" height="54"/>
+                                            <color key="backgroundColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title="ПРОДОВЖИТИ">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
+                                                    <real key="value" value="15"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <variation key="heightClass=regular">
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="playButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wN8-5I-uDX"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GTy-nL-oBA" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="69" width="450" height="54"/>
+                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="НАЛАШТУВАННЯ">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
+                                                    <real key="value" value="15"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <variation key="heightClass=regular">
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                            </variation>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKC-CI-K1i" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="138" width="450" height="54"/>
+                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="ВИЙТИ І ЗБЕРЕГТИ">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
+                                                    <real key="value" value="15"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <variation key="heightClass=regular">
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="saveAndExitButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8lT-lU-IGI"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTi-aq-A4d" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="207" width="450" height="54"/>
+                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" title="ВИЙТИ НЕ ЗБЕРІГАЮЧИ">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
+                                                    <real key="value" value="15"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <variation key="heightClass=regular">
+                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                            </variation>
+                                            <connections>
+                                                <action selector="exitToMenuButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nfn-bD-bDg"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="450" id="LJl-0w-ECy">
+                                            <variation key="heightClass=compact" constant="360"/>
+                                        </constraint>
+                                    </constraints>
+                                    <variation key="widthClass=regular" spacing="15"/>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="6ne-tC-cD3" firstAttribute="centerY" secondItem="ZP4-ME-nwk" secondAttribute="centerY" id="72p-Jh-ONW"/>
+                                <constraint firstItem="6ne-tC-cD3" firstAttribute="centerX" secondItem="ZP4-ME-nwk" secondAttribute="centerX" id="T4G-D4-Xot"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="ZP4-ME-nwk" firstAttribute="leading" secondItem="9fG-Pi-P3O" secondAttribute="leading" id="08Y-Ml-tzg"/>
+                        <constraint firstItem="ZP4-ME-nwk" firstAttribute="top" secondItem="9fG-Pi-P3O" secondAttribute="top" id="KgD-17-O69"/>
+                        <constraint firstAttribute="trailing" secondItem="UEg-dE-Cn3" secondAttribute="trailing" id="XyT-Wd-8Ff"/>
+                        <constraint firstAttribute="trailing" secondItem="ZP4-ME-nwk" secondAttribute="trailing" id="gPJ-7l-ChL"/>
+                        <constraint firstAttribute="bottom" secondItem="UEg-dE-Cn3" secondAttribute="bottom" id="kOG-NL-OQf"/>
+                        <constraint firstItem="UEg-dE-Cn3" firstAttribute="top" secondItem="9fG-Pi-P3O" secondAttribute="top" id="ltu-FB-cxU"/>
+                        <constraint firstItem="UEg-dE-Cn3" firstAttribute="leading" secondItem="9fG-Pi-P3O" secondAttribute="leading" id="n6d-bG-mUy"/>
+                        <constraint firstAttribute="bottom" secondItem="ZP4-ME-nwk" secondAttribute="bottom" id="sX5-yh-MB5"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="sRu-i5-AgK"/>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="1727" y="138"/>
         </scene>
         <!--Highscore View Controller-->
         <scene sceneID="V7d-Vl-j16">
@@ -336,7 +645,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URi-mn-CDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bYm-Sy-a5A" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="210" y="-1066"/>
+            <point key="canvasLocation" x="-41" y="-1088"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="Ey9-zW-Pfv">
@@ -347,16 +656,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Bpi-EO-O3S">
-                                <rect key="frame" x="243" y="80" width="538" height="388"/>
+                                <rect key="frame" x="243" y="203.5" width="538" height="141"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UkraineLogo_351_246" translatesAutoresizingMaskIntoConstraints="NO" id="LHx-ST-b9m">
-                                        <rect key="frame" x="80.5" y="0.0" width="377" height="264"/>
+                                        <rect key="frame" x="257" y="0.0" width="24" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="LHx-ST-b9m" secondAttribute="height" multiplier="351:246" id="vK0-XM-yti"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bqg-XE-UUs">
-                                        <rect key="frame" x="0.0" y="272" width="538" height="116"/>
+                                        <rect key="frame" x="0.0" y="25" width="538" height="116"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpi-uT-xOU">
                                                 <rect key="frame" x="107" y="0.0" width="324" height="54"/>
@@ -434,7 +743,7 @@
                                 <variation key="heightClass=compact" distribution="fillEqually"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ENs-zS-oEd">
-                                <rect key="frame" x="429" y="523" width="166" height="50"/>
+                                <rect key="frame" x="429" y="387" width="166" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZ5-78-1wO">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -530,7 +839,7 @@
             <objects>
                 <tableViewController id="sfa-e7-oRC" customClass="TMSettingsTableViewController" customModule="TestMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="WU6-Vl-wR3">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="748"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -539,10 +848,10 @@
                             <tableViewSection headerTitle="Загальні" id="Udg-Wb-oD8">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="f1I-1W-our" detailTextLabel="hV1-VB-09M" style="IBUITableViewCellStyleValue1" id="kbp-rl-ucq">
-                                        <rect key="frame" x="0.0" y="55.5" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kbp-rl-ucq" id="HaU-PP-wUq">
-                                            <rect key="frame" x="0.0" y="0.0" width="730" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="986" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Режим" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f1I-1W-our">
@@ -553,7 +862,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Класичний" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hV1-VB-09M">
-                                                    <rect key="frame" x="629.5" y="10" width="100.5" height="24"/>
+                                                    <rect key="frame" x="885.5" y="10" width="100.5" height="24"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -567,23 +876,23 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kKK-7d-VBY">
-                                        <rect key="frame" x="0.0" y="99.5" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="99.5" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kKK-7d-VBY" id="Qkf-eW-MJp">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="center" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="u6a-9S-nVF">
-                                                    <rect key="frame" x="20" y="6.5" width="728" height="31"/>
+                                                    <rect key="frame" x="20" y="6.5" width="984" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Показувати час" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W57-oX-WyM">
-                                                            <rect key="frame" x="0.0" y="3.5" width="671" height="24"/>
+                                                            <rect key="frame" x="0.0" y="3.5" width="927" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qjb-Ua-ItT">
-                                                            <rect key="frame" x="679" y="0.0" width="51" height="31"/>
+                                                            <rect key="frame" x="935" y="0.0" width="51" height="31"/>
                                                             <color key="tintColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="onTintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </switch>
@@ -599,23 +908,23 @@
                                         <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pQB-Lo-Djw">
-                                        <rect key="frame" x="0.0" y="143.5" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="143.5" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pQB-Lo-Djw" id="f5Z-O5-knR">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="center" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fhj-wo-j2G">
-                                                    <rect key="frame" x="20" y="6.5" width="728" height="31"/>
+                                                    <rect key="frame" x="20" y="6.5" width="984" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Гра з кнопками" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGN-td-sPn">
-                                                            <rect key="frame" x="0.0" y="3.5" width="671" height="24"/>
+                                                            <rect key="frame" x="0.0" y="3.5" width="927" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YUj-G2-sPg">
-                                                            <rect key="frame" x="679" y="0.0" width="51" height="31"/>
+                                                            <rect key="frame" x="935" y="0.0" width="51" height="31"/>
                                                             <color key="tintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="onTintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </switch>
@@ -631,23 +940,23 @@
                                         <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="tIj-Sh-zCe">
-                                        <rect key="frame" x="0.0" y="187.5" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="187.5" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tIj-Sh-zCe" id="y8X-lk-axn">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="center" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="S9T-fT-ZuT">
-                                                    <rect key="frame" x="20" y="6.5" width="728" height="31"/>
+                                                    <rect key="frame" x="20" y="6.5" width="984" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Автоматичне підтвердження" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuK-eM-qmK">
-                                                            <rect key="frame" x="0.0" y="3.5" width="671" height="24"/>
+                                                            <rect key="frame" x="0.0" y="3.5" width="927" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mQh-gh-2ww">
-                                                            <rect key="frame" x="679" y="0.0" width="51" height="31"/>
+                                                            <rect key="frame" x="935" y="0.0" width="51" height="31"/>
                                                             <color key="tintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="onTintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </switch>
@@ -663,23 +972,23 @@
                                         <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="jqG-sm-Q1y">
-                                        <rect key="frame" x="0.0" y="231.5" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="231.5" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jqG-sm-Q1y" id="NkV-z2-q5J">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="center" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="U02-mc-pvB">
-                                                    <rect key="frame" x="20" y="6.5" width="728" height="31"/>
+                                                    <rect key="frame" x="20" y="6.5" width="984" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Автоматична зміна області" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOA-h9-n5T">
-                                                            <rect key="frame" x="0.0" y="3.5" width="671" height="24"/>
+                                                            <rect key="frame" x="0.0" y="3.5" width="927" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEl-eb-93X">
-                                                            <rect key="frame" x="679" y="0.0" width="51" height="31"/>
+                                                            <rect key="frame" x="935" y="0.0" width="51" height="31"/>
                                                             <color key="tintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="onTintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </switch>
@@ -695,23 +1004,23 @@
                                         <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dHd-kl-k6H">
-                                        <rect key="frame" x="0.0" y="275.5" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="275.5" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dHd-kl-k6H" id="vo2-xP-62W">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="center" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="COl-4f-Nph">
-                                                    <rect key="frame" x="20" y="6.5" width="728" height="31"/>
+                                                    <rect key="frame" x="20" y="6.5" width="984" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Показувати вірну відповідь" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63r-8s-JME">
-                                                            <rect key="frame" x="0.0" y="3.5" width="671" height="24"/>
+                                                            <rect key="frame" x="0.0" y="3.5" width="927" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FTe-jx-6Fu">
-                                                            <rect key="frame" x="679" y="0.0" width="51" height="31"/>
+                                                            <rect key="frame" x="935" y="0.0" width="51" height="31"/>
                                                             <color key="tintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="onTintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </switch>
@@ -734,10 +1043,10 @@
                             <tableViewSection headerTitle="Назви областей" footerTitle="Наприклад: Івано-Франківська" id="jAi-4Z-lJt">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="74L-Yk-irJ" detailTextLabel="3qf-ha-wbJ" style="IBUITableViewCellStyleValue1" id="q9X-BY-sWF">
-                                        <rect key="frame" x="0.0" y="383" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="383" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q9X-BY-sWF" id="KUd-hJ-eF5">
-                                            <rect key="frame" x="0.0" y="0.0" width="730" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="986" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Мова" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="74L-Yk-irJ">
@@ -748,7 +1057,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Українська" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3qf-ha-wbJ">
-                                                    <rect key="frame" x="629.5" y="10" width="100.5" height="24"/>
+                                                    <rect key="frame" x="885.5" y="10" width="100.5" height="24"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -761,23 +1070,23 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="I2y-f2-ybr">
-                                        <rect key="frame" x="0.0" y="427" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="427" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I2y-f2-ybr" id="nGR-FT-jt6">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="center" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Zkk-KO-XkC">
-                                                    <rect key="frame" x="20" y="6.5" width="728" height="31"/>
+                                                    <rect key="frame" x="20" y="6.5" width="984" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Всі літери великі" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVj-ph-XzT">
-                                                            <rect key="frame" x="0.0" y="3.5" width="671" height="24"/>
+                                                            <rect key="frame" x="0.0" y="3.5" width="927" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q2s-Ah-z2U">
-                                                            <rect key="frame" x="679" y="0.0" width="51" height="31"/>
+                                                            <rect key="frame" x="935" y="0.0" width="51" height="31"/>
                                                             <color key="tintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="onTintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </switch>
@@ -800,14 +1109,14 @@
                             <tableViewSection id="Mwf-iZ-pwy">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Egh-NP-JfS">
-                                        <rect key="frame" x="0.0" y="519" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="519" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Egh-NP-JfS" id="87n-c1-cEx">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Відновити налаштування за замовчуванням" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeF-mg-4N3">
-                                                    <rect key="frame" x="20" y="10" width="728" height="24"/>
+                                                    <rect key="frame" x="20" y="10" width="984" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -867,20 +1176,20 @@
             <objects>
                 <tableViewController title="Режим: класичний" id="B36-X3-Qfo" customClass="TMModeSettingTableViewController" customModule="TestMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ImX-Us-luz">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="hbp-eA-mr6" userLabel="footerView">
-                            <rect key="frame" x="0.0" y="72" width="1024" height="44"/>
+                            <rect key="frame" x="0.0" y="72" width="768" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="gameModeCell" textLabel="z7K-bX-fQJ" detailTextLabel="tEF-5K-mDz" style="IBUITableViewCellStyleSubtitle" id="mIx-WX-3fS">
-                                <rect key="frame" x="0.0" y="28" width="1024" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mIx-WX-3fS" id="vXV-Xp-DkF">
-                                    <rect key="frame" x="0.0" y="0.0" width="980" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="724" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Назва режиму" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z7K-bX-fQJ">
@@ -922,27 +1231,27 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nl4-3Y-vzF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1038" y="1438"/>
+            <point key="canvasLocation" x="840" y="982"/>
         </scene>
         <!--Мови назв областей-->
         <scene sceneID="c4A-Aj-uGT">
             <objects>
                 <tableViewController title="Мови назв областей" id="zhA-Xz-SdZ" customClass="TMLanguageSettingTalbeViewController" customModule="TestMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hk3-Qh-PTF">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="748"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="Mud-Dv-BlG" userLabel="footerView">
-                            <rect key="frame" x="0.0" y="72" width="768" height="44"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="Mud-Dv-BlG" userLabel="footerView">
+                            <rect key="frame" x="0.0" y="72" width="1024" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="languageCell" textLabel="jiu-Xs-idg" detailTextLabel="zM2-Ye-N1e" style="IBUITableViewCellStyleSubtitle" id="a83-RI-UnS">
-                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="1024" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a83-RI-UnS" id="T42-4a-ohr">
-                                    <rect key="frame" x="0.0" y="0.0" width="724" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="980" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Language Target Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jiu-Xs-idg">
@@ -989,28 +1298,28 @@
             <objects>
                 <tableViewController title="Свій варіант назв" id="z3K-Dw-5fj" customClass="TMCustomRegionNamesTableViewController" customModule="TestMap" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="C4k-Ox-Ct4">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="748"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="customRegionNameCell" id="fhD-Ex-qop" customClass="TMCustomRegionNameCell" customModule="TestMap" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="1024" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fhD-Ex-qop" id="jfG-7i-RP2">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5nI-ND-Uyy">
-                                            <rect key="frame" x="20" y="11.5" width="728" height="21"/>
+                                            <rect key="frame" x="20" y="11.5" width="984" height="21"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Івано-Франківська" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRd-AT-Glx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="360" height="21"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="488" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ivano-Frankivska" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZDR-c8-G93">
-                                                    <rect key="frame" x="368" y="0.0" width="360" height="21"/>
+                                                    <rect key="frame" x="496" y="0.0" width="488" height="21"/>
                                                     <color key="textColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="address-level1"/>
@@ -1038,7 +1347,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjF-nh-PqA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1459" y="2301"/>
+            <point key="canvasLocation" x="1232" y="2405"/>
         </scene>
         <!--Game Scene View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -1096,7 +1405,7 @@
                                                 </constraints>
                                                 <state key="normal" image="confirmChoiceButton"/>
                                                 <connections>
-                                                    <action selector="confirmButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EVE-At-pJW"/>
+                                                    <action selector="confirmButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EVE-At-pJW"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1145,124 +1454,6 @@
                                             </constraint>
                                         </constraints>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EEF-Fy-3Fo">
-                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
-                                        <subviews>
-                                            <view tag="10101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qff-1T-vkW" customClass="UIVisualEffectView">
-                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3B-Tj-3zw">
-                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="29Q-8c-8i7">
-                                                        <rect key="frame" x="287" y="243.5" width="450" height="261"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXC-ZA-MHC" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="450" height="54"/>
-                                                                <color key="backgroundColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <state key="normal" title="ПРОДОВЖИТИ">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
-                                                                        <real key="value" value="15"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <variation key="heightClass=regular">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                                </variation>
-                                                                <connections>
-                                                                    <action selector="playPauseButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Ws-Ez-QAA"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zz0-V4-API" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="69" width="450" height="54"/>
-                                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <state key="normal" title="НАЛАШТУВАННЯ">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
-                                                                        <real key="value" value="15"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <variation key="heightClass=regular">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                                </variation>
-                                                                <connections>
-                                                                    <segue destination="ZvX-xE-haP" kind="presentation" identifier="showSettingsFromGamePauseSegue" modalPresentationStyle="pageSheet" id="qyJ-dd-H0o"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnW-0o-Q3m" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="138" width="450" height="54"/>
-                                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <state key="normal" title="ВИЙТИ І ЗБЕРЕГТИ">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
-                                                                        <real key="value" value="15"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <variation key="heightClass=regular">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                                </variation>
-                                                                <connections>
-                                                                    <action selector="saveAndExitButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bOz-C9-ZK8"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jg3-73-wGR" customClass="TMRoundCornerButton" customModule="TestMap" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="207" width="450" height="54"/>
-                                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <state key="normal" title="ВИЙТИ НЕ ЗБЕРІГАЮЧИ">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
-                                                                        <real key="value" value="15"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <variation key="heightClass=regular">
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                                </variation>
-                                                                <connections>
-                                                                    <action selector="exitToMenuButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1vg-wu-FJv"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="450" id="MOK-et-KRL">
-                                                                <variation key="heightClass=compact" constant="360"/>
-                                                            </constraint>
-                                                        </constraints>
-                                                        <variation key="widthClass=regular" spacing="15"/>
-                                                    </stackView>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="29Q-8c-8i7" firstAttribute="centerX" secondItem="M3B-Tj-3zw" secondAttribute="centerX" id="7BE-xc-OjN"/>
-                                                    <constraint firstItem="29Q-8c-8i7" firstAttribute="centerY" secondItem="M3B-Tj-3zw" secondAttribute="centerY" id="GU5-Yi-h3U"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="M3B-Tj-3zw" firstAttribute="leading" secondItem="EEF-Fy-3Fo" secondAttribute="leading" id="09b-zg-CMy"/>
-                                            <constraint firstItem="qff-1T-vkW" firstAttribute="leading" secondItem="EEF-Fy-3Fo" secondAttribute="leading" id="1km-uB-Nea"/>
-                                            <constraint firstItem="qff-1T-vkW" firstAttribute="top" secondItem="EEF-Fy-3Fo" secondAttribute="top" id="66K-m6-ArQ"/>
-                                            <constraint firstAttribute="trailing" secondItem="M3B-Tj-3zw" secondAttribute="trailing" id="8Vl-ZR-1X8"/>
-                                            <constraint firstAttribute="bottom" secondItem="qff-1T-vkW" secondAttribute="bottom" id="I56-dt-ldH"/>
-                                            <constraint firstAttribute="trailing" secondItem="qff-1T-vkW" secondAttribute="trailing" id="REG-Su-MFg"/>
-                                            <constraint firstItem="M3B-Tj-3zw" firstAttribute="top" secondItem="EEF-Fy-3Fo" secondAttribute="top" id="V6D-Qu-zvc"/>
-                                            <constraint firstAttribute="bottom" secondItem="M3B-Tj-3zw" secondAttribute="bottom" id="uHx-bL-KwQ"/>
-                                        </constraints>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="72U-I0-rJV">
                                         <rect key="frame" x="737.5" y="0.0" width="286.5" height="117"/>
                                         <subviews>
@@ -1289,7 +1480,7 @@
                                                 <color key="tintColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
                                                 <state key="normal" image="pauseButton"/>
                                                 <connections>
-                                                    <action selector="playPauseButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KcM-8g-qCh"/>
+                                                    <action selector="pauseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hz5-og-I0Q"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1310,11 +1501,9 @@
                                     </constraint>
                                     <constraint firstAttribute="trailing" secondItem="LxS-QF-g2Q" secondAttribute="trailing" id="3IU-pI-Cgs"/>
                                     <constraint firstItem="72U-I0-rJV" firstAttribute="width" secondItem="0ka-ff-Lxo" secondAttribute="width" multiplier="0.28" id="3Ln-zY-UTg"/>
-                                    <constraint firstItem="EEF-Fy-3Fo" firstAttribute="leading" secondItem="0ka-ff-Lxo" secondAttribute="leading" id="5Sf-eM-sjX"/>
                                     <constraint firstItem="mA0-Od-fSJ" firstAttribute="top" secondItem="0ka-ff-Lxo" secondAttribute="top" id="8Lp-Ib-OzR"/>
                                     <constraint firstItem="Wvq-jc-Iwo" firstAttribute="centerY" secondItem="0ka-ff-Lxo" secondAttribute="centerY" multiplier="1.4" id="Bn4-ZA-bkE"/>
                                     <constraint firstItem="72U-I0-rJV" firstAttribute="top" secondItem="0ka-ff-Lxo" secondAttribute="top" id="CQI-ZZ-SW7"/>
-                                    <constraint firstAttribute="bottom" secondItem="EEF-Fy-3Fo" secondAttribute="bottom" id="EhS-W5-zqY"/>
                                     <constraint firstItem="ebd-fz-0zR" firstAttribute="width" secondItem="0ka-ff-Lxo" secondAttribute="width" multiplier="0.19" id="GJi-2p-hVK"/>
                                     <constraint firstAttribute="bottom" secondItem="LxS-QF-g2Q" secondAttribute="bottom" id="HRl-e7-svr">
                                         <variation key="heightClass=compact" constant="5"/>
@@ -1327,13 +1516,11 @@
                                     <constraint firstItem="72U-I0-rJV" firstAttribute="height" secondItem="0ka-ff-Lxo" secondAttribute="height" multiplier="0.25" id="QdP-cY-zzP">
                                         <variation key="heightClass=regular" constant="-70"/>
                                     </constraint>
-                                    <constraint firstItem="EEF-Fy-3Fo" firstAttribute="top" secondItem="0ka-ff-Lxo" secondAttribute="top" id="QwH-Vi-WmZ"/>
                                     <constraint firstAttribute="trailing" secondItem="mA0-Od-fSJ" secondAttribute="trailing" id="QyQ-Vs-kyS"/>
                                     <constraint firstItem="Wvq-jc-Iwo" firstAttribute="height" secondItem="0ka-ff-Lxo" secondAttribute="height" multiplier="0.24" id="ViG-sH-t8b"/>
                                     <constraint firstItem="LxS-QF-g2Q" firstAttribute="top" secondItem="mA0-Od-fSJ" secondAttribute="bottom" constant="8" symbolic="YES" id="YAs-r7-UDk"/>
                                     <constraint firstItem="ebd-fz-0zR" firstAttribute="centerY" secondItem="0ka-ff-Lxo" secondAttribute="centerY" multiplier="1.5" id="YNR-xf-RnC"/>
                                     <constraint firstItem="LxS-QF-g2Q" firstAttribute="leading" secondItem="0ka-ff-Lxo" secondAttribute="leading" id="ZPh-lT-XwR"/>
-                                    <constraint firstAttribute="trailing" secondItem="EEF-Fy-3Fo" secondAttribute="trailing" id="dzJ-8k-0iE"/>
                                     <constraint firstAttribute="trailing" secondItem="72U-I0-rJV" secondAttribute="trailing" id="f6f-87-BIb"/>
                                     <constraint firstItem="ebd-fz-0zR" firstAttribute="height" secondItem="0ka-ff-Lxo" secondAttribute="height" multiplier="0.18" id="mzD-I5-wag"/>
                                     <constraint firstItem="mA0-Od-fSJ" firstAttribute="leading" secondItem="0ka-ff-Lxo" secondAttribute="leading" id="o3D-j9-kOT"/>
@@ -1351,22 +1538,19 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundView" destination="0ka-ff-Lxo" id="mEy-cf-sGg"/>
                         <outlet property="bottomLeftChoiceView" destination="Wvq-jc-Iwo" id="MQv-Ge-28g"/>
                         <outlet property="bottomLeftIndicator" destination="bOi-z5-8B9" id="h9p-m1-PE6"/>
                         <outlet property="bottomRightConfirmationView" destination="ebd-fz-0zR" id="oLR-7i-vUA"/>
                         <outlet property="confirmButton" destination="tZh-7Y-leM" id="MbK-kI-Ua4"/>
-                        <outlet property="continueButton" destination="vXC-ZA-MHC" id="eeC-Wa-gYe"/>
-                        <outlet property="exitToMenuButton" destination="jg3-73-wGR" id="Cv1-2d-mhb"/>
-                        <outlet property="gameCoverView" destination="EEF-Fy-3Fo" id="bRv-aJ-Qgy"/>
                         <outlet property="gameView" destination="mA0-Od-fSJ" id="X0G-qd-ilU"/>
                         <outlet property="pauseButton" destination="BL4-Fh-Vtn" id="xR4-G3-tn0"/>
                         <outlet property="regionLabel" destination="yDD-6g-BWL" id="Q0l-WR-T2K"/>
-                        <outlet property="saveAndExitButton" destination="LnW-0o-Q3m" id="aff-wP-xFL"/>
                         <outlet property="timeLabel" destination="3Mx-wt-o0x" id="e0w-96-BoR"/>
                         <outlet property="topRightInfoView" destination="72U-I0-rJV" id="kxT-EK-Vcq"/>
-                        <segue destination="5rb-k2-kmi" kind="presentation" identifier="exitConfirmationSegue" modalTransitionStyle="coverVertical" id="pJQ-E9-LUq"/>
                         <segue destination="w5R-I8-qTW" kind="unwind" identifier="unwindToMainMenuSegue" unwindAction="unwindToMenuViewController:" id="e7H-uC-Ayd"/>
                         <segue destination="wxR-yU-a36" kind="presentation" identifier="showGameResultSegue" modalPresentationStyle="fullScreen" id="Q4x-fN-Rkc"/>
+                        <segue destination="rwN-mc-SvK" kind="presentation" identifier="pauseGameSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="XMh-ld-feE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1580,7 +1764,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dC1-uY-Uo8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1280" y="659"/>
+            <point key="canvasLocation" x="1513" y="1420"/>
         </scene>
         <!--Settings Navigation Controller-->
         <scene sceneID="4pV-2L-Noh">
@@ -1625,14 +1809,15 @@
         <image name="litLightbulbGrayBackground" width="200" height="200"/>
         <image name="map0" width="1656" height="1104"/>
         <image name="pauseButton" width="250" height="250"/>
+        <image name="playButton" width="250" height="250"/>
         <image name="rightViewBackgroundWithShadow" width="256" height="177"/>
         <image name="settingsButtonBlue" width="200" height="200"/>
         <image name="settingsButtonGrayBackground" width="200" height="200"/>
         <image name="settingsButtonLightBlue" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qyJ-dd-H0o"/>
-        <segue reference="M0D-vz-7yd"/>
-        <segue reference="Pp2-nk-7RN"/>
+        <segue reference="sHo-1N-eHk"/>
+        <segue reference="hZV-nb-FTk"/>
+        <segue reference="IMN-RV-1jG"/>
     </inferredMetricsTieBreakers>
 </document>

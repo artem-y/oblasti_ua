@@ -43,7 +43,6 @@ final class TMSettingsTableViewController: UITableViewController {
         set {
             if TMSettingsController.shared.settings != newValue {
                 TMSettingsController.shared.settings = newValue
-                updateUI()
             }
         }
     }
@@ -59,10 +58,22 @@ final class TMSettingsTableViewController: UITableViewController {
     private var exampleFooterText: String = ""
     
     // MARK: - UIViewController methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        AppDelegate.shared.settingsObserver = self
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         updateUI()
+        addToNotificationCenter()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeFromNotificationCenter()
     }
     
     // MARK: - UITableView delegate and datasource methods
@@ -93,7 +104,7 @@ final class TMSettingsTableViewController: UITableViewController {
     }
 
     // MARK: - Updating UI
-    private func updateUI(){
+    @objc func updateUI(){
         // This happens only if there is a game in progress
         if gameInProgressGameMode != nil {
             modeCell.animateSet(enabled: false)
@@ -165,5 +176,12 @@ final class TMSettingsTableViewController: UITableViewController {
     
     deinit {
         print(self, "deinit!")
+    }
+}
+
+// MARK: - TMRemovableObserver protocol methods
+extension TMSettingsTableViewController: TMRemovableObserver {
+    func addToNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: .TMSettingsChanged, object: nil)
     }
 }

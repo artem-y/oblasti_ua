@@ -18,8 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
     var pauseApp: (() -> ())?
+    weak var settingsObserver: TMRemovableObserver?
     weak var menuModeObserver: TMRemovableObserver?
-    weak var gameSceneShowTimeObserver: TMRemovableObserver?
+    weak var pauseScreenShowTimeObserver: TMRemovableObserver?
     weak var settingsController: TMSettingsController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -30,8 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        settingsObserver?.removeFromNotificationCenter()
         menuModeObserver?.removeFromNotificationCenter()
-        gameSceneShowTimeObserver?.removeFromNotificationCenter()
+        pauseScreenShowTimeObserver?.removeFromNotificationCenter()
         pauseApp?()
     }
 
@@ -42,13 +44,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        settingsController?.loadSettings()
+        print("application will enter foreground")
+        
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        print("application did become active")
+        settingsObserver?.addToNotificationCenter()
         menuModeObserver?.addToNotificationCenter()
-        gameSceneShowTimeObserver?.addToNotificationCenter()
+        pauseScreenShowTimeObserver?.addToNotificationCenter()
+        settingsController?.loadSettings()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

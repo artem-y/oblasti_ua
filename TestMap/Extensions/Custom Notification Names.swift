@@ -9,6 +9,7 @@
 import Foundation
 
 extension Notification.Name {
+    static let TMSettingsChanged = Notification.Name("TMSettingsChangedNotification")
     static let TMGameModeChanged = Notification.Name("TMGameModeChangedNotification")
     static let TMShowTimeSettingChanged = Notification.Name("TMShowTimeSettingChangedNotification")
 }

@@ -18,6 +18,8 @@ final class TMSettingsController: NSObject, TMDefaultsKeyControllable {
         didSet {
             if oldValue != settings {
                 saveSettings()
+                NotificationCenter.default.post(Notification(name: .TMSettingsChanged))
+                
                 if oldValue?.gameMode != settings.gameMode {
                     NotificationCenter.default.post(Notification(name: .TMGameModeChanged))
                 }
