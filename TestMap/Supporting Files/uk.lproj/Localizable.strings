@@ -9,7 +9,7 @@
 "pointerMode" = "Вказівка";
 
 /* TMGame.Mode.norepeat */
-"noRepeatMode" = "Без повторів";
+"noRepeatMode" = "Без повторень";
 
 /* Description of region name format option "uppercasedRegionName": "Uppercased" */
 "uppercasedRegionName" = "Всі літери великі";
