@@ -15,7 +15,7 @@
             <objects>
                 <viewController modalPresentationStyle="pageSheet" id="OPd-NW-aup" customClass="TMInfoViewController" customModule="TestMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L5w-H8-LV8">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="748"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3IK-kW-DEU">
@@ -656,16 +656,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Bpi-EO-O3S">
-                                <rect key="frame" x="243" y="80" width="538" height="388"/>
+                                <rect key="frame" x="243" y="80.5" width="538" height="387"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UkraineLogo_351_246" translatesAutoresizingMaskIntoConstraints="NO" id="LHx-ST-b9m">
-                                        <rect key="frame" x="80.5" y="0.0" width="377" height="264"/>
+                                        <rect key="frame" x="81.5" y="0.0" width="375" height="263"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="LHx-ST-b9m" secondAttribute="height" multiplier="351:246" id="vK0-XM-yti"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bqg-XE-UUs">
-                                        <rect key="frame" x="0.0" y="272" width="538" height="116"/>
+                                        <rect key="frame" x="0.0" y="271" width="538" height="116"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpi-uT-xOU">
                                                 <rect key="frame" x="92.5" y="0.0" width="353" height="54"/>
@@ -743,7 +743,7 @@
                                 <variation key="heightClass=compact" distribution="fillEqually"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ENs-zS-oEd">
-                                <rect key="frame" x="429" y="523" width="166" height="50"/>
+                                <rect key="frame" x="429" y="522" width="166" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZ5-78-1wO">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -883,16 +883,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="center" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="u6a-9S-nVF">
-                                                    <rect key="frame" x="20" y="6.5" width="984" height="31"/>
+                                                    <rect key="frame" x="20" y="6.5" width="728" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Показувати час" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W57-oX-WyM">
-                                                            <rect key="frame" x="0.0" y="3.5" width="927" height="24"/>
+                                                            <rect key="frame" x="0.0" y="3.5" width="671" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qjb-Ua-ItT">
-                                                            <rect key="frame" x="935" y="0.0" width="51" height="31"/>
+                                                            <rect key="frame" x="679" y="0.0" width="51" height="31"/>
                                                             <color key="tintColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="onTintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </switch>
@@ -915,16 +915,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="center" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fhj-wo-j2G">
-                                                    <rect key="frame" x="20" y="6.5" width="984" height="31"/>
+                                                    <rect key="frame" x="20" y="6.5" width="728" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Гра з кнопками" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGN-td-sPn">
-                                                            <rect key="frame" x="0.0" y="3.5" width="927" height="24"/>
+                                                            <rect key="frame" x="0.0" y="3.5" width="671" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YUj-G2-sPg">
-                                                            <rect key="frame" x="935" y="0.0" width="51" height="31"/>
+                                                            <rect key="frame" x="679" y="0.0" width="51" height="31"/>
                                                             <color key="tintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="onTintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </switch>
@@ -947,16 +947,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="center" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="S9T-fT-ZuT">
-                                                    <rect key="frame" x="20" y="6.5" width="984" height="31"/>
+                                                    <rect key="frame" x="20" y="6.5" width="728" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Автоматичне підтвердження" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuK-eM-qmK">
-                                                            <rect key="frame" x="0.0" y="3.5" width="927" height="24"/>
+                                                            <rect key="frame" x="0.0" y="3.5" width="671" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mQh-gh-2ww">
-                                                            <rect key="frame" x="935" y="0.0" width="51" height="31"/>
+                                                            <rect key="frame" x="679" y="0.0" width="51" height="31"/>
                                                             <color key="tintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="onTintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </switch>
@@ -979,16 +979,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="center" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="U02-mc-pvB">
-                                                    <rect key="frame" x="20" y="6.5" width="984" height="31"/>
+                                                    <rect key="frame" x="20" y="6.5" width="728" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Автоматична зміна області" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOA-h9-n5T">
-                                                            <rect key="frame" x="0.0" y="3.5" width="927" height="24"/>
+                                                            <rect key="frame" x="0.0" y="3.5" width="671" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEl-eb-93X">
-                                                            <rect key="frame" x="935" y="0.0" width="51" height="31"/>
+                                                            <rect key="frame" x="679" y="0.0" width="51" height="31"/>
                                                             <color key="tintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="onTintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </switch>
@@ -1011,16 +1011,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="center" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="COl-4f-Nph">
-                                                    <rect key="frame" x="20" y="6.5" width="984" height="31"/>
+                                                    <rect key="frame" x="20" y="6.5" width="728" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Показувати правильну відповідь" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63r-8s-JME">
-                                                            <rect key="frame" x="0.0" y="3.5" width="927" height="24"/>
+                                                            <rect key="frame" x="0.0" y="3.5" width="671" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FTe-jx-6Fu">
-                                                            <rect key="frame" x="935" y="0.0" width="51" height="31"/>
+                                                            <rect key="frame" x="679" y="0.0" width="51" height="31"/>
                                                             <color key="tintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="onTintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </switch>
@@ -1077,16 +1077,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" clipsSubviews="YES" contentMode="center" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Zkk-KO-XkC">
-                                                    <rect key="frame" x="20" y="6.5" width="984" height="31"/>
+                                                    <rect key="frame" x="20" y="6.5" width="728" height="31"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Всі літери великі" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVj-ph-XzT">
-                                                            <rect key="frame" x="0.0" y="3.5" width="927" height="24"/>
+                                                            <rect key="frame" x="0.0" y="3.5" width="671" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <switch opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q2s-Ah-z2U">
-                                                            <rect key="frame" x="935" y="0.0" width="51" height="31"/>
+                                                            <rect key="frame" x="679" y="0.0" width="51" height="31"/>
                                                             <color key="tintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="onTintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </switch>
@@ -1116,7 +1116,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Відновити налаштування за замовчуванням" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeF-mg-4N3">
-                                                    <rect key="frame" x="20" y="10" width="984" height="24"/>
+                                                    <rect key="frame" x="20" y="10" width="728" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1241,7 +1241,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="Mud-Dv-BlG" userLabel="footerView">
+                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="Mud-Dv-BlG" userLabel="footerView">
                             <rect key="frame" x="0.0" y="72" width="768" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1310,16 +1310,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5nI-ND-Uyy">
-                                            <rect key="frame" x="20" y="11.5" width="984" height="21"/>
+                                            <rect key="frame" x="20" y="11.5" width="728" height="21"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Івано-Франківська" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRd-AT-Glx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="488" height="21"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="360" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Ivano-Frankivska" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZDR-c8-G93">
-                                                    <rect key="frame" x="496" y="0.0" width="488" height="21"/>
+                                                    <rect key="frame" x="368" y="0.0" width="360" height="21"/>
                                                     <color key="textColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="address-level1"/>
@@ -1684,7 +1684,7 @@
             <objects>
                 <viewController storyboardIdentifier="confirmationViewControllerIdentifier" modalPresentationStyle="pageSheet" id="5rb-k2-kmi" customClass="TMConfirmationViewController" customModule="TestMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="center" id="npg-bO-Un0">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="748"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Y96-pv-CSj">
@@ -1791,7 +1791,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="UkraineLogo_351_246" width="351" height="247"/>
+        <image name="UkraineLogo_351_246" width="351" height="246"/>
         <image name="alertButtonBlue" width="200" height="200"/>
         <image name="alertButtonGrayBackground" width="200" height="200"/>
         <image name="alertButtonRed" width="200" height="200"/>
