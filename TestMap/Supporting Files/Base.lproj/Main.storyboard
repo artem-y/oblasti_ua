@@ -15,7 +15,7 @@
             <objects>
                 <viewController modalPresentationStyle="pageSheet" id="OPd-NW-aup" customClass="TMInfoViewController" customModule="TestMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L5w-H8-LV8">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3IK-kW-DEU">
@@ -756,7 +756,7 @@
                                         <state key="selected" image="cupButtonGreen"/>
                                         <state key="highlighted" image="cupButtonGreen"/>
                                         <connections>
-                                            <segue destination="iQS-j2-Zv0" kind="presentation" modalPresentationStyle="fullScreen" id="o1e-Cf-ujt"/>
+                                            <segue destination="iQS-j2-Zv0" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="o1e-Cf-ujt"/>
                                         </connections>
                                     </button>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mxk-mn-rm2">
@@ -1362,24 +1362,6 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mA0-Od-fSJ" userLabel="Game View">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="665"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map0" translatesAutoresizingMaskIntoConstraints="NO" id="np8-HF-XS3">
-                                                <rect key="frame" x="92" y="0.0" width="384" height="260"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="np8-HF-XS3" secondAttribute="height" multiplier="900:610" id="bNS-Da-dXN"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="np8-HF-XS3" firstAttribute="top" secondItem="mA0-Od-fSJ" secondAttribute="top" id="2Qe-z0-6i5"/>
-                                            <constraint firstItem="np8-HF-XS3" firstAttribute="centerX" secondItem="mA0-Od-fSJ" secondAttribute="centerX" id="JZb-qB-WWW"/>
-                                            <constraint firstAttribute="bottom" secondItem="np8-HF-XS3" secondAttribute="bottom" id="dtn-E5-SU4"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="np8-HF-XS3"/>
-                                            </mask>
-                                        </variation>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LxS-QF-g2Q">
                                         <rect key="frame" x="0.0" y="673" width="1024" height="75"/>
@@ -1684,7 +1666,7 @@
             <objects>
                 <viewController storyboardIdentifier="confirmationViewControllerIdentifier" modalPresentationStyle="pageSheet" id="5rb-k2-kmi" customClass="TMConfirmationViewController" customModule="TestMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="center" id="npg-bO-Un0">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Y96-pv-CSj">
@@ -1807,7 +1789,6 @@
         <image name="litLightbulbButtonBlue" width="200" height="200"/>
         <image name="litLightbulbButtonOrange" width="200" height="200"/>
         <image name="litLightbulbGrayBackground" width="200" height="200"/>
-        <image name="map0" width="1656" height="1104"/>
         <image name="pauseButton" width="250" height="250"/>
         <image name="playButton" width="250" height="250"/>
         <image name="rightViewBackgroundWithShadow" width="256" height="177"/>
