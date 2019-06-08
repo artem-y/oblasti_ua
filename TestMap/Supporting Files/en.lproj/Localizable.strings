@@ -55,3 +55,6 @@
 
 /* 'NO' - Confirmation prompt's default cancel button title */
 "NO" = "NO";
+
+/* Game info (warning) screen text. */
+"Please, notice: region boundaries and borders of Ukraine are depicted approximately and can be different from real proportions and geografic coordinates." = "Please, notice: region boundaries and borders of Ukraine are depicted approximately and can be different from real proportions and geografic coordinates.";
