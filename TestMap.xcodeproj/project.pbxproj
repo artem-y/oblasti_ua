@@ -55,6 +55,9 @@
 /* Begin PBXFileReference section */
 		B01BA8D8229810270035ED9D /* TMCustomRegionNamesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMCustomRegionNamesTableViewController.swift; sourceTree = "<group>"; };
 		B01BA8DA2298230D0035ED9D /* TMCustomRegionNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMCustomRegionNameCell.swift; sourceTree = "<group>"; };
+		B029F21822AD212400FECBCD /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
+		B029F21A22AD22B600FECBCD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		B029F21C22AD247600FECBCD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		B02EFFFA227B445900825656 /* TMMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMenuViewController.swift; sourceTree = "<group>"; };
 		B032668922A5BE1000EA767B /* TMPauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMPauseViewController.swift; sourceTree = "<group>"; };
 		B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+set(enabled.swift"; sourceTree = "<group>"; };
@@ -79,9 +82,6 @@
 		B07C5F6C2280435D009059A7 /* TMGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGame.swift; sourceTree = "<group>"; };
 		B07C5F6E22805F12009059A7 /* TMSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettingsTableViewController.swift; sourceTree = "<group>"; };
 		B082A4352289934B0029C1CF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RegionNames.strings"; sourceTree = "<group>"; };
-		B08393B122A7BDF0005EBBB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		B08393B322A7BDFB005EBBB6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
-		B08393B522A7BE01005EBBB6 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		B0904F8F226F858E007842CA /* TestMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0904F92226F858E007842CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0904F94226F858E007842CA /* TMGameSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameSceneViewController.swift; sourceTree = "<group>"; };
@@ -370,9 +370,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				B0904F97226F858E007842CA /* Base */,
-				B08393B122A7BDF0005EBBB6 /* en */,
-				B08393B322A7BDFB005EBBB6 /* ru */,
-				B08393B522A7BE01005EBBB6 /* uk */,
+				B029F21822AD212400FECBCD /* uk */,
+				B029F21A22AD22B600FECBCD /* ru */,
+				B029F21C22AD247600FECBCD /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
