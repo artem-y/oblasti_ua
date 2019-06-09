@@ -36,6 +36,20 @@
 		</dict>
 		<dict>
 			<key>Title</key>
+			<string>Automatic confirmation</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Key</key>
+			<string>autoConfirmsSelectionSetting</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
+			<false/>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Title</key>
 			<string>Automatic region change</string>
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
@@ -46,7 +60,21 @@
 			<key>FalseValue</key>
 			<false/>
 			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Title</key>
+			<string>Show correct answer</string>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Key</key>
+			<string>showsCorrectAnswerSetting</string>
+			<key>TrueValue</key>
+			<true/>
+			<key>FalseValue</key>
 			<false/>
+			<key>DefaultValue</key>
+			<true/>
 		</dict>
 		<dict>
 			<key>Type</key>

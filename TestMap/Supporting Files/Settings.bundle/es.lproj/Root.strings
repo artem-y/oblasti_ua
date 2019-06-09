@@ -1,0 +1,21 @@
+/* 
+  Root.strings
+  TestMap
+
+  Created by Artem Yelizarov on 9/6/19.
+  Copyright © 2019 Artem Yelizarov. All rights reserved.
+*/
+
+"Show time" = "Mostrar tiempo";
+"Show buttons" = "Mostrar botones";
+"Automatic confirmation" = "Confirmación automática";
+"Automatic region change" = "Cambio automático de región";
+"Show correct answer" = "Mostrar respuesta correcta";
+"Region Names" = "Nombres de regiones";
+"Language" = "Idioma";
+"Ukrainian" = "Ucraniano";
+"English" = "Inglés";
+"Russian" = "Ruso";
+"Chinese (simplified)" = "Chino (simplificado)";
+"Custom region names" = "Custom region names";
+"All caps" = "Todos en mayúsculas";

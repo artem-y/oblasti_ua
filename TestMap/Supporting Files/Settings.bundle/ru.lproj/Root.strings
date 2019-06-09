@@ -8,7 +8,9 @@
 
 "Show time" = "Показывать время";
 "Show buttons" = "Показывать кнопки";
+"Automatic confirmation" = "Автоматическое подтверждение";
 "Automatic region change" = "Автоматическая смена области";
+"Show correct answer" = "Показывать правильный ответ";
 "Region Names" = "Названия областей";
 "Language" = "Язык";
 "Ukrainian" = "Украинский";

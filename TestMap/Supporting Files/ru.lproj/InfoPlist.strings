@@ -6,3 +6,4 @@
   Copyright © 2019 Artem Yelizarov. All rights reserved.
 */
 "CFBundleDisplayName" = "Области UA";
+"CFBundleDevelopmentRegion" = "en";

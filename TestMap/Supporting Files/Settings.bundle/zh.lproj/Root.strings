@@ -1,0 +1,21 @@
+/* 
+  Root.strings
+  TestMap
+
+  Created by Artem Yelizarov on 8/6/19.
+  Copyright © 2019 Artem Yelizarov. All rights reserved.
+*/
+
+"Show time" = "显示时间";
+"Show buttons" = "显示按钮";
+"Automatic confirmation" = "自动确认";
+"Automatic region change" = "自动更换州";
+"Show correct answer" = "显示正确选项";
+"Region Names" = "州名";
+"Language" = "语言";
+"Ukrainian" = "乌克兰语";
+"English" = "英语";
+"Russian" = "俄语";
+"Chinese (simplified)" = "中文（简体）";
+"Custom region names" = "自定义州名";
+"All caps" = "全大写";
