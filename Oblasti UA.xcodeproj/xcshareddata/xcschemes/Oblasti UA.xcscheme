@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B0904F8E226F858E007842CA"
-               BuildableName = "TestMap.app"
-               BlueprintName = "TestMap"
-               ReferencedContainer = "container:TestMap.xcodeproj">
+               BuildableName = "Oblasti UA.app"
+               BlueprintName = "Oblasti UA"
+               ReferencedContainer = "container:Oblasti UA.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B0904F8E226F858E007842CA"
-            BuildableName = "TestMap.app"
-            BlueprintName = "TestMap"
-            ReferencedContainer = "container:TestMap.xcodeproj">
+            BuildableName = "Oblasti UA.app"
+            BlueprintName = "Oblasti UA"
+            ReferencedContainer = "container:Oblasti UA.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B0904F8E226F858E007842CA"
-            BuildableName = "TestMap.app"
-            BlueprintName = "TestMap"
-            ReferencedContainer = "container:TestMap.xcodeproj">
+            BuildableName = "Oblasti UA.app"
+            BlueprintName = "Oblasti UA"
+            ReferencedContainer = "container:Oblasti UA.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B0904F8E226F858E007842CA"
-            BuildableName = "TestMap.app"
-            BlueprintName = "TestMap"
-            ReferencedContainer = "container:TestMap.xcodeproj">
+            BuildableName = "Oblasti UA.app"
+            BlueprintName = "Oblasti UA"
+            ReferencedContainer = "container:Oblasti UA.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

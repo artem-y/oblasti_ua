@@ -38,13 +38,13 @@
 		B0904FA9226F8656007842CA /* TMMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0904FA8226F8656007842CA /* TMMapView.swift */; };
 		B09CF0CB22832ABA00BC7FED /* TMSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CA22832ABA00BC7FED /* TMSettings.swift */; };
 		B09CF0CD2283391E00BC7FED /* String+localized(in language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */; };
-		B0AAE783228480DB002D7264 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0AAE782228480DB002D7264 /* Settings.bundle */; };
 		B0AAE785228497BA002D7264 /* TMSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAE784228497BA002D7264 /* TMSettingsController.swift */; };
 		B0BFD4FA2297151E002EA6EF /* TMRemovableObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BFD4F92297151E002EA6EF /* TMRemovableObserver.swift */; };
 		B0C49DEB227A2B2400561892 /* GameColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */; };
 		B0C7D80F2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7D80E2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift */; };
 		B0C95BD522A45135005A18A8 /* TMConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C95BD422A45135005A18A8 /* TMConfirmationViewController.swift */; };
 		B0CC90FB2273B3D50075931E /* UIBezierPath+initFromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC90FA2273B3D50075931E /* UIBezierPath+initFromString.swift */; };
+		B0CFD85B22AD470E00AB3465 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0CFD85A22AD470E00AB3465 /* Settings.bundle */; };
 		B0D0EA2C229E010000278597 /* TMPresentationStyleAdjustable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0EA2B229E010000278597 /* TMPresentationStyleAdjustable.swift */; };
 		B0D2F2C822733065007B1E38 /* pathText in Resources */ = {isa = PBXBuildFile; fileRef = B0D2F2C722733065007B1E38 /* pathText */; };
 		B0E164B8228C4BD700615DC5 /* TMHighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E164B7228C4BD700615DC5 /* TMHighscoreViewController.swift */; };
@@ -82,7 +82,7 @@
 		B07C5F6C2280435D009059A7 /* TMGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGame.swift; sourceTree = "<group>"; };
 		B07C5F6E22805F12009059A7 /* TMSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettingsTableViewController.swift; sourceTree = "<group>"; };
 		B082A4352289934B0029C1CF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RegionNames.strings"; sourceTree = "<group>"; };
-		B0904F8F226F858E007842CA /* TestMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0904F8F226F858E007842CA /* Oblasti UA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oblasti UA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0904F92226F858E007842CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0904F94226F858E007842CA /* TMGameSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameSceneViewController.swift; sourceTree = "<group>"; };
 		B0904F97226F858E007842CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,13 +91,13 @@
 		B0904FA8226F8656007842CA /* TMMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMapView.swift; sourceTree = "<group>"; };
 		B09CF0CA22832ABA00BC7FED /* TMSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettings.swift; sourceTree = "<group>"; };
 		B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized(in language.swift"; sourceTree = "<group>"; };
-		B0AAE782228480DB002D7264 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B0AAE784228497BA002D7264 /* TMSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettingsController.swift; sourceTree = "<group>"; };
 		B0BFD4F92297151E002EA6EF /* TMRemovableObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMRemovableObserver.swift; sourceTree = "<group>"; };
 		B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColorExtensions.swift; sourceTree = "<group>"; };
 		B0C7D80E2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMLanguageSettingTalbeViewController.swift; sourceTree = "<group>"; };
 		B0C95BD422A45135005A18A8 /* TMConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMConfirmationViewController.swift; sourceTree = "<group>"; };
 		B0CC90FA2273B3D50075931E /* UIBezierPath+initFromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+initFromString.swift"; sourceTree = "<group>"; };
+		B0CFD85A22AD470E00AB3465 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B0D0EA2B229E010000278597 /* TMPresentationStyleAdjustable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMPresentationStyleAdjustable.swift; sourceTree = "<group>"; };
 		B0D2F2C722733065007B1E38 /* pathText */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pathText; sourceTree = "<group>"; };
 		B0E164B7228C4BD700615DC5 /* TMHighscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMHighscoreViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 		B0904F86226F858E007842CA = {
 			isa = PBXGroup;
 			children = (
-				B0904F91226F858E007842CA /* TestMap */,
+				B0904F91226F858E007842CA /* Oblasti UA */,
 				B0904F90226F858E007842CA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -154,12 +154,12 @@
 		B0904F90226F858E007842CA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B0904F8F226F858E007842CA /* TestMap.app */,
+				B0904F8F226F858E007842CA /* Oblasti UA.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B0904F91226F858E007842CA /* TestMap */ = {
+		B0904F91226F858E007842CA /* Oblasti UA */ = {
 			isa = PBXGroup;
 			children = (
 				B05E15C522746CEF007C85AF /* Models */,
@@ -170,7 +170,7 @@
 				B0ECE4AA2270ABFB00055349 /* Supporting Files */,
 				B0904F99226F858F007842CA /* Assets.xcassets */,
 			);
-			path = TestMap;
+			path = "Oblasti UA";
 			sourceTree = "<group>";
 		};
 		B0CC90FC2273B3DE0075931E /* Extensions */ = {
@@ -231,7 +231,7 @@
 				B0E1846F2281AA21008E5C6D /* Localizable.strings */,
 				B0EF924D22898611000DC283 /* RegionNames.strings */,
 				B0904F9B226F858F007842CA /* LaunchScreen.storyboard */,
-				B0AAE782228480DB002D7264 /* Settings.bundle */,
+				B0CFD85A22AD470E00AB3465 /* Settings.bundle */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -239,9 +239,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B0904F8E226F858E007842CA /* TestMap */ = {
+		B0904F8E226F858E007842CA /* Oblasti UA */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0904FA1226F858F007842CA /* Build configuration list for PBXNativeTarget "TestMap" */;
+			buildConfigurationList = B0904FA1226F858F007842CA /* Build configuration list for PBXNativeTarget "Oblasti UA" */;
 			buildPhases = (
 				B0904F8B226F858E007842CA /* Sources */,
 				B0904F8C226F858E007842CA /* Frameworks */,
@@ -251,9 +251,9 @@
 			);
 			dependencies = (
 			);
-			name = TestMap;
-			productName = TestMap;
-			productReference = B0904F8F226F858E007842CA /* TestMap.app */;
+			name = "Oblasti UA";
+			productName = "Oblasti UA";
+			productReference = B0904F8F226F858E007842CA /* Oblasti UA.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -271,7 +271,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B0904F8A226F858E007842CA /* Build configuration list for PBXProject "TestMap" */;
+			buildConfigurationList = B0904F8A226F858E007842CA /* Build configuration list for PBXProject "Oblasti UA" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -287,7 +287,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B0904F8E226F858E007842CA /* TestMap */,
+				B0904F8E226F858E007842CA /* Oblasti UA */,
 			);
 		};
 /* End PBXProject section */
@@ -303,7 +303,7 @@
 				B0904F9A226F858F007842CA /* Assets.xcassets in Resources */,
 				B0D2F2C822733065007B1E38 /* pathText in Resources */,
 				B0EF924B22898611000DC283 /* RegionNames.strings in Resources */,
-				B0AAE783228480DB002D7264 /* Settings.bundle in Resources */,
+				B0CFD85B22AD470E00AB3465 /* Settings.bundle in Resources */,
 				B0904F98226F858E007842CA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,7 +404,7 @@
 				B082A4352289934B0029C1CF /* zh-Hans */,
 			);
 			name = RegionNames.strings;
-			path = "/Users/EasyRider/Desktop/Development/TestMap/TestMap/Supporting Files";
+			path = "/Users/EasyRider/Desktop/Development/Oblasti UA/Oblasti UA/Supporting Files";
 			sourceTree = "<absolute>";
 		};
 /* End PBXVariantGroup section */
@@ -534,13 +534,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZG5795UF78;
-				INFOPLIST_FILE = "TestMap/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Oblasti UA/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.artemyelizarov.TestMap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.artemyelizarov.OblastiUA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -553,13 +553,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZG5795UF78;
-				INFOPLIST_FILE = "TestMap/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Oblasti UA/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.artemyelizarov.TestMap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.artemyelizarov.OblastiUA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -569,7 +569,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B0904F8A226F858E007842CA /* Build configuration list for PBXProject "TestMap" */ = {
+		B0904F8A226F858E007842CA /* Build configuration list for PBXProject "Oblasti UA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0904F9F226F858F007842CA /* Debug */,
@@ -578,7 +578,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0904FA1226F858F007842CA /* Build configuration list for PBXNativeTarget "TestMap" */ = {
+		B0904FA1226F858F007842CA /* Build configuration list for PBXNativeTarget "Oblasti UA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0904FA2226F858F007842CA /* Debug */,
