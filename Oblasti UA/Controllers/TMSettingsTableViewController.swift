@@ -174,9 +174,6 @@ final class TMSettingsTableViewController: UITableViewController {
         }
     }
     
-    deinit {
-        print(self, "deinit!")
-    }
 }
 
 // MARK: - TMRemovableObserver protocol methods

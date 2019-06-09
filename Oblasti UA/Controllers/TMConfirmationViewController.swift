@@ -62,8 +62,4 @@ final class TMConfirmationViewController: UIViewController, TMPresentationStyleA
         adjustModalPresentationStyle()
     }
     
-    // TODO: - Remove Deinit
-    deinit {
-        print(self, "deinit!")
-    }
 }

@@ -59,10 +59,6 @@ final class TMGameResultViewController: UIViewController, TMDefaultsKeyControlla
         loadUI()
     }
     
-    deinit {
-        print(self, "deinit!")
-    }
-    
     // MARK: - UI
     private func loadUI() {
         guard let gameResult = gameResult else { return }

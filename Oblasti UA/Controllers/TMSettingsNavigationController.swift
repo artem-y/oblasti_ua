@@ -21,8 +21,4 @@ final class TMSettingsNavigationController: UINavigationController, TMPresentati
         adjustModalPresentationStyle()
     }
     
-    // TODO: - Remove 'deinit'
-    deinit {
-        print(self, "deinit!")
-    }
 }

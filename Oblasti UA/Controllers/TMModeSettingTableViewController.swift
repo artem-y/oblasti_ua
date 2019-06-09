@@ -67,8 +67,4 @@ final class TMModeSettingTableViewController: UITableViewController {
 //        }
     }
     
-    
-    deinit {
-        print(self, "deinit!")
-    }
 }

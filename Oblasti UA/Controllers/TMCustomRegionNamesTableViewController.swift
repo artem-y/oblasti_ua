@@ -45,7 +45,7 @@ final class TMCustomRegionNamesTableViewController: UITableViewController, TMDef
         } else {
             // Temporary copy is necessary to prevent from multiple calls to region names dict's 'didSet' method
             var newRegionNamesDict: [String: String] = [:]
-            TMRegion.Key.all.forEach {
+            TMRegion.Key.allCases.forEach {
                 newRegionNamesDict[$0.rawValue] = ""
             }
             regionNames = newRegionNamesDict
@@ -99,7 +99,6 @@ final class TMCustomRegionNamesTableViewController: UITableViewController, TMDef
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("tableView didSelectRow")
         if let regionNameCell = tableView.cellForRow(at: indexPath) as? TMCustomRegionNameCell {
             set(textField: regionNameCell.customNameTextField, editing: true)
         }
@@ -114,7 +113,6 @@ final class TMCustomRegionNamesTableViewController: UITableViewController, TMDef
     
     // MARK: - UITextFieldDelegate methods
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        print("textField didEndEditing reason = \(reason)")
         if reason == .committed {
             if let parentCell = textField.superview?.superview?.superview as? TMCustomRegionNameCell, let indexPath = tableView.indexPath(for: parentCell) {
                 let regionNameKey = sortedRegionNameKeys[indexPath.row]

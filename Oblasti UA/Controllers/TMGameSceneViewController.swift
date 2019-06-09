@@ -411,11 +411,6 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
         performSegue(withIdentifier: TMResources.SegueIdentifier.showGameResultSegue, sender: self)
     }
     
-    // TODO: - Remove "deinit!"
-    deinit {
-        print(self, "deinit!")
-    }
-    
 }
 
 extension TMGameSceneViewController: TMPauseViewControllerDelegate {

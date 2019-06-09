@@ -39,11 +39,6 @@ struct TMRegion: Equatable {
         case zakarpatska
         case zaporizka
         
-        /// Returns all keys of this enum. Made for convinience and "swiftier" usage.
-        static var all: [Key] {
-            return allCases
-        }
-        
     }
     
     // MARK: - Model properties

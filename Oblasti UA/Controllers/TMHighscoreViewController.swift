@@ -30,10 +30,6 @@ final class TMHighscoreViewController: UIViewController, TMDefaultsKeyControllab
         configureUI()
     }
     
-    deinit {
-        print(self, "deinit!")
-    }
-    
     // MARK: - UI configuration
     private func configureUI() {
         let backgroundCornerRadius: CGFloat = 20.0

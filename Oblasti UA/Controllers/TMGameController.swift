@@ -124,7 +124,4 @@ final class TMGameController: TMDefaultsKeyControllable {
         }
     }
     
-    deinit {
-        print(self, "deinit!")
-    }
 }

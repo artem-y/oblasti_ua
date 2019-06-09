@@ -44,10 +44,6 @@ final class TMLanguageSettingTalbeViewController: UITableViewController, TMDefau
         navigationItem.rightBarButtonItem = (regionNameLanguage == TMResources.LanguageCode.custom) ? editBarButtonItem : nil
     }
     
-    deinit {
-        print(self, "deinit!")
-    }
-    
     // MARK: - UITableView delegate & datasource methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return languages.count

@@ -42,7 +42,6 @@ final class TMPauseViewController: UIViewController {
     
     // MARK: - Public Methods
     @objc func updateTimeLabel(){
-        print("pauseVC update time label")
         if showsTime, let gameController = gameController {
             let timeFormatter = TMGameTimeFormatter()
             timeFormatter.timeFormat = "mm:ss"
@@ -106,11 +105,6 @@ final class TMPauseViewController: UIViewController {
         default:
             break
         }
-    }
-    
-    // TODO: - Remove 'deinit'
-    deinit {
-        print(self, "deinit!")
     }
     
 }
