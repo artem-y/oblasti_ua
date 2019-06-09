@@ -120,7 +120,7 @@
 "jgr-27-abm.normalTitle" = "ВЫЙТИ И СОХРАНИТЬ";
 
 /* Class = "UILabel"; text = "Language Target Name"; ObjectID = "jiu-Xs-idg"; */
-"jiu-Xs-idg.text" = "Название языка;
+"jiu-Xs-idg.text" = "Название языка";
 
 /* Class = "UIButton"; normalTitle = "CONTINUE"; ObjectID = "lHb-Kb-ejW"; */
 "lHb-Kb-ejW.normalTitle" = "ПРОДОЛЖИТЬ";
