@@ -1,6 +1,6 @@
 //
 //  String+localized(in language.swift
-//  TestMap
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/8/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.

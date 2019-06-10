@@ -1,6 +1,6 @@
 //
-//  TMHighscoreViewController.swift
-//  TestMap
+//  OBHighscoreViewController.swift
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/15/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class TMHighscoreViewController: UIViewController, TMDefaultsKeyControllable {
+final class OBHighscoreViewController: UIViewController, OBDefaultsKeyControllable {
     
     // MARK: - @IBOutlets
     @IBOutlet weak var classicBackgroundView: UIView!
@@ -30,7 +30,7 @@ final class TMHighscoreViewController: UIViewController, TMDefaultsKeyControllab
         configureUI()
     }
     
-    // MARK: - UI configuration
+    // MARK: - UI Configuration (Private) Methods
     private func configureUI() {
         let backgroundCornerRadius: CGFloat = 20.0
         classicBackgroundView.layer.cornerRadius = backgroundCornerRadius
@@ -41,13 +41,13 @@ final class TMHighscoreViewController: UIViewController, TMDefaultsKeyControllab
         let timeStringPrefix = "Time:".localized()
         
         // Classic mode highscore view
-        if let classicHighscoreData = standardDefaults.value(forKey: DefaultsKey.classicHighscore) as? Data, let classicHighscore: TMGame = try? jsonDecoder.decode(TMGame.self, from: classicHighscoreData) {
+        if let classicHighscoreData = standardDefaults.value(forKey: DefaultsKey.classicHighscore) as? Data, let classicHighscore: OBGame = try? jsonDecoder.decode(OBGame.self, from: classicHighscoreData) {
             
-            let mistakesIndicatorName = classicHighscore.mistakesCount == 0 ? TMResources.ImageName.correctIcon : TMResources.ImageName.mistakesIcon
+            let mistakesIndicatorName = classicHighscore.mistakesCount == 0 ? OBResources.ImageName.correctIcon : OBResources.ImageName.mistakesIcon
             classicMistakesIndicator.image = UIImage(named: mistakesIndicatorName)
             classicMistakesLabel.text = "\("Mistakes:".localized()) \(classicHighscore.mistakesCount)"
             
-            let timeString = TMGameTimeFormatter().string(for: classicHighscore.timePassed)
+            let timeString = OBGameTimeFormatter().string(for: classicHighscore.timePassed)
             classicTimeLabel.text = "\(timeStringPrefix) \(timeString)"
         } else {
             for outlet in [classicMistakesIndicator, classicMistakesLabel, classicTimeIndicator, classicTimeLabel] {
@@ -56,13 +56,13 @@ final class TMHighscoreViewController: UIViewController, TMDefaultsKeyControllab
         }
         
         // No Repetitions mode highscore view
-        if let norepeatHighscoreData = standardDefaults.value(forKey: DefaultsKey.norepeatHighscore) as? Data, let norepeatHighscore: TMGame = try? jsonDecoder.decode(TMGame.self, from: norepeatHighscoreData) {
+        if let norepeatHighscoreData = standardDefaults.value(forKey: DefaultsKey.norepeatHighscore) as? Data, let norepeatHighscore: OBGame = try? jsonDecoder.decode(OBGame.self, from: norepeatHighscoreData) {
             
-            let mistakesIndicatorName = norepeatHighscore.mistakesCount == 0 ? TMResources.ImageName.correctIcon : TMResources.ImageName.mistakesIcon
+            let mistakesIndicatorName = norepeatHighscore.mistakesCount == 0 ? OBResources.ImageName.correctIcon : OBResources.ImageName.mistakesIcon
             norepeatMistakesIndicator.image = UIImage(named: mistakesIndicatorName)
             norepeatMistakesLabel.text = "\("Mistakes:".localized()) \(norepeatHighscore.mistakesCount)/\(norepeatHighscore.regions.count)"
             
-            let timeString = TMGameTimeFormatter().string(for: norepeatHighscore.timePassed)
+            let timeString = OBGameTimeFormatter().string(for: norepeatHighscore.timePassed)
             norepeatTimeLabel.text = "\(timeStringPrefix) \(timeString)"
         } else {
             for outlet in [norepeatMistakesIndicator, norepeatMistakesLabel, norepeatTimeIndicator, norepeatTimeLabel] {

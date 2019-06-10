@@ -1,6 +1,6 @@
 //
-//  TMRoundCornerButton.swift
-//  TestMap
+//  OBRoundCornerButton.swift
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/3/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-final class TMRoundCornerButton: UIButton {
+final class OBRoundCornerButton: UIButton {
 
     // Initialization from storyboard
     required init?(coder aDecoder: NSCoder) {

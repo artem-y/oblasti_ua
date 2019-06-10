@@ -1,6 +1,6 @@
 //
-//  TMGameSceneViewController.swift
-//  TestMap
+//  OBGameSceneViewController.swift
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 4/23/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class TMGameSceneViewController: UIViewController, TMGameControllerDelegate, TMDefaultsKeyControllable {
+final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllable {
     
     // MARK: - @IBOutlets
     @IBOutlet weak var backgroundView: UIView!
@@ -22,25 +22,26 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     @IBOutlet weak var bottomLeftIndicator: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     
-    // MARK: - Public Properties
-    var savedGame: TMGame?
-    
     // MARK: - Private Properties
-    private var mapView: TMMapView!
-    private var settings: TMSettings {
-        return TMSettingsController.shared.settings
-    }
-    private var customRegionNames: [String: String] = [:]
-    private var gameController = TMGameController()
+    private var gameController = OBGameController()
+    private var mapView: OBMapView!
     
-    private var gameMode: TMGame.Mode { return gameController.gameResult.mode }
+    // MARK: -
+    // 'Convenience' properties
+    private var settings: OBSettings {
+        return OBSettingsController.shared.settings
+    }
+    private var gameMode: OBGame.Mode { return gameController.gameResult.mode }
     
     private var showsButtons: Bool { return gameMode != .pointer && settings.showsButtons }
     private var showsTime: Bool { return gameMode != .pointer && settings.showsTime }
     private var autoConfirmsSelection: Bool { return gameMode != .pointer && settings.autoConfirmsSelection }
+    // MARK: -
     
-    private var isShowingSelectionResult = false
+    private var customRegionNames: [String: String] = [:]
     private let animationDuration: Double = 0.2
+    private var singleTapRecognizer: UITapGestureRecognizer!
+    private var isShowingSelectionResult = false
     private var isRunningGame = true {
         didSet {
             if isRunningGame {
@@ -55,7 +56,6 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
             singleTapRecognizer.isEnabled = isRunningGame
         }
     }
-    private var singleTapRecognizer: UITapGestureRecognizer!
     
     // MARK: - @IBActions
     @IBAction func confirmButtonTapped(_ sender: Any) {
@@ -70,13 +70,13 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
 
         backgroundView.isHidden = true
 
-        // This is needed to prevent memory leak caused by holding a reference to this instance of TMGameSceneViewController in app delegate
+        // This is needed to prevent memory leak caused by holding a reference to this instance of OBGameSceneViewController in app delegate
         AppDelegate.shared.pauseApp = nil
 
         dismiss(animated: true, completion: nil)
     }
     
-    // MARK: - UIViewController methods
+    // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -108,7 +108,31 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
         updateTimerLabel()
     }
     
-    // MARK: - UI initialization methods
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch segue.identifier {
+        case OBResources.SegueIdentifier.pauseGameSegue:
+            if let destinationVC = segue.destination as? OBPauseViewController {
+                destinationVC.gameController = gameController
+                destinationVC.delegate = self
+            }
+        case OBResources.SegueIdentifier.showGameResultSegue:
+            if let destinationVC = segue.destination as? OBGameResultViewController {
+                mapView.isHidden = true
+                topRightInfoView.isHidden = true
+                regionLabel.isHidden = true
+                bottomLeftChoiceView.isHidden = true
+                bottomRightConfirmationView.isHidden = true
+                destinationVC.gameResult = gameController.gameResult
+            }
+        default:
+            break
+        }
+    }
+    
+    // MARK: - Private Methods
     /// Initializes and configures mapView. Has to be called after gameController is already initialized.
     private func loadMapView() {
         var regionKeysAndPaths: [String: UIBezierPath] = [:]
@@ -116,7 +140,7 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
             regionKeysAndPaths[region.key.rawValue] = region.path
         }
         
-        mapView = TMMapView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 900.0, height: 610.0)), sublayerNamesAndPaths: regionKeysAndPaths)
+        mapView = OBMapView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 900.0, height: 610.0)), sublayerNamesAndPaths: regionKeysAndPaths)
 
         view.setNeedsLayout()
         view.layoutIfNeeded()
@@ -132,31 +156,6 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
         
     }
     
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        switch segue.identifier {
-        case TMResources.SegueIdentifier.pauseGameSegue:
-            if let destinationVC = segue.destination as? TMPauseViewController {
-                destinationVC.gameController = gameController
-                destinationVC.delegate = self
-            }
-        case TMResources.SegueIdentifier.showGameResultSegue:
-            if let destinationVC = segue.destination as? TMGameResultViewController {
-                mapView.isHidden = true
-                topRightInfoView.isHidden = true
-                regionLabel.isHidden = true
-                bottomLeftChoiceView.isHidden = true
-                bottomRightConfirmationView.isHidden = true
-                destinationVC.gameResult = gameController.gameResult
-            }
-        default:
-            break
-        }
-    }
-    
-    // MARK: - Game control methods
     private func configureGestureRecognizers() {
         singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
         singleTapRecognizer.numberOfTouchesRequired = 1
@@ -232,7 +231,7 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     @objc func pauseGame() {
         isRunningGame = false
         guard self.presentedViewController == nil else { return }
-        performSegue(withIdentifier: TMResources.SegueIdentifier.pauseGameSegue, sender: self)
+        performSegue(withIdentifier: OBResources.SegueIdentifier.pauseGameSegue, sender: self)
     }
     
     private func hideControls() {
@@ -316,7 +315,7 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
         
         if showsButtons {
             // Image representations of right/wrong choice
-            let imageName = isCorrect ? TMResources.ImageName.correctChoice : TMResources.ImageName.wrongChoice
+            let imageName = isCorrect ? OBResources.ImageName.correctChoice : OBResources.ImageName.wrongChoice
             bottomLeftIndicator.image = UIImage(named: imageName)
             
             // Animation: Message view slides out into the screen from the left
@@ -356,14 +355,14 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
             let languageIdentifier = settings.regionNameLanguageIdentifier
             var regionName = ""
             
-            if languageIdentifier == TMResources.LanguageCode.custom {
+            if languageIdentifier == OBResources.LanguageCode.custom {
                 if let customRegionName = customRegionNames[currentRegion.key.rawValue], customRegionName.isEmpty == false {
                     regionName = customRegionName
                 } else {
-                    regionName = currentRegion.key.rawValue.localized(in: "en", fromTable: TMResources.LocalizationTable.regionNames)
+                    regionName = currentRegion.key.rawValue.localized(in: "en", fromTable: OBResources.LocalizationTable.regionNames)
                 }
             } else {
-                regionName = currentRegion.key.rawValue.localized(in: languageIdentifier, fromTable: TMResources.LocalizationTable.regionNames)
+                regionName = currentRegion.key.rawValue.localized(in: languageIdentifier, fromTable: OBResources.LocalizationTable.regionNames)
             }
             
             regionLabel.text = settings.regionNamesUppercased ? regionName.uppercased() : regionName
@@ -388,12 +387,17 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     }
     
     private func reloadTimerLabelTitle() {
-        let timeFormatter = TMGameTimeFormatter()
+        let timeFormatter = OBGameTimeFormatter()
         timeFormatter.timeFormat = "mm:ss"
         timeLabel.text = timeFormatter.string(for: gameController.gameResult.timePassed)
     }
     
-    // MARK: - GameControllerDelegate methods
+    
+    
+}
+
+// MARK: - GameControllerDelegate Methods
+extension OBGameSceneViewController: OBGameControllerDelegate {
     func reactToCorrectChoice() {
         showChoiceResult(isCorrect: true)
     }
@@ -408,12 +412,12 @@ final class TMGameSceneViewController: UIViewController, TMGameControllerDelegat
     
     func reactToEndOfGame() {
         standardDefaults.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
-        performSegue(withIdentifier: TMResources.SegueIdentifier.showGameResultSegue, sender: self)
+        performSegue(withIdentifier: OBResources.SegueIdentifier.showGameResultSegue, sender: self)
     }
-    
 }
 
-extension TMGameSceneViewController: TMPauseViewControllerDelegate {
+// MARK: - OBPauseViewControllerDelegate Methods
+extension OBGameSceneViewController: OBPauseViewControllerDelegate {
     func continueGame() {
         isRunningGame = true
     }

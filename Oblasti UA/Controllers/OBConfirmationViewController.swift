@@ -1,6 +1,6 @@
 //
-//  TMConfirmationViewController.swift
-//  TestMap
+//  OBConfirmationViewController.swift
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 6/2/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-final class TMConfirmationViewController: UIViewController, TMPresentationStyleAdjustable {
+final class OBConfirmationViewController: UIViewController, OBPresentationStyleAdjustable {
     
     // MARK: - @IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var confirmButton: TMRoundCornerButton!
-    @IBOutlet weak var cancelButton: TMRoundCornerButton!
+    @IBOutlet weak var confirmButton: OBRoundCornerButton!
+    @IBOutlet weak var cancelButton: OBRoundCornerButton!
     
     // MARK: - Public Properties
     
@@ -34,7 +34,7 @@ final class TMConfirmationViewController: UIViewController, TMPresentationStyleA
     var confirmationHandler: (() -> ())?
     
     // MARK: - @IBActions
-    @IBAction func didChooseAction(_ sender: TMRoundCornerButton) {
+    @IBAction func didChooseAction(_ sender: OBRoundCornerButton) {
         dismiss(animated: true) { [unowned self, unowned sender] in
             if sender == self.confirmButton {
                 self.confirmationHandler?()

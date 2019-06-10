@@ -1,6 +1,6 @@
 //
-//  TMLanguageSettingTalbeViewController.swift
-//  TestMap
+//  OBLanguageSettingTalbeViewController.swift
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/13/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -8,26 +8,26 @@
 
 import UIKit
 
-final class TMLanguageSettingTalbeViewController: UITableViewController, TMDefaultsKeyControllable {
+final class OBLanguageSettingTalbeViewController: UITableViewController, OBDefaultsKeyControllable {
     
     // MARK: - @IBOutlets
     @IBOutlet var editBarButtonItem: UIBarButtonItem!
     
-    // MARK: - Languages
-    private let languages: [String] = TMSettingsController.shared.availableLanguages
+    // MARK: - Private Properties
+    private let languages: [String] = OBSettingsController.shared.availableLanguages
     private var customRegionNames: [String] = []
 
     private var regionNameLanguage: String {
         get {
-            return TMSettingsController.shared.settings.regionNameLanguageIdentifier
+            return OBSettingsController.shared.settings.regionNameLanguageIdentifier
         }
         set {
-            TMSettingsController.shared.settings.regionNameLanguageIdentifier = newValue
+            OBSettingsController.shared.settings.regionNameLanguageIdentifier = newValue
             tableView.reloadData()
         }
     }
     
-    // MARK: - Loading
+    // MARK: - Private Methods
     private func loadCustomRegionNames() {
         let jsonDecoder = JSONDecoder()
         if let jsonData = standardDefaults.data(forKey: DefaultsKey.customRegionNames), let regionNamesDict = try? jsonDecoder.decode([String: String].self, from: jsonData) {
@@ -41,7 +41,7 @@ final class TMLanguageSettingTalbeViewController: UITableViewController, TMDefau
         loadCustomRegionNames()
         tableView.reloadData()
         
-        navigationItem.rightBarButtonItem = (regionNameLanguage == TMResources.LanguageCode.custom) ? editBarButtonItem : nil
+        navigationItem.rightBarButtonItem = (regionNameLanguage == OBResources.LanguageCode.custom) ? editBarButtonItem : nil
     }
     
     // MARK: - UITableView delegate & datasource methods
@@ -53,11 +53,11 @@ final class TMLanguageSettingTalbeViewController: UITableViewController, TMDefau
         
         let languageCode = languages[indexPath.row]
         let languageNativeLocale = Locale(identifier: languageCode)
-        let languageCell = tableView.dequeueReusableCell(withIdentifier: TMResources.CellIdentifier.languageCell, for: indexPath)
+        let languageCell = tableView.dequeueReusableCell(withIdentifier: OBResources.CellIdentifier.languageCell, for: indexPath)
         languageCell.textLabel?.text = languageNativeLocale.localizedString(forLanguageCode: languageCode)?.capitalized ?? languageCode.localized()
         
         var detailText: String?
-        if languageCode == TMResources.LanguageCode.custom {
+        if languageCode == OBResources.LanguageCode.custom {
             detailText = customRegionNames.reduce(into: String(), {
                 if !$0.isEmpty { $0 += ", " }
                 $0 += $1
@@ -76,7 +76,7 @@ final class TMLanguageSettingTalbeViewController: UITableViewController, TMDefau
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let language = languages[indexPath.row]
         regionNameLanguage = language
-        navigationItem.rightBarButtonItem = (language == TMResources.LanguageCode.custom) ? editBarButtonItem : nil
+        navigationItem.rightBarButtonItem = (language == OBResources.LanguageCode.custom) ? editBarButtonItem : nil
     }
     
 }

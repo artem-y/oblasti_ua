@@ -1,6 +1,6 @@
 //
 //  CGColor+gameColors.swift
-//  TestMap
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/1/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.

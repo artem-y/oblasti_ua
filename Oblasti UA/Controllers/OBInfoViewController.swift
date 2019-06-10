@@ -1,6 +1,6 @@
 //
-//  TMInfoViewController.swift
-//  TestMap
+//  OBInfoViewController.swift
+//  Oblasti UA
 //
 //  Created by ArtemYelizarov on 5/3/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -8,10 +8,11 @@
 
 import UIKit
 
-final class TMInfoViewController: UIViewController, TMPresentationStyleAdjustable {
-    
+final class OBInfoViewController: UIViewController, OBPresentationStyleAdjustable {
+    // MARK: - @IBOutlets
     @IBOutlet weak var textView: UITextView!
 
+    // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 

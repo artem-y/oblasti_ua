@@ -1,6 +1,6 @@
 //
-//  TMSettingsController.swift
-//  TestMap
+//  OBSettingsController.swift
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/9/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -8,53 +8,55 @@
 
 import Foundation
 
-final class TMSettingsController: NSObject, TMDefaultsKeyControllable {
-    static let shared = TMSettingsController()
+final class OBSettingsController: NSObject, OBDefaultsKeyControllable {
+    static let shared = OBSettingsController()
     
     typealias SettingKey = DefaultsKey.Setting
     
     // MARK: - Public Properties
-    var settings: TMSettings! {
+    /// Game settings. Send notifications on value change
+    var settings: OBSettings! {
         didSet {
             if oldValue != settings {
                 saveSettings()
-                NotificationCenter.default.post(Notification(name: .TMSettingsChanged))
+                NotificationCenter.default.post(Notification(name: .OBSettingsChanged))
                 
                 if oldValue?.gameMode != settings.gameMode {
-                    NotificationCenter.default.post(Notification(name: .TMGameModeChanged))
+                    NotificationCenter.default.post(Notification(name: .OBGameModeChanged))
                 }
                 if oldValue?.showsTime != settings.showsTime {
-                    NotificationCenter.default.post(Notification(name: .TMShowTimeSettingChanged))
+                    NotificationCenter.default.post(Notification(name: .OBShowTimeSettingChanged))
                 }
             }
         }
     }
     
     /// Languages contain all available localizatons for region names and user-defined region names
-    var availableLanguages: [String] = Bundle.main.localizations.filter { $0 != "Base" } + [TMResources.LanguageCode.custom]
+    var availableLanguages: [String] = Bundle.main.localizations.filter { $0 != "Base" } + [OBResources.LanguageCode.custom]
     
     // MARK: - Public Methods
+    /// Tries to load settings from UserDefaults, sets missing values to defaults.
     func loadSettings() {
         
-        let defaultGameMode: TMGame.Mode = TMSettings.default.gameMode
+        let defaultGameMode: OBGame.Mode = OBSettings.default.gameMode
         let gameModeString: String? = standardDefaults.string(forKey: SettingKey.lastGameMode)
-        let gameMode: TMGame.Mode = (gameModeString == nil) ? defaultGameMode : TMGame.Mode(rawValue: gameModeString!) ?? defaultGameMode
+        let gameMode: OBGame.Mode = (gameModeString == nil) ? defaultGameMode : OBGame.Mode(rawValue: gameModeString!) ?? defaultGameMode
         
-        let showsTime: Bool = standardDefaultsBool(forKey: SettingKey.showsTime) ?? TMSettings.default.showsTime
-        let showsButtons: Bool = standardDefaultsBool(forKey: SettingKey.showsButtons) ?? TMSettings.default.showsButtons
-        let autoConfirmsSelection: Bool = standardDefaultsBool(forKey: SettingKey.autoConfirmsSelection) ?? TMSettings.default.autoConfirmsSelection
-        let automaticRegionChange: Bool = standardDefaultsBool(forKey: SettingKey.automaticRegionChange) ?? TMSettings.default.changesRegionAutomatically
-        let regionNamesUppercased: Bool = standardDefaultsBool(forKey: SettingKey.regionNamesUppercased) ?? TMSettings.default.regionNamesUppercased
+        let showsTime: Bool = standardDefaultsBool(forKey: SettingKey.showsTime) ?? OBSettings.default.showsTime
+        let showsButtons: Bool = standardDefaultsBool(forKey: SettingKey.showsButtons) ?? OBSettings.default.showsButtons
+        let autoConfirmsSelection: Bool = standardDefaultsBool(forKey: SettingKey.autoConfirmsSelection) ?? OBSettings.default.autoConfirmsSelection
+        let automaticRegionChange: Bool = standardDefaultsBool(forKey: SettingKey.automaticRegionChange) ?? OBSettings.default.changesRegionAutomatically
+        let regionNamesUppercased: Bool = standardDefaultsBool(forKey: SettingKey.regionNamesUppercased) ?? OBSettings.default.regionNamesUppercased
         
-        let showsCorrectAnswer: Bool = standardDefaultsBool(forKey: SettingKey.showsCorrectAnswer) ?? TMSettings.default.showsCorrectAnswer
+        let showsCorrectAnswer: Bool = standardDefaultsBool(forKey: SettingKey.showsCorrectAnswer) ?? OBSettings.default.showsCorrectAnswer
         
-        var currentLanguageIdentifier = TMSettings.default.regionNameLanguageIdentifier
+        var currentLanguageIdentifier = OBSettings.default.regionNameLanguageIdentifier
         if let currentLanguageCode = Locale.current.languageCode, availableLanguages.contains(currentLanguageCode) {
             currentLanguageIdentifier = currentLanguageCode
         }
         let regionNameLanguage: String = standardDefaults.string(forKey: SettingKey.regionNameLanguage) ?? currentLanguageIdentifier
         
-        settings = TMSettings(gameMode: gameMode, regionNamesUppercased: regionNamesUppercased, showsTime: showsTime, showsButtons: showsButtons, autoConfirmsSelection: autoConfirmsSelection, changesRegionAutomatically: automaticRegionChange, showsCorrectAnswer: showsCorrectAnswer, regionNameLanguageIdentifier: regionNameLanguage)
+        settings = OBSettings(gameMode: gameMode, regionNamesUppercased: regionNamesUppercased, showsTime: showsTime, showsButtons: showsButtons, autoConfirmsSelection: autoConfirmsSelection, changesRegionAutomatically: automaticRegionChange, showsCorrectAnswer: showsCorrectAnswer, regionNameLanguageIdentifier: regionNameLanguage)
 
     }
     

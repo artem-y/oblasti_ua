@@ -1,6 +1,6 @@
 //
-//  TMMapView.swift
-//  TestMap
+//  OBMapView.swift
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 4/23/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -10,8 +10,10 @@ import UIKit
 import CoreGraphics
 import CoreImage
 
-class TMMapView: UIImageView {
+class OBMapView: UIImageView {
     
+    // MARK: - Public Properties
+    /// Current selected layer.
     var selectedLayer: CAShapeLayer? {
         didSet {
             layer.sublayers?.forEach({ (sublayer) in
@@ -25,23 +27,11 @@ class TMMapView: UIImageView {
         }
     }
     
-    // MARK: - Initialization
-    init(frame: CGRect, sublayerNamesAndPaths: [String: UIBezierPath]) {
-        super.init(frame: frame)
-        addRegionLayers(from: sublayerNamesAndPaths)
-    }
-    
-    func addRegionLayers(from namesAndPathsDict: [String: UIBezierPath]) {
-        for region in namesAndPathsDict {
-            addRegionLayer(named: region.key, withPath: region.value)
-        }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    // MARK: - Methods to work with layers
+    // MARK: - Public Methods
+    /// Finds and returns sublayer with a matching name or nil.
+    /// - Parameters:
+    ///   - named: A string with the name of sublayer to look for.
+    /// - Returns: A map sublayer (instance of CAShapeLayer) with the name passed as an argument, or nil if there isn't one.
     func sublayer(named name: String) -> CAShapeLayer? {
         if let sublayers = layer.sublayers {
             for sublayer in sublayers {
@@ -53,6 +43,17 @@ class TMMapView: UIImageView {
         return nil
     }
     
+    // MARK: - Initialization
+    init(frame: CGRect, sublayerNamesAndPaths: [String: UIBezierPath]) {
+        super.init(frame: frame)
+        addRegionLayers(from: sublayerNamesAndPaths)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    // MARK: - Private Methods
     private func addRegionLayer(named name: String, withPath path: UIBezierPath) {
         let shapeLayer = CAShapeLayer(layer: layer)
         shapeLayer.name = name
@@ -60,6 +61,12 @@ class TMMapView: UIImageView {
         shapeLayer.fillColor = .unselectedRegionColor
         shapeLayer.strokeColor = UIColor.clear.cgColor
         layer.addSublayer(shapeLayer)
+    }
+    
+    private func addRegionLayers(from namesAndPathsDict: [String: UIBezierPath]) {
+        for region in namesAndPathsDict {
+            addRegionLayer(named: region.key, withPath: region.value)
+        }
     }
     
 }

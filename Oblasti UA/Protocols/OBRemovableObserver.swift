@@ -1,6 +1,6 @@
 //
-//  TMRemovableObserver.swift
-//  TestMap
+//  OBRemovableObserver.swift
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/23/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol TMRemovableObserver: NSObject {
+protocol OBRemovableObserver: NSObject {
     func addToNotificationCenter()
 }
 
-extension TMRemovableObserver {
+extension OBRemovableObserver {
     func removeFromNotificationCenter() {
         NotificationCenter.default.removeObserver(self)
     }

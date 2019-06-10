@@ -1,6 +1,6 @@
 //
 //  UIBezierPath+initFromString.swift
-//  TestMap
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 4/27/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.

@@ -2,13 +2,13 @@
 /* Game mode on main menu screen. For example, 'Mode: classic' */
 "Mode:" = "Mode:";
 
-/* TMGame.Mode.classic */
+/* OBGame.Mode.classic */
 "classicMode" = "Classic";
 
-/* TMGame.Mode.pointer */
+/* OBGame.Mode.pointer */
 "pointerMode" = "Pointer";
 
-/* TMGame.Mode.norepeat */
+/* OBGame.Mode.norepeat */
 "noRepeatMode" = "No Repetitions";
 
 /* Description of region name format option "uppercasedRegionName": "All Caps" */

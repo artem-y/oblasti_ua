@@ -1,6 +1,6 @@
 //
-//  TMResourceController.swift
-//  TestMap
+//  OBResources.swift
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/4/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -8,9 +8,12 @@
 
 import UIKit
 
-struct TMResources {
-    static let shared = TMResources()
+struct OBResources {
+    // MARK: - Static Properties
+    static let shared = OBResources()
     
+    // MARK: - Nested Types
+    // MARK: -
     struct ImageName {
         static let play = "playButton"
         static let pause = "pauseButton"
@@ -22,10 +25,12 @@ struct TMResources {
         static let mistakesIcon = "mistakesIcon"
     }
     
+    // MARK: -
     struct FileName {
         static let allRegionPaths = "pathText"
     }
     
+    // MARK: -
     struct SegueIdentifier {
         static let restoreDefaultsConfirmationSegue = "restoreDefaultsConfirmationSegue"
         static let exitConfirmationSegue = "exitConfirmationSegue"
@@ -40,20 +45,24 @@ struct TMResources {
         static let showGameResultSegue = "showGameResultSegue"
     }
     
+    // MARK: -
     struct CellIdentifier {
         static let gameModeCell = "gameModeCell"
         static let languageCell = "languageCell"
         static let customRegionNameCell = "customRegionNameCell"
     }
     
+    // MARK: -
     struct LanguageCode {
         static let custom = "customLanguage"
     }
     
+    // MARK: -
     struct LocalizationTable {
         static let regionNames = "RegionNames"
     }
     
+    // MARK: -
     struct UserDefaultsKey {
         static let classicHighscore = "classicHighscore"
         static let norepeatHighscore = "norepeatHighscore"
@@ -73,9 +82,15 @@ struct TMResources {
         }
     }
     
-    func loadRegions(withKeys regionKeys: [TMRegion.Key]? = nil, fromFileNamed fileName: String) -> [TMRegion] {
+    // MARK: - Public Methods
+    /// Loads regions with their paths from file.
+    /// - Parameters:
+    ///   - regionKeys: Optional array of region keys. Default value is 'nil'.
+    ///   - fileName: String, containing the name of file in to search for regions paths data.
+    /// - Returns: Array of regions, that were successfully parsed from file or 'nil', if there weren't any. If no region keys specified, tries to look for and return all possible regions.
+    func loadRegions(withKeys regionKeys: [OBRegion.Key]? = nil, fromFileNamed fileName: String) -> [OBRegion] {
 
-        var regions: [TMRegion] = []
+        var regions: [OBRegion] = []
         
         // If file not found, will return an empty array, so using try? is ok here
         if let filePath = Bundle.main.path(forResource: fileName, ofType: nil), let fileContentsString = try? String(contentsOfFile: filePath).lowercased() {
@@ -91,23 +106,21 @@ struct TMResources {
                 .filter {
                     guard let regionKeys = regionKeys, regionKeys.isEmpty == false else { return true }
 
-                    if let regionKey = TMRegion.Key(rawValue: $0.name.lowercased()) {
+                    if let regionKey = OBRegion.Key(rawValue: $0.name.lowercased()) {
                         return regionKeys.contains(regionKey)
                     }
                     return false
             }
             
             for component in pathStringComponents {
-                // It is ok to use try? here, because in case region path is nil, TMRegion instance will not be created and appended to array, without impacting other code
-                if let regionKey = TMRegion.Key(rawValue: component.name), let regionPath = try? UIBezierPath(string: component.path) {
-                    regions.append(TMRegion(key: regionKey, path: regionPath))
+                // It is ok to use try? here, because in case region path is nil, OBRegion instance will not be created and appended to array, without impacting other code
+                if let regionKey = OBRegion.Key(rawValue: component.name), let regionPath = try? UIBezierPath(string: component.path) {
+                    regions.append(OBRegion(key: regionKey, path: regionPath))
                 }
             }
         }
 
         return regions
     }
-    
-    // TODO: Add UserDefaults keys (for example, highscore key)
     
 }

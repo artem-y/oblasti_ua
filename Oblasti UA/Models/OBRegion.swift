@@ -1,6 +1,6 @@
 //
-//  TMRegion.swift
-//  TestMap
+//  OBRegion.swift
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 4/27/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-struct TMRegion: Equatable {
-    // MARK: - TMRegion.Key type
+struct OBRegion {
+    // MARK: - Nested Types
     /// Iterable, equatable key with string raw value containing lowercase region name (in English).
     enum Key: String, CaseIterable, Equatable, Codable {
         // If not assigned explicitly, raw value strings are created automatically
@@ -41,16 +41,22 @@ struct TMRegion: Equatable {
         
     }
     
-    // MARK: - Model properties
+    // MARK: - Public Properties
+    /// Region's key
     var key: Key
+    
+    /// Region's path
     var path: UIBezierPath
     
-    // MARK: - Equatable protocol methods
-    static func ==(_ lhs: TMRegion?, rhs: TMRegion) -> Bool {
+}
+
+// MARK: - Equatable Protocol Methods
+extension OBRegion: Equatable {
+    static func ==(_ lhs: OBRegion?, rhs: OBRegion) -> Bool {
         return (lhs?.key == rhs.key) && (lhs?.path == rhs.path)
     }
     
-    static func !=(_ lhs: TMRegion?, rhs: TMRegion) -> Bool {
+    static func !=(_ lhs: OBRegion?, rhs: OBRegion) -> Bool {
         return (lhs?.key != rhs.key) || (lhs?.path != rhs.path)
     }
 }

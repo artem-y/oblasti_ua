@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  TestMap
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 4/23/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -21,10 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// Block of code that will be called (if set) when application 'resigns active', used to pause game tasks (for example, stop timers)
     var pauseApp: (() -> ())?
     
-    weak var settingsObserver: TMRemovableObserver?
-    weak var menuModeObserver: TMRemovableObserver?
-    weak var pauseScreenShowTimeObserver: TMRemovableObserver?
-    weak var settingsController: TMSettingsController?
+    weak var settingsObserver: OBRemovableObserver?
+    weak var menuModeObserver: OBRemovableObserver?
+    weak var pauseScreenShowTimeObserver: OBRemovableObserver?
+    weak var settingsController: OBSettingsController?
 
     // MARK: - AppDelegate Methods
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

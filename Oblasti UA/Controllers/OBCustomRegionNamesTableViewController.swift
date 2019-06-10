@@ -1,6 +1,6 @@
 //
-//  TMCustomRegionNamesTableViewController.swift
-//  TestMap
+//  OBCustomRegionNamesTableViewController.swift
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/24/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-final class TMCustomRegionNamesTableViewController: UITableViewController, TMDefaultsKeyControllable, UITextFieldDelegate {
+final class OBCustomRegionNamesTableViewController: UITableViewController, OBDefaultsKeyControllable {
     
-    // MARK: - Data properties
+    // MARK: - Private Properties
     private var regionNames: [String: String] = [:] {
         didSet {
             if oldValue != regionNames {
@@ -23,7 +23,7 @@ final class TMCustomRegionNamesTableViewController: UITableViewController, TMDef
     }
     private var sortedRegionNameKeys: [String] = []
     
-    // MARK: - Update UI
+    // MARK: - Private Methods
     /// Configures textfield according to whether it is editing
     private func set(textField: UITextField, editing: Bool) {
         if editing {
@@ -35,7 +35,6 @@ final class TMCustomRegionNamesTableViewController: UITableViewController, TMDef
         }
     }
     
-    // MARK: - Data methods
     private func loadRegionNames() {
         // First, try to fetch names from UserDefaults
         if let jsonData = standardDefaults.value(forKey: DefaultsKey.customRegionNames) as? Data, let savedRegionNames: [String: String] = try? JSONDecoder().decode([String: String].self, from: jsonData) {
@@ -45,7 +44,7 @@ final class TMCustomRegionNamesTableViewController: UITableViewController, TMDef
         } else {
             // Temporary copy is necessary to prevent from multiple calls to region names dict's 'didSet' method
             var newRegionNamesDict: [String: String] = [:]
-            TMRegion.Key.allCases.forEach {
+            OBRegion.Key.allCases.forEach {
                 newRegionNamesDict[$0.rawValue] = ""
             }
             regionNames = newRegionNamesDict
@@ -62,7 +61,7 @@ final class TMCustomRegionNamesTableViewController: UITableViewController, TMDef
     
     private func localizedRegionName(_ name: String) -> String {
         let currentLanguageCode: String = Locale.current.languageCode ?? "en"
-        let regionNamesTableName: String = TMResources.LocalizationTable.regionNames
+        let regionNamesTableName: String = OBResources.LocalizationTable.regionNames
         return name.localized(in: currentLanguageCode, fromTable: regionNamesTableName)
     }
     
@@ -85,36 +84,38 @@ final class TMCustomRegionNamesTableViewController: UITableViewController, TMDef
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TMResources.CellIdentifier.customRegionNameCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: OBResources.CellIdentifier.customRegionNameCell, for: indexPath)
         
         // Configure cell
-        if let regionNameCell = cell as? TMCustomRegionNameCell {
+        if let regionNameCell = cell as? OBCustomRegionNameCell {
             let regionKey: String = sortedRegionNameKeys[indexPath.row]
             regionNameCell.regionNameLabel.text = localizedRegionName(regionKey)
             regionNameCell.customNameTextField.delegate = self
-            regionNameCell.customNameTextField.placeholder = regionKey.localized(in: "en", fromTable: TMResources.LocalizationTable.regionNames)
+            regionNameCell.customNameTextField.placeholder = regionKey.localized(in: "en", fromTable: OBResources.LocalizationTable.regionNames)
             regionNameCell.customNameTextField.text = regionNames[regionKey]
         }
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let regionNameCell = tableView.cellForRow(at: indexPath) as? TMCustomRegionNameCell {
+        if let regionNameCell = tableView.cellForRow(at: indexPath) as? OBCustomRegionNameCell {
             set(textField: regionNameCell.customNameTextField, editing: true)
         }
 
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        if let regionNameCell = tableView.cellForRow(at: indexPath) as? TMCustomRegionNameCell {
+        if let regionNameCell = tableView.cellForRow(at: indexPath) as? OBCustomRegionNameCell {
             set(textField: regionNameCell.customNameTextField, editing: false)
         }
     }
-    
-    // MARK: - UITextFieldDelegate methods
+}
+
+// MARK: - UITextFieldDelegate methods
+extension OBCustomRegionNamesTableViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         if reason == .committed {
-            if let parentCell = textField.superview?.superview?.superview as? TMCustomRegionNameCell, let indexPath = tableView.indexPath(for: parentCell) {
+            if let parentCell = textField.superview?.superview?.superview as? OBCustomRegionNameCell, let indexPath = tableView.indexPath(for: parentCell) {
                 let regionNameKey = sortedRegionNameKeys[indexPath.row]
                 regionNames[regionNameKey] = textField.text ?? ""
             }

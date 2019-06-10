@@ -1,6 +1,6 @@
 //
-//  TMPauseViewController.swift
-//  TestMap
+//  OBPauseViewController.swift
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 6/3/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -8,42 +8,45 @@
 
 import UIKit
 
-final class TMPauseViewController: UIViewController {
+final class OBPauseViewController: UIViewController {
     
     // MARK: - @IBOutlets
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var continueButton: TMRoundCornerButton!
-    @IBOutlet weak var saveAndExitButton: TMRoundCornerButton!
-    @IBOutlet weak var exitToMenuButton: TMRoundCornerButton!
+    @IBOutlet weak var continueButton: OBRoundCornerButton!
+    @IBOutlet weak var saveAndExitButton: OBRoundCornerButton!
+    @IBOutlet weak var exitToMenuButton: OBRoundCornerButton!
     
     // MARK: - @IBActions
     @IBAction func continueButtonTapped(_ sender: UIButton) {
         resumeGame()
     }
     
-    @IBAction func saveAndExitButtonTapped(_ sender: TMRoundCornerButton) {
+    @IBAction func saveAndExitButtonTapped(_ sender: OBRoundCornerButton) {
         gameController?.saveGame()
         quitGame()
     }
     
-    @IBAction func exitToMenuButtonTapped(_ sender: TMRoundCornerButton) {
+    @IBAction func exitToMenuButtonTapped(_ sender: OBRoundCornerButton) {
         if gameMode == .pointer {
             quitGame()
         } else {
-            performSegue(withIdentifier: TMResources.SegueIdentifier.exitConfirmationSegue, sender: self)
+            performSegue(withIdentifier: OBResources.SegueIdentifier.exitConfirmationSegue, sender: self)
         }
     }
     
     // MARK: - Public Properties
-    weak var delegate: TMPauseViewControllerDelegate?
-    weak var gameController: TMGameController?
+    /// Delegate, used to react to actinos of pause view controller.
+    weak var delegate: OBPauseViewControllerDelegate?
+    
+    /// Game controller instance, used to configure pause view controller and/or save the game.
+    weak var gameController: OBGameController?
     
     // MARK: - Public Methods
     @objc func updateTimeLabel(){
         if showsTime, let gameController = gameController {
-            let timeFormatter = TMGameTimeFormatter()
+            let timeFormatter = OBGameTimeFormatter()
             timeFormatter.timeFormat = "mm:ss"
             timeLabel.text = timeFormatter.string(for: gameController.gameResult.timePassed)
         }
@@ -51,8 +54,8 @@ final class TMPauseViewController: UIViewController {
     }
     
     // MARK: - Private Properties
-    private var settings: TMSettings { return TMSettingsController.shared.settings }
-    private var gameMode: TMGame.Mode? { return gameController?.gameResult.mode }
+    private var settings: OBSettings { return OBSettingsController.shared.settings }
+    private var gameMode: OBGame.Mode? { return gameController?.gameResult.mode }
     private var showsTime: Bool { return gameMode == .pointer ? false : settings.showsTime }
     
     // MARK: - Private Methods
@@ -91,12 +94,12 @@ final class TMPauseViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         
         switch segue.identifier {
-        case TMResources.SegueIdentifier.showSettingsFromGamePauseSegue:
-            if let destinationVC = segue.destination as? TMSettingsNavigationController, let topVC = destinationVC.topViewController as? TMSettingsTableViewController {
+        case OBResources.SegueIdentifier.showSettingsFromGamePauseSegue:
+            if let destinationVC = segue.destination as? OBSettingsNavigationController, let topVC = destinationVC.topViewController as? OBSettingsTableViewController {
                 topVC.gameInProgressGameMode = gameMode
             }
-        case TMResources.SegueIdentifier.exitConfirmationSegue:
-            if let destinationVC = segue.destination as? TMConfirmationViewController {
+        case OBResources.SegueIdentifier.exitConfirmationSegue:
+            if let destinationVC = segue.destination as? OBConfirmationViewController {
                 destinationVC.messageText = "The game will not be saved".localized()
                 destinationVC.confirmationHandler = { [unowned self] in
                     self.quitGame()
@@ -109,9 +112,9 @@ final class TMPauseViewController: UIViewController {
     
 }
 
-// MARK: - TMRemovableObserver protocol methods
-extension TMPauseViewController: TMRemovableObserver {
+// MARK: - OBRemovableObserver protocol methods
+extension OBPauseViewController: OBRemovableObserver {
     func addToNotificationCenter() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTimeLabel), name: .TMShowTimeSettingChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTimeLabel), name: .OBShowTimeSettingChanged, object: nil)
     }
 }

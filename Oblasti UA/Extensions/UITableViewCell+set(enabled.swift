@@ -1,6 +1,6 @@
 //
 //  UITableViewCell+set(enabled.swift
-//  TestMap
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/14/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.

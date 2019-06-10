@@ -1,6 +1,6 @@
 //
-//  TMGame.swift
-//  TestMap
+//  OBGame.swift
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/6/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-// TODO: Make game model comparable and equatable
-struct TMGame: Equatable {
-    
+struct OBGame {
+    // MARK: - Static Properties
     /// Immutable default game instance.
-    static let `default` = TMGame(mode: TMSettingsController.shared.settings.gameMode, regions: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths), regionsLeft: TMResources.shared.loadRegions(fromFileNamed: TMResources.FileName.allRegionPaths))
+    static let `default` = OBGame(mode: OBSettingsController.shared.settings.gameMode, regions: OBResources.shared.loadRegions(fromFileNamed: OBResources.FileName.allRegionPaths), regionsLeft: OBResources.shared.loadRegions(fromFileNamed: OBResources.FileName.allRegionPaths))
     
+    // MARK: - Nested Types
     /// Game mode type
     enum Mode: String, CaseIterable, Codable {
         /// User is finding regions on the map until all regions are found. Regions that were guessed wrong will still be appearing.
@@ -36,25 +36,20 @@ struct TMGame: Equatable {
             }
         }
     }
-    
-    // MARK: - Constant properties
-    // These will be assigned only once - at initialization
-    private let gameMode: Mode
-    private let gameRegions: [TMRegion]
 
-    // MARK: - Get-only properties
+    // MARK: - Public Properties
     // This is for code-safety (to prevent accidental autocorrection to variables and changes)
     var mode: Mode { return gameMode }
-    var regions: [TMRegion] { return gameRegions }
+    var regions: [OBRegion] { return gameRegions }
     // And this is for more clarity and convenience =)
     var hasEnded: Bool {
         return regionsLeft.count == 0
     }
     
-    // MARK: - Variables
+    // MARK: -
     var mistakesCount: Int = 0
     var timePassed: TimeInterval = 0.0
-    var regionsLeft: [TMRegion] = [] {
+    var regionsLeft: [OBRegion] = [] {
         didSet {
             // This prevents accidental assigning of regions
             regionsLeft = regionsLeft.filter({ (region) -> Bool in
@@ -62,33 +57,40 @@ struct TMGame: Equatable {
             })
         }
     }
+    
+    // MARK: - Private Properties
+    // These will be assigned only once - at initialization
+    private let gameMode: Mode
+    private let gameRegions: [OBRegion]
 
     // MARK: - Initialization
-    init(mode: Mode, regions: [TMRegion], regionsLeft: [TMRegion], timePassed: TimeInterval = 0.0, mistakesCount: Int = 0) {
+    init(mode: Mode, regions: [OBRegion], regionsLeft: [OBRegion], timePassed: TimeInterval = 0.0, mistakesCount: Int = 0) {
         gameMode = mode
         gameRegions = regions
         self.regionsLeft = regionsLeft
         self.timePassed = timePassed
         self.mistakesCount = mistakesCount
     }
-    
-    // MARK: - 'Equatable' protocol methods
-    static func ==(lhs: TMGame, rhs: TMGame) -> Bool {
+}
+
+// MARK: - 'Equatable' Protocol Methods
+extension OBGame: Equatable {
+    static func ==(lhs: OBGame, rhs: OBGame) -> Bool {
         return (lhs.gameMode == rhs.gameMode) && (lhs.gameRegions == rhs.gameRegions) && (lhs.mistakesCount == rhs.mistakesCount) && (lhs.timePassed == rhs.timePassed)
     }
     
-    static func !=(lhs: TMGame, rhs: TMGame) -> Bool {
+    static func !=(lhs: OBGame, rhs: OBGame) -> Bool {
         return (lhs.gameMode != rhs.gameMode) || (lhs.gameRegions != rhs.gameRegions) || (lhs.mistakesCount != rhs.mistakesCount) || (lhs.timePassed != rhs.timePassed)
     }
     
 }
 
 
-// MARK: - 'Comparable' protocol methods
-extension TMGame: Comparable {
+// MARK: - 'Comparable' Protocol Methods
+extension OBGame: Comparable {
     
     // TODO: Replace with comparison function
-    static func < (lhs: TMGame, rhs: TMGame) -> Bool {
+    static func < (lhs: OBGame, rhs: OBGame) -> Bool {
         
         let lhsMistakesPercent: Double = lhs.mistakesCount == 0 ? 0.0 : Double(lhs.mistakesCount) / Double(lhs.gameRegions.count)
         let rhsMistakesPercent: Double = rhs.mistakesCount == 0 ? 0.0 : Double(rhs.mistakesCount) / Double(rhs.gameRegions.count)
@@ -97,8 +99,8 @@ extension TMGame: Comparable {
     }
 }
 
-// MARK: - 'Codable' protocol
-extension TMGame: Codable {
+// MARK: - 'Codable' Protocol Methods
+extension OBGame: Codable {
     enum CodingKeys: String, CodingKey {
         case gameMode
         case gameRegions
@@ -109,24 +111,24 @@ extension TMGame: Codable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        gameMode = try values.decode(TMGame.Mode.self, forKey: .gameMode)
+        gameMode = try values.decode(OBGame.Mode.self, forKey: .gameMode)
 
         let gameRegionsNames = try values.decode([String].self, forKey: .gameRegions)
         gameRegions = gameRegionsNames
             .filter({
-                TMRegion.Key.init(rawValue: $0) != nil
+                OBRegion.Key.init(rawValue: $0) != nil
             })
             .map({
-                TMRegion(key: TMRegion.Key(rawValue: $0)!, path: UIBezierPath())
+                OBRegion(key: OBRegion.Key(rawValue: $0)!, path: UIBezierPath())
             })
     
         let regionsLeftNames = try values.decode([String].self, forKey: .regionsLeft)
         regionsLeft = regionsLeftNames
             .filter({
-                TMRegion.Key.init(rawValue: $0) != nil && gameRegionsNames.contains($0)
+                OBRegion.Key.init(rawValue: $0) != nil && gameRegionsNames.contains($0)
             })
             .map({
-                TMRegion(key: TMRegion.Key(rawValue: $0)!, path: UIBezierPath())
+                OBRegion(key: OBRegion.Key(rawValue: $0)!, path: UIBezierPath())
             })
         
         mistakesCount = try values.decode(Int.self, forKey: .mistakesCount)

@@ -1,6 +1,6 @@
 //
-//  TMSettingsViewController.swift
-//  TestMap
+//  OBSettingsTableViewController.swift
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/6/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
@@ -8,18 +8,20 @@
 
 import UIKit
 
-final class TMSettingsTableViewController: UITableViewController {
+final class OBSettingsTableViewController: UITableViewController {
     
     // MARK: - @IBOutlets
     @IBOutlet weak var modeCell: UITableViewCell!
+    
     @IBOutlet weak var showTimeCell: UITableViewCell!
     @IBOutlet weak var showTimeSwitch: UISwitch!
+    
     @IBOutlet weak var showButtonsCell: UITableViewCell!
     @IBOutlet weak var showButtonsSwitch: UISwitch!
+    
     @IBOutlet weak var modeNameLabel: UILabel!
     
     @IBOutlet weak var autoConfirmationCell: UITableViewCell!
-    
     @IBOutlet weak var autoConfirmationSwitch: UISwitch!
     
     @IBOutlet weak var automaticNextRegionCell: UITableViewCell!
@@ -36,22 +38,22 @@ final class TMSettingsTableViewController: UITableViewController {
     @IBOutlet weak var restoreDefaultsCell: UITableViewCell!
     
     // MARK: - Public Properties
-    var settings: TMSettings {
+    /// This value should only be passed to settings view controller only if it is called from game pause menu. It will be used to disable mode change within the same game.
+    var gameInProgressGameMode: OBGame.Mode?
+    
+    // MARK: - Private Properties
+    private var settings: OBSettings {
         get {
-            return TMSettingsController.shared.settings
+            return OBSettingsController.shared.settings
         }
         set {
-            if TMSettingsController.shared.settings != newValue {
-                TMSettingsController.shared.settings = newValue
+            if OBSettingsController.shared.settings != newValue {
+                OBSettingsController.shared.settings = newValue
             }
         }
     }
-    
-    /// This value should only be passed to settings view controller only if it is called from game pause menu. It will be used to disable mode change within the same game.
-    var gameInProgressGameMode: TMGame.Mode?
-    
-    // If 'gameInProgressGameMode' is not nil, it means there is a game in progress, and settings viewcontroller was called from within it - and it cannot be changed till the end of/quitting from current game.
-    private var currentGameMode: TMGame.Mode {
+    // 'Convenience' property. If 'gameInProgressGameMode' is not nil, it means there is a game in progress, and settings viewcontroller was called from within it - and it cannot be changed till the end of/quitting from current game.
+    private var currentGameMode: OBGame.Mode {
         return gameInProgressGameMode ?? settings.gameMode
     }
     
@@ -76,6 +78,29 @@ final class TMSettingsTableViewController: UITableViewController {
         removeFromNotificationCenter()
     }
     
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch segue.identifier {
+        case OBResources.SegueIdentifier.showModeSettingFromSettingsControllerSegue:
+            if let destinationVC = segue.destination as? OBModeSettingTableViewController {
+                
+                destinationVC.hidesBackButton = false
+            }
+        case OBResources.SegueIdentifier.restoreDefaultsConfirmationSegue:
+            if let destinationVC = segue.destination as? OBConfirmationViewController {
+                
+                destinationVC.messageText = "Settings will be reset to defaults. This action cannot be undone.".localized()
+                destinationVC.confirmationHandler = { [unowned self] in
+                    self.settings = OBSettings.default
+                }
+            }
+        default:
+            break
+        }
+    }
+    
     // MARK: - UITableView delegate and datasource methods
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // No need to tableView.deselectRow here because UI will be updated on these properties' didSet event
@@ -93,7 +118,7 @@ final class TMSettingsTableViewController: UITableViewController {
         case showCorrectAnswerCell:
             settings.showsCorrectAnswer = !settings.showsCorrectAnswer
         case restoreDefaultsCell:
-            performSegue(withIdentifier: TMResources.SegueIdentifier.restoreDefaultsConfirmationSegue, sender: self)
+            performSegue(withIdentifier: OBResources.SegueIdentifier.restoreDefaultsConfirmationSegue, sender: self)
         default:
             break
         }
@@ -103,8 +128,8 @@ final class TMSettingsTableViewController: UITableViewController {
         return section == 1 ? exampleFooterText : nil
     }
 
-    // MARK: - Updating UI
-    @objc func updateUI(){
+    // MARK: - UI Configuration (Private) Methods
+    @objc private func updateUI(){
         // This happens only if there is a game in progress
         if gameInProgressGameMode != nil {
             modeCell.animateSet(enabled: false)
@@ -140,45 +165,22 @@ final class TMSettingsTableViewController: UITableViewController {
         regionNamesUppercasedSwitch.setOn(settings.regionNamesUppercased, animated: true)
         
         let forExampleText = "For example:".localized()
-        let ivanoFrankivskaTextUnprocessed = TMRegion.Key.ivanofrankivska.rawValue.localized(in: settings.regionNameLanguageIdentifier, fromTable: TMResources.LocalizationTable.regionNames)
+        let ivanoFrankivskaTextUnprocessed = OBRegion.Key.ivanofrankivska.rawValue.localized(in: settings.regionNameLanguageIdentifier, fromTable: OBResources.LocalizationTable.regionNames)
         let ivanoFrankivskaText: String = settings.regionNamesUppercased ? ivanoFrankivskaTextUnprocessed.uppercased() : ivanoFrankivskaTextUnprocessed.capitalized
         
         exampleFooterText = "\(forExampleText) \(ivanoFrankivskaText)"
         
-        restoreDefaultsCell.isHidden = (settings == TMSettings.default)
+        restoreDefaultsCell.isHidden = (settings == OBSettings.default)
         
         tableView.reloadData()
         
     }
     
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        switch segue.identifier {
-        case TMResources.SegueIdentifier.showModeSettingFromSettingsControllerSegue:
-            if let destinationVC = segue.destination as? TMModeSettingTableViewController {
-                
-                destinationVC.hidesBackButton = false
-            }
-        case TMResources.SegueIdentifier.restoreDefaultsConfirmationSegue:
-            if let destinationVC = segue.destination as? TMConfirmationViewController {
-                
-                destinationVC.messageText = "Settings will be reset to defaults. This action cannot be undone.".localized()
-                destinationVC.confirmationHandler = { [unowned self] in
-                    self.settings = TMSettings.default
-                }
-            }
-        default:
-            break
-        }
-    }
-    
 }
 
-// MARK: - TMRemovableObserver protocol methods
-extension TMSettingsTableViewController: TMRemovableObserver {
+// MARK: - OBRemovableObserver protocol methods
+extension OBSettingsTableViewController: OBRemovableObserver {
     func addToNotificationCenter() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: .TMSettingsChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: .OBSettingsChanged, object: nil)
     }
 }

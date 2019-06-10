@@ -1,6 +1,6 @@
 //
 //  UIViewController+dismissNavigationController.swift
-//  TestMap
+//  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/10/19.
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.

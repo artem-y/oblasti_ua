@@ -7,100 +7,100 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B01BA8D9229810270035ED9D /* TMCustomRegionNamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8D8229810270035ED9D /* TMCustomRegionNamesTableViewController.swift */; };
-		B01BA8DB2298230D0035ED9D /* TMCustomRegionNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8DA2298230D0035ED9D /* TMCustomRegionNameCell.swift */; };
-		B02EFFFB227B445900825656 /* TMMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02EFFFA227B445900825656 /* TMMenuViewController.swift */; };
-		B032668A22A5BE1000EA767B /* TMPauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B032668922A5BE1000EA767B /* TMPauseViewController.swift */; };
+		B01BA8D9229810270035ED9D /* OBCustomRegionNamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8D8229810270035ED9D /* OBCustomRegionNamesTableViewController.swift */; };
+		B01BA8DB2298230D0035ED9D /* OBCustomRegionNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8DA2298230D0035ED9D /* OBCustomRegionNameCell.swift */; };
+		B02EFFFB227B445900825656 /* OBMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02EFFFA227B445900825656 /* OBMenuViewController.swift */; };
+		B032668A22A5BE1000EA767B /* OBPauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B032668922A5BE1000EA767B /* OBPauseViewController.swift */; };
 		B040E8A0228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */; };
 		B040E8A2228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */; };
 		B042BEF7229C439400FE4A5C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B042BEF9229C439400FE4A5C /* InfoPlist.strings */; };
-		B043EB05227C2A9F00F87F1F /* TMInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB04227C2A9F00F87F1F /* TMInfoViewController.swift */; };
-		B043EB07227C312A00F87F1F /* TMRoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB06227C312A00F87F1F /* TMRoundCornerButton.swift */; };
-		B04DDB78228B4EB8008B9DD9 /* TMGameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DDB77228B4EB8008B9DD9 /* TMGameResultViewController.swift */; };
-		B04DE48022858F8D00939C4E /* TMModeSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE47F22858F8D00939C4E /* TMModeSettingTableViewController.swift */; };
-		B04DE4822285A6A500939C4E /* TMSettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE4812285A6A500939C4E /* TMSettingsNavigationController.swift */; };
+		B043EB05227C2A9F00F87F1F /* OBInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB04227C2A9F00F87F1F /* OBInfoViewController.swift */; };
+		B043EB07227C312A00F87F1F /* OBRoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB06227C312A00F87F1F /* OBRoundCornerButton.swift */; };
+		B04DDB78228B4EB8008B9DD9 /* OBGameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DDB77228B4EB8008B9DD9 /* OBGameResultViewController.swift */; };
+		B04DE48022858F8D00939C4E /* OBModeSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE47F22858F8D00939C4E /* OBModeSettingTableViewController.swift */; };
+		B04DE4822285A6A500939C4E /* OBSettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE4812285A6A500939C4E /* OBSettingsNavigationController.swift */; };
 		B04DE4842285B2A700939C4E /* UIViewController+dismissNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE4832285B2A700939C4E /* UIViewController+dismissNavigationController.swift */; };
 		B05844F9229BD7F7004836FE /* Custom Notification Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05844F8229BD7F7004836FE /* Custom Notification Names.swift */; };
-		B05A2AAE227A553400D8BA5C /* TMGameControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05A2AAD227A553400D8BA5C /* TMGameControllerDelegate.swift */; };
-		B05E15C222746C9C007C85AF /* TMGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E15C122746C9C007C85AF /* TMGameController.swift */; };
-		B05E15C422746CDF007C85AF /* TMRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E15C322746CDF007C85AF /* TMRegion.swift */; };
-		B06B4E7822A680B000C0797B /* TMPauseViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B4E7722A680B000C0797B /* TMPauseViewControllerDelegate.swift */; };
-		B06F0E54229AFCAF00AD9A25 /* TMDefaultsKeyControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F0E53229AFCAF00AD9A25 /* TMDefaultsKeyControllable.swift */; };
-		B07099AA2292B743005D0C3E /* TMGameTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07099A92292B743005D0C3E /* TMGameTimeFormatter.swift */; };
-		B07A9ED3227CFC4400C4D2F0 /* TMResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A9ED2227CFC4400C4D2F0 /* TMResources.swift */; };
-		B07C5F6D2280435D009059A7 /* TMGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C5F6C2280435D009059A7 /* TMGame.swift */; };
-		B07C5F6F22805F12009059A7 /* TMSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C5F6E22805F12009059A7 /* TMSettingsTableViewController.swift */; };
+		B05A2AAE227A553400D8BA5C /* OBGameControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05A2AAD227A553400D8BA5C /* OBGameControllerDelegate.swift */; };
+		B05E15C222746C9C007C85AF /* OBGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E15C122746C9C007C85AF /* OBGameController.swift */; };
+		B05E15C422746CDF007C85AF /* OBRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E15C322746CDF007C85AF /* OBRegion.swift */; };
+		B06B4E7822A680B000C0797B /* OBPauseViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B4E7722A680B000C0797B /* OBPauseViewControllerDelegate.swift */; };
+		B06F0E54229AFCAF00AD9A25 /* OBDefaultsKeyControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F0E53229AFCAF00AD9A25 /* OBDefaultsKeyControllable.swift */; };
+		B07099AA2292B743005D0C3E /* OBGameTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07099A92292B743005D0C3E /* OBGameTimeFormatter.swift */; };
+		B07A9ED3227CFC4400C4D2F0 /* OBResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A9ED2227CFC4400C4D2F0 /* OBResources.swift */; };
+		B07C5F6D2280435D009059A7 /* OBGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C5F6C2280435D009059A7 /* OBGame.swift */; };
+		B07C5F6F22805F12009059A7 /* OBSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C5F6E22805F12009059A7 /* OBSettingsTableViewController.swift */; };
 		B0904F93226F858E007842CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0904F92226F858E007842CA /* AppDelegate.swift */; };
-		B0904F95226F858E007842CA /* TMGameSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0904F94226F858E007842CA /* TMGameSceneViewController.swift */; };
+		B0904F95226F858E007842CA /* OBGameSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0904F94226F858E007842CA /* OBGameSceneViewController.swift */; };
 		B0904F98226F858E007842CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0904F96226F858E007842CA /* Main.storyboard */; };
 		B0904F9A226F858F007842CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0904F99226F858F007842CA /* Assets.xcassets */; };
 		B0904F9D226F858F007842CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0904F9B226F858F007842CA /* LaunchScreen.storyboard */; };
-		B0904FA9226F8656007842CA /* TMMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0904FA8226F8656007842CA /* TMMapView.swift */; };
-		B09CF0CB22832ABA00BC7FED /* TMSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CA22832ABA00BC7FED /* TMSettings.swift */; };
+		B0904FA9226F8656007842CA /* OBMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0904FA8226F8656007842CA /* OBMapView.swift */; };
+		B09CF0CB22832ABA00BC7FED /* OBSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CA22832ABA00BC7FED /* OBSettings.swift */; };
 		B09CF0CD2283391E00BC7FED /* String+localized(in language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */; };
-		B0AAE785228497BA002D7264 /* TMSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAE784228497BA002D7264 /* TMSettingsController.swift */; };
-		B0BFD4FA2297151E002EA6EF /* TMRemovableObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BFD4F92297151E002EA6EF /* TMRemovableObserver.swift */; };
+		B0AAE785228497BA002D7264 /* OBSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAE784228497BA002D7264 /* OBSettingsController.swift */; };
+		B0BFD4FA2297151E002EA6EF /* OBRemovableObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BFD4F92297151E002EA6EF /* OBRemovableObserver.swift */; };
 		B0C49DEB227A2B2400561892 /* GameColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */; };
-		B0C7D80F2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7D80E2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift */; };
-		B0C95BD522A45135005A18A8 /* TMConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C95BD422A45135005A18A8 /* TMConfirmationViewController.swift */; };
+		B0C7D80F2288DA36006D8BE8 /* OBLanguageSettingTalbeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTalbeViewController.swift */; };
+		B0C95BD522A45135005A18A8 /* OBConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C95BD422A45135005A18A8 /* OBConfirmationViewController.swift */; };
 		B0CC90FB2273B3D50075931E /* UIBezierPath+initFromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC90FA2273B3D50075931E /* UIBezierPath+initFromString.swift */; };
 		B0CFD85B22AD470E00AB3465 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0CFD85A22AD470E00AB3465 /* Settings.bundle */; };
-		B0D0EA2C229E010000278597 /* TMPresentationStyleAdjustable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0EA2B229E010000278597 /* TMPresentationStyleAdjustable.swift */; };
+		B0D0EA2C229E010000278597 /* OBPresentationStyleAdjustable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0EA2B229E010000278597 /* OBPresentationStyleAdjustable.swift */; };
 		B0D2F2C822733065007B1E38 /* pathText in Resources */ = {isa = PBXBuildFile; fileRef = B0D2F2C722733065007B1E38 /* pathText */; };
-		B0E164B8228C4BD700615DC5 /* TMHighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E164B7228C4BD700615DC5 /* TMHighscoreViewController.swift */; };
+		B0E164B8228C4BD700615DC5 /* OBHighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E164B7228C4BD700615DC5 /* OBHighscoreViewController.swift */; };
 		B0E1846D2281AA21008E5C6D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0E1846F2281AA21008E5C6D /* Localizable.strings */; };
 		B0EF924B22898611000DC283 /* RegionNames.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0EF924D22898611000DC283 /* RegionNames.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B01BA8D8229810270035ED9D /* TMCustomRegionNamesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMCustomRegionNamesTableViewController.swift; sourceTree = "<group>"; };
-		B01BA8DA2298230D0035ED9D /* TMCustomRegionNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMCustomRegionNameCell.swift; sourceTree = "<group>"; };
+		B01BA8D8229810270035ED9D /* OBCustomRegionNamesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBCustomRegionNamesTableViewController.swift; sourceTree = "<group>"; };
+		B01BA8DA2298230D0035ED9D /* OBCustomRegionNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBCustomRegionNameCell.swift; sourceTree = "<group>"; };
 		B029F21822AD212400FECBCD /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		B029F21A22AD22B600FECBCD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		B029F21C22AD247600FECBCD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
-		B02EFFFA227B445900825656 /* TMMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMenuViewController.swift; sourceTree = "<group>"; };
-		B032668922A5BE1000EA767B /* TMPauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMPauseViewController.swift; sourceTree = "<group>"; };
+		B02EFFFA227B445900825656 /* OBMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBMenuViewController.swift; sourceTree = "<group>"; };
+		B032668922A5BE1000EA767B /* OBPauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBPauseViewController.swift; sourceTree = "<group>"; };
 		B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+set(enabled.swift"; sourceTree = "<group>"; };
 		B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+set(hidden animationDuration.swift"; sourceTree = "<group>"; };
 		B042BEF8229C439400FE4A5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B042BEFA229C439800FE4A5C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B042BEFB229C439A00FE4A5C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B043EB04227C2A9F00F87F1F /* TMInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMInfoViewController.swift; sourceTree = "<group>"; };
-		B043EB06227C312A00F87F1F /* TMRoundCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMRoundCornerButton.swift; sourceTree = "<group>"; };
-		B04DDB77228B4EB8008B9DD9 /* TMGameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameResultViewController.swift; sourceTree = "<group>"; };
-		B04DE47F22858F8D00939C4E /* TMModeSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMModeSettingTableViewController.swift; sourceTree = "<group>"; };
-		B04DE4812285A6A500939C4E /* TMSettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettingsNavigationController.swift; sourceTree = "<group>"; };
+		B043EB04227C2A9F00F87F1F /* OBInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBInfoViewController.swift; sourceTree = "<group>"; };
+		B043EB06227C312A00F87F1F /* OBRoundCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBRoundCornerButton.swift; sourceTree = "<group>"; };
+		B04DDB77228B4EB8008B9DD9 /* OBGameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGameResultViewController.swift; sourceTree = "<group>"; };
+		B04DE47F22858F8D00939C4E /* OBModeSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBModeSettingTableViewController.swift; sourceTree = "<group>"; };
+		B04DE4812285A6A500939C4E /* OBSettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettingsNavigationController.swift; sourceTree = "<group>"; };
 		B04DE4832285B2A700939C4E /* UIViewController+dismissNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissNavigationController.swift"; sourceTree = "<group>"; };
 		B05844F8229BD7F7004836FE /* Custom Notification Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Notification Names.swift"; sourceTree = "<group>"; };
-		B05A2AAD227A553400D8BA5C /* TMGameControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameControllerDelegate.swift; sourceTree = "<group>"; };
-		B05E15C122746C9C007C85AF /* TMGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameController.swift; sourceTree = "<group>"; };
-		B05E15C322746CDF007C85AF /* TMRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMRegion.swift; sourceTree = "<group>"; };
-		B06B4E7722A680B000C0797B /* TMPauseViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMPauseViewControllerDelegate.swift; sourceTree = "<group>"; };
-		B06F0E53229AFCAF00AD9A25 /* TMDefaultsKeyControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDefaultsKeyControllable.swift; sourceTree = "<group>"; };
-		B07099A92292B743005D0C3E /* TMGameTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameTimeFormatter.swift; sourceTree = "<group>"; };
-		B07A9ED2227CFC4400C4D2F0 /* TMResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMResources.swift; sourceTree = "<group>"; };
-		B07C5F6C2280435D009059A7 /* TMGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGame.swift; sourceTree = "<group>"; };
-		B07C5F6E22805F12009059A7 /* TMSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettingsTableViewController.swift; sourceTree = "<group>"; };
+		B05A2AAD227A553400D8BA5C /* OBGameControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGameControllerDelegate.swift; sourceTree = "<group>"; };
+		B05E15C122746C9C007C85AF /* OBGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGameController.swift; sourceTree = "<group>"; };
+		B05E15C322746CDF007C85AF /* OBRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBRegion.swift; sourceTree = "<group>"; };
+		B06B4E7722A680B000C0797B /* OBPauseViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBPauseViewControllerDelegate.swift; sourceTree = "<group>"; };
+		B06F0E53229AFCAF00AD9A25 /* OBDefaultsKeyControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDefaultsKeyControllable.swift; sourceTree = "<group>"; };
+		B07099A92292B743005D0C3E /* OBGameTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGameTimeFormatter.swift; sourceTree = "<group>"; };
+		B07A9ED2227CFC4400C4D2F0 /* OBResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBResources.swift; sourceTree = "<group>"; };
+		B07C5F6C2280435D009059A7 /* OBGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGame.swift; sourceTree = "<group>"; };
+		B07C5F6E22805F12009059A7 /* OBSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettingsTableViewController.swift; sourceTree = "<group>"; };
 		B082A4352289934B0029C1CF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RegionNames.strings"; sourceTree = "<group>"; };
 		B0904F8F226F858E007842CA /* Oblasti UA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oblasti UA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0904F92226F858E007842CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B0904F94226F858E007842CA /* TMGameSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMGameSceneViewController.swift; sourceTree = "<group>"; };
+		B0904F94226F858E007842CA /* OBGameSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGameSceneViewController.swift; sourceTree = "<group>"; };
 		B0904F97226F858E007842CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0904F99226F858F007842CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0904F9C226F858F007842CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B0904FA8226F8656007842CA /* TMMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMMapView.swift; sourceTree = "<group>"; };
-		B09CF0CA22832ABA00BC7FED /* TMSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettings.swift; sourceTree = "<group>"; };
+		B0904FA8226F8656007842CA /* OBMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBMapView.swift; sourceTree = "<group>"; };
+		B09CF0CA22832ABA00BC7FED /* OBSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettings.swift; sourceTree = "<group>"; };
 		B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized(in language.swift"; sourceTree = "<group>"; };
-		B0AAE784228497BA002D7264 /* TMSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMSettingsController.swift; sourceTree = "<group>"; };
-		B0BFD4F92297151E002EA6EF /* TMRemovableObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMRemovableObserver.swift; sourceTree = "<group>"; };
+		B0AAE784228497BA002D7264 /* OBSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettingsController.swift; sourceTree = "<group>"; };
+		B0BFD4F92297151E002EA6EF /* OBRemovableObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBRemovableObserver.swift; sourceTree = "<group>"; };
 		B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColorExtensions.swift; sourceTree = "<group>"; };
-		B0C7D80E2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMLanguageSettingTalbeViewController.swift; sourceTree = "<group>"; };
-		B0C95BD422A45135005A18A8 /* TMConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMConfirmationViewController.swift; sourceTree = "<group>"; };
+		B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTalbeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBLanguageSettingTalbeViewController.swift; sourceTree = "<group>"; };
+		B0C95BD422A45135005A18A8 /* OBConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBConfirmationViewController.swift; sourceTree = "<group>"; };
 		B0CC90FA2273B3D50075931E /* UIBezierPath+initFromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+initFromString.swift"; sourceTree = "<group>"; };
 		B0CFD85A22AD470E00AB3465 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		B0D0EA2B229E010000278597 /* TMPresentationStyleAdjustable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMPresentationStyleAdjustable.swift; sourceTree = "<group>"; };
+		B0D0EA2B229E010000278597 /* OBPresentationStyleAdjustable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBPresentationStyleAdjustable.swift; sourceTree = "<group>"; };
 		B0D2F2C722733065007B1E38 /* pathText */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pathText; sourceTree = "<group>"; };
-		B0E164B7228C4BD700615DC5 /* TMHighscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMHighscoreViewController.swift; sourceTree = "<group>"; };
+		B0E164B7228C4BD700615DC5 /* OBHighscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBHighscoreViewController.swift; sourceTree = "<group>"; };
 		B0E1846E2281AA21008E5C6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0E184772281B6C6008E5C6D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0E184782281B6C6008E5C6D /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -124,9 +124,9 @@
 		B05E15C522746CEF007C85AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B05E15C322746CDF007C85AF /* TMRegion.swift */,
-				B07C5F6C2280435D009059A7 /* TMGame.swift */,
-				B09CF0CA22832ABA00BC7FED /* TMSettings.swift */,
+				B05E15C322746CDF007C85AF /* OBRegion.swift */,
+				B07C5F6C2280435D009059A7 /* OBGame.swift */,
+				B09CF0CA22832ABA00BC7FED /* OBSettings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,11 +134,11 @@
 		B05E15CA2274761F007C85AF /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				B05A2AAD227A553400D8BA5C /* TMGameControllerDelegate.swift */,
-				B06B4E7722A680B000C0797B /* TMPauseViewControllerDelegate.swift */,
-				B0BFD4F92297151E002EA6EF /* TMRemovableObserver.swift */,
-				B06F0E53229AFCAF00AD9A25 /* TMDefaultsKeyControllable.swift */,
-				B0D0EA2B229E010000278597 /* TMPresentationStyleAdjustable.swift */,
+				B05A2AAD227A553400D8BA5C /* OBGameControllerDelegate.swift */,
+				B06B4E7722A680B000C0797B /* OBPauseViewControllerDelegate.swift */,
+				B0BFD4F92297151E002EA6EF /* OBRemovableObserver.swift */,
+				B06F0E53229AFCAF00AD9A25 /* OBDefaultsKeyControllable.swift */,
+				B0D0EA2B229E010000278597 /* OBPresentationStyleAdjustable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -190,9 +190,9 @@
 		B0ECE4A82270A7DC00055349 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B0904FA8226F8656007842CA /* TMMapView.swift */,
-				B043EB06227C312A00F87F1F /* TMRoundCornerButton.swift */,
-				B01BA8DA2298230D0035ED9D /* TMCustomRegionNameCell.swift */,
+				B0904FA8226F8656007842CA /* OBMapView.swift */,
+				B043EB06227C312A00F87F1F /* OBRoundCornerButton.swift */,
+				B01BA8DA2298230D0035ED9D /* OBCustomRegionNameCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,20 +200,20 @@
 		B0ECE4A92270ABE000055349 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B02EFFFA227B445900825656 /* TMMenuViewController.swift */,
-				B032668922A5BE1000EA767B /* TMPauseViewController.swift */,
-				B07C5F6E22805F12009059A7 /* TMSettingsTableViewController.swift */,
-				B04DE4812285A6A500939C4E /* TMSettingsNavigationController.swift */,
-				B04DDB77228B4EB8008B9DD9 /* TMGameResultViewController.swift */,
-				B043EB04227C2A9F00F87F1F /* TMInfoViewController.swift */,
-				B0E164B7228C4BD700615DC5 /* TMHighscoreViewController.swift */,
-				B01BA8D8229810270035ED9D /* TMCustomRegionNamesTableViewController.swift */,
-				B04DE47F22858F8D00939C4E /* TMModeSettingTableViewController.swift */,
-				B0C7D80E2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift */,
-				B0904F94226F858E007842CA /* TMGameSceneViewController.swift */,
-				B05E15C122746C9C007C85AF /* TMGameController.swift */,
-				B0AAE784228497BA002D7264 /* TMSettingsController.swift */,
-				B0C95BD422A45135005A18A8 /* TMConfirmationViewController.swift */,
+				B02EFFFA227B445900825656 /* OBMenuViewController.swift */,
+				B032668922A5BE1000EA767B /* OBPauseViewController.swift */,
+				B07C5F6E22805F12009059A7 /* OBSettingsTableViewController.swift */,
+				B04DE4812285A6A500939C4E /* OBSettingsNavigationController.swift */,
+				B04DDB77228B4EB8008B9DD9 /* OBGameResultViewController.swift */,
+				B043EB04227C2A9F00F87F1F /* OBInfoViewController.swift */,
+				B0E164B7228C4BD700615DC5 /* OBHighscoreViewController.swift */,
+				B01BA8D8229810270035ED9D /* OBCustomRegionNamesTableViewController.swift */,
+				B04DE47F22858F8D00939C4E /* OBModeSettingTableViewController.swift */,
+				B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTalbeViewController.swift */,
+				B0904F94226F858E007842CA /* OBGameSceneViewController.swift */,
+				B05E15C122746C9C007C85AF /* OBGameController.swift */,
+				B0AAE784228497BA002D7264 /* OBSettingsController.swift */,
+				B0C95BD422A45135005A18A8 /* OBConfirmationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -223,8 +223,8 @@
 			children = (
 				B0E8559722820D0A00265D68 /* Info.plist */,
 				B042BEF9229C439400FE4A5C /* InfoPlist.strings */,
-				B07A9ED2227CFC4400C4D2F0 /* TMResources.swift */,
-				B07099A92292B743005D0C3E /* TMGameTimeFormatter.swift */,
+				B07A9ED2227CFC4400C4D2F0 /* OBResources.swift */,
+				B07099A92292B743005D0C3E /* OBGameTimeFormatter.swift */,
 				B0904F92226F858E007842CA /* AppDelegate.swift */,
 				B0D2F2C722733065007B1E38 /* pathText */,
 				B0904F96226F858E007842CA /* Main.storyboard */,
@@ -316,40 +316,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				B04DE4842285B2A700939C4E /* UIViewController+dismissNavigationController.swift in Sources */,
-				B04DE48022858F8D00939C4E /* TMModeSettingTableViewController.swift in Sources */,
-				B043EB07227C312A00F87F1F /* TMRoundCornerButton.swift in Sources */,
-				B0D0EA2C229E010000278597 /* TMPresentationStyleAdjustable.swift in Sources */,
-				B0904F95226F858E007842CA /* TMGameSceneViewController.swift in Sources */,
-				B0C95BD522A45135005A18A8 /* TMConfirmationViewController.swift in Sources */,
-				B0AAE785228497BA002D7264 /* TMSettingsController.swift in Sources */,
-				B07A9ED3227CFC4400C4D2F0 /* TMResources.swift in Sources */,
-				B05A2AAE227A553400D8BA5C /* TMGameControllerDelegate.swift in Sources */,
-				B04DDB78228B4EB8008B9DD9 /* TMGameResultViewController.swift in Sources */,
-				B07C5F6F22805F12009059A7 /* TMSettingsTableViewController.swift in Sources */,
-				B0BFD4FA2297151E002EA6EF /* TMRemovableObserver.swift in Sources */,
-				B07099AA2292B743005D0C3E /* TMGameTimeFormatter.swift in Sources */,
+				B04DE48022858F8D00939C4E /* OBModeSettingTableViewController.swift in Sources */,
+				B043EB07227C312A00F87F1F /* OBRoundCornerButton.swift in Sources */,
+				B0D0EA2C229E010000278597 /* OBPresentationStyleAdjustable.swift in Sources */,
+				B0904F95226F858E007842CA /* OBGameSceneViewController.swift in Sources */,
+				B0C95BD522A45135005A18A8 /* OBConfirmationViewController.swift in Sources */,
+				B0AAE785228497BA002D7264 /* OBSettingsController.swift in Sources */,
+				B07A9ED3227CFC4400C4D2F0 /* OBResources.swift in Sources */,
+				B05A2AAE227A553400D8BA5C /* OBGameControllerDelegate.swift in Sources */,
+				B04DDB78228B4EB8008B9DD9 /* OBGameResultViewController.swift in Sources */,
+				B07C5F6F22805F12009059A7 /* OBSettingsTableViewController.swift in Sources */,
+				B0BFD4FA2297151E002EA6EF /* OBRemovableObserver.swift in Sources */,
+				B07099AA2292B743005D0C3E /* OBGameTimeFormatter.swift in Sources */,
 				B0CC90FB2273B3D50075931E /* UIBezierPath+initFromString.swift in Sources */,
-				B0904FA9226F8656007842CA /* TMMapView.swift in Sources */,
-				B01BA8D9229810270035ED9D /* TMCustomRegionNamesTableViewController.swift in Sources */,
+				B0904FA9226F8656007842CA /* OBMapView.swift in Sources */,
+				B01BA8D9229810270035ED9D /* OBCustomRegionNamesTableViewController.swift in Sources */,
 				B05844F9229BD7F7004836FE /* Custom Notification Names.swift in Sources */,
-				B0E164B8228C4BD700615DC5 /* TMHighscoreViewController.swift in Sources */,
+				B0E164B8228C4BD700615DC5 /* OBHighscoreViewController.swift in Sources */,
 				B0904F93226F858E007842CA /* AppDelegate.swift in Sources */,
-				B09CF0CB22832ABA00BC7FED /* TMSettings.swift in Sources */,
-				B043EB05227C2A9F00F87F1F /* TMInfoViewController.swift in Sources */,
+				B09CF0CB22832ABA00BC7FED /* OBSettings.swift in Sources */,
+				B043EB05227C2A9F00F87F1F /* OBInfoViewController.swift in Sources */,
 				B040E8A0228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift in Sources */,
-				B04DE4822285A6A500939C4E /* TMSettingsNavigationController.swift in Sources */,
-				B02EFFFB227B445900825656 /* TMMenuViewController.swift in Sources */,
-				B07C5F6D2280435D009059A7 /* TMGame.swift in Sources */,
+				B04DE4822285A6A500939C4E /* OBSettingsNavigationController.swift in Sources */,
+				B02EFFFB227B445900825656 /* OBMenuViewController.swift in Sources */,
+				B07C5F6D2280435D009059A7 /* OBGame.swift in Sources */,
 				B0C49DEB227A2B2400561892 /* GameColorExtensions.swift in Sources */,
-				B032668A22A5BE1000EA767B /* TMPauseViewController.swift in Sources */,
-				B01BA8DB2298230D0035ED9D /* TMCustomRegionNameCell.swift in Sources */,
+				B032668A22A5BE1000EA767B /* OBPauseViewController.swift in Sources */,
+				B01BA8DB2298230D0035ED9D /* OBCustomRegionNameCell.swift in Sources */,
 				B09CF0CD2283391E00BC7FED /* String+localized(in language.swift in Sources */,
-				B05E15C422746CDF007C85AF /* TMRegion.swift in Sources */,
-				B05E15C222746C9C007C85AF /* TMGameController.swift in Sources */,
-				B06F0E54229AFCAF00AD9A25 /* TMDefaultsKeyControllable.swift in Sources */,
+				B05E15C422746CDF007C85AF /* OBRegion.swift in Sources */,
+				B05E15C222746C9C007C85AF /* OBGameController.swift in Sources */,
+				B06F0E54229AFCAF00AD9A25 /* OBDefaultsKeyControllable.swift in Sources */,
 				B040E8A2228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift in Sources */,
-				B06B4E7822A680B000C0797B /* TMPauseViewControllerDelegate.swift in Sources */,
-				B0C7D80F2288DA36006D8BE8 /* TMLanguageSettingTalbeViewController.swift in Sources */,
+				B06B4E7822A680B000C0797B /* OBPauseViewControllerDelegate.swift in Sources */,
+				B0C7D80F2288DA36006D8BE8 /* OBLanguageSettingTalbeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
