@@ -11,6 +11,7 @@ import UIKit
 final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllable {
     
     // MARK: - @IBOutlets
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var gameView: UIView!
     @IBOutlet weak var regionLabel: UILabel!
@@ -87,6 +88,8 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         
         loadMapView()
         
+        configureScrollView()
+        
         // TODO: Replace with function
         if gameMode != .pointer {
             gameController.startTimer()
@@ -133,6 +136,12 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     }
     
     // MARK: - Private Methods
+    private func configureScrollView() {
+        scrollView.delegate = self
+        scrollView.maximumZoomScale = 2.0
+        scrollView.contentSize = view.frame.size
+    }
+    
     /// Initializes and configures mapView. Has to be called after gameController is already initialized.
     private func loadMapView() {
         var regionKeysAndPaths: [String: UIBezierPath] = [:]
@@ -424,5 +433,13 @@ extension OBGameSceneViewController: OBPauseViewControllerDelegate {
     
     func quitGame() {
         dismissGameSceneViewController()
+    }
+}
+
+// MARK: - UIScrollViewDelegate Methods
+extension OBGameSceneViewController: UIScrollViewDelegate {
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return gameView
     }
 }
