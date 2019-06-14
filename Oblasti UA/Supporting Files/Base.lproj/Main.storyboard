@@ -1381,7 +1381,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find region" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDD-6g-BWL">
                                                 <rect key="frame" x="0.0" y="0.0" width="808" height="39.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1453,15 +1453,15 @@
                                         <rect key="frame" x="582" y="0.0" width="226" height="98.5"/>
                                         <subviews>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Mx-wt-o0x">
-                                                <rect key="frame" x="22" y="10" width="136" height="60"/>
+                                                <rect key="frame" x="15" y="10" width="143" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="W09-Ma-iaN"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="widthClass=compact">
-                                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
                                                 </variation>
                                             </label>
                                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BL4-Fh-Vtn">

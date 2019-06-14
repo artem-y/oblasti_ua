@@ -211,9 +211,9 @@
 				B04DE47F22858F8D00939C4E /* OBModeSettingTableViewController.swift */,
 				B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTalbeViewController.swift */,
 				B0904F94226F858E007842CA /* OBGameSceneViewController.swift */,
+				B0C95BD422A45135005A18A8 /* OBConfirmationViewController.swift */,
 				B05E15C122746C9C007C85AF /* OBGameController.swift */,
 				B0AAE784228497BA002D7264 /* OBSettingsController.swift */,
-				B0C95BD422A45135005A18A8 /* OBConfirmationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

@@ -374,10 +374,20 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
                 regionName = currentRegion.key.rawValue.localized(in: languageIdentifier, fromTable: OBResources.LocalizationTable.regionNames)
             }
             
-            regionLabel.text = settings.regionNamesUppercased ? regionName.uppercased() : regionName
+            let regionNameText = settings.regionNamesUppercased ? regionName.uppercased() : regionName
+            regionLabel.attributedText = whiteBorderAttributedText(regionNameText, regionLabel.textColor)
         } else {
             regionLabel.text = ""
         }
+    }
+    
+    private func whiteBorderAttributedText(_ text: String, _ textColor: UIColor) -> NSAttributedString {
+        let attributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.strokeColor: UIColor.white,
+            NSAttributedString.Key.strokeWidth: -2.0,
+            NSAttributedString.Key.foregroundColor: textColor
+        ]
+        return NSAttributedString(string: text, attributes: attributes)
     }
     
     /// Tries to fetch custom (user-defined) region names from UserDefaults.
@@ -398,7 +408,8 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     private func reloadTimerLabelTitle() {
         let timeFormatter = OBGameTimeFormatter()
         timeFormatter.timeFormat = "mm:ss"
-        timeLabel.text = timeFormatter.string(for: gameController.gameResult.timePassed)
+        let timeText = timeFormatter.string(for: gameController.gameResult.timePassed)
+        timeLabel.attributedText = whiteBorderAttributedText(timeText, timeLabel.textColor)
     }
     
     
