@@ -50,13 +50,15 @@ final class OBSettingsController: NSObject, OBDefaultsKeyControllable {
         
         let showsCorrectAnswer: Bool = standardDefaultsBool(forKey: SettingKey.showsCorrectAnswer) ?? OBSettings.default.showsCorrectAnswer
         
+        let playesSoundEffects: Bool = standardDefaultsBool(forKey: SettingKey.playesSoundEffects) ?? OBSettings.default.playesSoundEffects
+        
         var currentLanguageIdentifier = OBSettings.default.regionNameLanguageIdentifier
         if let currentLanguageCode = Locale.current.languageCode, availableLanguages.contains(currentLanguageCode) {
             currentLanguageIdentifier = currentLanguageCode
         }
         let regionNameLanguage: String = standardDefaults.string(forKey: SettingKey.regionNameLanguage) ?? currentLanguageIdentifier
         
-        settings = OBSettings(gameMode: gameMode, regionNamesUppercased: regionNamesUppercased, showsTime: showsTime, showsButtons: showsButtons, autoConfirmsSelection: autoConfirmsSelection, changesRegionAutomatically: automaticRegionChange, showsCorrectAnswer: showsCorrectAnswer, regionNameLanguageIdentifier: regionNameLanguage)
+        settings = OBSettings(gameMode: gameMode, regionNamesUppercased: regionNamesUppercased, showsTime: showsTime, showsButtons: showsButtons, autoConfirmsSelection: autoConfirmsSelection, changesRegionAutomatically: automaticRegionChange, showsCorrectAnswer: showsCorrectAnswer, playesSoundEffects: playesSoundEffects, regionNameLanguageIdentifier: regionNameLanguage)
 
     }
     
@@ -72,6 +74,7 @@ final class OBSettingsController: NSObject, OBDefaultsKeyControllable {
         standardDefaults.set(settings.changesRegionAutomatically, forKey: SettingKey.automaticRegionChange)
         standardDefaults.set(settings.regionNamesUppercased, forKey: SettingKey.regionNamesUppercased)
         standardDefaults.set(settings.showsCorrectAnswer, forKey: SettingKey.showsCorrectAnswer)
+        standardDefaults.set(settings.playesSoundEffects, forKey: SettingKey.playesSoundEffects)
         standardDefaults.set(settings.regionNameLanguageIdentifier, forKey: SettingKey.regionNameLanguage)
 
     }

@@ -26,6 +26,12 @@ struct OBResources {
     }
     
     // MARK: -
+    struct SoundName {
+        static let correctAnswerBell = "Correct Answer Bell"
+        static let wrongAnswerStrings = "Wrong Answer Strings"
+    }
+    
+    // MARK: -
     struct FileName {
         static let allRegionPaths = "pathText"
     }
@@ -78,6 +84,7 @@ struct OBResources {
             static let automaticRegionChange = "automaticRegionChangeSetting"
             static let regionNameLanguage = "regionNameLanguageSetting"
             static let showsCorrectAnswer = "showsCorrectAnswerSetting"
+            static let playesSoundEffects = "playesSoundEffectsSetting"
             static let regionNamesUppercased = "regionNamesUppercasedSetting"
         }
     }

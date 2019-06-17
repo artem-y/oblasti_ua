@@ -11,6 +11,8 @@ import UIKit
 final class OBSettingsTableViewController: UITableViewController {
     
     // MARK: - @IBOutlets
+    
+    // General
     @IBOutlet weak var modeCell: UITableViewCell!
     
     @IBOutlet weak var showTimeCell: UITableViewCell!
@@ -30,11 +32,17 @@ final class OBSettingsTableViewController: UITableViewController {
     @IBOutlet weak var showCorrectAnswerCell: UITableViewCell!
     @IBOutlet weak var showCorrectAnswerSwitch: UISwitch!
     
+    // Sound
+    @IBOutlet weak var soundEffectsCell: UITableViewCell!
+    @IBOutlet weak var soundEffectsSwitch: UISwitch!
+    
+    // Region Names
     @IBOutlet weak var languageNameLagel: UILabel!
     
     @IBOutlet weak var regionNamesUppercasedCell: UITableViewCell!
     @IBOutlet weak var regionNamesUppercasedSwitch: UISwitch!
 
+    // Defaults
     @IBOutlet weak var restoreDefaultsCell: UITableViewCell!
     
     // MARK: - Public Properties
@@ -117,6 +125,8 @@ final class OBSettingsTableViewController: UITableViewController {
             settings.regionNamesUppercased = !settings.regionNamesUppercased
         case showCorrectAnswerCell:
             settings.showsCorrectAnswer = !settings.showsCorrectAnswer
+        case soundEffectsCell:
+            settings.playesSoundEffects = !settings.playesSoundEffects
         case restoreDefaultsCell:
             performSegue(withIdentifier: OBResources.SegueIdentifier.restoreDefaultsConfirmationSegue, sender: self)
         default:
@@ -125,7 +135,7 @@ final class OBSettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return section == 1 ? exampleFooterText : nil
+        return section == 2 ? exampleFooterText : nil
     }
 
     // MARK: - UI Configuration (Private) Methods
@@ -144,6 +154,7 @@ final class OBSettingsTableViewController: UITableViewController {
         let isChangingNextRegionAutomatically = isPointerMode ? false : settings.changesRegionAutomatically
         let isShowingCorrectAnswer = isPointerMode ? false : settings.showsCorrectAnswer
         
+        // General UI
         showTimeCell.animateSet(enabled: !isPointerMode)
         showTimeSwitch.setOn(isShowingTime, animated: true)
         
@@ -158,7 +169,11 @@ final class OBSettingsTableViewController: UITableViewController {
         
         showCorrectAnswerCell.animateSet(enabled: !isPointerMode)
         showCorrectAnswerSwitch.setOn(isShowingCorrectAnswer, animated: true)
+        
+        // Sound UI
+        soundEffectsSwitch.setOn(settings.playesSoundEffects, animated: true)
 
+        // Region Names UI
         modeNameLabel.text = currentGameMode.rawValue.localized()
         languageNameLagel.text = Locale.current.localizedString(forLanguageCode: settings.regionNameLanguageIdentifier) ?? settings.regionNameLanguageIdentifier.localized()
         
@@ -170,6 +185,7 @@ final class OBSettingsTableViewController: UITableViewController {
         
         exampleFooterText = "\(forExampleText) \(ivanoFrankivskaText)"
         
+        // Defaults UI
         restoreDefaultsCell.isHidden = (settings == OBSettings.default)
         
         tableView.reloadData()

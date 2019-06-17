@@ -25,6 +25,7 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     
     // MARK: - Private Properties
     private var gameController = OBGameController()
+    private var soundController: OBSoundController?
     private var mapView: OBMapView!
     
     // MARK: -
@@ -80,6 +81,8 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        soundController = OBSoundController()
         
         gameController.delegate = self
         
@@ -322,6 +325,17 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
             }
         }
         
+        // If sound is on, play sound
+        // TODO: Add sound on/off setting
+        if settings.playesSoundEffects {
+            if isCorrect {
+                soundController?.playCorrectChoiceSound()
+            } else {
+                soundController?.playWrongChoiceSound()
+            }
+        }
+        
+        
         if showsButtons {
             // Image representations of right/wrong choice
             let imageName = isCorrect ? OBResources.ImageName.correctChoice : OBResources.ImageName.wrongChoice
@@ -411,8 +425,6 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         let timeText = timeFormatter.string(for: gameController.gameResult.timePassed)
         timeLabel.attributedText = whiteBorderAttributedText(timeText, timeLabel.textColor)
     }
-    
-    
     
 }
 

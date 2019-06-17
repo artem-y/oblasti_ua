@@ -23,6 +23,9 @@
 /* Class = "UILabel"; text = "Show correct answer"; ObjectID = "63r-8s-JME"; */
 "63r-8s-JME.text" = "Показувати правильну відповідь";
 
+/* Class = "UITableViewSection"; headerTitle = "Sound"; ObjectID = "6QK-CU-3wO"; Note = "Region names section"; */
+"6QK-CU-3wO.headerTitle" = "Звук";
+
 /* Class = "UILabel"; text = "Classic"; ObjectID = "6QQ-Fx-Nuc"; */
 "6QQ-Fx-Nuc.text" = "Класичний";
 
@@ -148,6 +151,9 @@
 
 /* Class = "UILabel"; text = "Mode description"; ObjectID = "tEF-5K-mDz"; */
 "tEF-5K-mDz.text" = "Опис режиму";
+
+/* Class = "UILabel"; text = "Sound Effects"; ObjectID = "tJW-Fh-L9B"; */
+"tJW-Fh-L9B.text" = "Звукові ефекти";
 
 /* Class = "UIButton"; normalTitle = "NO"; ObjectID = "tRb-sk-Ugx"; */
 "tRb-sk-Ugx.normalTitle" = "НІ";
