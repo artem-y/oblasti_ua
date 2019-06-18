@@ -6,7 +6,7 @@
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 final class OBGameController: OBDefaultsKeyControllable {
     

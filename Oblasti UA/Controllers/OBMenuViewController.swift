@@ -16,7 +16,6 @@ final class OBMenuViewController: UIViewController, OBDefaultsKeyControllable {
     @IBOutlet weak var startButton: OBRoundCornerButton!
     @IBOutlet weak var highscoreButton: UIButton!
     
-    
     // MARK: - @IBActions
     @IBAction func modeButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: OBResources.SegueIdentifier.presentSettingsSegue, sender: sender)
@@ -41,8 +40,6 @@ final class OBMenuViewController: UIViewController, OBDefaultsKeyControllable {
         }
     }
     
-    
-    
     // MARK: - UIViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,17 +48,12 @@ final class OBMenuViewController: UIViewController, OBDefaultsKeyControllable {
         self.addToNotificationCenter()
         AppDelegate.shared.menuModeObserver = self
         
-        var hasHighscore = false
-        if standardDefaults.value(forKey: DefaultsKey.classicHighscore) != nil || standardDefaults.value(forKey: DefaultsKey.norepeatHighscore) != nil {
-            
-            hasHighscore = true
-        }
-        highscoreButton.isEnabled = hasHighscore
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        configureHighscoreButton()
         continueButton.isHidden = standardDefaults.value(forKey: DefaultsKey.lastUnfinishedGame) == nil
     }
     
@@ -87,6 +79,17 @@ final class OBMenuViewController: UIViewController, OBDefaultsKeyControllable {
         let modeDescription = settings.gameMode.rawValue.localized().lowercased()
         let modeHint = "Mode:".localized()
         modeButton.setTitle(modeHint + " " + modeDescription, for: .normal)
+    }
+    
+    private func configureHighscoreButton() {
+        var hasHighscore = false
+        
+        // If there is a highscore set for at least one mode, the button is enabled
+        if standardDefaults.value(forKey: DefaultsKey.classicHighscore) != nil || standardDefaults.value(forKey: DefaultsKey.norepeatHighscore) != nil {
+            
+            hasHighscore = true
+        }
+        highscoreButton.isEnabled = hasHighscore
     }
     
 }
