@@ -29,6 +29,7 @@ struct OBResources {
     struct SoundName {
         static let correctAnswerBell = "Correct Answer Bell"
         static let wrongAnswerStrings = "Wrong Answer Strings"
+        static let completionBell = "Completion Bell"
     }
     
     // MARK: -

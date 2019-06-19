@@ -10,10 +10,6 @@ import UIKit
 
 final class OBGameResultViewController: UIViewController, OBDefaultsKeyControllable {
     
-    // MARK: - Public API
-    var gameResult: OBGame?
-    private var isNewHighscore = false
-    
     // MARK: - @IBOutlets
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var mistakesImageView: UIImageView!
@@ -21,10 +17,34 @@ final class OBGameResultViewController: UIViewController, OBDefaultsKeyControlla
     @IBOutlet weak var timeImageView: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     
+    // MARK: - Public Properties
+    var gameResult: OBGame?
+    
+    // MARK: - Private Properties
+    private var isNewHighscore = false
+    private var soundController: OBSoundController?
+    
+    // Convenience Properties
+    private var settings: OBSettings { return OBSettingsController.shared.settings }
+    
     // MARK: - UIViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        soundController = OBSoundController()
+        checkHighscore()
+        loadUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        if settings.playesSoundEffects {
+            playSound()
+        }
+    }
+    
+    // MARK: - Private Methods
+    private func checkHighscore() {
         if let gameResult = gameResult {
             var highscoreKey = ""
             switch gameResult.mode {
@@ -55,11 +75,8 @@ final class OBGameResultViewController: UIViewController, OBDefaultsKeyControlla
                 }
             }
         }
-        
-        loadUI()
     }
     
-    // MARK: - UI Configuration (Private) Methods
     private func loadUI() {
         guard let gameResult = gameResult else { return }
         
@@ -81,5 +98,14 @@ final class OBGameResultViewController: UIViewController, OBDefaultsKeyControlla
         
         let timeImageName: String = isNewHighscore ? OBResources.ImageName.cupIcon : OBResources.ImageName.clockIcon
         timeImageView.image = UIImage(named: timeImageName)
+    }
+    
+    private func playSound() {
+        
+        if isNewHighscore {
+            soundController?.playNewHighscoreSound()
+        } else {
+            soundController?.playGameCompletionSound()
+        }
     }
 }

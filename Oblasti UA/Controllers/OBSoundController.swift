@@ -10,27 +10,35 @@ import AVFoundation
 
 final class OBSoundController {
     
+    typealias SoundFileName = OBResources.SoundName
+    
     // MARK: - Public Methods
-    /// Playes sound of selection being made.
-    func playSelectionSound() {
-        // TODO: Add Selection Sound
-    }
+    /// Playes game start sound
+    func playGameStartSound() {
+        // TODO: Add game start sound (optional)
+    } 
     
     /// Playes sound of correct choice.
     func playCorrectChoiceSound() {
-        playSound(fromFileNamed: OBResources.SoundName.correctAnswerBell)
+        playSound(fromFileNamed: SoundFileName.correctAnswerBell)
     }
     
     /// Playes sound of wrong choice.
     func playWrongChoiceSound() {
-        playSound(fromFileNamed: OBResources.SoundName.wrongAnswerStrings)
+        playSound(fromFileNamed: SoundFileName.wrongAnswerStrings)
     }
     
     /// Playes game completion sound.
     func playGameCompletionSound() {
-        // TODO: Add Game Completion Sound
+        playSound(fromFileNamed: SoundFileName.completionBell)
     }
     
+    /// Playes congratulating sound when new highscore is set
+    func playNewHighscoreSound() {
+        // TODO: Replace with New Highscore sound
+        playSound(fromFileNamed: SoundFileName.completionBell)
+    }
+
     // MARK: - Private Properties
     private var soundPlayer: AVAudioPlayer?
 
