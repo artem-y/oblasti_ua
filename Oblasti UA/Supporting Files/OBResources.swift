@@ -30,6 +30,7 @@ struct OBResources {
         static let correctAnswerBell = "Correct Answer Bell"
         static let wrongAnswerStrings = "Wrong Answer Strings"
         static let completionBell = "Completion Bell"
+        static let newHighscoreWindTunes = "New Highscore Wind Tunes"
     }
     
     // MARK: -

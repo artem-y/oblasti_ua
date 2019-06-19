@@ -35,8 +35,7 @@ final class OBSoundController {
     
     /// Playes congratulating sound when new highscore is set
     func playNewHighscoreSound() {
-        // TODO: Replace with New Highscore sound
-        playSound(fromFileNamed: SoundFileName.completionBell)
+        playSound(fromFileNamed: SoundFileName.newHighscoreWindTunes)
     }
 
     // MARK: - Private Properties

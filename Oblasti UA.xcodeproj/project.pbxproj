@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B01BA8D9229810270035ED9D /* OBCustomRegionNamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8D8229810270035ED9D /* OBCustomRegionNamesTableViewController.swift */; };
 		B01BA8DB2298230D0035ED9D /* OBCustomRegionNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8DA2298230D0035ED9D /* OBCustomRegionNameCell.swift */; };
+		B028F39122BAF66600133A8A /* New Highscore Wind Tunes.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B028F39022BAF66600133A8A /* New Highscore Wind Tunes.m4a */; };
 		B02EFFFB227B445900825656 /* OBMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02EFFFA227B445900825656 /* OBMenuViewController.swift */; };
 		B032668A22A5BE1000EA767B /* OBPauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B032668922A5BE1000EA767B /* OBPauseViewController.swift */; };
 		B040E8A0228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		B01BA8D8229810270035ED9D /* OBCustomRegionNamesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBCustomRegionNamesTableViewController.swift; sourceTree = "<group>"; };
 		B01BA8DA2298230D0035ED9D /* OBCustomRegionNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBCustomRegionNameCell.swift; sourceTree = "<group>"; };
+		B028F39022BAF66600133A8A /* New Highscore Wind Tunes.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "New Highscore Wind Tunes.m4a"; sourceTree = "<group>"; };
 		B02EFFFA227B445900825656 /* OBMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBMenuViewController.swift; sourceTree = "<group>"; };
 		B032668922A5BE1000EA767B /* OBPauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBPauseViewController.swift; sourceTree = "<group>"; };
 		B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+set(enabled.swift"; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				B0E1EE1722B680D9004640D6 /* Correct Answer Bell.m4a */,
 				B0E1EE1622B680D8004640D6 /* Wrong Answer Strings.m4a */,
 				B0C4168522BA45E30058633F /* Completion Bell.m4a */,
+				B028F39022BAF66600133A8A /* New Highscore Wind Tunes.m4a */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				B0E1846D2281AA21008E5C6D /* Localizable.strings in Resources */,
 				B0E1EE1822B680D9004640D6 /* Wrong Answer Strings.m4a in Resources */,
 				B042BEF7229C439400FE4A5C /* InfoPlist.strings in Resources */,
+				B028F39122BAF66600133A8A /* New Highscore Wind Tunes.m4a in Resources */,
 				B0904F9D226F858F007842CA /* LaunchScreen.storyboard in Resources */,
 				B0904F9A226F858F007842CA /* Assets.xcassets in Resources */,
 				B0D2F2C822733065007B1E38 /* pathText in Resources */,
