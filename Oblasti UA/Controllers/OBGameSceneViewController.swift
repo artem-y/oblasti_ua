@@ -71,39 +71,35 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     @IBAction func dismissGameSceneViewController(_ segue: UIStoryboardSegue? = nil){
 
         backgroundView.isHidden = true
-
-        // This is needed to prevent memory leak caused by holding a reference to this instance of OBGameSceneViewController in app delegate
-        AppDelegate.shared.pauseApp = nil
-
         dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - Public Methods
+    /// Pauses game tasks and calls game pause menu.
+    @objc func pauseGame() {
+        isRunningGame = false
+        guard self.presentedViewController == nil else { return }
+        performSegue(withIdentifier: OBResources.SegueIdentifier.pauseGameSegue, sender: self)
     }
     
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        soundController = OBSoundController()
-        
-        gameController.delegate = self
-        
         // This will be called from AppDelegate's "applicationWillResignActive" function
         AppDelegate.shared.pauseApp = pauseGame
         
+        // Game views configuration
         loadMapView()
-        
         configureScrollView()
         
-        // TODO: Replace with function
-        if gameMode != .pointer {
-            gameController.startTimer()
-        } else {
-            gameController.currentRegion = nil
-        }
-        updateTimerLabel()
+        // Controllers configuration
+        soundController = OBSoundController()
+        configureGameController()
         
         // Adding gesture recognizers
         configureGestureRecognizers()
-        view.addGestureRecognizer(singleTapRecognizer)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,6 +108,11 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         reloadCustomNames()
         reloadCurrentRegionName()
         updateTimerLabel()
+    }
+    
+    deinit {
+        // This is needed to prevent memory leak caused by holding a reference to this instance of OBGameSceneViewController in app delegate
+        AppDelegate.shared.pauseApp = nil
     }
     
     // MARK: - Navigation
@@ -139,11 +140,25 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     }
     
     // MARK: - Private Methods
+    private func configureGameController() {
+        gameController.delegate = self
+        gameController.startTimer()
+        gameController.clearCurrentRegionBasedOnMode()
+    }
+    
     private func configureScrollView() {
         scrollView.delegate = self
         scrollView.maximumZoomScale = 2.0
         scrollView.contentSize = view.frame.size
     }
+    
+    private func configureGestureRecognizers() {
+        singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        singleTapRecognizer.numberOfTouchesRequired = 1
+        singleTapRecognizer.numberOfTapsRequired = 1
+        view.addGestureRecognizer(singleTapRecognizer)
+    }
+    // MARK: -
     
     /// Initializes and configures mapView. Has to be called after gameController is already initialized.
     private func loadMapView() {
@@ -168,11 +183,60 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         
     }
     
-    private func configureGestureRecognizers() {
-        singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
-        singleTapRecognizer.numberOfTouchesRequired = 1
-        singleTapRecognizer.numberOfTapsRequired = 1
+    /// Tries to fetch custom (user-defined) region names from UserDefaults.
+    private func reloadCustomNames() {
+        let jsonDecoder = JSONDecoder()
+        if let jsonData = standardDefaults.value(forKey: DefaultsKey.customRegionNames) as? Data, let regionNames = try? jsonDecoder.decode([String: String].self, from: jsonData) {
+            customRegionNames = regionNames
+        }
     }
+    
+    /// If game controller has current region, sets region label text to its translated and formatted name
+    private func reloadCurrentRegionName() {
+        if let currentRegion = gameController.currentRegion {
+            let languageIdentifier = settings.regionNameLanguageIdentifier
+            var regionName = ""
+            
+            if languageIdentifier == OBResources.LanguageCode.custom {
+                if let customRegionName = customRegionNames[currentRegion.key.rawValue], customRegionName.isEmpty == false {
+                    regionName = customRegionName
+                } else {
+                    regionName = currentRegion.key.rawValue.localized(in: "en", fromTable: OBResources.LocalizationTable.regionNames)
+                }
+            } else {
+                regionName = currentRegion.key.rawValue.localized(in: languageIdentifier, fromTable: OBResources.LocalizationTable.regionNames)
+            }
+            
+            let regionNameText = settings.regionNamesUppercased ? regionName.uppercased() : regionName
+            regionLabel.attributedText = whiteBorderAttributedText(regionNameText, regionLabel.textColor)
+        } else {
+            regionLabel.text = ""
+        }
+    }
+    
+    private func reloadTimerLabelTitle() {
+        let timeFormatter = OBGameTimeFormatter()
+        timeFormatter.timeFormat = "mm:ss"
+        let timeText = timeFormatter.string(for: gameController.gameResult.timePassed)
+        timeLabel.attributedText = whiteBorderAttributedText(timeText, timeLabel.textColor)
+    }
+    
+    @objc private func updateTimerLabel() {
+        if showsTime {
+            reloadTimerLabelTitle()
+        }
+        timeLabel.isHidden = !showsTime
+    }
+    
+    private func whiteBorderAttributedText(_ text: String, _ textColor: UIColor) -> NSAttributedString {
+        let attributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.strokeColor: UIColor.white,
+            NSAttributedString.Key.strokeWidth: -2.0,
+            NSAttributedString.Key.foregroundColor: textColor
+        ]
+        return NSAttributedString(string: text, attributes: attributes)
+    }
+    // MARK: -
     
     @objc private func didTap(_ sender: UITapGestureRecognizer){
         if sender.state == .ended {
@@ -240,12 +304,6 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         }
     }
     
-    @objc func pauseGame() {
-        isRunningGame = false
-        guard self.presentedViewController == nil else { return }
-        performSegue(withIdentifier: OBResources.SegueIdentifier.pauseGameSegue, sender: self)
-    }
-    
     private func hideControls() {
         if showsButtons {
             singleTapRecognizer.isEnabled = false
@@ -298,9 +356,7 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
             }
         }
         
-        if gameMode == .pointer {
-            gameController.currentRegion = nil
-        }
+        gameController.clearCurrentRegionBasedOnMode()
         reloadCurrentRegionName()
         mapView.selectedLayer = nil
         hideControls()
@@ -326,7 +382,6 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         }
         
         // If sound is on, play sound
-        // TODO: Add sound on/off setting
         if settings.playesSoundEffects {
             if isCorrect {
                 soundController?.playCorrectChoiceSound()
@@ -334,7 +389,6 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
                 soundController?.playWrongChoiceSound()
             }
         }
-        
         
         if showsButtons {
             // Image representations of right/wrong choice
@@ -370,60 +424,6 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
             gameController.nextQuestion()
             perform(#selector(cancelSelection), with: nil, afterDelay: animationDuration * 1.5)
         }
-    }
-    
-    /// If game controller has current region, sets region label text to its translated and formatted name
-    private func reloadCurrentRegionName() {
-        if let currentRegion = gameController.currentRegion {
-            let languageIdentifier = settings.regionNameLanguageIdentifier
-            var regionName = ""
-            
-            if languageIdentifier == OBResources.LanguageCode.custom {
-                if let customRegionName = customRegionNames[currentRegion.key.rawValue], customRegionName.isEmpty == false {
-                    regionName = customRegionName
-                } else {
-                    regionName = currentRegion.key.rawValue.localized(in: "en", fromTable: OBResources.LocalizationTable.regionNames)
-                }
-            } else {
-                regionName = currentRegion.key.rawValue.localized(in: languageIdentifier, fromTable: OBResources.LocalizationTable.regionNames)
-            }
-            
-            let regionNameText = settings.regionNamesUppercased ? regionName.uppercased() : regionName
-            regionLabel.attributedText = whiteBorderAttributedText(regionNameText, regionLabel.textColor)
-        } else {
-            regionLabel.text = ""
-        }
-    }
-    
-    private func whiteBorderAttributedText(_ text: String, _ textColor: UIColor) -> NSAttributedString {
-        let attributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.strokeColor: UIColor.white,
-            NSAttributedString.Key.strokeWidth: -2.0,
-            NSAttributedString.Key.foregroundColor: textColor
-        ]
-        return NSAttributedString(string: text, attributes: attributes)
-    }
-    
-    /// Tries to fetch custom (user-defined) region names from UserDefaults.
-    private func reloadCustomNames() {
-        let jsonDecoder = JSONDecoder()
-        if let jsonData = standardDefaults.value(forKey: DefaultsKey.customRegionNames) as? Data, let regionNames = try? jsonDecoder.decode([String: String].self, from: jsonData) {
-            customRegionNames = regionNames
-        }
-    }
-    
-    @objc private func updateTimerLabel() {
-        if showsTime {
-            reloadTimerLabelTitle()
-        }
-        timeLabel.isHidden = !showsTime
-    }
-    
-    private func reloadTimerLabelTitle() {
-        let timeFormatter = OBGameTimeFormatter()
-        timeFormatter.timeFormat = "mm:ss"
-        let timeText = timeFormatter.string(for: gameController.gameResult.timePassed)
-        timeLabel.attributedText = whiteBorderAttributedText(timeText, timeLabel.textColor)
     }
     
 }

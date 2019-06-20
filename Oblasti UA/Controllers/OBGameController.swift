@@ -62,7 +62,11 @@ final class OBGameController: OBDefaultsKeyControllable {
     
     // MARK: - Public Methods
     /// Method, used to start the timer of game controller, or restart it after pause
+    /// - Note: In 'pointer' mode, does nothing.
     func startTimer() {
+        
+        guard game.mode != .pointer else { return }
+        
         // This makes function reusable (like when timer resumes after pausing the game)
         timerStartDate = Date().addingTimeInterval(-game.timePassed)
         
@@ -120,6 +124,13 @@ final class OBGameController: OBDefaultsKeyControllable {
         let jsonEncoder = JSONEncoder()
         if let jsonData = try? jsonEncoder.encode(gameResult) {
             standardDefaults.set(jsonData, forKey: DefaultsKey.lastUnfinishedGame)
+        }
+    }
+    
+    /// If game mode is 'pointer', sets current region to nil.
+    func clearCurrentRegionBasedOnMode() {
+        if game.mode == .pointer {
+            currentRegion = nil
         }
     }
     
