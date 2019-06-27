@@ -86,9 +86,6 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // This will be called from AppDelegate's "applicationWillResignActive" function
-        AppDelegate.shared.pauseApp = pauseGame
-        
         // Game views configuration
         loadMapView()
         configureScrollView()
@@ -105,15 +102,19 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // This will be called from AppDelegate's "applicationWillResignActive" function
+        AppDelegate.shared.pauseApp = pauseGame
+        
         reloadCustomNames()
         reloadCurrentRegionName()
         updateTimerLabel()
     }
     
-    deinit {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         // This is needed to prevent memory leak caused by holding a reference to this instance of OBGameSceneViewController in app delegate
         AppDelegate.shared.pauseApp = nil
-    }
+    } 
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
