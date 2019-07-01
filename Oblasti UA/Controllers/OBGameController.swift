@@ -42,8 +42,8 @@ final class OBGameController: OBDefaultsKeyControllable {
             if let savedGameData = UserDefaults.standard.data(forKey: savedGameKey),
                 let savedGame = try? jsonDecoder.decode(OBGame.self, from: savedGameData)
             {
-                let regions: [OBRegion] = OBResources.shared.loadRegions(withKeys: savedGame.regions.map({ $0.key }), fromFileNamed: OBResources.FileName.allRegionPaths)
-                let regionsLeft: [OBRegion] = OBResources.shared.loadRegions(withKeys: savedGame.regionsLeft.map({ $0.key }), fromFileNamed: OBResources.FileName.allRegionPaths)
+                let regions: [OBRegion] = OBResources.shared.loadRegions(withKeys: savedGame.regions.map({ $0.key }), fromFileNamed: OBResources.FileName.ukraine)
+                let regionsLeft: [OBRegion] = OBResources.shared.loadRegions(withKeys: savedGame.regionsLeft.map({ $0.key }), fromFileNamed: OBResources.FileName.ukraine)
                 
                 // Creation of a copy of the saved game is necessary to replace regions and regions left with just keys by regions with real UIBezier paths
                 self.game = OBGame(mode: savedGame.mode, regions: regions, regionsLeft: regionsLeft, timePassed: savedGame.timePassed, mistakesCount: savedGame.mistakesCount)

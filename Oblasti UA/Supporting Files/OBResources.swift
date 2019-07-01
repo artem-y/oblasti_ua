@@ -35,7 +35,13 @@ struct OBResources {
     
     // MARK: -
     struct FileName {
-        static let allRegionPaths = "pathText"
+        static let ukraine = "Ukraine"
+    }
+    
+    // MARK: - 
+    struct FileExtension {
+        static let m4a = "m4a"
+        static let json = "json"
     }
     
     // MARK: -
@@ -96,39 +102,39 @@ struct OBResources {
     /// - Parameters:
     ///   - regionKeys: Optional array of region keys. Default value is 'nil'.
     ///   - fileName: String, containing the name of file in to search for regions paths data.
-    /// - Returns: Array of regions, that were successfully parsed from file or 'nil', if there weren't any. If no region keys specified, tries to look for and return all possible regions.
+    /// - Returns: Array of regions, that were successfully parsed from file or an empty array, if there weren't any. If no region keys specified, tries to look for and return all possible regions.
     func loadRegions(withKeys regionKeys: [OBRegion.Key]? = nil, fromFileNamed fileName: String) -> [OBRegion] {
+        
+        enum JSONKey: String {
+            case regions, name, path
+        }
 
         var regions: [OBRegion] = []
         
-        // If file not found, will return an empty array, so using try? is ok here
-        if let filePath = Bundle.main.path(forResource: fileName, ofType: nil), let fileContentsString = try? String(contentsOfFile: filePath).lowercased() {
-            
-            let pathStringComponents: [(name: String, path: String)] = fileContentsString
-                .components(separatedBy: "\n")
-                .filter({ $0.contains(" : ") })
-                .map({ (element) -> (name: String, path: String) in
-                    
-                    let components = element.components(separatedBy: " : ")
-                    return (name: components[0], path: components[1])
-            })
-                .filter {
-                    guard let regionKeys = regionKeys, regionKeys.isEmpty == false else { return true }
+        guard let fileURL = Bundle.main.url(forResource: fileName, withExtension: OBResources.FileExtension.json),
+            let fileContentsData = try? Data(contentsOf: fileURL),
+            let jsonData = try? JSONSerialization.jsonObject(with: fileContentsData) as? JSONDictionary,
+            let regionsData = jsonData.dictionaries(forKey: JSONKey.regions)
+            else { return [] }
 
-                    if let regionKey = OBRegion.Key(rawValue: $0.name.lowercased()) {
-                        return regionKeys.contains(regionKey)
-                    }
-                    return false
-            }
+        for regionData in regionsData {
+            guard let regionName = regionData.string(forKey: JSONKey.name),
+                let regionKey = OBRegion.Key(rawValue: regionName.lowercased()),
+                let pathData = regionData.dictionaries(forKey: JSONKey.path)
+                else { continue }
             
-            for component in pathStringComponents {
-                // It is ok to use try? here, because in case region path is nil, OBRegion instance will not be created and appended to array, without impacting other code
-                if let regionKey = OBRegion.Key(rawValue: component.name), let regionPath = try? UIBezierPath(string: component.path) {
-                    regions.append(OBRegion(key: regionKey, path: regionPath))
-                }
-            }
+            let path = UIBezierPath(json: pathData)
+            guard !path.isEmpty else { continue }
+            let region = OBRegion(key: regionKey, path: path)
+            regions.append(region)
+            
         }
-
+        
+        regions = regions.filter {
+            guard let regionKeys = regionKeys, !regionKeys.isEmpty else { return true }
+            return regionKeys.contains($0.key)
+        }
+        
         return regions
     }
     

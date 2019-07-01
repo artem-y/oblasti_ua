@@ -42,7 +42,7 @@ final class OBSoundController {
     private var soundPlayer: AVAudioPlayer?
 
     // MARK: - Private Methods
-    private func playSound(fromFileNamed fileName: String, withExtension fileExtension: String = "m4a") {
+    private func playSound(fromFileNamed fileName: String, withExtension fileExtension: String = OBResources.FileExtension.m4a) {
         guard let url = Bundle.main.url(forResource: fileName, withExtension: fileExtension) else { return }
         
         do {

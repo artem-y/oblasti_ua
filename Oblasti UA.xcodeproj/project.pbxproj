@@ -23,8 +23,10 @@
 		B04DE4842285B2A700939C4E /* UIViewController+dismissNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE4832285B2A700939C4E /* UIViewController+dismissNavigationController.swift */; };
 		B05844F9229BD7F7004836FE /* Custom Notification Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05844F8229BD7F7004836FE /* Custom Notification Names.swift */; };
 		B05A2AAE227A553400D8BA5C /* OBGameControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05A2AAD227A553400D8BA5C /* OBGameControllerDelegate.swift */; };
+		B05A884D22C54DB50013F52F /* Ukraine.json in Resources */ = {isa = PBXBuildFile; fileRef = B05A884C22C54DB40013F52F /* Ukraine.json */; };
 		B05E15C222746C9C007C85AF /* OBGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E15C122746C9C007C85AF /* OBGameController.swift */; };
 		B05E15C422746CDF007C85AF /* OBRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E15C322746CDF007C85AF /* OBRegion.swift */; };
+		B063BE0F22C8D16B0070C9F9 /* JSONDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063BE0E22C8D16B0070C9F9 /* JSONDictionary.swift */; };
 		B06B4E7822A680B000C0797B /* OBPauseViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B4E7722A680B000C0797B /* OBPauseViewControllerDelegate.swift */; };
 		B06F0E54229AFCAF00AD9A25 /* OBDefaultsKeyControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F0E53229AFCAF00AD9A25 /* OBDefaultsKeyControllable.swift */; };
 		B07099AA2292B743005D0C3E /* OBGameTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07099A92292B743005D0C3E /* OBGameTimeFormatter.swift */; };
@@ -45,16 +47,16 @@
 		B0C49DEB227A2B2400561892 /* GameColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */; };
 		B0C7D80F2288DA36006D8BE8 /* OBLanguageSettingTalbeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTalbeViewController.swift */; };
 		B0C95BD522A45135005A18A8 /* OBConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C95BD422A45135005A18A8 /* OBConfirmationViewController.swift */; };
-		B0CC90FB2273B3D50075931E /* UIBezierPath+initFromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CC90FA2273B3D50075931E /* UIBezierPath+initFromString.swift */; };
 		B0CFD85B22AD470E00AB3465 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0CFD85A22AD470E00AB3465 /* Settings.bundle */; };
 		B0D0EA2C229E010000278597 /* OBPresentationStyleAdjustable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0EA2B229E010000278597 /* OBPresentationStyleAdjustable.swift */; };
-		B0D2F2C822733065007B1E38 /* pathText in Resources */ = {isa = PBXBuildFile; fileRef = B0D2F2C722733065007B1E38 /* pathText */; };
 		B0E164B8228C4BD700615DC5 /* OBHighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E164B7228C4BD700615DC5 /* OBHighscoreViewController.swift */; };
 		B0E1846D2281AA21008E5C6D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0E1846F2281AA21008E5C6D /* Localizable.strings */; };
 		B0E1EE1822B680D9004640D6 /* Wrong Answer Strings.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B0E1EE1622B680D8004640D6 /* Wrong Answer Strings.m4a */; };
 		B0E1EE1922B680D9004640D6 /* Correct Answer Bell.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B0E1EE1722B680D9004640D6 /* Correct Answer Bell.m4a */; };
 		B0E1EE1C22B68156004640D6 /* OBSoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E1EE1B22B68156004640D6 /* OBSoundController.swift */; };
 		B0EF924B22898611000DC283 /* RegionNames.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0EF924D22898611000DC283 /* RegionNames.strings */; };
+		B0FE62A322C8119A004905B3 /* UIBezierPath+initFromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE62A222C8119A004905B3 /* UIBezierPath+initFromJSON.swift */; };
+		B0FE62A522C8203B004905B3 /* CGPoint+failableInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE62A422C8203B004905B3 /* CGPoint+failableInit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,8 +78,10 @@
 		B04DE4832285B2A700939C4E /* UIViewController+dismissNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissNavigationController.swift"; sourceTree = "<group>"; };
 		B05844F8229BD7F7004836FE /* Custom Notification Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Notification Names.swift"; sourceTree = "<group>"; };
 		B05A2AAD227A553400D8BA5C /* OBGameControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGameControllerDelegate.swift; sourceTree = "<group>"; };
+		B05A884C22C54DB40013F52F /* Ukraine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Ukraine.json; sourceTree = "<group>"; };
 		B05E15C122746C9C007C85AF /* OBGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGameController.swift; sourceTree = "<group>"; };
 		B05E15C322746CDF007C85AF /* OBRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBRegion.swift; sourceTree = "<group>"; };
+		B063BE0E22C8D16B0070C9F9 /* JSONDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDictionary.swift; sourceTree = "<group>"; };
 		B06B4E7722A680B000C0797B /* OBPauseViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBPauseViewControllerDelegate.swift; sourceTree = "<group>"; };
 		B06F0E53229AFCAF00AD9A25 /* OBDefaultsKeyControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDefaultsKeyControllable.swift; sourceTree = "<group>"; };
 		B07099A92292B743005D0C3E /* OBGameTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGameTimeFormatter.swift; sourceTree = "<group>"; };
@@ -103,10 +107,8 @@
 		B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColorExtensions.swift; sourceTree = "<group>"; };
 		B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTalbeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBLanguageSettingTalbeViewController.swift; sourceTree = "<group>"; };
 		B0C95BD422A45135005A18A8 /* OBConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBConfirmationViewController.swift; sourceTree = "<group>"; };
-		B0CC90FA2273B3D50075931E /* UIBezierPath+initFromString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+initFromString.swift"; sourceTree = "<group>"; };
 		B0CFD85A22AD470E00AB3465 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B0D0EA2B229E010000278597 /* OBPresentationStyleAdjustable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBPresentationStyleAdjustable.swift; sourceTree = "<group>"; };
-		B0D2F2C722733065007B1E38 /* pathText */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pathText; sourceTree = "<group>"; };
 		B0E164B7228C4BD700615DC5 /* OBHighscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBHighscoreViewController.swift; sourceTree = "<group>"; };
 		B0E1846E2281AA21008E5C6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0E184772281B6C6008E5C6D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -118,6 +120,8 @@
 		B0EF924C22898611000DC283 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RegionNames.strings; sourceTree = "<group>"; };
 		B0EF924E2289862C000DC283 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RegionNames.strings; sourceTree = "<group>"; };
 		B0EF924F22898637000DC283 /* uk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/RegionNames.strings; sourceTree = "<group>"; };
+		B0FE62A222C8119A004905B3 /* UIBezierPath+initFromJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+initFromJSON.swift"; sourceTree = "<group>"; };
+		B0FE62A422C8203B004905B3 /* CGPoint+failableInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+failableInit.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +193,9 @@
 			children = (
 				B04DE4832285B2A700939C4E /* UIViewController+dismissNavigationController.swift */,
 				B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */,
-				B0CC90FA2273B3D50075931E /* UIBezierPath+initFromString.swift */,
+				B0FE62A222C8119A004905B3 /* UIBezierPath+initFromJSON.swift */,
+				B063BE0E22C8D16B0070C9F9 /* JSONDictionary.swift */,
+				B0FE62A422C8203B004905B3 /* CGPoint+failableInit.swift */,
 				B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */,
 				B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */,
 				B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */,
@@ -249,7 +255,7 @@
 				B07A9ED2227CFC4400C4D2F0 /* OBResources.swift */,
 				B07099A92292B743005D0C3E /* OBGameTimeFormatter.swift */,
 				B0904F92226F858E007842CA /* AppDelegate.swift */,
-				B0D2F2C722733065007B1E38 /* pathText */,
+				B05A884C22C54DB40013F52F /* Ukraine.json */,
 				B0904F96226F858E007842CA /* Main.storyboard */,
 				B0E1846F2281AA21008E5C6D /* Localizable.strings */,
 				B0EF924D22898611000DC283 /* RegionNames.strings */,
@@ -321,12 +327,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0E1846D2281AA21008E5C6D /* Localizable.strings in Resources */,
+				B05A884D22C54DB50013F52F /* Ukraine.json in Resources */,
 				B0E1EE1822B680D9004640D6 /* Wrong Answer Strings.m4a in Resources */,
 				B042BEF7229C439400FE4A5C /* InfoPlist.strings in Resources */,
 				B028F39122BAF66600133A8A /* New Highscore Wind Tunes.m4a in Resources */,
 				B0904F9D226F858F007842CA /* LaunchScreen.storyboard in Resources */,
 				B0904F9A226F858F007842CA /* Assets.xcassets in Resources */,
-				B0D2F2C822733065007B1E38 /* pathText in Resources */,
 				B0C4168622BA45E40058633F /* Completion Bell.m4a in Resources */,
 				B0EF924B22898611000DC283 /* RegionNames.strings in Resources */,
 				B0CFD85B22AD470E00AB3465 /* Settings.bundle in Resources */,
@@ -355,7 +361,7 @@
 				B07C5F6F22805F12009059A7 /* OBSettingsTableViewController.swift in Sources */,
 				B0BFD4FA2297151E002EA6EF /* OBRemovableObserver.swift in Sources */,
 				B07099AA2292B743005D0C3E /* OBGameTimeFormatter.swift in Sources */,
-				B0CC90FB2273B3D50075931E /* UIBezierPath+initFromString.swift in Sources */,
+				B0FE62A522C8203B004905B3 /* CGPoint+failableInit.swift in Sources */,
 				B0904FA9226F8656007842CA /* OBMapView.swift in Sources */,
 				B01BA8D9229810270035ED9D /* OBCustomRegionNamesTableViewController.swift in Sources */,
 				B05844F9229BD7F7004836FE /* Custom Notification Names.swift in Sources */,
@@ -373,7 +379,9 @@
 				B09CF0CD2283391E00BC7FED /* String+localized(in language.swift in Sources */,
 				B05E15C422746CDF007C85AF /* OBRegion.swift in Sources */,
 				B05E15C222746C9C007C85AF /* OBGameController.swift in Sources */,
+				B063BE0F22C8D16B0070C9F9 /* JSONDictionary.swift in Sources */,
 				B06F0E54229AFCAF00AD9A25 /* OBDefaultsKeyControllable.swift in Sources */,
+				B0FE62A322C8119A004905B3 /* UIBezierPath+initFromJSON.swift in Sources */,
 				B0E1EE1C22B68156004640D6 /* OBSoundController.swift in Sources */,
 				B040E8A2228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift in Sources */,
 				B06B4E7822A680B000C0797B /* OBPauseViewControllerDelegate.swift in Sources */,
