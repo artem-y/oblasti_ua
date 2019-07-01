@@ -36,6 +36,9 @@ final class OBCustomRegionNamesTableViewController: UITableViewController, OBDef
     }
     
     private func loadRegionNames() {
+        enum JSONKey: String {
+            case regions, name
+        }
         // First, try to fetch names from UserDefaults
         if let jsonData = standardDefaults.value(forKey: DefaultsKey.customRegionNames) as? Data, let savedRegionNames: [String: String] = try? JSONDecoder().decode([String: String].self, from: jsonData) {
             regionNames = savedRegionNames
@@ -44,8 +47,17 @@ final class OBCustomRegionNamesTableViewController: UITableViewController, OBDef
         } else {
             // Temporary copy is necessary to prevent from multiple calls to region names dict's 'didSet' method
             var newRegionNamesDict: [String: String] = [:]
-            OBRegion.Key.allCases.forEach {
-                newRegionNamesDict[$0.rawValue] = ""
+            if
+                let defaultNamesUrl = Bundle.main.url(forResource: OBResources.FileName.ukraine, withExtension: OBResources.FileExtension.json),
+                let data = try? Data(contentsOf: defaultNamesUrl),
+                let jsonDict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? JSONDictionary,
+                let jsonRegions = jsonDict.dictionaries(forKey: JSONKey.regions)
+            {
+                jsonRegions.forEach {
+                    if let regionName = $0.string(forKey: JSONKey.name), !regionName.isEmpty {
+                        newRegionNamesDict[regionName] = ""
+                    }
+                }
             }
             regionNames = newRegionNamesDict
         }

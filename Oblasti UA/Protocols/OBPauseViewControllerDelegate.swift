@@ -6,8 +6,6 @@
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
 //
 
-import Foundation
-
 protocol OBPauseViewControllerDelegate: class {
     func continueGame()
     func quitGame()

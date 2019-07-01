@@ -115,20 +115,14 @@ extension OBGame: Codable {
 
         let gameRegionsNames = try values.decode([String].self, forKey: .gameRegions)
         gameRegions = gameRegionsNames
-            .filter({
-                OBRegion.Key.init(rawValue: $0) != nil
-            })
             .map({
-                OBRegion(key: OBRegion.Key(rawValue: $0)!, path: UIBezierPath())
+                OBRegion(name: $0, path: UIBezierPath())
             })
     
         let regionsLeftNames = try values.decode([String].self, forKey: .regionsLeft)
         regionsLeft = regionsLeftNames
-            .filter({
-                OBRegion.Key.init(rawValue: $0) != nil && gameRegionsNames.contains($0)
-            })
             .map({
-                OBRegion(key: OBRegion.Key(rawValue: $0)!, path: UIBezierPath())
+                OBRegion(name: $0, path: UIBezierPath())
             })
         
         mistakesCount = try values.decode(Int.self, forKey: .mistakesCount)
@@ -141,11 +135,11 @@ extension OBGame: Codable {
         try container.encode(gameMode, forKey: .gameMode)
         
         // Game regions are encoded as array of regions names
-        let gameRegionNames: [String] = gameRegions.map { $0.key.rawValue }
+        let gameRegionNames: [String] = gameRegions.map { $0.name }
         try container.encode(gameRegionNames, forKey: .gameRegions)
         
         // Regions left are encoded as array of region names
-        let regionsLeftNames: [String] = regionsLeft.map { $0.key.rawValue }
+        let regionsLeftNames: [String] = regionsLeft.map { $0.name }
         try container.encode(regionsLeftNames, forKey: .regionsLeft)
         
         try container.encode(mistakesCount, forKey: .mistakesCount)

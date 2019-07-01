@@ -103,7 +103,7 @@ struct OBResources {
     ///   - regionKeys: Optional array of region keys. Default value is 'nil'.
     ///   - fileName: String, containing the name of file in to search for regions paths data.
     /// - Returns: Array of regions, that were successfully parsed from file or an empty array, if there weren't any. If no region keys specified, tries to look for and return all possible regions.
-    func loadRegions(withKeys regionKeys: [OBRegion.Key]? = nil, fromFileNamed fileName: String) -> [OBRegion] {
+    func loadRegions(withNames regionNames: [String]? = nil, fromFileNamed fileName: String) -> [OBRegion] {
         
         enum JSONKey: String {
             case regions, name, path
@@ -119,20 +119,19 @@ struct OBResources {
 
         for regionData in regionsData {
             guard let regionName = regionData.string(forKey: JSONKey.name),
-                let regionKey = OBRegion.Key(rawValue: regionName.lowercased()),
                 let pathData = regionData.dictionaries(forKey: JSONKey.path)
                 else { continue }
             
             let path = UIBezierPath(json: pathData)
             guard !path.isEmpty else { continue }
-            let region = OBRegion(key: regionKey, path: path)
+            let region = OBRegion(name: regionName, path: path)
             regions.append(region)
             
         }
         
         regions = regions.filter {
-            guard let regionKeys = regionKeys, !regionKeys.isEmpty else { return true }
-            return regionKeys.contains($0.key)
+            guard let regionNames = regionNames, !regionNames.isEmpty else { return true }
+            return regionNames.contains($0.name)
         }
         
         return regions

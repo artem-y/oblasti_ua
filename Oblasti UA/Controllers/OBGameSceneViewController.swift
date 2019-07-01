@@ -165,7 +165,7 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     private func loadMapView() {
         var regionKeysAndPaths: [String: UIBezierPath] = [:]
         gameController.regions.forEach { (region) in
-            regionKeysAndPaths[region.key.rawValue] = region.path
+            regionKeysAndPaths[region.name] = region.path
         }
         
         mapView = OBMapView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 900.0, height: 610.0)), sublayerNamesAndPaths: regionKeysAndPaths)
@@ -199,13 +199,13 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
             var regionName = ""
             
             if languageIdentifier == OBResources.LanguageCode.custom {
-                if let customRegionName = customRegionNames[currentRegion.key.rawValue], customRegionName.isEmpty == false {
+                if let customRegionName = customRegionNames[currentRegion.name], customRegionName.isEmpty == false {
                     regionName = customRegionName
                 } else {
-                    regionName = currentRegion.key.rawValue.localized(in: "en", fromTable: OBResources.LocalizationTable.regionNames)
+                    regionName = currentRegion.name.localized(in: "en", fromTable: OBResources.LocalizationTable.regionNames)
                 }
             } else {
-                regionName = currentRegion.key.rawValue.localized(in: languageIdentifier, fromTable: OBResources.LocalizationTable.regionNames)
+                regionName = currentRegion.name.localized(in: languageIdentifier, fromTable: OBResources.LocalizationTable.regionNames)
             }
             
             let regionNameText = settings.regionNamesUppercased ? regionName.uppercased() : regionName
@@ -263,7 +263,7 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
                 for region in gameController.regions {
                     if region.path.contains(location) {
                         
-                        mapView.selectedLayer = mapView.sublayer(named: region.key.rawValue)
+                        mapView.selectedLayer = mapView.sublayer(named: region.name)
                         if gameMode == .pointer {
                             gameController.currentRegion = region
                         }
@@ -377,7 +377,7 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         
         // If enabled in settings, show where was the correct region
         if settings.showsCorrectAnswer && !isCorrect {
-            if let currentRegion = gameController.currentRegion, let correctRegionLayer = mapView.sublayer(named: currentRegion.key.rawValue) {
+            if let currentRegion = gameController.currentRegion, let correctRegionLayer = mapView.sublayer(named: currentRegion.name) {
                 correctRegionLayer.fillColor = .correctSelectionColor
             }
         }
