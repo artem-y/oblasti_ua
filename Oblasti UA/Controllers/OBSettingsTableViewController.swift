@@ -180,7 +180,7 @@ final class OBSettingsTableViewController: UITableViewController {
         regionNamesUppercasedSwitch.setOn(settings.regionNamesUppercased, animated: true)
         
         let forExampleText = "For example:".localized()
-        let ivanoFrankivskaTextUnprocessed = "ivano-frankivska".localized(in: settings.regionNameLanguageIdentifier, fromTable: OBResources.LocalizationTable.regionNames)
+        let ivanoFrankivskaTextUnprocessed = "Ivano-Frankivska".localized(in: settings.regionNameLanguageIdentifier, fromTable: OBResources.LocalizationTable.regionNames)
         let ivanoFrankivskaText: String = settings.regionNamesUppercased ? ivanoFrankivskaTextUnprocessed.uppercased() : ivanoFrankivskaTextUnprocessed.capitalized
         
         exampleFooterText = "\(forExampleText) \(ivanoFrankivskaText)"

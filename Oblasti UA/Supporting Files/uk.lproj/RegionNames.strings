@@ -7,76 +7,76 @@
 */
 
 /* Region name */
-"vinnytska" = "Вінницька";
+"Vinnytska" = "Вінницька";
 
 /* Region name */
-"volynska" = "Волинська";
+"Volynska" = "Волинська";
 
 /* Region name */
-"dnipropetrovska" = "Дніпропетровська";
+"Dnipropetrovska" = "Дніпропетровська";
 
 /* Region name */
-"donetska" = "Донецька";
+"Donetska" = "Донецька";
 
 /* Region name */
-"zhytomyrska" = "Житомирська";
+"Zhytomyrska" = "Житомирська";
 
 /* Region name */
-"ivano-frankivska" = "Івано-Франківська";
+"Ivano-frankivska" = "Івано-Франківська";
 
 /* Region name */
-"kirovogradska" = "Кіровоградська";
+"Kirovogradska" = "Кіровоградська";
 
 /* Region name */
-"kyivska" = "Київська";
+"Kyivska" = "Київська";
 
 /* Region name */
-"crimea" = "АР Крим";
+"Crimea" = "АР Крим";
 
 /* Region name */
-"lvivska" = "Львівська";
+"Lvivska" = "Львівська";
 
 /* Region name */
-"luganska" = "Луганська";
+"Luganska" = "Луганська";
 
 /* Region name */
-"mykolaivska" = "Миколаївська";
+"Mykolaivska" = "Миколаївська";
 
 /* Region name */
-"odeska" = "Одеська";
+"Odeska" = "Одеська";
 
 /* Region name */
-"poltavska" = "Полтавська";
+"Poltavska" = "Полтавська";
 
 /* Region name */
-"rivnenska" = "Рівненська";
+"Rivnenska" = "Рівненська";
 
 /* Region name */
-"sumska" = "Сумська";
+"Sumska" = "Сумська";
 
 /* Region name */
-"ternopilska" = "Тернопільська";
+"Ternopilska" = "Тернопільська";
 
 /* Region name */
-"kharkivska" = "Харківська";
+"Kharkivska" = "Харківська";
 
 /* Region name */
-"khersonska" = "Херсонська";
+"Khersonska" = "Херсонська";
 
 /* Region name */
-"khmelnytska" = "Хмельницька";
+"Khmelnytska" = "Хмельницька";
 
 /* Region name */
-"cherkaska" = "Черкаська";
+"Cherkaska" = "Черкаська";
 
 /* Region name */
-"chernivetska" = "Чернівецька";
+"Chernivetska" = "Чернівецька";
 
 /* Region name */
-"chernihivska" = "Чернігівська";
+"Chernihivska" = "Чернігівська";
 
 /* Region name */
-"zakarpatska" = "Закарпатська";
+"Zakarpatska" = "Закарпатська";
 
 /* Region name */
-"zaporizka" = "Запорізька";
+"Zaporizka" = "Запорізька";
