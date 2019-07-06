@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B008ED1522CD125D0024217F /* OBMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008ED1422CD125D0024217F /* OBMapViewTests.swift */; };
 		B01BA8D9229810270035ED9D /* OBCustomRegionNamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8D8229810270035ED9D /* OBCustomRegionNamesTableViewController.swift */; };
 		B01BA8DB2298230D0035ED9D /* OBCustomRegionNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8DA2298230D0035ED9D /* OBCustomRegionNameCell.swift */; };
 		B028F39122BAF66600133A8A /* New Highscore Wind Tunes.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B028F39022BAF66600133A8A /* New Highscore Wind Tunes.m4a */; };
@@ -55,11 +56,25 @@
 		B0E1EE1922B680D9004640D6 /* Correct Answer Bell.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B0E1EE1722B680D9004640D6 /* Correct Answer Bell.m4a */; };
 		B0E1EE1C22B68156004640D6 /* OBSoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E1EE1B22B68156004640D6 /* OBSoundController.swift */; };
 		B0EF924B22898611000DC283 /* RegionNames.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0EF924D22898611000DC283 /* RegionNames.strings */; };
+		B0FE111222CDDCCF001B5246 /* OBSettingsControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE111122CDDCCF001B5246 /* OBSettingsControllerTests.swift */; };
 		B0FE62A322C8119A004905B3 /* UIBezierPath+initFromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE62A222C8119A004905B3 /* UIBezierPath+initFromJSON.swift */; };
 		B0FE62A522C8203B004905B3 /* CGPoint+failableInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE62A422C8203B004905B3 /* CGPoint+failableInit.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B008ED0F22CD115C0024217F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0904F87226F858E007842CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0904F8E226F858E007842CA;
+			remoteInfo = "Oblasti UA";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		B008ED0A22CD115C0024217F /* Oblasti UATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Oblasti UATests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B008ED0E22CD115C0024217F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B008ED1422CD125D0024217F /* OBMapViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBMapViewTests.swift; sourceTree = "<group>"; };
 		B01BA8D8229810270035ED9D /* OBCustomRegionNamesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBCustomRegionNamesTableViewController.swift; sourceTree = "<group>"; };
 		B01BA8DA2298230D0035ED9D /* OBCustomRegionNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBCustomRegionNameCell.swift; sourceTree = "<group>"; };
 		B028F39022BAF66600133A8A /* New Highscore Wind Tunes.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "New Highscore Wind Tunes.m4a"; sourceTree = "<group>"; };
@@ -120,11 +135,19 @@
 		B0EF924C22898611000DC283 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RegionNames.strings; sourceTree = "<group>"; };
 		B0EF924E2289862C000DC283 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RegionNames.strings; sourceTree = "<group>"; };
 		B0EF924F22898637000DC283 /* uk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/RegionNames.strings; sourceTree = "<group>"; };
+		B0FE111122CDDCCF001B5246 /* OBSettingsControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettingsControllerTests.swift; sourceTree = "<group>"; };
 		B0FE62A222C8119A004905B3 /* UIBezierPath+initFromJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+initFromJSON.swift"; sourceTree = "<group>"; };
 		B0FE62A422C8203B004905B3 /* CGPoint+failableInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+failableInit.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B008ED0722CD115C0024217F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B0904F8C226F858E007842CA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -135,6 +158,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B008ED0B22CD115C0024217F /* Oblasti UATests */ = {
+			isa = PBXGroup;
+			children = (
+				B008ED1422CD125D0024217F /* OBMapViewTests.swift */,
+				B0FE111122CDDCCF001B5246 /* OBSettingsControllerTests.swift */,
+				B008ED0E22CD115C0024217F /* Info.plist */,
+			);
+			path = "Oblasti UATests";
+			sourceTree = "<group>";
+		};
 		B05E15C522746CEF007C85AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				B0904F91226F858E007842CA /* Oblasti UA */,
+				B008ED0B22CD115C0024217F /* Oblasti UATests */,
 				B0904F90226F858E007842CA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -169,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				B0904F8F226F858E007842CA /* Oblasti UA.app */,
+				B008ED0A22CD115C0024217F /* Oblasti UATests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -268,6 +303,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B008ED0922CD115C0024217F /* Oblasti UATests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B008ED1322CD115C0024217F /* Build configuration list for PBXNativeTarget "Oblasti UATests" */;
+			buildPhases = (
+				B008ED0622CD115C0024217F /* Sources */,
+				B008ED0722CD115C0024217F /* Frameworks */,
+				B008ED0822CD115C0024217F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B008ED1022CD115C0024217F /* PBXTargetDependency */,
+			);
+			name = "Oblasti UATests";
+			productName = "Oblasti UATests";
+			productReference = B008ED0A22CD115C0024217F /* Oblasti UATests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B0904F8E226F858E007842CA /* Oblasti UA */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0904FA1226F858F007842CA /* Build configuration list for PBXNativeTarget "Oblasti UA" */;
@@ -295,6 +348,10 @@
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Artem Yelizarov";
 				TargetAttributes = {
+					B008ED0922CD115C0024217F = {
+						CreatedOnToolsVersion = 10.2;
+						TestTargetID = B0904F8E226F858E007842CA;
+					};
 					B0904F8E226F858E007842CA = {
 						CreatedOnToolsVersion = 10.2;
 					};
@@ -317,11 +374,19 @@
 			projectRoot = "";
 			targets = (
 				B0904F8E226F858E007842CA /* Oblasti UA */,
+				B008ED0922CD115C0024217F /* Oblasti UATests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B008ED0822CD115C0024217F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B0904F8D226F858E007842CA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -344,6 +409,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B008ED0622CD115C0024217F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B008ED1522CD125D0024217F /* OBMapViewTests.swift in Sources */,
+				B0FE111222CDDCCF001B5246 /* OBSettingsControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B0904F8B226F858E007842CA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -390,6 +464,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B008ED1022CD115C0024217F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0904F8E226F858E007842CA /* Oblasti UA */;
+			targetProxy = B008ED0F22CD115C0024217F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B042BEF9229C439400FE4A5C /* InfoPlist.strings */ = {
@@ -446,6 +528,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B008ED1122CD115C0024217F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZG5795UF78;
+				INFOPLIST_FILE = "Oblasti UATests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.artemyelizarov.Oblasti-UATests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Oblasti UA.app/Oblasti UA";
+			};
+			name = Debug;
+		};
+		B008ED1222CD115C0024217F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZG5795UF78;
+				INFOPLIST_FILE = "Oblasti UATests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.artemyelizarov.Oblasti-UATests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Oblasti UA.app/Oblasti UA";
+			};
+			name = Release;
+		};
 		B0904F9F226F858F007842CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -605,6 +727,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B008ED1322CD115C0024217F /* Build configuration list for PBXNativeTarget "Oblasti UATests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B008ED1122CD115C0024217F /* Debug */,
+				B008ED1222CD115C0024217F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B0904F8A226F858E007842CA /* Build configuration list for PBXProject "Oblasti UA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
