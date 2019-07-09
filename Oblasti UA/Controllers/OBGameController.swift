@@ -44,19 +44,23 @@ final class OBGameController: OBDefaultsKeyControllable {
             {
                 let regions: [OBRegion] = OBResources.shared.loadRegions(withNames: savedGame.regions.map({ $0.name }), fromFileNamed: OBResources.FileName.ukraine)
                 let regionsLeft: [OBRegion] = OBResources.shared.loadRegions(withNames: savedGame.regionsLeft.map({ $0.name }), fromFileNamed: OBResources.FileName.ukraine)
-                
+                guard !regions.isEmpty && !regionsLeft.isEmpty else {
+                    self.game = OBGame.defaultForCurrentMode
+                    return
+                }
                 // Creation of a copy of the saved game is necessary to replace regions and regions left with just keys by regions with real UIBezier paths
                 self.game = OBGame(mode: savedGame.mode, regions: regions, regionsLeft: regionsLeft, timePassed: savedGame.timePassed, mistakesCount: savedGame.mistakesCount)
             } else {
-                let defaultGame = OBGame.default
-                self.game = OBGame(mode: OBSettingsController.shared.settings.gameMode, regions: defaultGame.regions, regionsLeft: defaultGame.regionsLeft, timePassed: defaultGame.timePassed, mistakesCount: defaultGame.mistakesCount)
-                
+                self.game = OBGame.defaultForCurrentMode
             }
  
         }
         UserDefaults.standard.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
 
-        nextQuestion()
+        if game?.mode != .pointer {
+            nextQuestion()
+            self.startTimer()
+        }
         
     }
     
@@ -87,8 +91,7 @@ final class OBGameController: OBDefaultsKeyControllable {
     func nextQuestion() {
         
         if game.regionsLeft.count > 0 {
-            let randomIndex = Int(arc4random_uniform(UInt32(game.regionsLeft.count)))
-            currentRegion = game.regionsLeft[randomIndex]
+            currentRegion = game.regionsLeft.randomElement()
         } else {
             stopTimer()
             delegate?.reactToEndOfGame()
@@ -108,7 +111,9 @@ final class OBGameController: OBDefaultsKeyControllable {
             }
             delegate?.reactToWrongChoice()
         }
-        
+        if game.mode != .pointer {
+            nextQuestion()
+        }
     }
     
     /// Removes region that equals current region from the collection of regions left

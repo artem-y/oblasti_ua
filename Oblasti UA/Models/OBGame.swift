@@ -11,7 +11,12 @@ import UIKit
 struct OBGame {
     // MARK: - Static Properties
     /// Immutable default game instance.
-    static let `default` = OBGame(mode: OBSettingsController.shared.settings.gameMode, regions: OBResources.shared.loadRegions(fromFileNamed: OBResources.FileName.ukraine), regionsLeft: OBResources.shared.loadRegions(fromFileNamed: OBResources.FileName.ukraine))
+    static let `default` = OBGame(mode: OBSettings.default.gameMode, regions: OBResources.shared.loadRegions(fromFileNamed: OBResources.FileName.ukraine), regionsLeft: OBResources.shared.loadRegions(fromFileNamed: OBResources.FileName.ukraine))
+    
+    /// Default game instance with game mode changed to mode from current settings.
+    static var defaultForCurrentMode: OBGame {
+        return OBGame(mode: OBSettingsController.shared.settings.gameMode, regions: `default`.regions, regionsLeft: `default`.regionsLeft)
+    }
     
     // MARK: - Nested Types
     /// Game mode type

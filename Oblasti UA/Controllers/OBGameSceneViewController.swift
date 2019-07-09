@@ -143,7 +143,6 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     // MARK: - Private Methods
     private func configureGameController() {
         gameController.delegate = self
-        gameController.startTimer()
         gameController.clearCurrentRegionBasedOnMode()
     }
     
@@ -422,7 +421,6 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     private func completeShowingChoiceResult() {
         if settings.changesRegionAutomatically {
             singleTapRecognizer.isEnabled = false
-            gameController.nextQuestion()
             perform(#selector(cancelSelection), with: nil, afterDelay: animationDuration * 1.5)
         }
     }

@@ -43,6 +43,7 @@
 		B09CF0CB22832ABA00BC7FED /* OBSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CA22832ABA00BC7FED /* OBSettings.swift */; };
 		B09CF0CD2283391E00BC7FED /* String+localized(in language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */; };
 		B0AAE785228497BA002D7264 /* OBSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAE784228497BA002D7264 /* OBSettingsController.swift */; };
+		B0AD696022D3A16B0092FAEA /* OBGameControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AD695F22D3A16B0092FAEA /* OBGameControllerTests.swift */; };
 		B0BFD4FA2297151E002EA6EF /* OBRemovableObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BFD4F92297151E002EA6EF /* OBRemovableObserver.swift */; };
 		B0C4168622BA45E40058633F /* Completion Bell.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B0C4168522BA45E30058633F /* Completion Bell.m4a */; };
 		B0C49DEB227A2B2400561892 /* GameColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */; };
@@ -114,6 +115,7 @@
 		B09CF0CA22832ABA00BC7FED /* OBSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettings.swift; sourceTree = "<group>"; };
 		B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized(in language.swift"; sourceTree = "<group>"; };
 		B0AAE784228497BA002D7264 /* OBSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettingsController.swift; sourceTree = "<group>"; };
+		B0AD695F22D3A16B0092FAEA /* OBGameControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGameControllerTests.swift; sourceTree = "<group>"; };
 		B0BFD4F92297151E002EA6EF /* OBRemovableObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBRemovableObserver.swift; sourceTree = "<group>"; };
 		B0C1DAF622B7DFF8002AB6D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		B0C1DAF822B7E0C7002AB6D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				B008ED1422CD125D0024217F /* OBMapViewTests.swift */,
 				B0FE111122CDDCCF001B5246 /* OBSettingsControllerTests.swift */,
+				B0AD695F22D3A16B0092FAEA /* OBGameControllerTests.swift */,
 				B008ED0E22CD115C0024217F /* Info.plist */,
 			);
 			path = "Oblasti UATests";
@@ -413,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0AD696022D3A16B0092FAEA /* OBGameControllerTests.swift in Sources */,
 				B008ED1522CD125D0024217F /* OBMapViewTests.swift in Sources */,
 				B0FE111222CDDCCF001B5246 /* OBSettingsControllerTests.swift in Sources */,
 			);
