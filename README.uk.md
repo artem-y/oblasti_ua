@@ -1,7 +1,7 @@
-![logo](https://www.bitbucket.org/artem-y/oblasti_ua/raw/master/Oblasti%20UA/Assets.xcassets/AppIcon.appiconset/UkraineIcon_83.5@2x.png)
+![logo](https://github.com/artem-y/oblasti_ua/raw/master/Oblasti%20UA/Assets.xcassets/AppIcon.appiconset/UkraineIcon_83.5@2x.png)
 # Області UA
 
-[English](https://www.bitbucket.org/artem-y/oblasti_ua/src/master/README.md) | [Русский](https://www.bitbucket.org/artem-y/oblasti_ua/src/master/README.ru.md)  
+[English](https://github.com/artem-y/oblasti_ua/blob/master/README.md) | [Русский](https://github.com/artem-y/oblasti_ua/blob/master/README.ru.md)  
 **Області UA** - це навчальна гра для iOS.  
 Як добре Ви знаєте географію України? Спробуйте знайти розташування областей на символічній мапі чи вивчіть його в режимі *Вказівка*!
 

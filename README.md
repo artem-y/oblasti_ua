@@ -1,7 +1,7 @@
-![logo](https://www.bitbucket.org/artem-y/oblasti_ua/raw/master/Oblasti%20UA/Assets.xcassets/AppIcon.appiconset/UkraineIcon_83.5@2x.png)
+![logo](https://github.com/artem-y/oblasti_ua/raw/master/Oblasti%20UA/Assets.xcassets/AppIcon.appiconset/UkraineIcon_83.5@2x.png)
 # Oblasti UA
 
-[Українська](https://www.bitbucket.org/artem-y/oblasti_ua/src/master/README.uk.md) | [Русский](https://www.bitbucket.org/artem-y/oblasti_ua/src/master/README.ru.md)  
+[Українська](https://github.com/artem-y/oblasti_ua/blob/master/README.uk.md) | [Русский](https://github.com/artem-y/oblasti_ua/blob/master/README.ru.md)  
 **Oblasti UA** (*Regions UA*, ukr.: *"Області UA"*) is an educational game for iOS.  
 How well do you know the geography of Ukraine? Try to find where regions are located on the symbolic game map or learn it using *Pointer* mode!
 
