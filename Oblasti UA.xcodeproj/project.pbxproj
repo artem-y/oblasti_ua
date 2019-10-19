@@ -112,6 +112,7 @@
 		B0904F99226F858F007842CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0904F9C226F858F007842CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0904FA8226F8656007842CA /* OBMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBMapView.swift; sourceTree = "<group>"; };
+		B09B116A235B11350007F9EE /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		B09CF0CA22832ABA00BC7FED /* OBSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettings.swift; sourceTree = "<group>"; };
 		B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized(in language.swift"; sourceTree = "<group>"; };
 		B0AAE784228497BA002D7264 /* OBSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettingsController.swift; sourceTree = "<group>"; };
@@ -119,7 +120,6 @@
 		B0BFD4F92297151E002EA6EF /* OBRemovableObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBRemovableObserver.swift; sourceTree = "<group>"; };
 		B0C1DAF622B7DFF8002AB6D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		B0C1DAF822B7E0C7002AB6D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
-		B0C1DAFA22B7E190002AB6D9 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		B0C4168522BA45E30058633F /* Completion Bell.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Completion Bell.m4a"; sourceTree = "<group>"; };
 		B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColorExtensions.swift; sourceTree = "<group>"; };
 		B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTalbeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBLanguageSettingTalbeViewController.swift; sourceTree = "<group>"; };
@@ -494,7 +494,7 @@
 				B0904F97226F858E007842CA /* Base */,
 				B0C1DAF622B7DFF8002AB6D9 /* en */,
 				B0C1DAF822B7E0C7002AB6D9 /* ru */,
-				B0C1DAFA22B7E190002AB6D9 /* uk */,
+				B09B116A235B11350007F9EE /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -526,8 +526,7 @@
 				B082A4352289934B0029C1CF /* zh-Hans */,
 			);
 			name = RegionNames.strings;
-			path = "/Users/EasyRider/Desktop/Development/Oblasti UA/Oblasti UA/Supporting Files";
-			sourceTree = "<absolute>";
+			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
@@ -624,7 +623,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -680,7 +679,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -697,7 +696,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZG5795UF78;
 				INFOPLIST_FILE = "$(SRCROOT)/Oblasti UA/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -716,7 +715,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZG5795UF78;
 				INFOPLIST_FILE = "$(SRCROOT)/Oblasti UA/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

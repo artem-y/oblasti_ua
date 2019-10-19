@@ -11,8 +11,8 @@
 /* Class = "UILabel"; text = "00:00"; ObjectID = "3Mx-wt-o0x"; */
 "3Mx-wt-o0x.text" = "00:00";
 
-/* Class = "UILabel"; text = "Ukrainian"; ObjectID = "3qf-ha-wbJ"; */
-"3qf-ha-wbJ.text" = "Ukrainian";
+/* Class = "UILabel"; text = "Ukrainian"; ObjectID = "dX8-eT-rzL"; */
+"dX8-eT-rzL.text" = "Ukrainian";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "4Zb-ZX-Yce"; */
 "4Zb-ZX-Yce.title" = "Settings";
@@ -29,8 +29,8 @@
 /* Class = "UILabel"; text = "Classic"; ObjectID = "6QQ-Fx-Nuc"; */
 "6QQ-Fx-Nuc.text" = "Classic";
 
-/* Class = "UILabel"; text = "Language"; ObjectID = "74L-Yk-irJ"; */
-"74L-Yk-irJ.text" = "Language";
+/* Class = "UILabel"; text = "Language"; ObjectID = "vZC-25-MdH"; */
+"vZC-25-MdH.text" = "Language";
 
 /* Class = "UIButton"; normalTitle = "Warning"; ObjectID = "7fh-uD-60M"; */
 "7fh-uD-60M.normalTitle" = "Warning";
@@ -98,8 +98,8 @@
 /* Class = "UIButton"; normalTitle = "EXIT WITHOUT SAVING"; ObjectID = "eTi-aq-A4d"; */
 "eTi-aq-A4d.normalTitle" = "EXIT WITHOUT SAVING";
 
-/* Class = "UILabel"; text = "Mode"; ObjectID = "f1I-1W-our"; */
-"f1I-1W-our.text" = "Mode";
+/* Class = "UILabel"; text = "Mode"; ObjectID = "KuN-2X-hXG"; */
+"KuN-2X-hXG.text" = "Mode";
 
 /* Class = "UINavigationItem"; title = "Region Name Languages"; ObjectID = "gDB-cZ-Tfw"; */
 "gDB-cZ-Tfw.title" = "Region Name Languages";
