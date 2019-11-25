@@ -1,77 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4HK-7n-0Pl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4HK-7n-0Pl">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Info View Controller-->
-        <scene sceneID="3HI-Ib-Tlt">
+        <!--OBInfoViewController-->
+        <scene sceneID="Rqo-qm-uVt">
             <objects>
-                <viewController modalPresentationStyle="pageSheet" id="OPd-NW-aup" customClass="OBInfoViewController" customModule="Oblasti_UA" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="L5w-H8-LV8">
-                        <rect key="frame" x="0.0" y="0.0" width="712" height="728"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3IK-kW-DEU">
-                                <rect key="frame" x="71" y="50" width="570" height="452"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" staticText="YES"/>
-                                </accessibility>
-                                <string key="text">Please, notice: region boundaries and borders of Ukraine are depicted approximately and can be different from real proportions and geografic coordinates.</string>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                                <variation key="heightClass=regular">
-                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                </variation>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="psy-vb-mWa" customClass="OBRoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
-                                <rect key="frame" x="281" y="594" width="150" height="54"/>
-                                <color key="backgroundColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="trc-pn-j7P"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="OK">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="bPp-RE-6rV" kind="unwind" unwindAction="unwindToMenuViewController:" id="cOl-Lw-ClR"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="3IK-kW-DEU" firstAttribute="height" secondItem="L5w-H8-LV8" secondAttribute="height" multiplier="0.6" priority="750" id="4qU-ex-wB6">
-                                <variation key="heightClass=regular" constant="15"/>
-                            </constraint>
-                            <constraint firstItem="3IK-kW-DEU" firstAttribute="centerX" secondItem="L5w-H8-LV8" secondAttribute="centerX" id="CfU-92-j5m"/>
-                            <constraint firstItem="3IK-kW-DEU" firstAttribute="width" secondItem="L5w-H8-LV8" secondAttribute="width" multiplier="0.8" priority="750" id="P4b-0R-bv6"/>
-                            <constraint firstItem="psy-vb-mWa" firstAttribute="centerX" secondItem="L5w-H8-LV8" secondAttribute="centerX" id="WfQ-uQ-PYJ"/>
-                            <constraint firstItem="sh4-zA-SzK" firstAttribute="bottom" secondItem="psy-vb-mWa" secondAttribute="bottom" constant="20" id="nv2-mc-CON">
-                                <variation key="heightClass=regular" constant="80"/>
-                            </constraint>
-                            <constraint firstItem="3IK-kW-DEU" firstAttribute="top" secondItem="sh4-zA-SzK" secondAttribute="top" constant="20" id="pqb-mN-19H">
-                                <variation key="heightClass=regular" constant="50"/>
-                            </constraint>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="sh4-zA-SzK"/>
-                    </view>
-                    <connections>
-                        <outlet property="textView" destination="3IK-kW-DEU" id="WHJ-6B-fOj"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gTu-S7-k4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="bPp-RE-6rV" userLabel="Exit" sceneMemberID="exit"/>
+                <viewControllerPlaceholder storyboardName="OBInfoViewController" referencedIdentifier="OBInfoViewController" id="Dk5-wY-Ct0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aYO-qg-XKY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="565" y="-1088"/>
+            <point key="canvasLocation" x="587" y="-112"/>
         </scene>
         <!--Pause View Controller-->
         <scene sceneID="Kye-ov-Vbv">
@@ -794,7 +738,7 @@
                                         <state key="selected" image="alertButtonRed"/>
                                         <state key="highlighted" image="alertButtonRed"/>
                                         <connections>
-                                            <segue destination="OPd-NW-aup" kind="presentation" identifier="showInfoSegue" modalTransitionStyle="coverVertical" id="hjf-id-yrq"/>
+                                            <segue destination="Dk5-wY-Ct0" kind="presentation" identifier="showInfoSegue" modalTransitionStyle="coverVertical" id="bfR-ln-bTl"/>
                                         </connections>
                                     </button>
                                 </subviews>
