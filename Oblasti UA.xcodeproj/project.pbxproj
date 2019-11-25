@@ -16,6 +16,13 @@
 		B032668A22A5BE1000EA767B /* OBPauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B032668922A5BE1000EA767B /* OBPauseViewController.swift */; };
 		B03A9459238C7B4C00CCE58E /* OBHighscoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03A9458238C7B4C00CCE58E /* OBHighscoreViewController.storyboard */; };
 		B03A945B238C7D3000CCE58E /* OBGameResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03A945A238C7D3000CCE58E /* OBGameResultViewController.storyboard */; };
+		B03A945D238C7F8200CCE58E /* OBLanguageSettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03A945C238C7F8200CCE58E /* OBLanguageSettingTableViewController.storyboard */; };
+		B03A945F238C802400CCE58E /* OBCustomRegionNamesTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03A945E238C802400CCE58E /* OBCustomRegionNamesTableViewController.storyboard */; };
+		B03A9460238C803F00CCE58E /* OBLanguageSettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03A945C238C7F8200CCE58E /* OBLanguageSettingTableViewController.storyboard */; };
+		B03A9461238C803F00CCE58E /* OBCustomRegionNamesTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03A945E238C802400CCE58E /* OBCustomRegionNamesTableViewController.storyboard */; };
+		B03A9462238C803F00CCE58E /* OBInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B028083B238C794E00E8436F /* OBInfoViewController.storyboard */; };
+		B03A9463238C803F00CCE58E /* OBHighscoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03A9458238C7B4C00CCE58E /* OBHighscoreViewController.storyboard */; };
+		B03A9464238C803F00CCE58E /* OBGameResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03A945A238C7D3000CCE58E /* OBGameResultViewController.storyboard */; };
 		B040E8A0228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */; };
 		B040E8A2228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */; };
 		B042BEF7229C439400FE4A5C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B042BEF9229C439400FE4A5C /* InfoPlist.strings */; };
@@ -50,7 +57,7 @@
 		B0BFD4FA2297151E002EA6EF /* OBRemovableObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BFD4F92297151E002EA6EF /* OBRemovableObserver.swift */; };
 		B0C4168622BA45E40058633F /* Completion Bell.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B0C4168522BA45E30058633F /* Completion Bell.m4a */; };
 		B0C49DEB227A2B2400561892 /* GameColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */; };
-		B0C7D80F2288DA36006D8BE8 /* OBLanguageSettingTalbeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTalbeViewController.swift */; };
+		B0C7D80F2288DA36006D8BE8 /* OBLanguageSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTableViewController.swift */; };
 		B0C95BD522A45135005A18A8 /* OBConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C95BD422A45135005A18A8 /* OBConfirmationViewController.swift */; };
 		B0CFD85B22AD470E00AB3465 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0CFD85A22AD470E00AB3465 /* Settings.bundle */; };
 		B0D0EA2C229E010000278597 /* OBPresentationStyleAdjustable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0EA2B229E010000278597 /* OBPresentationStyleAdjustable.swift */; };
@@ -87,6 +94,8 @@
 		B032668922A5BE1000EA767B /* OBPauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBPauseViewController.swift; sourceTree = "<group>"; };
 		B03A9458238C7B4C00CCE58E /* OBHighscoreViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OBHighscoreViewController.storyboard; sourceTree = "<group>"; };
 		B03A945A238C7D3000CCE58E /* OBGameResultViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OBGameResultViewController.storyboard; sourceTree = "<group>"; };
+		B03A945C238C7F8200CCE58E /* OBLanguageSettingTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OBLanguageSettingTableViewController.storyboard; sourceTree = "<group>"; };
+		B03A945E238C802400CCE58E /* OBCustomRegionNamesTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OBCustomRegionNamesTableViewController.storyboard; sourceTree = "<group>"; };
 		B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+set(enabled.swift"; sourceTree = "<group>"; };
 		B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+set(hidden animationDuration.swift"; sourceTree = "<group>"; };
 		B042BEF8229C439400FE4A5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -128,7 +137,7 @@
 		B0C1DAF822B7E0C7002AB6D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		B0C4168522BA45E30058633F /* Completion Bell.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Completion Bell.m4a"; sourceTree = "<group>"; };
 		B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColorExtensions.swift; sourceTree = "<group>"; };
-		B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTalbeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBLanguageSettingTalbeViewController.swift; sourceTree = "<group>"; };
+		B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBLanguageSettingTableViewController.swift; sourceTree = "<group>"; };
 		B0C95BD422A45135005A18A8 /* OBConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBConfirmationViewController.swift; sourceTree = "<group>"; };
 		B0CFD85A22AD470E00AB3465 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		B0D0EA2B229E010000278597 /* OBPresentationStyleAdjustable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBPresentationStyleAdjustable.swift; sourceTree = "<group>"; };
@@ -281,7 +290,7 @@
 				B0E164B7228C4BD700615DC5 /* OBHighscoreViewController.swift */,
 				B01BA8D8229810270035ED9D /* OBCustomRegionNamesTableViewController.swift */,
 				B04DE47F22858F8D00939C4E /* OBModeSettingTableViewController.swift */,
-				B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTalbeViewController.swift */,
+				B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTableViewController.swift */,
 				B0904F94226F858E007842CA /* OBGameSceneViewController.swift */,
 				B0C95BD422A45135005A18A8 /* OBConfirmationViewController.swift */,
 				B05E15C122746C9C007C85AF /* OBGameController.swift */,
@@ -301,6 +310,8 @@
 				B0904F92226F858E007842CA /* AppDelegate.swift */,
 				B05A884C22C54DB40013F52F /* Ukraine.json */,
 				B0904F96226F858E007842CA /* Main.storyboard */,
+				B03A945C238C7F8200CCE58E /* OBLanguageSettingTableViewController.storyboard */,
+				B03A945E238C802400CCE58E /* OBCustomRegionNamesTableViewController.storyboard */,
 				B028083B238C794E00E8436F /* OBInfoViewController.storyboard */,
 				B03A9458238C7B4C00CCE58E /* OBHighscoreViewController.storyboard */,
 				B03A945A238C7D3000CCE58E /* OBGameResultViewController.storyboard */,
@@ -396,6 +407,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B03A9460238C803F00CCE58E /* OBLanguageSettingTableViewController.storyboard in Resources */,
+				B03A9462238C803F00CCE58E /* OBInfoViewController.storyboard in Resources */,
+				B03A9461238C803F00CCE58E /* OBCustomRegionNamesTableViewController.storyboard in Resources */,
+				B03A9464238C803F00CCE58E /* OBGameResultViewController.storyboard in Resources */,
+				B03A9463238C803F00CCE58E /* OBHighscoreViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +419,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B03A945D238C7F8200CCE58E /* OBLanguageSettingTableViewController.storyboard in Resources */,
 				B0E1846D2281AA21008E5C6D /* Localizable.strings in Resources */,
 				B03A9459238C7B4C00CCE58E /* OBHighscoreViewController.storyboard in Resources */,
 				B05A884D22C54DB50013F52F /* Ukraine.json in Resources */,
@@ -411,6 +428,7 @@
 				B042BEF7229C439400FE4A5C /* InfoPlist.strings in Resources */,
 				B028F39122BAF66600133A8A /* New Highscore Wind Tunes.m4a in Resources */,
 				B0904F9D226F858F007842CA /* LaunchScreen.storyboard in Resources */,
+				B03A945F238C802400CCE58E /* OBCustomRegionNamesTableViewController.storyboard in Resources */,
 				B03A945B238C7D3000CCE58E /* OBGameResultViewController.storyboard in Resources */,
 				B0904F9A226F858F007842CA /* Assets.xcassets in Resources */,
 				B0C4168622BA45E40058633F /* Completion Bell.m4a in Resources */,
@@ -475,7 +493,7 @@
 				B0E1EE1C22B68156004640D6 /* OBSoundController.swift in Sources */,
 				B040E8A2228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift in Sources */,
 				B06B4E7822A680B000C0797B /* OBPauseViewControllerDelegate.swift in Sources */,
-				B0C7D80F2288DA36006D8BE8 /* OBLanguageSettingTalbeViewController.swift in Sources */,
+				B0C7D80F2288DA36006D8BE8 /* OBLanguageSettingTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

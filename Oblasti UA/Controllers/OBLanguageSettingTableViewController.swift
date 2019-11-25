@@ -1,5 +1,5 @@
 //
-//  OBLanguageSettingTalbeViewController.swift
+//  OBLanguageSettingTableViewController.swift
 //  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/13/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class OBLanguageSettingTalbeViewController: UITableViewController, OBDefaultsKeyControllable {
+final class OBLanguageSettingTableViewController: UITableViewController, OBDefaultsKeyControllable {
     
     // MARK: - @IBOutlets
     @IBOutlet var editBarButtonItem: UIBarButtonItem!
