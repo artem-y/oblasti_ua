@@ -57,6 +57,12 @@
 		B0AD696022D3A16B0092FAEA /* OBGameControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AD695F22D3A16B0092FAEA /* OBGameControllerTests.swift */; };
 		B0BE6CBF238C969B0012453D /* OBPauseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0BE6CBE238C969B0012453D /* OBPauseViewController.storyboard */; };
 		B0BE6CC1238C98C90012453D /* OBGameSceneViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0BE6CC0238C98C90012453D /* OBGameSceneViewController.storyboard */; };
+		B0BE6CC2238C99E30012453D /* OBGameSceneViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0BE6CC0238C98C90012453D /* OBGameSceneViewController.storyboard */; };
+		B0BE6CC3238C99EB0012453D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0904F96226F858E007842CA /* Main.storyboard */; };
+		B0BE6CC4238C99F00012453D /* OBPauseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0BE6CBE238C969B0012453D /* OBPauseViewController.storyboard */; };
+		B0BE6CC5238C99F30012453D /* OBSettingsTableViewController+NavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0F2ACCF238C915C00A9B8F7 /* OBSettingsTableViewController+NavigationController.storyboard */; };
+		B0BE6CC6238C99F70012453D /* OBModeSettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0F2ACCD238C8FA900A9B8F7 /* OBModeSettingTableViewController.storyboard */; };
+		B0BE6CC7238C99FA0012453D /* OBConfirmationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0920DD1238C823E006A1085 /* OBConfirmationViewController.storyboard */; };
 		B0BFD4FA2297151E002EA6EF /* OBRemovableObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BFD4F92297151E002EA6EF /* OBRemovableObserver.swift */; };
 		B0C4168622BA45E40058633F /* Completion Bell.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B0C4168522BA45E30058633F /* Completion Bell.m4a */; };
 		B0C49DEB227A2B2400561892 /* GameColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */; };
@@ -422,11 +428,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0BE6CC3238C99EB0012453D /* Main.storyboard in Resources */,
+				B0BE6CC5238C99F30012453D /* OBSettingsTableViewController+NavigationController.storyboard in Resources */,
+				B0BE6CC7238C99FA0012453D /* OBConfirmationViewController.storyboard in Resources */,
 				B03A9460238C803F00CCE58E /* OBLanguageSettingTableViewController.storyboard in Resources */,
+				B0BE6CC6238C99F70012453D /* OBModeSettingTableViewController.storyboard in Resources */,
+				B0BE6CC4238C99F00012453D /* OBPauseViewController.storyboard in Resources */,
 				B03A9462238C803F00CCE58E /* OBInfoViewController.storyboard in Resources */,
 				B03A9461238C803F00CCE58E /* OBCustomRegionNamesTableViewController.storyboard in Resources */,
 				B03A9464238C803F00CCE58E /* OBGameResultViewController.storyboard in Resources */,
 				B03A9463238C803F00CCE58E /* OBHighscoreViewController.storyboard in Resources */,
+				B0BE6CC2238C99E30012453D /* OBGameSceneViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
