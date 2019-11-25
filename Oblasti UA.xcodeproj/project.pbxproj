@@ -14,6 +14,7 @@
 		B028F39122BAF66600133A8A /* New Highscore Wind Tunes.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B028F39022BAF66600133A8A /* New Highscore Wind Tunes.m4a */; };
 		B02EFFFB227B445900825656 /* OBMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02EFFFA227B445900825656 /* OBMenuViewController.swift */; };
 		B032668A22A5BE1000EA767B /* OBPauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B032668922A5BE1000EA767B /* OBPauseViewController.swift */; };
+		B03A9459238C7B4C00CCE58E /* OBHighscoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03A9458238C7B4C00CCE58E /* OBHighscoreViewController.storyboard */; };
 		B040E8A0228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */; };
 		B040E8A2228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */; };
 		B042BEF7229C439400FE4A5C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B042BEF9229C439400FE4A5C /* InfoPlist.strings */; };
@@ -83,6 +84,7 @@
 		B028F39022BAF66600133A8A /* New Highscore Wind Tunes.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "New Highscore Wind Tunes.m4a"; sourceTree = "<group>"; };
 		B02EFFFA227B445900825656 /* OBMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBMenuViewController.swift; sourceTree = "<group>"; };
 		B032668922A5BE1000EA767B /* OBPauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBPauseViewController.swift; sourceTree = "<group>"; };
+		B03A9458238C7B4C00CCE58E /* OBHighscoreViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OBHighscoreViewController.storyboard; sourceTree = "<group>"; };
 		B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+set(enabled.swift"; sourceTree = "<group>"; };
 		B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+set(hidden animationDuration.swift"; sourceTree = "<group>"; };
 		B042BEF8229C439400FE4A5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				B05A884C22C54DB40013F52F /* Ukraine.json */,
 				B0904F96226F858E007842CA /* Main.storyboard */,
 				B028083B238C794E00E8436F /* OBInfoViewController.storyboard */,
+				B03A9458238C7B4C00CCE58E /* OBHighscoreViewController.storyboard */,
 				B0E1846F2281AA21008E5C6D /* Localizable.strings */,
 				B0EF924D22898611000DC283 /* RegionNames.strings */,
 				B0904F9B226F858F007842CA /* LaunchScreen.storyboard */,
@@ -398,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0E1846D2281AA21008E5C6D /* Localizable.strings in Resources */,
+				B03A9459238C7B4C00CCE58E /* OBHighscoreViewController.storyboard in Resources */,
 				B05A884D22C54DB50013F52F /* Ukraine.json in Resources */,
 				B0E1EE1822B680D9004640D6 /* Wrong Answer Strings.m4a in Resources */,
 				B028083C238C794E00E8436F /* OBInfoViewController.storyboard in Resources */,
