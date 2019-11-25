@@ -251,10 +251,30 @@
 				B05E15CA2274761F007C85AF /* Protocols */,
 				B0CC90FC2273B3DE0075931E /* Extensions */,
 				B0ECE4AA2270ABFB00055349 /* Supporting Files */,
+				B0BE6CC8238C9AC40012453D /* Storyboards */,
 				B0904F99226F858F007842CA /* Assets.xcassets */,
 				B0E1EE1A22B680F9004640D6 /* Audio */,
 			);
 			path = "Oblasti UA";
+			sourceTree = "<group>";
+		};
+		B0BE6CC8238C9AC40012453D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B0904F96226F858E007842CA /* Main.storyboard */,
+				B0BE6CBE238C969B0012453D /* OBPauseViewController.storyboard */,
+				B0F2ACCF238C915C00A9B8F7 /* OBSettingsTableViewController+NavigationController.storyboard */,
+				B0F2ACCD238C8FA900A9B8F7 /* OBModeSettingTableViewController.storyboard */,
+				B0920DD1238C823E006A1085 /* OBConfirmationViewController.storyboard */,
+				B03A945C238C7F8200CCE58E /* OBLanguageSettingTableViewController.storyboard */,
+				B03A945E238C802400CCE58E /* OBCustomRegionNamesTableViewController.storyboard */,
+				B028083B238C794E00E8436F /* OBInfoViewController.storyboard */,
+				B03A9458238C7B4C00CCE58E /* OBHighscoreViewController.storyboard */,
+				B0BE6CC0238C98C90012453D /* OBGameSceneViewController.storyboard */,
+				B03A945A238C7D3000CCE58E /* OBGameResultViewController.storyboard */,
+				B0904F9B226F858F007842CA /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		B0CC90FC2273B3DE0075931E /* Extensions */ = {
@@ -325,20 +345,8 @@
 				B07099A92292B743005D0C3E /* OBGameTimeFormatter.swift */,
 				B0904F92226F858E007842CA /* AppDelegate.swift */,
 				B05A884C22C54DB40013F52F /* Ukraine.json */,
-				B0904F96226F858E007842CA /* Main.storyboard */,
-				B0BE6CC0238C98C90012453D /* OBGameSceneViewController.storyboard */,
-				B0BE6CBE238C969B0012453D /* OBPauseViewController.storyboard */,
-				B0F2ACCF238C915C00A9B8F7 /* OBSettingsTableViewController+NavigationController.storyboard */,
-				B0F2ACCD238C8FA900A9B8F7 /* OBModeSettingTableViewController.storyboard */,
-				B0920DD1238C823E006A1085 /* OBConfirmationViewController.storyboard */,
-				B03A945C238C7F8200CCE58E /* OBLanguageSettingTableViewController.storyboard */,
-				B03A945E238C802400CCE58E /* OBCustomRegionNamesTableViewController.storyboard */,
-				B028083B238C794E00E8436F /* OBInfoViewController.storyboard */,
-				B03A9458238C7B4C00CCE58E /* OBHighscoreViewController.storyboard */,
-				B03A945A238C7D3000CCE58E /* OBGameResultViewController.storyboard */,
 				B0E1846F2281AA21008E5C6D /* Localizable.strings */,
 				B0EF924D22898611000DC283 /* RegionNames.strings */,
-				B0904F9B226F858F007842CA /* LaunchScreen.storyboard */,
 				B0CFD85A22AD470E00AB3465 /* Settings.bundle */,
 			);
 			path = "Supporting Files";
