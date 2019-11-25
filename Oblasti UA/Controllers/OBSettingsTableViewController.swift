@@ -129,6 +129,7 @@ final class OBSettingsTableViewController: UITableViewController {
             settings.playesSoundEffects = !settings.playesSoundEffects
         case restoreDefaultsCell:
             performSegue(withIdentifier: OBResources.SegueIdentifier.restoreDefaultsConfirmationSegue, sender: self)
+            tableView.deselectRow(at: indexPath, animated: true)
         default:
             break
         }

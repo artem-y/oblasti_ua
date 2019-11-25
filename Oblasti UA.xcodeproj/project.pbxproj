@@ -50,6 +50,7 @@
 		B0904F9A226F858F007842CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0904F99226F858F007842CA /* Assets.xcassets */; };
 		B0904F9D226F858F007842CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0904F9B226F858F007842CA /* LaunchScreen.storyboard */; };
 		B0904FA9226F8656007842CA /* OBMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0904FA8226F8656007842CA /* OBMapView.swift */; };
+		B0920DD2238C823E006A1085 /* OBConfirmationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0920DD1238C823E006A1085 /* OBConfirmationViewController.storyboard */; };
 		B09CF0CB22832ABA00BC7FED /* OBSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CA22832ABA00BC7FED /* OBSettings.swift */; };
 		B09CF0CD2283391E00BC7FED /* String+localized(in language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */; };
 		B0AAE785228497BA002D7264 /* OBSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAE784228497BA002D7264 /* OBSettingsController.swift */; };
@@ -127,6 +128,7 @@
 		B0904F99226F858F007842CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0904F9C226F858F007842CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0904FA8226F8656007842CA /* OBMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBMapView.swift; sourceTree = "<group>"; };
+		B0920DD1238C823E006A1085 /* OBConfirmationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OBConfirmationViewController.storyboard; sourceTree = "<group>"; };
 		B09B116A235B11350007F9EE /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		B09CF0CA22832ABA00BC7FED /* OBSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettings.swift; sourceTree = "<group>"; };
 		B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized(in language.swift"; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				B0904F92226F858E007842CA /* AppDelegate.swift */,
 				B05A884C22C54DB40013F52F /* Ukraine.json */,
 				B0904F96226F858E007842CA /* Main.storyboard */,
+				B0920DD1238C823E006A1085 /* OBConfirmationViewController.storyboard */,
 				B03A945C238C7F8200CCE58E /* OBLanguageSettingTableViewController.storyboard */,
 				B03A945E238C802400CCE58E /* OBCustomRegionNamesTableViewController.storyboard */,
 				B028083B238C794E00E8436F /* OBInfoViewController.storyboard */,
@@ -434,6 +437,7 @@
 				B0C4168622BA45E40058633F /* Completion Bell.m4a in Resources */,
 				B0EF924B22898611000DC283 /* RegionNames.strings in Resources */,
 				B0CFD85B22AD470E00AB3465 /* Settings.bundle in Resources */,
+				B0920DD2238C823E006A1085 /* OBConfirmationViewController.storyboard in Resources */,
 				B0E1EE1922B680D9004640D6 /* Correct Answer Bell.m4a in Resources */,
 				B0904F98226F858E007842CA /* Main.storyboard in Resources */,
 			);
