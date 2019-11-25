@@ -69,6 +69,7 @@
 		B0E1EE1C22B68156004640D6 /* OBSoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E1EE1B22B68156004640D6 /* OBSoundController.swift */; };
 		B0EF924B22898611000DC283 /* RegionNames.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0EF924D22898611000DC283 /* RegionNames.strings */; };
 		B0F2ACCE238C8FA900A9B8F7 /* OBModeSettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0F2ACCD238C8FA900A9B8F7 /* OBModeSettingTableViewController.storyboard */; };
+		B0F2ACD0238C915C00A9B8F7 /* OBSettingsTableViewController+NavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0F2ACCF238C915C00A9B8F7 /* OBSettingsTableViewController+NavigationController.storyboard */; };
 		B0FE111222CDDCCF001B5246 /* OBSettingsControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE111122CDDCCF001B5246 /* OBSettingsControllerTests.swift */; };
 		B0FE62A322C8119A004905B3 /* UIBezierPath+initFromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE62A222C8119A004905B3 /* UIBezierPath+initFromJSON.swift */; };
 		B0FE62A522C8203B004905B3 /* CGPoint+failableInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE62A422C8203B004905B3 /* CGPoint+failableInit.swift */; };
@@ -156,6 +157,7 @@
 		B0EF924E2289862C000DC283 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RegionNames.strings; sourceTree = "<group>"; };
 		B0EF924F22898637000DC283 /* uk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/RegionNames.strings; sourceTree = "<group>"; };
 		B0F2ACCD238C8FA900A9B8F7 /* OBModeSettingTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OBModeSettingTableViewController.storyboard; sourceTree = "<group>"; };
+		B0F2ACCF238C915C00A9B8F7 /* OBSettingsTableViewController+NavigationController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "OBSettingsTableViewController+NavigationController.storyboard"; sourceTree = "<group>"; };
 		B0FE111122CDDCCF001B5246 /* OBSettingsControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettingsControllerTests.swift; sourceTree = "<group>"; };
 		B0FE62A222C8119A004905B3 /* UIBezierPath+initFromJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+initFromJSON.swift"; sourceTree = "<group>"; };
 		B0FE62A422C8203B004905B3 /* CGPoint+failableInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+failableInit.swift"; sourceTree = "<group>"; };
@@ -314,6 +316,7 @@
 				B0904F92226F858E007842CA /* AppDelegate.swift */,
 				B05A884C22C54DB40013F52F /* Ukraine.json */,
 				B0904F96226F858E007842CA /* Main.storyboard */,
+				B0F2ACCF238C915C00A9B8F7 /* OBSettingsTableViewController+NavigationController.storyboard */,
 				B0F2ACCD238C8FA900A9B8F7 /* OBModeSettingTableViewController.storyboard */,
 				B0920DD1238C823E006A1085 /* OBConfirmationViewController.storyboard */,
 				B03A945C238C7F8200CCE58E /* OBLanguageSettingTableViewController.storyboard */,
@@ -429,6 +432,7 @@
 				B0E1846D2281AA21008E5C6D /* Localizable.strings in Resources */,
 				B03A9459238C7B4C00CCE58E /* OBHighscoreViewController.storyboard in Resources */,
 				B05A884D22C54DB50013F52F /* Ukraine.json in Resources */,
+				B0F2ACD0238C915C00A9B8F7 /* OBSettingsTableViewController+NavigationController.storyboard in Resources */,
 				B0E1EE1822B680D9004640D6 /* Wrong Answer Strings.m4a in Resources */,
 				B028083C238C794E00E8436F /* OBInfoViewController.storyboard in Resources */,
 				B042BEF7229C439400FE4A5C /* InfoPlist.strings in Resources */,
