@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "00:00"; ObjectID = "79Y-n6-huD"; */
+"79Y-n6-huD.text" = "00:00";
+
+/* Class = "UIButton"; normalTitle = "SETTINGS"; ObjectID = "8Sd-OY-Nkx"; */
+"8Sd-OY-Nkx.normalTitle" = "НАСТРОЙКИ";
+
+/* Class = "UIButton"; normalTitle = "НАСТРОЙКИ"; ObjectID = "9b4-Og-W0F"; */
+"9b4-Og-W0F.normalTitle" = "НАСТРОЙКИ";
+
+/* Class = "UIButton"; normalTitle = "CONTINUE"; ObjectID = "Eg7-5D-p5n"; */
+"Eg7-5D-p5n.normalTitle" = "ПРОДОЛЖИТЬ";
+
+/* Class = "UIButton"; normalTitle = "EXIT WITHOUT SAVING"; ObjectID = "YwX-Lf-brq"; */
+"YwX-Lf-brq.normalTitle" = "ВЫЙТИ НЕ СОХРАНЯЯ";
+
+/* Class = "UIButton"; normalTitle = "SAVE AND EXIT"; ObjectID = "deA-rb-you"; */
+"deA-rb-you.normalTitle" = "ВЫЙТИ И СОХРАНИТЬ";
+
+/* Class = "UIButton"; normalTitle = "ВИЙТИ І ЗБЕРЕГТИ"; ObjectID = "hF0-vT-x61"; */
+"hF0-vT-x61.normalTitle" = "ВЫЙТИ И СОХРАНИТЬ";
+
+/* Class = "UIButton"; normalTitle = "ВИЙТИ НЕ ЗБЕРІГАЮЧИ"; ObjectID = "qQe-F3-n2X"; */
+"qQe-F3-n2X.normalTitle" = "ВЫЙТИ НЕ СОХРАНЯЯ";
+
+/* Class = "UIButton"; normalTitle = "ПРОДОВЖИТИ"; ObjectID = "rEt-Ji-ftC"; */
+"rEt-Ji-ftC.normalTitle" = "ПРОДОЛЖИТЬ";

@@ -1,0 +1,12 @@
+
+/* Class = "UITableViewController"; title = "Region Name Languages"; ObjectID = "DhD-53-t5C"; */
+"DhD-53-t5C.title" = "Языки названий областей";
+
+/* Class = "UILabel"; text = "Language Target Name"; ObjectID = "jJP-8M-Of0"; */
+"jJP-8M-Of0.text" = "Название языка";
+
+/* Class = "UINavigationItem"; title = "Region Name Languages"; ObjectID = "pBy-Hb-UtO"; */
+"pBy-Hb-UtO.title" = "Языки названий областей";
+
+/* Class = "UILabel"; text = "Localized Language Name"; ObjectID = "qtR-AF-fN3"; */
+"qtR-AF-fN3.text" = "Переведенное название языка";

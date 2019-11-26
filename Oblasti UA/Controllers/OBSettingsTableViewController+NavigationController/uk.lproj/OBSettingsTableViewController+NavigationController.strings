@@ -1,0 +1,54 @@
+
+/* Class = "UITableViewSection"; footerTitle = "For example: Ivano-Frankivska"; ObjectID = "2uK-3C-9jk"; Note = "Region names section"; */
+"2uK-3C-9jk.footerTitle" = "Наприклад: Івано-Франківська";
+
+/* Class = "UITableViewSection"; headerTitle = "Region Names"; ObjectID = "2uK-3C-9jk"; Note = "Region names section"; */
+"2uK-3C-9jk.headerTitle" = "Назви областей";
+
+/* Class = "UILabel"; text = "All caps"; ObjectID = "3PO-Gy-YeA"; */
+"3PO-Gy-YeA.text" = "Всі літери великі";
+
+/* Class = "UILabel"; text = "Show correct answer"; ObjectID = "4vI-PH-UOt"; */
+"4vI-PH-UOt.text" = "Показувати правильну відповідь";
+
+/* Class = "UILabel"; text = "Restore default settings"; ObjectID = "L2o-2g-6Vx"; */
+"L2o-2g-6Vx.text" = "Відновити налаштування за замовчуванням";
+
+/* Class = "UILabel"; text = "Game with buttons"; ObjectID = "NMQ-pP-qpp"; */
+"NMQ-pP-qpp.text" = "Гра з кнопками";
+
+/* Class = "UILabel"; text = "Classic"; ObjectID = "PgA-YM-8w5"; */
+"PgA-YM-8w5.text" = "Класичний";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "QwE-ai-XRu"; */
+"QwE-ai-XRu.text" = "Мова";
+
+/* Class = "UILabel"; text = "Automatic confirmation"; ObjectID = "THM-ey-4Kc"; */
+"THM-ey-4Kc.text" = "Автоматичне підтвердження";
+
+/* Class = "UILabel"; text = "Ukrainian"; ObjectID = "TUj-2p-Wqo"; */
+"TUj-2p-Wqo.text" = "Українська";
+
+/* Class = "UITableViewSection"; headerTitle = "Sound"; ObjectID = "U4Y-tO-irL"; Note = "Region names section"; */
+"U4Y-tO-irL.headerTitle" = "Звук";
+
+/* Class = "UILabel"; text = "Automatic region change"; ObjectID = "cbX-R7-0gh"; */
+"cbX-R7-0gh.text" = "Автоматична зміна області";
+
+/* Class = "UILabel"; text = "Mode"; ObjectID = "eqc-DT-nNb"; */
+"eqc-DT-nNb.text" = "Режим";
+
+/* Class = "UILabel"; text = "Show time"; ObjectID = "erd-iO-U5C"; */
+"erd-iO-U5C.text" = "Показувати час";
+
+/* Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "eth-lZ-mql"; Note = "Main settings section"; */
+"eth-lZ-mql.headerTitle" = "Загальні";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "lNX-Zo-Msj"; */
+"lNX-Zo-Msj.title" = "Налаштування";
+
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "pJW-bZ-v7m"; */
+"pJW-bZ-v7m.title" = "Закрити";
+
+/* Class = "UILabel"; text = "Sound Effects"; ObjectID = "zhe-NA-f2x"; */
+"zhe-NA-f2x.text" = "Звукові ефекти";

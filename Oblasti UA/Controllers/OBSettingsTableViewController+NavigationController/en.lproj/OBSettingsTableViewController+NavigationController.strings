@@ -1,0 +1,54 @@
+
+/* Class = "UITableViewSection"; footerTitle = "For example: Ivano-Frankivska"; ObjectID = "2uK-3C-9jk"; Note = "Region names section"; */
+"2uK-3C-9jk.footerTitle" = "For example: Ivano-Frankivska";
+
+/* Class = "UITableViewSection"; headerTitle = "Region Names"; ObjectID = "2uK-3C-9jk"; Note = "Region names section"; */
+"2uK-3C-9jk.headerTitle" = "Region Names";
+
+/* Class = "UILabel"; text = "All caps"; ObjectID = "3PO-Gy-YeA"; */
+"3PO-Gy-YeA.text" = "All caps";
+
+/* Class = "UILabel"; text = "Show correct answer"; ObjectID = "4vI-PH-UOt"; */
+"4vI-PH-UOt.text" = "Show correct answer";
+
+/* Class = "UILabel"; text = "Restore default settings"; ObjectID = "L2o-2g-6Vx"; */
+"L2o-2g-6Vx.text" = "Restore default settings";
+
+/* Class = "UILabel"; text = "Game with buttons"; ObjectID = "NMQ-pP-qpp"; */
+"NMQ-pP-qpp.text" = "Game with buttons";
+
+/* Class = "UILabel"; text = "Classic"; ObjectID = "PgA-YM-8w5"; */
+"PgA-YM-8w5.text" = "Classic";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "QwE-ai-XRu"; */
+"QwE-ai-XRu.text" = "Language";
+
+/* Class = "UILabel"; text = "Automatic confirmation"; ObjectID = "THM-ey-4Kc"; */
+"THM-ey-4Kc.text" = "Automatic confirmation";
+
+/* Class = "UILabel"; text = "Ukrainian"; ObjectID = "TUj-2p-Wqo"; */
+"TUj-2p-Wqo.text" = "Ukrainian";
+
+/* Class = "UITableViewSection"; headerTitle = "Sound"; ObjectID = "U4Y-tO-irL"; Note = "Region names section"; */
+"U4Y-tO-irL.headerTitle" = "Sound";
+
+/* Class = "UILabel"; text = "Automatic region change"; ObjectID = "cbX-R7-0gh"; */
+"cbX-R7-0gh.text" = "Automatic region change";
+
+/* Class = "UILabel"; text = "Mode"; ObjectID = "eqc-DT-nNb"; */
+"eqc-DT-nNb.text" = "Mode";
+
+/* Class = "UILabel"; text = "Show time"; ObjectID = "erd-iO-U5C"; */
+"erd-iO-U5C.text" = "Show time";
+
+/* Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "eth-lZ-mql"; Note = "Main settings section"; */
+"eth-lZ-mql.headerTitle" = "General";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "lNX-Zo-Msj"; */
+"lNX-Zo-Msj.title" = "Settings";
+
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "pJW-bZ-v7m"; */
+"pJW-bZ-v7m.title" = "Close";
+
+/* Class = "UILabel"; text = "Sound Effects"; ObjectID = "zhe-NA-f2x"; */
+"zhe-NA-f2x.text" = "Sound Effects";

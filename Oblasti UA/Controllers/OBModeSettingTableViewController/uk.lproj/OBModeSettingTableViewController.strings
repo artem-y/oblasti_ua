@@ -1,0 +1,15 @@
+
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "6Q8-cb-5HI"; Note = "Bar button item"; */
+"6Q8-cb-5HI.title" = "Закрити";
+
+/* Class = "UILabel"; text = "Mode description"; ObjectID = "UI9-zU-6pa"; */
+"UI9-zU-6pa.text" = "Опис режиму";
+
+/* Class = "UITableViewController"; title = "Mode: Classic"; ObjectID = "exk-iq-glt"; */
+"exk-iq-glt.title" = "Режим: класичний";
+
+/* Class = "UINavigationItem"; title = "Mode: Classic"; ObjectID = "h15-G5-NDC"; */
+"h15-G5-NDC.title" = "Режим: класичний";
+
+/* Class = "UILabel"; text = "Mode name"; ObjectID = "rkb-uB-OD5"; */
+"rkb-uB-OD5.text" = "Назва режиму";

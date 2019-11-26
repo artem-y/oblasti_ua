@@ -1,195 +1,21 @@
 
-/* Class = "UILabel"; text = "Mistakes: 0"; ObjectID = "27w-tp-ers"; */
-"27w-tp-ers.text" = "Ошибок: 0";
-
-/* Class = "UINavigationItem"; title = "Mode: Classic"; ObjectID = "2KZ-P8-B8E"; */
-"2KZ-P8-B8E.title" = "Режим: классический";
-
-/* Class = "UITextView"; text = "Please, notice: region boundaries and borders of Ukraine are depicted approximately and can be different from real proportions and geografic coordinates."; ObjectID = "3IK-kW-DEU"; */
-"3IK-kW-DEU.text" = "Пожалуйста, обратите внимание: границы регионов и Украины изображены приблизительно и могут не совпадать с реальными пропорциями и географическими координатами.";
-
-/* Class = "UILabel"; text = "00:00"; ObjectID = "3Mx-wt-o0x"; */
-"3Mx-wt-o0x.text" = "00:00";
-
-/* Class = "UILabel"; text = "Ukrainian"; ObjectID = "dX8-eT-rzL"; */
-"dX8-eT-rzL.text" = "Украинский";
-
-/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "4Zb-ZX-Yce"; */
-"4Zb-ZX-Yce.title" = "Настройки";
-
-/* Class = "UILabel"; text = "Time: 00:00:000"; ObjectID = "5go-ty-aM5"; */
-"5go-ty-aM5.text" = "Время: 00:00:000";
-
-/* Class = "UILabel"; text = "Show correct answer"; ObjectID = "63r-8s-JME"; */
-"63r-8s-JME.text" = "Показывать правильный ответ";
-
-/* Class = "UITableViewSection"; headerTitle = "Sound"; ObjectID = "6QK-CU-3wO"; Note = "Region names section"; */
-"6QK-CU-3wO.headerTitle" = "Звук";
-
-/* Class = "UILabel"; text = "Classic"; ObjectID = "6QQ-Fx-Nuc"; */
-"6QQ-Fx-Nuc.text" = "Классический";
-
-/* Class = "UILabel"; text = "Language"; ObjectID = "vZC-25-MdH"; */
-"vZC-25-MdH.text" = "Язык";
-
 /* Class = "UIButton"; normalTitle = "Warning"; ObjectID = "7fh-uD-60M"; */
 "7fh-uD-60M.normalTitle" = "Предупреждение";
-
-/* Class = "UILabel"; text = "Mistakes: 0"; ObjectID = "ACb-Mh-g9s"; */
-"ACb-Mh-g9s.text" = "Ошибок: 0";
-
-/* Class = "UILabel"; text = "Mistakes: 0"; ObjectID = "AaG-wr-vqE"; */
-"AaG-wr-vqE.text" = "Ошибок: 0";
-
-/* Class = "UITableViewController"; title = "Mode: Classic"; ObjectID = "B36-X3-Qfo"; */
-"B36-X3-Qfo.title" = "Режим: классический";
-
-/* Class = "UILabel"; text = "The game will not be saved"; ObjectID = "Bwf-pB-QJH"; */
-"Bwf-pB-QJH.text" = "Игра не будет сохранена";
-
-/* Class = "UIButton"; normalTitle = "CONTINUE"; ObjectID = "DIW-Bg-IES"; */
-"DIW-Bg-IES.normalTitle" = "ПРОДОЛЖИТЬ";
-
-/* Class = "UIButton"; normalTitle = "EXIT WITHOUT SAVING"; ObjectID = "GIo-Fr-0Oy"; */
-"GIo-Fr-0Oy.normalTitle" = "ВЫЙТИ НЕ СОХРАНЯЯ";
-
-/* Class = "UIButton"; normalTitle = "SETTINGS"; ObjectID = "GTy-nL-oBA"; */
-"GTy-nL-oBA.normalTitle" = "НАСТРОЙКИ";
-
-/* Class = "UILabel"; text = "Time: 00:00:000"; ObjectID = "Gt5-pm-pW4"; */
-"Gt5-pm-pW4.text" = "Время: 00:00:000";
-
-/* Class = "UILabel"; text = "Time: 00:00:000"; ObjectID = "HeD-mm-Cpu"; */
-"HeD-mm-Cpu.text" = "Время: 00:00:000";
-
-/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "IaH-9J-Nh9"; */
-"IaH-9J-Nh9.normalTitle" = "ОК";
-
-/* Class = "UIButton"; normalTitle = "YES"; ObjectID = "LM7-6e-2pV"; */
-"LM7-6e-2pV.normalTitle" = "ДА";
 
 /* Class = "UIButton"; normalTitle = "Instruction"; ObjectID = "Mxk-mn-rm2"; */
 "Mxk-mn-rm2.normalTitle" = "Инструкция";
 
-/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "MzO-eR-PD2"; */
-"MzO-eR-PD2.title" = "Закрыть";
-
-/* Class = "UILabel"; text = "All caps"; ObjectID = "QVj-ph-XzT"; */
-"QVj-ph-XzT.text" = "Все буквы большие";
-
-/* Class = "UILabel"; text = "Mode: Classic"; ObjectID = "Rh6-BA-aLv"; */
-"Rh6-BA-aLv.text" = "Режим: классический";
-
-/* Class = "UIButton"; normalTitle = "GOOD"; ObjectID = "TxI-Fw-tkC"; */
-"TxI-Fw-tkC.normalTitle" = "ХОРОШО";
-
-/* Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "Udg-Wb-oD8"; Note = "Main settings section"; */
-"Udg-Wb-oD8.headerTitle" = "Общие";
-
-/* Class = "UILabel"; text = "Show time"; ObjectID = "W57-oX-WyM"; */
-"W57-oX-WyM.text" = "Показывать время";
-
-/* Class = "UITextField"; placeholder = "Ivano-Frankivska"; ObjectID = "ZDR-c8-G93"; */
-"ZDR-c8-G93.placeholder" = "Ивано-Франковская";
-
 /* Class = "UIButton"; normalTitle = "CONTINUE"; ObjectID = "aNY-Rc-yXA"; */
 "aNY-Rc-yXA.normalTitle" = "ПРОДОЛЖИТЬ";
-
-/* Class = "UIButton"; normalTitle = "EXIT WITHOUT SAVING"; ObjectID = "eTi-aq-A4d"; */
-"eTi-aq-A4d.normalTitle" = "ВЫЙТИ НЕ СОХРАНЯЯ";
-
-/* Class = "UILabel"; text = "Mode"; ObjectID = "KuN-2X-hXG"; */
-"KuN-2X-hXG.text" = "Режим";
-
-/* Class = "UINavigationItem"; title = "Region Name Languages"; ObjectID = "gDB-cZ-Tfw"; */
-"gDB-cZ-Tfw.title" = "Язык названий областей";
-
-/* Class = "UILabel"; text = "Classic"; ObjectID = "hV1-VB-09M"; */
-"hV1-VB-09M.text" = "Классический";
-
-/* Class = "UILabel"; text = "Automatic confirmation"; ObjectID = "iuK-eM-qmK"; */
-"iuK-eM-qmK.text" = "Автоматическое подтверждение";
-
-/* Class = "UILabel"; text = "Are you sure?"; ObjectID = "j8L-ru-eNu"; */
-"j8L-ru-eNu.text" = "Вы уверены?";
-
-/* Class = "UITableViewSection"; footerTitle = "For example: Ivano-Frankivska"; ObjectID = "jAi-4Z-lJt"; Note = "Region names section"; */
-"jAi-4Z-lJt.footerTitle" = "Например: Ивано-Франковская";
-
-/* Class = "UITableViewSection"; headerTitle = "Region Names"; ObjectID = "jAi-4Z-lJt"; Note = "Region names section"; */
-"jAi-4Z-lJt.headerTitle" = "Названия областей";
-
-/* Class = "UIButton"; normalTitle = "SAVE AND EXIT"; ObjectID = "jgr-27-abm"; */
-"jgr-27-abm.normalTitle" = "ВЫЙТИ И СОХРАНИТЬ";
-
-/* Class = "UILabel"; text = "Language Target Name"; ObjectID = "jiu-Xs-idg"; */
-"jiu-Xs-idg.text" = "Название языка";
-
-/* Class = "UIButton"; normalTitle = "CONTINUE"; ObjectID = "lHb-Kb-ejW"; */
-"lHb-Kb-ejW.normalTitle" = "ПРОДОЛЖИТЬ";
-
-/* Class = "UILabel"; text = "Automatic region change"; ObjectID = "oOA-h9-n5T"; */
-"oOA-h9-n5T.text" = "Автоматическая смена области";
-
-/* Class = "UILabel"; text = "Ivano-Frankivska"; ObjectID = "oRd-AT-Glx"; */
-"oRd-AT-Glx.text" = "Ивано-Франковская";
-
-/* Class = "UIButton"; normalTitle = "SAVE AND EXIT"; ObjectID = "pKC-CI-K1i"; */
-"pKC-CI-K1i.normalTitle" = "ВЫЙТИ И СОХРАНИТЬ";
-
-/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "psy-vb-mWa"; */
-"psy-vb-mWa.normalTitle" = "ОК";
-
-/* Class = "UILabel"; text = "No Repetitions"; ObjectID = "pxB-4O-cIO"; */
-"pxB-4O-cIO.text" = "Без повторений";
-
-/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "qei-1A-vxR"; Note = "Bar button item"; */
-"qei-1A-vxR.title" = "Закрыть";
 
 /* Class = "UIButton"; normalTitle = "Mode: No Repetitions"; ObjectID = "qpi-uT-xOU"; */
 "qpi-uT-xOU.normalTitle" = "Режим: без повторений";
 
-/* Class = "UILabel"; text = "Mode description"; ObjectID = "tEF-5K-mDz"; */
-"tEF-5K-mDz.text" = "Описание режима";
-
-/* Class = "UILabel"; text = "Sound Effects"; ObjectID = "tJW-Fh-L9B"; */
-"tJW-Fh-L9B.text" = "Звуковые эффекты";
-
-/* Class = "UIButton"; normalTitle = "NO"; ObjectID = "tRb-sk-Ugx"; */
-"tRb-sk-Ugx.normalTitle" = "НЕТ";
-
 /* Class = "UIButton"; normalTitle = "Highscore"; ObjectID = "tZ5-78-1wO"; */
 "tZ5-78-1wO.normalTitle" = "Рекорд";
-
-/* Class = "UILabel"; text = "00:00"; ObjectID = "xBa-TZ-adO"; */
-"xBa-TZ-adO.text" = "00:00";
-
-/* Class = "UILabel"; text = "Find region"; ObjectID = "yDD-6g-BWL"; */
-"yDD-6g-BWL.text" = "Найдите область";
-
-/* Class = "UILabel"; text = "Game with buttons"; ObjectID = "yGN-td-sPn"; */
-"yGN-td-sPn.text" = "Игра с кнопками";
 
 /* Class = "UIButton"; normalTitle = "NEW GAME"; ObjectID = "yyv-Uh-ZBL"; */
 "yyv-Uh-ZBL.normalTitle" = "НОВАЯ ИГРА";
 
-/* Class = "UITableViewController"; title = "Custom Region Names"; ObjectID = "z3K-Dw-5fj"; */
-"z3K-Dw-5fj.title" = "Свой вариант названий";
-
-/* Class = "UILabel"; text = "Mode name"; ObjectID = "z7K-bX-fQJ"; */
-"z7K-bX-fQJ.text" = "Название режима";
-
-/* Class = "UILabel"; text = "Localized Language Name"; ObjectID = "zM2-Ye-N1e"; */
-"zM2-Ye-N1e.text" = "Переведенное название языка";
-
-/* Class = "UIButton"; normalTitle = "SETTINGS"; ObjectID = "zNz-X4-uNN"; */
-"zNz-X4-uNN.normalTitle" = "НАСТРОЙКИ";
-
 /* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "zZd-9v-sXi"; */
 "zZd-9v-sXi.normalTitle" = "Настройки";
-
-/* Class = "UILabel"; text = "Restore default settings"; ObjectID = "zeF-mg-4N3"; */
-"zeF-mg-4N3.text" = "Восстановить значения по умолчанию";
-
-/* Class = "UITableViewController"; title = "Region Name Languages"; ObjectID = "zhA-Xz-SdZ"; */
-"zhA-Xz-SdZ.title" = "Языки названий областей";

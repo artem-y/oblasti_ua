@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "NO"; ObjectID = "Gw8-tc-ecH"; */
+"Gw8-tc-ecH.normalTitle" = "ДА";
+
+/* Class = "UIButton"; normalTitle = "YES"; ObjectID = "Xrw-pM-gSc"; */
+"Xrw-pM-gSc.normalTitle" = "НЕТ";
+
+/* Class = "UILabel"; text = "Are you sure?"; ObjectID = "hCM-Ve-Id5"; */
+"hCM-Ve-Id5.text" = "Вы уверены?";
+
+/* Class = "UILabel"; text = "The game will not be saved"; ObjectID = "y07-FZ-Xnx"; */
+"y07-FZ-Xnx.text" = "Игра не будет сохранена";

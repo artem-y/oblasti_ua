@@ -1,0 +1,9 @@
+
+/* Class = "UITableViewController"; title = "Custom Region Names"; ObjectID = "7tA-sN-sRE"; */
+"7tA-sN-sRE.title" = "Свой вариант названий";
+
+/* Class = "UILabel"; text = "Ivano-Frankivska"; ObjectID = "kgf-8c-2Tx"; */
+"kgf-8c-2Tx.text" = "Ивано-Франковская";
+
+/* Class = "UITextField"; placeholder = "Ivano-Frankivska"; ObjectID = "xHu-SU-603"; */
+"xHu-SU-603.placeholder" = "Ивано-Франковская";

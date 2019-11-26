@@ -1,0 +1,15 @@
+
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "6Q8-cb-5HI"; Note = "Bar button item"; */
+"6Q8-cb-5HI.title" = "Close";
+
+/* Class = "UILabel"; text = "Mode description"; ObjectID = "UI9-zU-6pa"; */
+"UI9-zU-6pa.text" = "Mode description";
+
+/* Class = "UITableViewController"; title = "Mode: Classic"; ObjectID = "exk-iq-glt"; */
+"exk-iq-glt.title" = "Mode: Classic";
+
+/* Class = "UINavigationItem"; title = "Mode: Classic"; ObjectID = "h15-G5-NDC"; */
+"h15-G5-NDC.title" = "Mode: Classic";
+
+/* Class = "UILabel"; text = "Mode name"; ObjectID = "rkb-uB-OD5"; */
+"rkb-uB-OD5.text" = "Mode name";

@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Mode: Classic"; ObjectID = "Zia-g6-YI4"; */
+"Zia-g6-YI4.text" = "Mode: Classic";
+
+/* Class = "UILabel"; text = "Mistakes: 0"; ObjectID = "gbN-TA-LPo"; */
+"gbN-TA-LPo.text" = "Mistakes: 0";
+
+/* Class = "UIButton"; normalTitle = "GOOD"; ObjectID = "mjc-aK-Ck8"; */
+"mjc-aK-Ck8.normalTitle" = "GOOD";
+
+/* Class = "UILabel"; text = "Time: 00:00:000"; ObjectID = "yLb-jH-uqW"; */
+"yLb-jH-uqW.text" = "Time: 00:00:000";

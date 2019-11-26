@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Mistakes: 0"; ObjectID = "EnW-mh-Lvl"; */
+"EnW-mh-Lvl.text" = "Mistakes: 0";
+
+/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "GXW-6a-S9x"; */
+"GXW-6a-S9x.normalTitle" = "OK";
+
+/* Class = "UILabel"; text = "Time: 00:00:000"; ObjectID = "Jtw-an-bIS"; */
+"Jtw-an-bIS.text" = "Time: 00:00:000";
+
+/* Class = "UILabel"; text = "Time: 00:00:000"; ObjectID = "NzR-kd-9Ua"; */
+"NzR-kd-9Ua.text" = "Time: 00:00:000";
+
+/* Class = "UILabel"; text = "No Repetitions"; ObjectID = "S7Y-vU-wkD"; */
+"S7Y-vU-wkD.text" = "No Repetitions";
+
+/* Class = "UILabel"; text = "Classic"; ObjectID = "cam-zW-SD1"; */
+"cam-zW-SD1.text" = "Classic";
+
+/* Class = "UILabel"; text = "Mistakes: 0"; ObjectID = "kJ4-Ph-MD1"; */
+"kJ4-Ph-MD1.text" = "Mistakes: 0";
