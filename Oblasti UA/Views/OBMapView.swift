@@ -17,14 +17,11 @@ class OBMapView: UIImageView {
     /// Current selected layer.
     var selectedLayer: CAShapeLayer? {
         didSet {
-            layer.sublayers?.forEach({ (sublayer) in
-                if let shapeLayer = sublayer as? CAShapeLayer {
-                    shapeLayer.fillColor = .unselectedRegionColor
-                    if shapeLayer == selectedLayer {
-                        shapeLayer.fillColor = .selectedRegionColor
-                    }
-                }
-            })
+            layer.sublayers?
+                .compactMap { $0 as? CAShapeLayer }
+                .forEach {
+                    $0.fillColor = ($0 == selectedLayer) ? .selectedRegionColor : .unselectedRegionColor
+            }
         }
     }
     

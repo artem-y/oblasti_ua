@@ -61,9 +61,7 @@ struct OBGame {
     var regionsLeft: [OBRegion] = [] {
         didSet {
             // This prevents accidental assigning of regions
-            regionsLeft = regionsLeft.filter({ (region) -> Bool in
-                return gameRegions.contains(region)
-            })
+            regionsLeft = regionsLeft.filter { gameRegions.contains($0) }
         }
     }
     
@@ -127,15 +125,11 @@ extension OBGame: Codable {
 
         let gameRegionsNames = try values.decode([String].self, forKey: .gameRegions)
         gameRegions = gameRegionsNames
-            .map({
-                OBRegion(name: $0, path: UIBezierPath())
-            })
+            .map { OBRegion(name: $0, path: UIBezierPath()) }
     
         let regionsLeftNames = try values.decode([String].self, forKey: .regionsLeft)
         regionsLeft = regionsLeftNames
-            .map({
-                OBRegion(name: $0, path: UIBezierPath())
-            })
+            .map { OBRegion(name: $0, path: UIBezierPath()) }
         
         mistakesCount = try values.decode(Int.self, forKey: .mistakesCount)
         timePassed = try values.decode(TimeInterval.self, forKey: .timePassed)

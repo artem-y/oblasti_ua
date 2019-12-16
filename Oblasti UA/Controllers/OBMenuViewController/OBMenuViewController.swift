@@ -75,12 +75,9 @@ extension OBMenuViewController {
         
         switch segue.identifier {
         case OBResources.SegueIdentifier.presentSettingsSegue:
-            if let destinationVC = segue.destination as? OBSettingsNavigationController {
-                if let sender = sender as? UIButton, sender == modeButton {
-                    destinationVC.performSegue(withIdentifier: OBResources.SegueIdentifier.showOnlyModeSettingSegue, sender: nil)
-                }
-            }
-            
+            guard let destinationVC = segue.destination as? OBSettingsNavigationController, (sender as? UIButton) == modeButton else { return }
+            destinationVC.performSegue(withIdentifier: OBResources.SegueIdentifier.showOnlyModeSettingSegue, sender: nil)
+
         default:
             break
         }
@@ -111,13 +108,11 @@ extension OBMenuViewController {
     }
     
     private func configureHighscoreButton() {
-        var hasHighscore = false
-        
         // If there is a highscore set for at least one mode, the button is enabled
-        if standardDefaults.value(forKey: DefaultsKey.classicHighscore) != nil || standardDefaults.value(forKey: DefaultsKey.norepeatHighscore) != nil {
-            
-            hasHighscore = true
-        }
+        let hasHighscore = (
+            standardDefaults.value(forKey: DefaultsKey.classicHighscore) != nil ||
+            standardDefaults.value(forKey: DefaultsKey.norepeatHighscore) != nil
+        )
         highscoreButton.isEnabled = hasHighscore
     }
     

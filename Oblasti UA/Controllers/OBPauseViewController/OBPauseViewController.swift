@@ -90,15 +90,13 @@ extension OBPauseViewController {
         
         switch segue.identifier {
         case OBResources.SegueIdentifier.showSettingsFromGamePauseSegue:
-            if let destinationVC = segue.destination as? OBSettingsNavigationController, let topVC = destinationVC.topViewController as? OBSettingsTableViewController {
-                topVC.gameInProgressGameMode = gameMode
-            }
+            guard let destinationVC = segue.destination as? OBSettingsNavigationController, let topVC = destinationVC.topViewController as? OBSettingsTableViewController else { return }
+            topVC.gameInProgressGameMode = gameMode
         case OBResources.SegueIdentifier.exitConfirmationSegue:
-            if let destinationVC = segue.destination as? OBConfirmationViewController {
-                destinationVC.messageText = "The game will not be saved".localized()
-                destinationVC.confirmationHandler = { [unowned self] in
-                    self.quitGame()
-                }
+            guard let destinationVC = segue.destination as? OBConfirmationViewController else { return }
+            destinationVC.messageText = "The game will not be saved".localized()
+            destinationVC.confirmationHandler = { [unowned self] in
+                self.quitGame()
             }
         default:
             break

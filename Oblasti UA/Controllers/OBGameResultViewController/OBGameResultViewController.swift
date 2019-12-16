@@ -42,9 +42,8 @@ extension OBGameResultViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if settings.playesSoundEffects {
-            playSound()
-        }
+        guard settings.playesSoundEffects else { return }
+        playSound()
     }
 }
 
@@ -56,34 +55,34 @@ extension OBGameResultViewController: OBDefaultsKeyControllable { }
 
 extension OBGameResultViewController {
     private func checkHighscore() {
-        if let gameResult = gameResult {
-            var highscoreKey = ""
-            switch gameResult.mode {
-            case .classic:
-                highscoreKey = DefaultsKey.classicHighscore
-            case .norepeat:
-                highscoreKey = DefaultsKey.norepeatHighscore
-            default:
-                break
-            }
+        guard let gameResult = gameResult else { return }
+        var highscoreKey = ""
+        
+        switch gameResult.mode {
+        case .classic:
+            highscoreKey = DefaultsKey.classicHighscore
+        case .norepeat:
+            highscoreKey = DefaultsKey.norepeatHighscore
+        default:
+            break
+        }
+        
+        if let highscoreData = standardDefaults.value(forKey: highscoreKey) as? Data, let highscore = try? JSONDecoder().decode(OBGame.self, from: highscoreData) {
             
-            if let highscoreData = standardDefaults.value(forKey: highscoreKey) as? Data, let highscore = try? JSONDecoder().decode(OBGame.self, from: highscoreData) {
-                
-                if gameResult > highscore {
-                    isNewHighscore = true
-
-                    let jsonEncoder = JSONEncoder()
-                    if let jsonData = try? jsonEncoder.encode(gameResult) {
-                        standardDefaults.set(jsonData, forKey: highscoreKey)
-                    }
-                }
-            } else {
+            if gameResult > highscore {
                 isNewHighscore = true
                 
                 let jsonEncoder = JSONEncoder()
                 if let jsonData = try? jsonEncoder.encode(gameResult) {
                     standardDefaults.set(jsonData, forKey: highscoreKey)
                 }
+            }
+        } else {
+            isNewHighscore = true
+            
+            let jsonEncoder = JSONEncoder()
+            if let jsonData = try? jsonEncoder.encode(gameResult) {
+                standardDefaults.set(jsonData, forKey: highscoreKey)
             }
         }
     }

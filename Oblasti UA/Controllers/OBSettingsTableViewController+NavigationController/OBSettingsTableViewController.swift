@@ -57,9 +57,8 @@ final class OBSettingsTableViewController: UITableViewController {
             return OBSettingsController.shared.settings
         }
         set {
-            if OBSettingsController.shared.settings != newValue {
-                OBSettingsController.shared.settings = newValue
-            }
+            guard OBSettingsController.shared.settings != newValue else { return }
+            OBSettingsController.shared.settings = newValue
         }
     }
     // 'Convenience' property. If 'gameInProgressGameMode' is not nil, it means there is a game in progress, and settings viewcontroller was called from within it - and it cannot be changed till the end of/quitting from current game.
@@ -100,18 +99,18 @@ extension OBSettingsTableViewController {
         
         switch segue.identifier {
         case OBResources.SegueIdentifier.showModeSettingFromSettingsControllerSegue:
-            if let destinationVC = segue.destination as? OBModeSettingTableViewController {
-                
-                destinationVC.hidesBackButton = false
-            }
+            guard let destinationVC = segue.destination as? OBModeSettingTableViewController else { return }
+            
+            destinationVC.hidesBackButton = false
+
         case OBResources.SegueIdentifier.restoreDefaultsConfirmationSegue:
-            if let destinationVC = segue.destination as? OBConfirmationViewController {
-                
-                destinationVC.messageText = "Settings will be reset to defaults. This action cannot be undone.".localized()
-                destinationVC.confirmationHandler = { [unowned self] in
-                    self.settings = OBSettings.default
-                }
+            guard let destinationVC = segue.destination as? OBConfirmationViewController else { return }
+            
+            destinationVC.messageText = "Settings will be reset to defaults. This action cannot be undone.".localized()
+            destinationVC.confirmationHandler = { [unowned self] in
+                self.settings = OBSettings.default
             }
+            
         default:
             break
         }

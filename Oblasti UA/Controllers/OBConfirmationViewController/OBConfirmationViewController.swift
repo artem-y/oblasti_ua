@@ -36,9 +36,8 @@ final class OBConfirmationViewController: UIViewController, OBPresentationStyleA
     // MARK: - @IBActions
     @IBAction func didChooseAction(_ sender: OBRoundCornerButton) {
         dismiss(animated: true) { [unowned self, unowned sender] in
-            if sender == self.confirmButton {
-                self.confirmationHandler?()
-            }
+            guard sender == self.confirmButton else { return }
+            self.confirmationHandler?()
         }
     }
     

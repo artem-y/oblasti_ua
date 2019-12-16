@@ -22,16 +22,16 @@ final class OBSettingsController: NSObject {
     /// Game settings. Send notifications on value change
     var settings: OBSettings! {
         didSet {
-            if oldValue != settings {
-                saveSettings()
-                NotificationCenter.default.post(Notification(name: .OBSettingsChanged))
-                
-                if oldValue?.gameMode != settings.gameMode {
-                    NotificationCenter.default.post(Notification(name: .OBGameModeChanged))
-                }
-                if oldValue?.showsTime != settings.showsTime {
-                    NotificationCenter.default.post(Notification(name: .OBShowTimeSettingChanged))
-                }
+            guard oldValue != settings else { return }
+
+            saveSettings()
+            NotificationCenter.default.post(Notification(name: .OBSettingsChanged))
+            
+            if oldValue?.gameMode != settings.gameMode {
+                NotificationCenter.default.post(Notification(name: .OBGameModeChanged))
+            }
+            if oldValue?.showsTime != settings.showsTime {
+                NotificationCenter.default.post(Notification(name: .OBShowTimeSettingChanged))
             }
         }
     }

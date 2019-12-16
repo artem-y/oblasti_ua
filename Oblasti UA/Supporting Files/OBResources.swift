@@ -120,13 +120,13 @@ struct OBResources {
             let regionsData = jsonData.dictionaries(forKey: JSONKey.regions)
             else { return [] }
 
-        for regionData in regionsData {
-            guard let regionName = regionData.string(forKey: JSONKey.name),
-                let pathData = regionData.dictionaries(forKey: JSONKey.path)
-                else { continue }
+        regionsData.forEach {
+            guard let regionName = $0.string(forKey: JSONKey.name),
+                let pathData = $0.dictionaries(forKey: JSONKey.path)
+                else { return }
             
             let path = UIBezierPath(json: pathData)
-            guard !path.isEmpty else { continue }
+            guard !path.isEmpty else { return }
             let region = OBRegion(name: regionName, path: path)
             regions.append(region)
             

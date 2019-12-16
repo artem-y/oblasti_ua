@@ -78,9 +78,9 @@ final class OBGameController {
             }
             delegate?.reactToWrongChoice()
         }
-        if game.mode != .pointer {
-            nextQuestion()
-        }
+
+        guard game.mode != .pointer else { return }
+        nextQuestion()
     }
     
     /// Removes region that equals current region from the collection of regions left

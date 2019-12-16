@@ -13,12 +13,11 @@ final class OBCustomRegionNamesTableViewController: UITableViewController {
     
     private var regionNames: [String: String] = [:] {
         didSet {
-            if oldValue != regionNames {
-                saveRegionNames()
-                sortedRegionNameKeys = regionNames.keys.sorted(by: { [unowned self] in
-                    self.localizedRegionName($0) < self.localizedRegionName($1)
-                })
-            }
+            guard oldValue != regionNames else { return }
+            saveRegionNames()
+            sortedRegionNameKeys = regionNames.keys.sorted(by: { [unowned self] in
+                self.localizedRegionName($0) < self.localizedRegionName($1)
+            })
         }
     }
     private var sortedRegionNameKeys: [String] = []
@@ -62,16 +61,15 @@ extension OBCustomRegionNamesTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let regionNameCell = tableView.cellForRow(at: indexPath) as? OBCustomRegionNameCell {
-            set(textField: regionNameCell.customNameTextField, editing: true)
-        }
+        guard let regionNameCell = tableView.cellForRow(at: indexPath) as? OBCustomRegionNameCell else { return }
         
+        set(textField: regionNameCell.customNameTextField, editing: true)
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        if let regionNameCell = tableView.cellForRow(at: indexPath) as? OBCustomRegionNameCell {
-            set(textField: regionNameCell.customNameTextField, editing: false)
-        }
+        guard let regionNameCell = tableView.cellForRow(at: indexPath) as? OBCustomRegionNameCell else { return }
+        
+        set(textField: regionNameCell.customNameTextField, editing: false)
     }
 }
 
@@ -79,12 +77,14 @@ extension OBCustomRegionNamesTableViewController {
 
 extension OBCustomRegionNamesTableViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
-        if reason == .committed {
-            if let parentCell = textField.superview?.superview?.superview as? OBCustomRegionNameCell, let indexPath = tableView.indexPath(for: parentCell) {
-                let regionNameKey = sortedRegionNameKeys[indexPath.row]
-                regionNames[regionNameKey] = textField.text ?? ""
-            }
-        }
+        guard reason == .committed,
+            let parentCell = textField.superview?.superview?.superview as? OBCustomRegionNameCell,
+            let indexPath = tableView.indexPath(for: parentCell)
+            else { return }
+
+        let regionNameKey = sortedRegionNameKeys[indexPath.row]
+        regionNames[regionNameKey] = textField.text ?? ""
+            
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

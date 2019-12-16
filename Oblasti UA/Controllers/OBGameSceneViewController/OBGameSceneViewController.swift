@@ -302,8 +302,7 @@ extension OBGameSceneViewController {
                 let location = gameView.convert(sender.location(in: gameView), to: mapView)
                 
                 // Check if it is second tap on already selected layer. If yes, confirm selection and return
-                if let selectedRegionPath = mapView.selectedLayer?.path,
-                    selectedRegionPath.contains(location) {
+                if let selectedRegionPath = mapView.selectedLayer?.path, selectedRegionPath.contains(location) {
                     if gameMode == .pointer {
                         cancelSelection()
                     } else {
@@ -314,34 +313,33 @@ extension OBGameSceneViewController {
                 
                 var regionsContainLocation = false
                 
-                gameController.regions.forEach { region in
-                    if region.path.contains(location) {
-                        
-                        mapView.selectedLayer = mapView.sublayer(named: region.name)
-                        if gameMode == .pointer {
-                            gameController.currentRegion = region
-                        }
-                        reloadCurrentRegionName()
-                        regionLabel.textColor = .selectedRegionColor
-                        
-                        if showsButtons && !autoConfirmsSelection {
-                            // Animation: View with 'confirm' button slides out into the screen from the right
-                            singleTapRecognizer.isEnabled = false
-                            let oldFrame = bottomRightConfirmationView.frame
-                            bottomRightConfirmationView.frame = CGRect(origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y), size: oldFrame.size)
-                            bottomRightConfirmationView.isHidden = false
-                            
-                            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseOut, animations: {
-                                [unowned self] in
-                                self.bottomRightConfirmationView.frame = oldFrame
-                                // This prevents reenabling tap gestures after the game is finished
-                                self.singleTapRecognizer.isEnabled = self.isRunningGame
-                            })
-                        }
-                        
-                        regionsContainLocation = true
-                        return
+                for region in gameController.regions {
+                    guard region.path.contains(location) else { continue }
+                    
+                    mapView.selectedLayer = mapView.sublayer(named: region.name)
+                    if gameMode == .pointer {
+                        gameController.currentRegion = region
                     }
+                    reloadCurrentRegionName()
+                    regionLabel.textColor = .selectedRegionColor
+                    
+                    if showsButtons && !autoConfirmsSelection {
+                        // Animation: View with 'confirm' button slides out into the screen from the right
+                        singleTapRecognizer.isEnabled = false
+                        let oldFrame = bottomRightConfirmationView.frame
+                        bottomRightConfirmationView.frame = CGRect(origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y), size: oldFrame.size)
+                        bottomRightConfirmationView.isHidden = false
+                        
+                        UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseOut, animations: {
+                            [unowned self] in
+                            self.bottomRightConfirmationView.frame = oldFrame
+                            // This prevents reenabling tap gestures after the game is finished
+                            self.singleTapRecognizer.isEnabled = self.isRunningGame
+                        })
+                    }
+                    
+                    regionsContainLocation = true
+                    break
                 }
                 
                 // Check if tapped anywhere outside the regions
@@ -406,7 +404,6 @@ extension OBGameSceneViewController {
                 if completed {
                     self.bottomLeftChoiceView.isHidden = true
                     self.bottomLeftChoiceView.frame = oldFrame
-                    //                self.isRecognizerEnabled = true
                 }
             }
         }
@@ -430,10 +427,11 @@ extension OBGameSceneViewController {
         mapView.selectedLayer?.fillColor = selectionColor.cgColor
         
         // If enabled in settings, show where was the correct region
-        if settings.showsCorrectAnswer && !isCorrect {
-            if let currentRegion = gameController.currentRegion, let correctRegionLayer = mapView.sublayer(named: currentRegion.name) {
+        if settings.showsCorrectAnswer && !isCorrect,
+            let currentRegion = gameController.currentRegion,
+            let correctRegionLayer = mapView.sublayer(named: currentRegion.name) {
+            
                 correctRegionLayer.fillColor = .correctSelectionColor
-            }
         }
         
         // If sound is on, play sound
@@ -462,8 +460,6 @@ extension OBGameSceneViewController {
             { [unowned self]
                 (completed) in
                 if completed {
-                    // This prevents reenabling tap gestures after the game is finished
-                    //                            self.isRecognizerEnabled = self.isRunningGame
                     self.completeShowingChoiceResult()
                 }
             }
@@ -474,10 +470,9 @@ extension OBGameSceneViewController {
     
     /// If enabled in settings, calls next region and cancels selection
     private func completeShowingChoiceResult() {
-        if settings.changesRegionAutomatically {
-            singleTapRecognizer.isEnabled = false
-            perform(#selector(cancelSelection), with: nil, afterDelay: animationDuration * 1.5)
-        }
+        guard settings.changesRegionAutomatically else { return }
+        singleTapRecognizer.isEnabled = false
+        perform(#selector(cancelSelection), with: nil, afterDelay: animationDuration * 1.5)
     }
     
 }
