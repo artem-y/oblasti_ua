@@ -11,17 +11,18 @@ import UIKit
 final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllable {
     
     // MARK: - @IBOutlets
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var gameView: UIView!
-    @IBOutlet weak var regionLabel: UILabel!
-    @IBOutlet weak var confirmButton: UIButton!
-    @IBOutlet weak var pauseButton: UIButton!
-    @IBOutlet weak var topRightInfoView: UIView!
-    @IBOutlet weak var bottomRightConfirmationView: UIView!
-    @IBOutlet weak var bottomLeftChoiceView: UIView!
-    @IBOutlet weak var bottomLeftIndicator: UIImageView!
-    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var backgroundView: UIView!
+    @IBOutlet private weak var gameView: UIView!
+    @IBOutlet private weak var regionLabel: UILabel!
+    @IBOutlet private weak var confirmButton: UIButton!
+    @IBOutlet private weak var pauseButton: UIButton!
+    @IBOutlet private weak var topRightInfoView: UIView!
+    @IBOutlet private weak var bottomRightConfirmationView: UIView!
+    @IBOutlet private weak var bottomLeftChoiceView: UIView!
+    @IBOutlet private weak var bottomLeftIndicator: UIImageView!
+    @IBOutlet private weak var timeLabel: UILabel!
     
     // MARK: - Private Properties
     private var gameController = OBGameController()
@@ -59,7 +60,19 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         }
     }
     
-    // MARK: - @IBActions
+    // MARK: - Public Methods
+    
+    /// Pauses game tasks and calls game pause menu.
+    @objc func pauseGame() {
+        isRunningGame = false
+        guard self.presentedViewController == nil else { return }
+        performSegue(withIdentifier: OBResources.SegueIdentifier.pauseGameSegue, sender: self)
+    }
+}
+
+// MARK: - @IBActions
+
+extension OBGameSceneViewController {
     @IBAction func confirmButtonTapped(_ sender: Any) {
         confirmSelection()
     }
@@ -69,20 +82,15 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     }
     
     @IBAction func dismissGameSceneViewController(_ segue: UIStoryboardSegue? = nil){
-
+        
         backgroundView.isHidden = true
         dismiss(animated: true, completion: nil)
     }
-    
-    // MARK: - Public Methods
-    /// Pauses game tasks and calls game pause menu.
-    @objc func pauseGame() {
-        isRunningGame = false
-        guard self.presentedViewController == nil else { return }
-        performSegue(withIdentifier: OBResources.SegueIdentifier.pauseGameSegue, sender: self)
-    }
-    
-    // MARK: - UIViewController Methods
+}
+
+// MARK: - View Controller Lifecycle
+
+extension OBGameSceneViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -114,9 +122,12 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         super.viewWillDisappear(animated)
         // This is needed to prevent memory leak caused by holding a reference to this instance of OBGameSceneViewController in app delegate
         AppDelegate.shared.pauseApp = nil
-    } 
-    
-    // MARK: - Navigation
+    }
+}
+
+// MARK: - Navigation
+
+extension OBGameSceneViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -139,8 +150,52 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
             break
         }
     }
+}
+
+// MARK: - GameController Delegate Methods
+extension OBGameSceneViewController: OBGameControllerDelegate {
+    func reactToCorrectChoice() {
+        showChoiceResult(isCorrect: true)
+    }
     
-    // MARK: - Private Methods
+    func reactToWrongChoice() {
+        showChoiceResult(isCorrect: false)
+    }
+    
+    func reactToTimerValueChange() {
+        reloadTimerLabelTitle()
+    }
+    
+    func reactToEndOfGame() {
+        standardDefaults.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
+        performSegue(withIdentifier: OBResources.SegueIdentifier.showGameResultSegue, sender: self)
+    }
+}
+
+// MARK: - OBPauseViewController Delegate Methods
+
+extension OBGameSceneViewController: OBPauseViewControllerDelegate {
+    func continueGame() {
+        isRunningGame = true
+    }
+    
+    func quitGame() {
+        dismissGameSceneViewController()
+    }
+}
+
+// MARK: - UIScrollView Delegate Methods
+
+extension OBGameSceneViewController: UIScrollViewDelegate {
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return gameView
+    }
+}
+
+// MARK: - Private Methods
+
+extension OBGameSceneViewController {
     private func configureGameController() {
         gameController.delegate = self
         gameController.clearCurrentRegionBasedOnMode()
@@ -168,7 +223,7 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         }
         
         mapView = OBMapView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 900.0, height: 610.0)), sublayerNamesAndPaths: regionKeysAndPaths)
-
+        
         view.setNeedsLayout()
         view.layoutIfNeeded()
         
@@ -178,7 +233,7 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         
         mapView.transform = CGAffineTransform(scaleX: scale, y: scale)
         mapView.center = gameView.center
-
+        
         gameView.addSubview(mapView)
         
     }
@@ -367,7 +422,7 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     
     private func showChoiceResult(isCorrect: Bool) {
         isShowingSelectionResult = true
-//        self.isRecognizerEnabled = false
+        //        self.isRecognizerEnabled = false
         
         // Colors based on right/wrong choice (basically, green and red)
         let selectionColor: UIColor = isCorrect ? .correctSelectionColor : .wrongSelectionColor
@@ -403,15 +458,15 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
             UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseOut, animations: {
                 [unowned self] in
                 self.bottomLeftChoiceView.frame = oldFrame
-            })
-                    { [unowned self]
-                        (completed) in
-                        if completed {
-                            // This prevents reenabling tap gestures after the game is finished
-//                            self.isRecognizerEnabled = self.isRunningGame
-                            self.completeShowingChoiceResult()
-                        }
-                    }
+                })
+            { [unowned self]
+                (completed) in
+                if completed {
+                    // This prevents reenabling tap gestures after the game is finished
+                    //                            self.isRecognizerEnabled = self.isRunningGame
+                    self.completeShowingChoiceResult()
+                }
+            }
         } else {
             completeShowingChoiceResult()
         }
@@ -425,43 +480,4 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         }
     }
     
-}
-
-// MARK: - GameControllerDelegate Methods
-extension OBGameSceneViewController: OBGameControllerDelegate {
-    func reactToCorrectChoice() {
-        showChoiceResult(isCorrect: true)
-    }
-    
-    func reactToWrongChoice() {
-        showChoiceResult(isCorrect: false)
-    }
-    
-    func reactToTimerValueChange() {
-        reloadTimerLabelTitle()
-    }
-    
-    func reactToEndOfGame() {
-        standardDefaults.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
-        performSegue(withIdentifier: OBResources.SegueIdentifier.showGameResultSegue, sender: self)
-    }
-}
-
-// MARK: - OBPauseViewControllerDelegate Methods
-extension OBGameSceneViewController: OBPauseViewControllerDelegate {
-    func continueGame() {
-        isRunningGame = true
-    }
-    
-    func quitGame() {
-        dismissGameSceneViewController()
-    }
-}
-
-// MARK: - UIScrollViewDelegate Methods
-extension OBGameSceneViewController: UIScrollViewDelegate {
-    
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return gameView
-    }
 }

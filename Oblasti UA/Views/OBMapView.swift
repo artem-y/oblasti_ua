@@ -13,6 +13,7 @@ import CoreImage
 class OBMapView: UIImageView {
     
     // MARK: - Public Properties
+    
     /// Current selected layer.
     var selectedLayer: CAShapeLayer? {
         didSet {
@@ -28,6 +29,7 @@ class OBMapView: UIImageView {
     }
     
     // MARK: - Public Methods
+    
     /// Finds and returns sublayer with a matching name or nil.
     /// - Parameters:
     ///   - named: A string with the name of sublayer to look for.
@@ -44,6 +46,7 @@ class OBMapView: UIImageView {
     }
     
     // MARK: - Initialization
+    
     init(frame: CGRect, sublayerNamesAndPaths: [String: UIBezierPath]) {
         super.init(frame: frame)
         addRegionLayers(from: sublayerNamesAndPaths)
@@ -52,8 +55,11 @@ class OBMapView: UIImageView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    // MARK: - Private Methods
+}
+
+// MARK: - Private Methods
+
+extension OBMapView {
     private func addRegionLayer(named name: String, withPath path: UIBezierPath) {
         let shapeLayer = CAShapeLayer(layer: layer)
         shapeLayer.name = name

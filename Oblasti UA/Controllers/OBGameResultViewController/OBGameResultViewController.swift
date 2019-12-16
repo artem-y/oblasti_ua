@@ -8,14 +8,15 @@
 
 import UIKit
 
-final class OBGameResultViewController: UIViewController, OBDefaultsKeyControllable {
+final class OBGameResultViewController: UIViewController {
     
     // MARK: - @IBOutlets
-    @IBOutlet weak var headerLabel: UILabel!
-    @IBOutlet weak var mistakesImageView: UIImageView!
-    @IBOutlet weak var mistakesLabel: UILabel!
-    @IBOutlet weak var timeImageView: UIImageView!
-    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet private weak var headerLabel: UILabel!
+    @IBOutlet private weak var mistakesImageView: UIImageView!
+    @IBOutlet private weak var mistakesLabel: UILabel!
+    @IBOutlet private weak var timeImageView: UIImageView!
+    @IBOutlet private weak var timeLabel: UILabel!
     
     // MARK: - Public Properties
     var gameResult: OBGame?
@@ -26,8 +27,11 @@ final class OBGameResultViewController: UIViewController, OBDefaultsKeyControlla
     
     // Convenience Properties
     private var settings: OBSettings { return OBSettingsController.shared.settings }
-    
-    // MARK: - UIViewController methods
+}
+
+    // MARK: - View Controller Lifecycle
+
+extension OBGameResultViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         soundController = OBSoundController()
@@ -42,8 +46,15 @@ final class OBGameResultViewController: UIViewController, OBDefaultsKeyControlla
             playSound()
         }
     }
-    
+}
+
+// MARK: - OBDefaultsKeyControllable
+
+extension OBGameResultViewController: OBDefaultsKeyControllable { }
+
     // MARK: - Private Methods
+
+extension OBGameResultViewController {
     private func checkHighscore() {
         if let gameResult = gameResult {
             var highscoreKey = ""

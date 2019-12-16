@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class OBGameController: OBDefaultsKeyControllable {
+final class OBGameController {
     
     // MARK: - Public Properties
     /// Game controller delegate, responsible for UI reaction to game events.
@@ -30,39 +30,6 @@ final class OBGameController: OBDefaultsKeyControllable {
     private var game: OBGame
     private var timer: Timer!
     private var timerStartDate: Date?
-    
-    // MARK: - Initialization
-    init(game: OBGame? = nil){
-        if let game = game {
-            self.game = game
-        } else {
-            let savedGameKey = DefaultsKey.lastUnfinishedGame
-            let jsonDecoder = JSONDecoder()
-            
-            if let savedGameData = UserDefaults.standard.data(forKey: savedGameKey),
-                let savedGame = try? jsonDecoder.decode(OBGame.self, from: savedGameData)
-            {
-                let regions: [OBRegion] = OBResources.shared.loadRegions(withNames: savedGame.regions.map({ $0.name }), fromFileNamed: OBResources.FileName.ukraine)
-                let regionsLeft: [OBRegion] = OBResources.shared.loadRegions(withNames: savedGame.regionsLeft.map({ $0.name }), fromFileNamed: OBResources.FileName.ukraine)
-                guard !regions.isEmpty && !regionsLeft.isEmpty else {
-                    self.game = OBGame.defaultForCurrentMode
-                    return
-                }
-                // Creation of a copy of the saved game is necessary to replace regions and regions left with just keys by regions with real UIBezier paths
-                self.game = OBGame(mode: savedGame.mode, regions: regions, regionsLeft: regionsLeft, timePassed: savedGame.timePassed, mistakesCount: savedGame.mistakesCount)
-            } else {
-                self.game = OBGame.defaultForCurrentMode
-            }
- 
-        }
-        UserDefaults.standard.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
-
-        if game?.mode != .pointer {
-            nextQuestion()
-            self.startTimer()
-        }
-        
-    }
     
     // MARK: - Public Methods
     /// Method, used to start the timer of game controller, or restart it after pause
@@ -139,7 +106,47 @@ final class OBGameController: OBDefaultsKeyControllable {
         }
     }
     
+       // MARK: - Initialization
+       init(game: OBGame? = nil){
+           if let game = game {
+               self.game = game
+           } else {
+               let savedGameKey = DefaultsKey.lastUnfinishedGame
+               let jsonDecoder = JSONDecoder()
+               
+               if let savedGameData = UserDefaults.standard.data(forKey: savedGameKey),
+                   let savedGame = try? jsonDecoder.decode(OBGame.self, from: savedGameData)
+               {
+                   let regions: [OBRegion] = OBResources.shared.loadRegions(withNames: savedGame.regions.map({ $0.name }), fromFileNamed: OBResources.FileName.ukraine)
+                   let regionsLeft: [OBRegion] = OBResources.shared.loadRegions(withNames: savedGame.regionsLeft.map({ $0.name }), fromFileNamed: OBResources.FileName.ukraine)
+                   guard !regions.isEmpty && !regionsLeft.isEmpty else {
+                       self.game = OBGame.defaultForCurrentMode
+                       return
+                   }
+                   // Creation of a copy of the saved game is necessary to replace regions and regions left with just keys by regions with real UIBezier paths
+                   self.game = OBGame(mode: savedGame.mode, regions: regions, regionsLeft: regionsLeft, timePassed: savedGame.timePassed, mistakesCount: savedGame.mistakesCount)
+               } else {
+                   self.game = OBGame.defaultForCurrentMode
+               }
+    
+           }
+           UserDefaults.standard.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
+
+           if game?.mode != .pointer {
+               nextQuestion()
+               self.startTimer()
+           }
+           
+       }
+}
+
+// MARK: - OBDefaultsKeyControllable
+
+extension OBGameController: OBDefaultsKeyControllable { }
+    
     // MARK: - Private Methods
+
+extension OBGameController {
     /// This method is being called every time the game controller timer value changes
     private func timerValueDidChange() {
         // This keeps better precision of time passed

@@ -13,43 +13,45 @@ final class OBSettingsTableViewController: UITableViewController {
     // MARK: - @IBOutlets
     
     // General
-    @IBOutlet weak var modeCell: UITableViewCell!
+    @IBOutlet private weak var modeCell: UITableViewCell!
     
-    @IBOutlet weak var showTimeCell: UITableViewCell!
-    @IBOutlet weak var showTimeSwitch: UISwitch!
+    @IBOutlet private weak var showTimeCell: UITableViewCell!
+    @IBOutlet private weak var showTimeSwitch: UISwitch!
     
-    @IBOutlet weak var showButtonsCell: UITableViewCell!
-    @IBOutlet weak var showButtonsSwitch: UISwitch!
+    @IBOutlet private weak var showButtonsCell: UITableViewCell!
+    @IBOutlet private weak var showButtonsSwitch: UISwitch!
     
-    @IBOutlet weak var modeNameLabel: UILabel!
+    @IBOutlet private weak var modeNameLabel: UILabel!
     
-    @IBOutlet weak var autoConfirmationCell: UITableViewCell!
-    @IBOutlet weak var autoConfirmationSwitch: UISwitch!
+    @IBOutlet private weak var autoConfirmationCell: UITableViewCell!
+    @IBOutlet private weak var autoConfirmationSwitch: UISwitch!
     
-    @IBOutlet weak var automaticNextRegionCell: UITableViewCell!
-    @IBOutlet weak var automaticNextRegionSwitch: UISwitch!
+    @IBOutlet private weak var automaticNextRegionCell: UITableViewCell!
+    @IBOutlet private weak var automaticNextRegionSwitch: UISwitch!
     
-    @IBOutlet weak var showCorrectAnswerCell: UITableViewCell!
-    @IBOutlet weak var showCorrectAnswerSwitch: UISwitch!
+    @IBOutlet private weak var showCorrectAnswerCell: UITableViewCell!
+    @IBOutlet private weak var showCorrectAnswerSwitch: UISwitch!
     
     // Sound
-    @IBOutlet weak var soundEffectsCell: UITableViewCell!
-    @IBOutlet weak var soundEffectsSwitch: UISwitch!
+    @IBOutlet private weak var soundEffectsCell: UITableViewCell!
+    @IBOutlet private weak var soundEffectsSwitch: UISwitch!
     
     // Region Names
-    @IBOutlet weak var languageNameLagel: UILabel!
+    @IBOutlet private weak var languageNameLagel: UILabel!
     
-    @IBOutlet weak var regionNamesUppercasedCell: UITableViewCell!
-    @IBOutlet weak var regionNamesUppercasedSwitch: UISwitch!
-
+    @IBOutlet private weak var regionNamesUppercasedCell: UITableViewCell!
+    @IBOutlet private weak var regionNamesUppercasedSwitch: UISwitch!
+    
     // Defaults
-    @IBOutlet weak var restoreDefaultsCell: UITableViewCell!
+    @IBOutlet private weak var restoreDefaultsCell: UITableViewCell!
     
     // MARK: - Public Properties
+    
     /// This value should only be passed to settings view controller only if it is called from game pause menu. It will be used to disable mode change within the same game.
     var gameInProgressGameMode: OBGame.Mode?
     
     // MARK: - Private Properties
+    
     private var settings: OBSettings {
         get {
             return OBSettingsController.shared.settings
@@ -66,8 +68,11 @@ final class OBSettingsTableViewController: UITableViewController {
     }
     
     private var exampleFooterText: String = ""
-    
-    // MARK: - UIViewController methods
+}
+
+// MARK: - View Controller Lifecycle
+
+extension OBSettingsTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,8 +90,11 @@ final class OBSettingsTableViewController: UITableViewController {
         super.viewWillDisappear(animated)
         removeFromNotificationCenter()
     }
-    
-    // MARK: - Navigation
+}
+
+// MARK: - Navigation
+
+extension OBSettingsTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -108,8 +116,11 @@ final class OBSettingsTableViewController: UITableViewController {
             break
         }
     }
-    
-    // MARK: - UITableView delegate and datasource methods
+}
+
+// MARK: - UITableView Delegate and DataSource Methods
+
+extension OBSettingsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // No need to tableView.deselectRow here because UI will be updated on these properties' didSet event
         switch tableView.cellForRow(at: indexPath) {
@@ -138,8 +149,11 @@ final class OBSettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return section == 2 ? exampleFooterText : nil
     }
+}
 
-    // MARK: - UI Configuration (Private) Methods
+// MARK: - Private Methods
+
+extension OBSettingsTableViewController {
     @objc private func updateUI(){
         // This happens only if there is a game in progress
         if gameInProgressGameMode != nil {
@@ -173,7 +187,7 @@ final class OBSettingsTableViewController: UITableViewController {
         
         // Sound UI
         soundEffectsSwitch.setOn(settings.playesSoundEffects, animated: true)
-
+        
         // Region Names UI
         modeNameLabel.text = currentGameMode.rawValue.localized()
         languageNameLagel.text = Locale.current.localizedString(forLanguageCode: settings.regionNameLanguageIdentifier) ?? settings.regionNameLanguageIdentifier.localized()
@@ -196,6 +210,7 @@ final class OBSettingsTableViewController: UITableViewController {
 }
 
 // MARK: - OBRemovableObserver protocol methods
+
 extension OBSettingsTableViewController: OBRemovableObserver {
     func addToNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: .OBSettingsChanged, object: nil)

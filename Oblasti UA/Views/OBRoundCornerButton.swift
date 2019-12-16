@@ -10,25 +10,29 @@ import UIKit
 
 @IBDesignable
 final class OBRoundCornerButton: UIButton {
-
-    // Initialization from storyboard
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        adjustCorners()
-    }
+    
+    // MARK: - @IBInspectables
     
     @IBInspectable
-    var cornerRaius: Float = 20.0 {
+    private var cornerRaius: Float = 20.0 {
         didSet {
             adjustCorners()
         }
     }
     
     @IBInspectable
-    var edgeInsets: Float = 15.0 {
+    private var edgeInsets: Float = 15.0 {
         didSet {
             adjustEdgeInsets()
         }
+    }
+    
+    // MARK: - Initialization
+    
+    // Initialization from storyboard
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        adjustCorners()
     }
     
     // Just in case of programmatical initialization =)
@@ -36,7 +40,13 @@ final class OBRoundCornerButton: UIButton {
         super.init(frame: frame)
         adjustUI()
     }
+    
+}
 
+// MARK: - Private Methods
+
+extension OBRoundCornerButton {
+    
     private func adjustUI() {
         adjustCorners()
         adjustEdgeInsets()

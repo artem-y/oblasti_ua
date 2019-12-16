@@ -8,12 +8,17 @@
 
 import Foundation
 
-final class OBSettingsController: NSObject, OBDefaultsKeyControllable {
+final class OBSettingsController: NSObject {
+    // MARK: - Static Properties
+    
     static let shared = OBSettingsController()
+    
+    // MARK: - Typealiases
     
     typealias SettingKey = DefaultsKey.Setting
     
     // MARK: - Public Properties
+    
     /// Game settings. Send notifications on value change
     var settings: OBSettings! {
         didSet {
@@ -35,6 +40,7 @@ final class OBSettingsController: NSObject, OBDefaultsKeyControllable {
     var availableLanguages: [String] = Bundle.main.localizations.filter { $0 != "Base" } + [OBResources.LanguageCode.custom]
     
     // MARK: - Public Methods
+    
     /// Tries to load settings from UserDefaults, sets missing values to defaults.
     func loadSettings() {
         
@@ -62,7 +68,23 @@ final class OBSettingsController: NSObject, OBDefaultsKeyControllable {
 
     }
     
-    // MARK: - Private Methods
+    // MARK: - Initialization
+    
+    override init(){
+        super.init()
+        loadSettings()
+        AppDelegate.shared.settingsController = self
+    }
+    
+}
+
+// MARK: - OBDefaultsKeyControllable
+
+extension OBSettingsController: OBDefaultsKeyControllable { }
+
+// MARK: - Private Methods
+
+extension OBSettingsController {
     
     /// Should only be called on 'settings' variable value change
     private func saveSettings() {
@@ -85,13 +107,6 @@ final class OBSettingsController: NSObject, OBDefaultsKeyControllable {
     /// - Returns: Nullable boolean value for key from standard User Defaults.
     private func standardDefaultsBool(forKey userDefaultsKey: String) -> Bool? {
         return standardDefaults.value(forKey: userDefaultsKey) as? Bool
-    }
-    
-    // MARK: - Initialization
-    override init(){
-        super.init()
-        loadSettings()
-        AppDelegate.shared.settingsController = self
     }
     
 }

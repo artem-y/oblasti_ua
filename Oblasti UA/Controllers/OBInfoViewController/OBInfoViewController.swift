@@ -8,22 +8,32 @@
 
 import UIKit
 
-final class OBInfoViewController: UIViewController, OBPresentationStyleAdjustable {
+final class OBInfoViewController: UIViewController {
+    
     // MARK: - @IBOutlets
-    @IBOutlet weak var textView: UITextView!
-
-    // MARK: - UIViewController Methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Because of old Apple bug, textfields sometimes do not localize from storyboard
-        textView.text = "Please, notice: region boundaries and borders of Ukraine are depicted approximately and can be different from real proportions and geografic coordinates.".localized()
-    }
+    
+    @IBOutlet private weak var textView: UITextView!
     
     // MARK: - Initialization
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         adjustModalPresentationStyle()
     }
 
 }
+
+// MARK: - View Controller Lifecycle
+
+extension OBInfoViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Because of old Apple bug, textfields sometimes do not localize from storyboard
+        textView.text = "Please, notice: region boundaries and borders of Ukraine are depicted approximately and can be different from real proportions and geografic coordinates.".localized()
+    }
+}
+
+// MARK: - OBPresentationStyleAdjustable
+
+extension OBInfoViewController: OBPresentationStyleAdjustable { }

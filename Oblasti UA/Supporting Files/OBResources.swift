@@ -10,9 +10,11 @@ import UIKit
 
 struct OBResources {
     // MARK: - Static Properties
+    
     static let shared = OBResources()
     
     // MARK: - Nested Types
+    
     // MARK: -
     struct ImageName {
         static let play = "playButton"
@@ -98,6 +100,7 @@ struct OBResources {
     }
     
     // MARK: - Public Methods
+    
     /// Loads regions with their paths from file.
     /// - Parameters:
     ///   - regionKeys: Optional array of region keys. Default value is 'nil'.

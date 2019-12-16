@@ -11,10 +11,10 @@ import UIKit
 final class OBConfirmationViewController: UIViewController, OBPresentationStyleAdjustable {
     
     // MARK: - @IBOutlets
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var confirmButton: OBRoundCornerButton!
-    @IBOutlet weak var cancelButton: OBRoundCornerButton!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var messageLabel: UILabel!
+    @IBOutlet private weak var confirmButton: OBRoundCornerButton!
+    @IBOutlet private weak var cancelButton: OBRoundCornerButton!
     
     // MARK: - Public Properties
     

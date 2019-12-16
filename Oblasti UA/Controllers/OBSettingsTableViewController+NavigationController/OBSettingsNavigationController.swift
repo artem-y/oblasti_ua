@@ -8,18 +8,21 @@
 
 import UIKit
 
-final class OBSettingsNavigationController: UINavigationController, OBPresentationStyleAdjustable, UIGestureRecognizerDelegate {
-    
-    // MARK: - UIViewController Methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
+final class OBSettingsNavigationController: UINavigationController {
     
     // MARK: - Initialization
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         adjustModalPresentationStyle()
     }
     
 }
+
+// MARK: - UIGestureRecognizerDelegate
+
+extension OBSettingsNavigationController: UIGestureRecognizerDelegate { }
+
+// MARK: - OBPresentationStyleAdjustable
+
+extension OBSettingsNavigationController: OBPresentationStyleAdjustable { }
