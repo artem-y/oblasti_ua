@@ -55,8 +55,8 @@ extension OBHighscoreViewController {
             let timeString = OBGameTimeFormatter().string(for: classicHighscore.timePassed)
             classicTimeLabel.text = "\(timeStringPrefix) \(timeString)"
         } else {
-            for outlet in [classicMistakesIndicator, classicMistakesLabel, classicTimeIndicator, classicTimeLabel] {
-                outlet?.isHidden = true
+            [classicMistakesIndicator, classicMistakesLabel, classicTimeIndicator, classicTimeLabel].forEach {
+                $0?.isHidden = true
             }
         }
         
@@ -70,8 +70,8 @@ extension OBHighscoreViewController {
             let timeString = OBGameTimeFormatter().string(for: norepeatHighscore.timePassed)
             norepeatTimeLabel.text = "\(timeStringPrefix) \(timeString)"
         } else {
-            for outlet in [norepeatMistakesIndicator, norepeatMistakesLabel, norepeatTimeIndicator, norepeatTimeLabel] {
-                outlet?.isHidden = true
+            [norepeatMistakesIndicator, norepeatMistakesLabel, norepeatTimeIndicator, norepeatTimeLabel].forEach {
+                $0?.isHidden = true
             }
         }
         

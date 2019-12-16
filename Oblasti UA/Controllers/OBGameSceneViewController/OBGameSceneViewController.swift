@@ -314,7 +314,7 @@ extension OBGameSceneViewController {
                 
                 var regionsContainLocation = false
                 
-                for region in gameController.regions {
+                gameController.regions.forEach { region in
                     if region.path.contains(location) {
                         
                         mapView.selectedLayer = mapView.sublayer(named: region.name)
@@ -340,7 +340,7 @@ extension OBGameSceneViewController {
                         }
                         
                         regionsContainLocation = true
-                        break
+                        return
                     }
                 }
                 

@@ -35,14 +35,8 @@ class OBMapView: UIImageView {
     ///   - named: A string with the name of sublayer to look for.
     /// - Returns: A map sublayer (instance of CAShapeLayer) with the name passed as an argument, or nil if there isn't one.
     func sublayer(named name: String) -> CAShapeLayer? {
-        if let sublayers = layer.sublayers {
-            for sublayer in sublayers {
-                if sublayer.name == name, let shapeLayer = sublayer as? CAShapeLayer {
-                    return shapeLayer
-                }
-            }
-        }
-        return nil
+        guard let sublayers = layer.sublayers else { return nil }
+        return sublayers.compactMap { $0 as? CAShapeLayer }.first { $0.name == name }
     }
     
     // MARK: - Initialization
@@ -70,8 +64,8 @@ extension OBMapView {
     }
     
     private func addRegionLayers(from namesAndPathsDict: [String: UIBezierPath]) {
-        for region in namesAndPathsDict {
-            addRegionLayer(named: region.key, withPath: region.value)
+        namesAndPathsDict.forEach {
+            addRegionLayer(named: $0.key, withPath: $0.value)
         }
     }
     
