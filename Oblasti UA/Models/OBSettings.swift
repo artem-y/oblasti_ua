@@ -12,6 +12,7 @@ import Foundation
 struct OBSettings: Equatable {
     
     // MARK: - General
+    
     /// Immutable default settings instance.
     static let `default` = OBSettings(gameMode: .classic, regionNamesUppercased: false, showsTime: true, showsButtons: true, autoConfirmsSelection: true, changesRegionAutomatically: true, showsCorrectAnswer: true, playesSoundEffects: true, regionNameLanguageIdentifier: Locale.current.languageCode)
     
@@ -37,14 +38,17 @@ struct OBSettings: Equatable {
     var showsCorrectAnswer: Bool
     
     // MARK: - Sound
+    
     /// If device's sound is on, ells the app whether to play sound effects
     var playesSoundEffects: Bool
     
     // MARK: - Defaults
+    
     /// Tells the app only the language in which region names are presented during the game. Should not affect app's menu language
     var regionNameLanguageIdentifier: String
     
     // MARK: - Initialization
+    
     init(gameMode: OBGame.Mode, regionNamesUppercased: Bool, showsTime: Bool, showsButtons: Bool, autoConfirmsSelection: Bool, changesRegionAutomatically: Bool, showsCorrectAnswer: Bool, playesSoundEffects: Bool, regionNameLanguageIdentifier: String?) {
         self.gameMode = gameMode
         self.regionNamesUppercased = regionNamesUppercased
@@ -58,9 +62,17 @@ struct OBSettings: Equatable {
         if let regionNameLanguageIdentifier = regionNameLanguageIdentifier, Bundle.main.localizations.contains(regionNameLanguageIdentifier) {
             self.regionNameLanguageIdentifier = regionNameLanguageIdentifier
         } else {
-            self.regionNameLanguageIdentifier = "en"
+            self.regionNameLanguageIdentifier = Default.regionNameLanguageIdentifierEnglish
         }
         
     }
     
+}
+
+// MARK: - Default Values
+
+extension OBSettings {
+    struct Default {
+        static let regionNameLanguageIdentifierEnglish = "en"
+    }
 }

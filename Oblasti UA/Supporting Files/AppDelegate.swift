@@ -11,13 +11,17 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    // MARK: - Public Properties
-    var window: UIWindow?
-
+    // MARK: - Static Properties
+    
     /// Returns delegate of UIApplication's shared instance, casted to AppDelegate
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
+    
+    // MARK: - Public Properties
+    
+    var window: UIWindow?
+    
     /// Block of code that will be called (if set) when application 'resigns active', used to pause game tasks (for example, stop timers)
     var pauseApp: (() -> ())?
     
@@ -25,32 +29,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     weak var menuModeObserver: OBRemovableObserver?
     weak var pauseScreenShowTimeObserver: OBRemovableObserver?
     weak var settingsController: OBSettingsController?
+}
 
-    // MARK: - AppDelegate Methods
+// MARK: - App Delegate Methods
+
+extension AppDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
         return true
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
         removeObservers()
         pauseApp?()
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         addObservers()
         settingsController?.loadSettings()
     }
-
+    
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         removeObservers()
     }
+}
 
-    // MARK: - Private Methods
+// MARK: - Private Methods
+
+extension AppDelegate {
     private func addObservers() {
         settingsObserver?.addToNotificationCenter()
         menuModeObserver?.addToNotificationCenter()

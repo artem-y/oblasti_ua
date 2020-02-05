@@ -10,10 +10,12 @@ import Foundation
 
 final class OBGameTimeFormatter {
     // MARK: - Public Properties
+    
     /// Time format, used to convert time interval into readable string. Default is 'mm:ss:SSS'
-    var timeFormat: String = "mm:ss:SSS"
+    var timeFormat: String = Default.timeFormat
     
     // MARK: - Public Methods
+    
     /// Returns string for time interval, converted into time format, stored in this formatter's 'timeFormat property.
     /// - Parameters:
     ///   - timeInterval: TimeInterval value to be converted into readable string.
@@ -22,5 +24,13 @@ final class OBGameTimeFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = timeFormat
         return dateFormatter.string(from: date)
+    }
+}
+
+// MARK: - Default Values
+
+extension OBGameTimeFormatter {
+    struct Default {
+        static let timeFormat = "mm:ss:SSS"
     }
 }

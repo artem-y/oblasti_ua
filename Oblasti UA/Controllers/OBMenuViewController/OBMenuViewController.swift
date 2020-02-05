@@ -8,15 +8,31 @@
 
 import UIKit
 
-final class OBMenuViewController: UIViewController, OBDefaultsKeyControllable {
-
-    // MARK: - @IBOutlets
-    @IBOutlet weak var modeButton: UIButton!
-    @IBOutlet weak var continueButton: OBRoundCornerButton!
-    @IBOutlet weak var startButton: OBRoundCornerButton!
-    @IBOutlet weak var highscoreButton: UIButton!
+final class OBMenuViewController: UIViewController {
     
-    // MARK: - @IBActions
+    // MARK: - @IBOutlets
+    
+    @IBOutlet private weak var modeButton: UIButton!
+    @IBOutlet private weak var continueButton: OBRoundCornerButton!
+    @IBOutlet private weak var startButton: OBRoundCornerButton!
+    @IBOutlet private weak var highscoreButton: UIButton!
+    
+    // MARK: - Private Properties
+    
+    private var settings: OBSettings {
+        get {
+            return OBSettingsController.shared.settings
+        }
+        set {
+            OBSettingsController.shared.settings = newValue
+        }
+    }
+}
+
+// MARK: - @IBActions
+
+extension OBMenuViewController {
+    
     @IBAction func modeButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: OBResources.SegueIdentifier.presentSettingsSegue, sender: sender)
     }
@@ -29,18 +45,12 @@ final class OBMenuViewController: UIViewController, OBDefaultsKeyControllable {
     }
     
     @IBAction func unwindToMenuViewController(_ unwindSegue: UIStoryboardSegue) { }
+}
+
+// MARK: - View Controller Lifecycle
+
+extension OBMenuViewController {
     
-    // MARK: - Private Properties
-    private var settings: OBSettings {
-        get {
-            return OBSettingsController.shared.settings
-        }
-        set {
-            OBSettingsController.shared.settings = newValue
-        }
-    }
-    
-    // MARK: - UIViewController methods
     override func viewDidLoad() {
         super.viewDidLoad()
         updateModeButtonTitle()
@@ -52,53 +62,66 @@ final class OBMenuViewController: UIViewController, OBDefaultsKeyControllable {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         configureHighscoreButton()
         continueButton.isHidden = standardDefaults.value(forKey: DefaultsKey.lastUnfinishedGame) == nil
     }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+}
 
+// MARK: - Navigation
+
+extension OBMenuViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         switch segue.identifier {
         case OBResources.SegueIdentifier.presentSettingsSegue:
-            if let destinationVC = segue.destination as? OBSettingsNavigationController {
-                if let sender = sender as? UIButton, sender == modeButton {
-                    destinationVC.performSegue(withIdentifier: OBResources.SegueIdentifier.showOnlyModeSettingSegue, sender: nil)
-                }
-            }
+            guard let destinationVC = segue.destination as? OBSettingsNavigationController, (sender as? UIButton) == modeButton else { return }
+            destinationVC.performSegue(withIdentifier: OBResources.SegueIdentifier.showOnlyModeSettingSegue, sender: nil)
 
         default:
             break
         }
         
     }
+}
+
+// MARK: - OBDefaultsKeyControllable
+
+extension OBMenuViewController: OBDefaultsKeyControllable { }
+
+// MARK: - OBRemovableObserver Methods
+
+extension OBMenuViewController: OBRemovableObserver {
+    func addToNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateModeButtonTitle), name: .OBGameModeChanged, object: nil)
+    }
     
-    // MARK: - UI Configuration (Private) Methods
+}
+
+// MARK: - Private Methods
+
+extension OBMenuViewController {
     @objc private func updateModeButtonTitle() {
         let modeDescription = settings.gameMode.rawValue.localized().lowercased()
-        let modeHint = "Mode:".localized()
-        modeButton.setTitle(modeHint + " " + modeDescription, for: .normal)
+        modeButton.setTitle(Localized.modeButtonTitleModeHintPrefix + Localized.wordsSeparator + modeDescription, for: .normal)
     }
     
     private func configureHighscoreButton() {
-        var hasHighscore = false
-        
         // If there is a highscore set for at least one mode, the button is enabled
-        if standardDefaults.value(forKey: DefaultsKey.classicHighscore) != nil || standardDefaults.value(forKey: DefaultsKey.norepeatHighscore) != nil {
-            
-            hasHighscore = true
-        }
+        let hasHighscore = (
+            standardDefaults.value(forKey: DefaultsKey.classicHighscore) != nil ||
+            standardDefaults.value(forKey: DefaultsKey.norepeatHighscore) != nil
+        )
         highscoreButton.isEnabled = hasHighscore
     }
     
 }
 
-// MARK: - OBRemovableObserver methods
-extension OBMenuViewController: OBRemovableObserver {
-    func addToNotificationCenter() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateModeButtonTitle), name: .OBGameModeChanged, object: nil)
+// MARK: - Localized Values
+
+extension OBMenuViewController {
+    struct Localized {
+        static let modeButtonTitleModeHintPrefix = "Mode:".localized()
+        static let wordsSeparator = " ".localized()
     }
-
 }
-

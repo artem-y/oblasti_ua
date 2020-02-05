@@ -9,7 +9,9 @@
 import UIKit
 
 struct OBGame {
+    
     // MARK: - Static Properties
+    
     /// Immutable default game instance.
     static let `default` = OBGame(mode: OBSettings.default.gameMode, regions: OBResources.shared.loadRegions(fromFileNamed: OBResources.FileName.ukraine), regionsLeft: OBResources.shared.loadRegions(fromFileNamed: OBResources.FileName.ukraine))
     
@@ -19,6 +21,7 @@ struct OBGame {
     }
     
     // MARK: - Nested Types
+    
     /// Game mode type
     enum Mode: String, CaseIterable, Codable {
         /// User is finding regions on the map until all regions are found. Regions that were guessed wrong will still be appearing.
@@ -43,6 +46,7 @@ struct OBGame {
     }
 
     // MARK: - Public Properties
+    
     // This is for code-safety (to prevent accidental autocorrection to variables and changes)
     var mode: Mode { return gameMode }
     var regions: [OBRegion] { return gameRegions }
@@ -57,18 +61,18 @@ struct OBGame {
     var regionsLeft: [OBRegion] = [] {
         didSet {
             // This prevents accidental assigning of regions
-            regionsLeft = regionsLeft.filter({ (region) -> Bool in
-                return gameRegions.contains(region)
-            })
+            regionsLeft = regionsLeft.filter { gameRegions.contains($0) }
         }
     }
     
     // MARK: - Private Properties
+    
     // These will be assigned only once - at initialization
     private let gameMode: Mode
     private let gameRegions: [OBRegion]
 
     // MARK: - Initialization
+    
     init(mode: Mode, regions: [OBRegion], regionsLeft: [OBRegion], timePassed: TimeInterval = 0.0, mistakesCount: Int = 0) {
         gameMode = mode
         gameRegions = regions
@@ -105,6 +109,7 @@ extension OBGame: Comparable {
 }
 
 // MARK: - 'Codable' Protocol Methods
+
 extension OBGame: Codable {
     enum CodingKeys: String, CodingKey {
         case gameMode
@@ -120,15 +125,11 @@ extension OBGame: Codable {
 
         let gameRegionsNames = try values.decode([String].self, forKey: .gameRegions)
         gameRegions = gameRegionsNames
-            .map({
-                OBRegion(name: $0, path: UIBezierPath())
-            })
+            .map { OBRegion(name: $0, path: UIBezierPath()) }
     
         let regionsLeftNames = try values.decode([String].self, forKey: .regionsLeft)
         regionsLeft = regionsLeftNames
-            .map({
-                OBRegion(name: $0, path: UIBezierPath())
-            })
+            .map { OBRegion(name: $0, path: UIBezierPath()) }
         
         mistakesCount = try values.decode(Int.self, forKey: .mistakesCount)
         timePassed = try values.decode(TimeInterval.self, forKey: .timePassed)

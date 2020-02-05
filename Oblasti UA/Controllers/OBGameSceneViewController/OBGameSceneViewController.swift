@@ -11,17 +11,18 @@ import UIKit
 final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllable {
     
     // MARK: - @IBOutlets
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var backgroundView: UIView!
-    @IBOutlet weak var gameView: UIView!
-    @IBOutlet weak var regionLabel: UILabel!
-    @IBOutlet weak var confirmButton: UIButton!
-    @IBOutlet weak var pauseButton: UIButton!
-    @IBOutlet weak var topRightInfoView: UIView!
-    @IBOutlet weak var bottomRightConfirmationView: UIView!
-    @IBOutlet weak var bottomLeftChoiceView: UIView!
-    @IBOutlet weak var bottomLeftIndicator: UIImageView!
-    @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var backgroundView: UIView!
+    @IBOutlet private weak var gameView: UIView!
+    @IBOutlet private weak var regionLabel: UILabel!
+    @IBOutlet private weak var confirmButton: UIButton!
+    @IBOutlet private weak var pauseButton: UIButton!
+    @IBOutlet private weak var topRightInfoView: UIView!
+    @IBOutlet private weak var bottomRightConfirmationView: UIView!
+    @IBOutlet private weak var bottomLeftChoiceView: UIView!
+    @IBOutlet private weak var bottomLeftIndicator: UIImageView!
+    @IBOutlet private weak var timeLabel: UILabel!
     
     // MARK: - Private Properties
     private var gameController = OBGameController()
@@ -41,7 +42,6 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     // MARK: -
     
     private var customRegionNames: [String: String] = [:]
-    private let animationDuration: Double = 0.2
     private var singleTapRecognizer: UITapGestureRecognizer!
     private var isShowingSelectionResult = false
     private var isRunningGame = true {
@@ -59,7 +59,19 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         }
     }
     
-    // MARK: - @IBActions
+    // MARK: - Public Methods
+    
+    /// Pauses game tasks and calls game pause menu.
+    @objc func pauseGame() {
+        isRunningGame = false
+        guard self.presentedViewController == nil else { return }
+        performSegue(withIdentifier: OBResources.SegueIdentifier.pauseGameSegue, sender: self)
+    }
+}
+
+// MARK: - @IBActions
+
+extension OBGameSceneViewController {
     @IBAction func confirmButtonTapped(_ sender: Any) {
         confirmSelection()
     }
@@ -69,20 +81,15 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     }
     
     @IBAction func dismissGameSceneViewController(_ segue: UIStoryboardSegue? = nil){
-
+        
         backgroundView.isHidden = true
         dismiss(animated: true, completion: nil)
     }
-    
-    // MARK: - Public Methods
-    /// Pauses game tasks and calls game pause menu.
-    @objc func pauseGame() {
-        isRunningGame = false
-        guard self.presentedViewController == nil else { return }
-        performSegue(withIdentifier: OBResources.SegueIdentifier.pauseGameSegue, sender: self)
-    }
-    
-    // MARK: - UIViewController Methods
+}
+
+// MARK: - View Controller Lifecycle
+
+extension OBGameSceneViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -114,9 +121,12 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         super.viewWillDisappear(animated)
         // This is needed to prevent memory leak caused by holding a reference to this instance of OBGameSceneViewController in app delegate
         AppDelegate.shared.pauseApp = nil
-    } 
-    
-    // MARK: - Navigation
+    }
+}
+
+// MARK: - Navigation
+
+extension OBGameSceneViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -139,8 +149,52 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
             break
         }
     }
+}
+
+// MARK: - GameController Delegate Methods
+extension OBGameSceneViewController: OBGameControllerDelegate {
+    func reactToCorrectChoice() {
+        showChoiceResult(isCorrect: true)
+    }
     
-    // MARK: - Private Methods
+    func reactToWrongChoice() {
+        showChoiceResult(isCorrect: false)
+    }
+    
+    func reactToTimerValueChange() {
+        reloadTimerLabelTitle()
+    }
+    
+    func reactToEndOfGame() {
+        standardDefaults.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
+        performSegue(withIdentifier: OBResources.SegueIdentifier.showGameResultSegue, sender: self)
+    }
+}
+
+// MARK: - OBPauseViewController Delegate Methods
+
+extension OBGameSceneViewController: OBPauseViewControllerDelegate {
+    func continueGame() {
+        isRunningGame = true
+    }
+    
+    func quitGame() {
+        dismissGameSceneViewController()
+    }
+}
+
+// MARK: - UIScrollView Delegate Methods
+
+extension OBGameSceneViewController: UIScrollViewDelegate {
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return gameView
+    }
+}
+
+// MARK: - Private Methods
+
+extension OBGameSceneViewController {
     private func configureGameController() {
         gameController.delegate = self
         gameController.clearCurrentRegionBasedOnMode()
@@ -148,14 +202,14 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     
     private func configureScrollView() {
         scrollView.delegate = self
-        scrollView.maximumZoomScale = 2.0
+        scrollView.maximumZoomScale = Default.scrollViewMaximumZoomScale
         scrollView.contentSize = view.frame.size
     }
     
     private func configureGestureRecognizers() {
         singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
-        singleTapRecognizer.numberOfTouchesRequired = 1
-        singleTapRecognizer.numberOfTapsRequired = 1
+        singleTapRecognizer.numberOfTouchesRequired = Default.SingleTapGesture.numberOfTouchesRequired
+        singleTapRecognizer.numberOfTapsRequired = Default.SingleTapGesture.numberOfTapsRequired
         view.addGestureRecognizer(singleTapRecognizer)
     }
     // MARK: -
@@ -167,8 +221,8 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
             regionKeysAndPaths[region.name] = region.path
         }
         
-        mapView = OBMapView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 900.0, height: 610.0)), sublayerNamesAndPaths: regionKeysAndPaths)
-
+        mapView = OBMapView(frame: Default.mapViewFrame, sublayerNamesAndPaths: regionKeysAndPaths)
+        
         view.setNeedsLayout()
         view.layoutIfNeeded()
         
@@ -178,7 +232,7 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         
         mapView.transform = CGAffineTransform(scaleX: scale, y: scale)
         mapView.center = gameView.center
-
+        
         gameView.addSubview(mapView)
         
     }
@@ -195,13 +249,13 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     private func reloadCurrentRegionName() {
         if let currentRegion = gameController.currentRegion {
             let languageIdentifier = settings.regionNameLanguageIdentifier
-            var regionName = ""
+            var regionName = String()
             
             if languageIdentifier == OBResources.LanguageCode.custom {
                 if let customRegionName = customRegionNames[currentRegion.name], customRegionName.isEmpty == false {
                     regionName = customRegionName
                 } else {
-                    regionName = currentRegion.name.localized(in: "en", fromTable: OBResources.LocalizationTable.regionNames)
+                    regionName = currentRegion.name.localized(in: Default.regionNameLanguageIdentifierEnglish, fromTable: OBResources.LocalizationTable.regionNames)
                 }
             } else {
                 regionName = currentRegion.name.localized(in: languageIdentifier, fromTable: OBResources.LocalizationTable.regionNames)
@@ -210,13 +264,13 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
             let regionNameText = settings.regionNamesUppercased ? regionName.uppercased() : regionName
             regionLabel.attributedText = whiteBorderAttributedText(regionNameText, regionLabel.textColor)
         } else {
-            regionLabel.text = ""
+            regionLabel.text = String()
         }
     }
     
     private func reloadTimerLabelTitle() {
         let timeFormatter = OBGameTimeFormatter()
-        timeFormatter.timeFormat = "mm:ss"
+        timeFormatter.timeFormat = Default.timeFormat
         let timeText = timeFormatter.string(for: gameController.gameResult.timePassed)
         timeLabel.attributedText = whiteBorderAttributedText(timeText, timeLabel.textColor)
     }
@@ -230,8 +284,8 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     
     private func whiteBorderAttributedText(_ text: String, _ textColor: UIColor) -> NSAttributedString {
         let attributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.strokeColor: UIColor.white,
-            NSAttributedString.Key.strokeWidth: -2.0,
+            NSAttributedString.Key.strokeColor: Default.WhiteBorderText.strokeColor,
+            NSAttributedString.Key.strokeWidth: Default.WhiteBorderText.strokeWidth,
             NSAttributedString.Key.foregroundColor: textColor
         ]
         return NSAttributedString(string: text, attributes: attributes)
@@ -247,8 +301,7 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
                 let location = gameView.convert(sender.location(in: gameView), to: mapView)
                 
                 // Check if it is second tap on already selected layer. If yes, confirm selection and return
-                if let selectedRegionPath = mapView.selectedLayer?.path,
-                    selectedRegionPath.contains(location) {
+                if let selectedRegionPath = mapView.selectedLayer?.path, selectedRegionPath.contains(location) {
                     if gameMode == .pointer {
                         cancelSelection()
                     } else {
@@ -260,40 +313,39 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
                 var regionsContainLocation = false
                 
                 for region in gameController.regions {
-                    if region.path.contains(location) {
-                        
-                        mapView.selectedLayer = mapView.sublayer(named: region.name)
-                        if gameMode == .pointer {
-                            gameController.currentRegion = region
-                        }
-                        reloadCurrentRegionName()
-                        regionLabel.textColor = .selectedRegionColor
-                        
-                        if showsButtons && !autoConfirmsSelection {
-                            // Animation: View with 'confirm' button slides out into the screen from the right
-                            singleTapRecognizer.isEnabled = false
-                            let oldFrame = bottomRightConfirmationView.frame
-                            bottomRightConfirmationView.frame = CGRect(origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y), size: oldFrame.size)
-                            bottomRightConfirmationView.isHidden = false
-                            
-                            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseOut, animations: {
-                                [unowned self] in
-                                self.bottomRightConfirmationView.frame = oldFrame
-                                // This prevents reenabling tap gestures after the game is finished
-                                self.singleTapRecognizer.isEnabled = self.isRunningGame
-                            })
-                        }
-                        
-                        regionsContainLocation = true
-                        break
+                    guard region.path.contains(location) else { continue }
+                    
+                    mapView.selectedLayer = mapView.sublayer(named: region.name)
+                    if gameMode == .pointer {
+                        gameController.currentRegion = region
                     }
+                    reloadCurrentRegionName()
+                    regionLabel.textColor = .selectedRegionColor
+                    
+                    if showsButtons && !autoConfirmsSelection {
+                        // Animation: View with 'confirm' button slides out into the screen from the right
+                        singleTapRecognizer.isEnabled = false
+                        let oldFrame = bottomRightConfirmationView.frame
+                        bottomRightConfirmationView.frame = CGRect(origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y), size: oldFrame.size)
+                        bottomRightConfirmationView.isHidden = false
+                        
+                        UIView.animate(withDuration: Default.Animation.Duration.normal, delay: Default.Animation.delay, options: .curveEaseOut, animations: {
+                            [unowned self] in
+                            self.bottomRightConfirmationView.frame = oldFrame
+                            // This prevents reenabling tap gestures after the game is finished
+                            self.singleTapRecognizer.isEnabled = self.isRunningGame
+                        })
+                    }
+                    
+                    regionsContainLocation = true
+                    break
                 }
                 
                 // Check if tapped anywhere outside the regions
                 if regionsContainLocation {
                     if autoConfirmsSelection {
                         singleTapRecognizer.isEnabled = false
-                        perform(#selector(confirmSelection), with: nil, afterDelay: animationDuration * 1.5)
+                        perform(#selector(confirmSelection), with: nil, afterDelay: Default.Animation.Duration.slow)
                     }
                 } else {
                     if mapView.layer.contains(location) {
@@ -309,7 +361,7 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
             singleTapRecognizer.isEnabled = false
             let oldFrame: CGRect = bottomRightConfirmationView.frame
             
-            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseIn, animations: { [unowned self] in
+            UIView.animate(withDuration: Default.Animation.Duration.normal, delay: Default.Animation.delay, options: .curveEaseIn, animations: { [unowned self] in
                 
                 self.bottomRightConfirmationView.frame = CGRect(origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y), size: oldFrame.size)
             }) { [unowned self]
@@ -340,7 +392,7 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         if showsButtons {
             let oldFrame = self.bottomLeftChoiceView.frame
             
-            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseIn, animations: { [unowned self] in
+            UIView.animate(withDuration: Default.Animation.Duration.normal, delay: Default.Animation.delay, options: .curveEaseIn, animations: { [unowned self] in
                 let newX: CGFloat = oldFrame.origin.x - oldFrame.width
                 
                 self.bottomLeftChoiceView.frame = CGRect(origin: CGPoint(x: newX, y: oldFrame.origin.y), size: oldFrame.size)
@@ -351,7 +403,6 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
                 if completed {
                     self.bottomLeftChoiceView.isHidden = true
                     self.bottomLeftChoiceView.frame = oldFrame
-                    //                self.isRecognizerEnabled = true
                 }
             }
         }
@@ -367,7 +418,7 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     
     private func showChoiceResult(isCorrect: Bool) {
         isShowingSelectionResult = true
-//        self.isRecognizerEnabled = false
+        //        self.isRecognizerEnabled = false
         
         // Colors based on right/wrong choice (basically, green and red)
         let selectionColor: UIColor = isCorrect ? .correctSelectionColor : .wrongSelectionColor
@@ -375,10 +426,11 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
         mapView.selectedLayer?.fillColor = selectionColor.cgColor
         
         // If enabled in settings, show where was the correct region
-        if settings.showsCorrectAnswer && !isCorrect {
-            if let currentRegion = gameController.currentRegion, let correctRegionLayer = mapView.sublayer(named: currentRegion.name) {
+        if settings.showsCorrectAnswer && !isCorrect,
+            let currentRegion = gameController.currentRegion,
+            let correctRegionLayer = mapView.sublayer(named: currentRegion.name) {
+            
                 correctRegionLayer.fillColor = .correctSelectionColor
-            }
         }
         
         // If sound is on, play sound
@@ -400,18 +452,16 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
             let oldFrame = bottomLeftChoiceView.frame
             bottomLeftChoiceView.frame.origin = CGPoint(x: oldFrame.origin.x - oldFrame.width, y: oldFrame.origin.y)
             bottomLeftChoiceView.isHidden = false
-            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseOut, animations: {
+            UIView.animate(withDuration: Default.Animation.Duration.normal, delay: Default.Animation.delay, options: .curveEaseOut, animations: {
                 [unowned self] in
                 self.bottomLeftChoiceView.frame = oldFrame
-            })
-                    { [unowned self]
-                        (completed) in
-                        if completed {
-                            // This prevents reenabling tap gestures after the game is finished
-//                            self.isRecognizerEnabled = self.isRunningGame
-                            self.completeShowingChoiceResult()
-                        }
-                    }
+                })
+            { [unowned self]
+                (completed) in
+                if completed {
+                    self.completeShowingChoiceResult()
+                }
+            }
         } else {
             completeShowingChoiceResult()
         }
@@ -419,49 +469,39 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     
     /// If enabled in settings, calls next region and cancels selection
     private func completeShowingChoiceResult() {
-        if settings.changesRegionAutomatically {
-            singleTapRecognizer.isEnabled = false
-            perform(#selector(cancelSelection), with: nil, afterDelay: animationDuration * 1.5)
+        guard settings.changesRegionAutomatically else { return }
+        singleTapRecognizer.isEnabled = false
+        perform(#selector(cancelSelection), with: nil, afterDelay: Default.Animation.Duration.slow)
+    }
+    
+}
+
+// MARK: - Default Values
+
+extension OBGameSceneViewController {
+    struct Default {
+        struct Animation {
+            struct Duration {
+                static let normal = 0.2
+                static let slow = normal * 1.5
+            }
+
+            static let delay = 0.0
         }
-    }
-    
-}
 
-// MARK: - GameControllerDelegate Methods
-extension OBGameSceneViewController: OBGameControllerDelegate {
-    func reactToCorrectChoice() {
-        showChoiceResult(isCorrect: true)
-    }
-    
-    func reactToWrongChoice() {
-        showChoiceResult(isCorrect: false)
-    }
-    
-    func reactToTimerValueChange() {
-        reloadTimerLabelTitle()
-    }
-    
-    func reactToEndOfGame() {
-        standardDefaults.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
-        performSegue(withIdentifier: OBResources.SegueIdentifier.showGameResultSegue, sender: self)
-    }
-}
+        struct SingleTapGesture {
+            static let numberOfTouchesRequired = 1
+            static let numberOfTapsRequired = 1
+        }
 
-// MARK: - OBPauseViewControllerDelegate Methods
-extension OBGameSceneViewController: OBPauseViewControllerDelegate {
-    func continueGame() {
-        isRunningGame = true
-    }
-    
-    func quitGame() {
-        dismissGameSceneViewController()
-    }
-}
+        struct WhiteBorderText {
+            static let strokeColor = UIColor.white
+            static let strokeWidth = -2.0
+        }
 
-// MARK: - UIScrollViewDelegate Methods
-extension OBGameSceneViewController: UIScrollViewDelegate {
-    
-    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return gameView
+        static let scrollViewMaximumZoomScale: CGFloat = 2.0
+        static let timeFormat = "mm:ss"
+        static let mapViewFrame = CGRect(origin: CGPoint.zero, size: CGSize(width: 900.0, height: 610.0))
+        static let regionNameLanguageIdentifierEnglish = "en"
     }
 }

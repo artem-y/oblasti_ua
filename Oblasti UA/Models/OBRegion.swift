@@ -11,6 +11,7 @@ import UIKit
 struct OBRegion {
     
     // MARK: - Public Properties
+    
     /// Region's name
     var name: String
     
@@ -19,7 +20,8 @@ struct OBRegion {
     
 }
 
-// MARK: - Equatable Protocol Methods
+// MARK: - Equatable Methods
+
 extension OBRegion: Equatable {
     static func ==(_ lhs: OBRegion?, rhs: OBRegion) -> Bool {
         return (lhs?.name == rhs.name) && (lhs?.path == rhs.path)

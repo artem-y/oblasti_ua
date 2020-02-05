@@ -11,14 +11,41 @@ import UIKit
 final class OBPauseViewController: UIViewController {
     
     // MARK: - @IBOutlets
-    @IBOutlet weak var blurView: UIVisualEffectView!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var continueButton: OBRoundCornerButton!
-    @IBOutlet weak var saveAndExitButton: OBRoundCornerButton!
-    @IBOutlet weak var exitToMenuButton: OBRoundCornerButton!
+    @IBOutlet private weak var blurView: UIVisualEffectView!
+    @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet private weak var playButton: UIButton!
+    @IBOutlet private weak var continueButton: OBRoundCornerButton!
+    @IBOutlet private weak var saveAndExitButton: OBRoundCornerButton!
+    @IBOutlet private weak var exitToMenuButton: OBRoundCornerButton!
     
-    // MARK: - @IBActions
+    // MARK: - Public Properties
+    
+    /// Delegate, used to react to actinos of pause view controller.
+    weak var delegate: OBPauseViewControllerDelegate?
+    
+    /// Game controller instance, used to configure pause view controller and/or save the game.
+    weak var gameController: OBGameController?
+    
+    // MARK: - Public Methods
+    
+    @objc func updateTimeLabel(){
+        if showsTime, let gameController = gameController {
+            let timeFormatter = OBGameTimeFormatter()
+            timeFormatter.timeFormat = "mm:ss"
+            timeLabel.text = timeFormatter.string(for: gameController.gameResult.timePassed)
+        }
+        timeLabel.isHidden = !showsTime
+    }
+    
+    // MARK: - Private Properties
+    private var settings: OBSettings { return OBSettingsController.shared.settings }
+    private var gameMode: OBGame.Mode? { return gameController?.gameResult.mode }
+    private var showsTime: Bool { return gameMode == .pointer ? false : settings.showsTime }
+}
+
+// MARK: - @IBActions
+
+extension OBPauseViewController {
     @IBAction func continueButtonTapped(_ sender: UIButton) {
         resumeGame()
     }
@@ -35,30 +62,60 @@ final class OBPauseViewController: UIViewController {
             performSegue(withIdentifier: OBResources.SegueIdentifier.exitConfirmationSegue, sender: self)
         }
     }
-    
-    // MARK: - Public Properties
-    /// Delegate, used to react to actinos of pause view controller.
-    weak var delegate: OBPauseViewControllerDelegate?
-    
-    /// Game controller instance, used to configure pause view controller and/or save the game.
-    weak var gameController: OBGameController?
-    
-    // MARK: - Public Methods
-    @objc func updateTimeLabel(){
-        if showsTime, let gameController = gameController {
-            let timeFormatter = OBGameTimeFormatter()
-            timeFormatter.timeFormat = "mm:ss"
-            timeLabel.text = timeFormatter.string(for: gameController.gameResult.timePassed)
-        }
-        timeLabel.isHidden = !showsTime
+}
+
+// MARK: - View Controller Lifecycle
+
+extension OBPauseViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        AppDelegate.shared.pauseScreenShowTimeObserver = self
+        addToNotificationCenter()
+        
+        blurView.effect = UIBlurEffect(style: .extraLight)
+        saveAndExitButton.isHidden = (gameMode == .pointer)
     }
     
-    // MARK: - Private Properties
-    private var settings: OBSettings { return OBSettingsController.shared.settings }
-    private var gameMode: OBGame.Mode? { return gameController?.gameResult.mode }
-    private var showsTime: Bool { return gameMode == .pointer ? false : settings.showsTime }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateTimeLabel()
+    }
+}
+
+// MARK: - Navigation
+
+extension OBPauseViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        switch segue.identifier {
+        case OBResources.SegueIdentifier.showSettingsFromGamePauseSegue:
+            guard let destinationVC = segue.destination as? OBSettingsNavigationController, let topVC = destinationVC.topViewController as? OBSettingsTableViewController else { return }
+            topVC.gameInProgressGameMode = gameMode
+        case OBResources.SegueIdentifier.exitConfirmationSegue:
+            guard let destinationVC = segue.destination as? OBConfirmationViewController else { return }
+            destinationVC.messageText = Localized.messageTextGameWillNotBeSaved
+            destinationVC.confirmationHandler = { [unowned self] in
+                self.quitGame()
+            }
+        default:
+            break
+        }
+    }
     
-    // MARK: - Private Methods
+}
+
+// MARK: - OBRemovableObserver Methods
+
+extension OBPauseViewController: OBRemovableObserver {
+    func addToNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTimeLabel), name: .OBShowTimeSettingChanged, object: nil)
+    }
+}
+
+// MARK: - Private Methods
+
+extension OBPauseViewController {
     private func resumeGame(){
         dismiss(animated: true) {
             [weak delegate] in
@@ -73,48 +130,12 @@ final class OBPauseViewController: UIViewController {
             delegate?.quitGame()
         }
     }
-
-    // MARK: - UIViewController methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        AppDelegate.shared.pauseScreenShowTimeObserver = self
-        addToNotificationCenter()
-        
-        blurView.effect = UIBlurEffect(style: .extraLight)
-        saveAndExitButton.isHidden = (gameMode == .pointer)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateTimeLabel()
-    }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        switch segue.identifier {
-        case OBResources.SegueIdentifier.showSettingsFromGamePauseSegue:
-            if let destinationVC = segue.destination as? OBSettingsNavigationController, let topVC = destinationVC.topViewController as? OBSettingsTableViewController {
-                topVC.gameInProgressGameMode = gameMode
-            }
-        case OBResources.SegueIdentifier.exitConfirmationSegue:
-            if let destinationVC = segue.destination as? OBConfirmationViewController {
-                destinationVC.messageText = "The game will not be saved".localized()
-                destinationVC.confirmationHandler = { [unowned self] in
-                    self.quitGame()
-                }
-            }
-        default:
-            break
-        }
-    }
-    
 }
 
-// MARK: - OBRemovableObserver protocol methods
-extension OBPauseViewController: OBRemovableObserver {
-    func addToNotificationCenter() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTimeLabel), name: .OBShowTimeSettingChanged, object: nil)
+// MARK: - Localized Values
+
+extension OBPauseViewController {
+    struct Localized {
+        static let messageTextGameWillNotBeSaved = "The game will not be saved".localized()
     }
 }

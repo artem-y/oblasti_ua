@@ -9,22 +9,10 @@
 import UIKit
 
 final class OBModeSettingTableViewController: UITableViewController {
-    
-    // MARK: - @IBActions
-    @IBAction func dismiss(_ sender: Any) {
-        navigationController?.dismiss(animated: true, completion: nil)
-    }
-    
     // MARK: - Public Properties
+    
     /// Determines if the navigation bar will hide the 'back' (left) item
     var hidesBackButton = true
-    
-    // MARK: - Public Methods
-    /// Updates UI elements
-    func updateUI(){
-        tableView.reloadData()
-        navigationItem.title = "\("Mode:".localized()) \(mode.rawValue.localized())"
-    }
     
     // MARK: - Private Properties
     private let availableModes: [OBGame.Mode] = OBGame.Mode.allCases
@@ -39,14 +27,37 @@ final class OBModeSettingTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - UIViewController methods
+    // MARK: - Public Methods
+    
+    /// Updates UI elements
+    func updateUI(){
+        tableView.reloadData()
+        navigationItem.title = "\(Localized.NavigationItem.modePrefix)\(Localized.NavigationItem.wordsSeparator)\(mode.rawValue.localized())"
+    }
+}
+
+// MARK: - @IBActions
+
+extension OBModeSettingTableViewController {
+    @IBAction func dismiss(_ sender: Any) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+// MARK: - View Controller Lifecycle
+
+extension OBModeSettingTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = hidesBackButton
         updateUI()
     }
-    
-    // MARK: - UITableViewController delegate & datasource methods
+}
+
+// MARK: - UITableViewController Delegate & DataSource Methods
+
+extension OBModeSettingTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -68,5 +79,15 @@ final class OBModeSettingTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         mode = availableModes[indexPath.row]
     }
-    
+}
+
+// MARK: - Localized Values
+
+extension OBModeSettingTableViewController {
+    struct Localized {
+        struct NavigationItem {
+            static let modePrefix = "Mode:".localized()
+            static let wordsSeparator = " ".localized()
+        }
+    }
 }

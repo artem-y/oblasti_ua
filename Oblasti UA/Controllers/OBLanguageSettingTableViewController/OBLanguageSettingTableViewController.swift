@@ -11,12 +11,14 @@ import UIKit
 final class OBLanguageSettingTableViewController: UITableViewController, OBDefaultsKeyControllable {
     
     // MARK: - @IBOutlets
+
     @IBOutlet var editBarButtonItem: UIBarButtonItem!
     
     // MARK: - Private Properties
+
     private let languages: [String] = OBSettingsController.shared.availableLanguages
     private var customRegionNames: [String] = []
-
+    
     private var regionNameLanguage: String {
         get {
             return OBSettingsController.shared.settings.regionNameLanguageIdentifier
@@ -26,16 +28,11 @@ final class OBLanguageSettingTableViewController: UITableViewController, OBDefau
             tableView.reloadData()
         }
     }
-    
-    // MARK: - Private Methods
-    private func loadCustomRegionNames() {
-        let jsonDecoder = JSONDecoder()
-        if let jsonData = standardDefaults.data(forKey: DefaultsKey.customRegionNames), let regionNamesDict = try? jsonDecoder.decode([String: String].self, from: jsonData) {
-            customRegionNames = regionNamesDict.values.filter { !$0.isEmpty }
-        }
-    }
-    
-    // MARK: - UITableViewController methods
+}
+
+// MARK: - View Controller Lifecycle
+
+extension OBLanguageSettingTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadCustomRegionNames()
@@ -43,8 +40,11 @@ final class OBLanguageSettingTableViewController: UITableViewController, OBDefau
         
         navigationItem.rightBarButtonItem = (regionNameLanguage == OBResources.LanguageCode.custom) ? editBarButtonItem : nil
     }
-    
-    // MARK: - UITableView delegate & datasource methods
+}
+
+// MARK: - UITableView Delegate & DataSource Methods
+
+extension OBLanguageSettingTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return languages.count
     }
@@ -59,7 +59,7 @@ final class OBLanguageSettingTableViewController: UITableViewController, OBDefau
         var detailText: String?
         if languageCode == OBResources.LanguageCode.custom {
             detailText = customRegionNames.reduce(into: String(), {
-                if !$0.isEmpty { $0 += ", " }
+                if !$0.isEmpty { $0 += Localized.listingWordsSeparator }
                 $0 += $1
             })
         } else {
@@ -79,4 +79,22 @@ final class OBLanguageSettingTableViewController: UITableViewController, OBDefau
         navigationItem.rightBarButtonItem = (language == OBResources.LanguageCode.custom) ? editBarButtonItem : nil
     }
     
+}
+
+// MARK: - Private Methods
+
+extension OBLanguageSettingTableViewController {
+    private func loadCustomRegionNames() {
+        let jsonDecoder = JSONDecoder()
+        guard let jsonData = standardDefaults.data(forKey: DefaultsKey.customRegionNames), let regionNamesDict = try? jsonDecoder.decode([String: String].self, from: jsonData) else { return }
+        customRegionNames = regionNamesDict.values.filter { !$0.isEmpty }
+    }
+}
+
+// MARK: - Localized Values
+
+extension OBLanguageSettingTableViewController {
+    struct Localized {
+        static let listingWordsSeparator = ", ".localized()
+    }
 }

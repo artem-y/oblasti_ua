@@ -13,37 +13,31 @@ import CoreImage
 class OBMapView: UIImageView {
     
     // MARK: - Public Properties
+    
     /// Current selected layer.
     var selectedLayer: CAShapeLayer? {
         didSet {
-            layer.sublayers?.forEach({ (sublayer) in
-                if let shapeLayer = sublayer as? CAShapeLayer {
-                    shapeLayer.fillColor = .unselectedRegionColor
-                    if shapeLayer == selectedLayer {
-                        shapeLayer.fillColor = .selectedRegionColor
-                    }
-                }
-            })
+            layer.sublayers?
+                .compactMap { $0 as? CAShapeLayer }
+                .forEach {
+                    $0.fillColor = ($0 == selectedLayer) ? .selectedRegionColor : .unselectedRegionColor
+            }
         }
     }
     
     // MARK: - Public Methods
+    
     /// Finds and returns sublayer with a matching name or nil.
     /// - Parameters:
     ///   - named: A string with the name of sublayer to look for.
     /// - Returns: A map sublayer (instance of CAShapeLayer) with the name passed as an argument, or nil if there isn't one.
     func sublayer(named name: String) -> CAShapeLayer? {
-        if let sublayers = layer.sublayers {
-            for sublayer in sublayers {
-                if sublayer.name == name, let shapeLayer = sublayer as? CAShapeLayer {
-                    return shapeLayer
-                }
-            }
-        }
-        return nil
+        guard let sublayers = layer.sublayers else { return nil }
+        return sublayers.compactMap { $0 as? CAShapeLayer }.first { $0.name == name }
     }
     
     // MARK: - Initialization
+    
     init(frame: CGRect, sublayerNamesAndPaths: [String: UIBezierPath]) {
         super.init(frame: frame)
         addRegionLayers(from: sublayerNamesAndPaths)
@@ -52,8 +46,11 @@ class OBMapView: UIImageView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    // MARK: - Private Methods
+}
+
+// MARK: - Private Methods
+
+extension OBMapView {
     private func addRegionLayer(named name: String, withPath path: UIBezierPath) {
         let shapeLayer = CAShapeLayer(layer: layer)
         shapeLayer.name = name
@@ -64,8 +61,8 @@ class OBMapView: UIImageView {
     }
     
     private func addRegionLayers(from namesAndPathsDict: [String: UIBezierPath]) {
-        for region in namesAndPathsDict {
-            addRegionLayer(named: region.key, withPath: region.value)
+        namesAndPathsDict.forEach {
+            addRegionLayer(named: $0.key, withPath: $0.value)
         }
     }
     

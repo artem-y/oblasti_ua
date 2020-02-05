@@ -10,9 +10,12 @@ import AVFoundation
 
 final class OBSoundController {
     
+    // MARK: - Typealiases
+    
     typealias SoundFileName = OBResources.SoundName
     
     // MARK: - Public Methods
+    
     /// Playes game start sound
     func playGameStartSound() {
         // TODO: Add game start sound (optional)
@@ -37,20 +40,21 @@ final class OBSoundController {
     func playNewHighscoreSound() {
         playSound(fromFileNamed: SoundFileName.newHighscoreWindTunes)
     }
-
+    
     // MARK: - Private Properties
+    
     private var soundPlayer: AVAudioPlayer?
+}
 
-    // MARK: - Private Methods
+// MARK: - Private Methods
+
+extension OBSoundController {
     private func playSound(fromFileNamed fileName: String, withExtension fileExtension: String = OBResources.FileExtension.m4a) {
         guard let url = Bundle.main.url(forResource: fileName, withExtension: fileExtension) else { return }
         
-        do {
-            soundPlayer = try AVAudioPlayer(contentsOf: url)
-            soundPlayer?.prepareToPlay()
-            soundPlayer?.play()
-        } catch {
-            return
-        }
+        soundPlayer = try? AVAudioPlayer(contentsOf: url)
+        soundPlayer?.prepareToPlay()
+        soundPlayer?.play()
+        
     }
 }

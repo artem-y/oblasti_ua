@@ -69,7 +69,7 @@ extension JSONDictionary {
     }
     
     // MARK: -
-    /// /// Looks for a dictionary, found by given `String` key, and returns it if there is one.
+    /// Looks for a dictionary, found by given `String` key, and returns it if there is one.
     /// - parameter key: `String` key for an array of dictionaries.
     /// - returns: Dictionary, if there is one found by given key, or nil if there isn't.
     func dictionary(forKey key: String) -> JSONDictionary? {

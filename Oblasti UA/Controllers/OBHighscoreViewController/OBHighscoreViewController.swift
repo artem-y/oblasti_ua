@@ -11,26 +11,31 @@ import UIKit
 final class OBHighscoreViewController: UIViewController, OBDefaultsKeyControllable {
     
     // MARK: - @IBOutlets
-    @IBOutlet weak var classicBackgroundView: UIView!
-    @IBOutlet weak var classicMistakesIndicator: UIImageView!
-    @IBOutlet weak var classicMistakesLabel: UILabel!
-    @IBOutlet weak var classicTimeIndicator: UIImageView!
-    @IBOutlet weak var classicTimeLabel: UILabel!
+    @IBOutlet private weak var classicBackgroundView: UIView!
+    @IBOutlet private weak var classicMistakesIndicator: UIImageView!
+    @IBOutlet private weak var classicMistakesLabel: UILabel!
+    @IBOutlet private weak var classicTimeIndicator: UIImageView!
+    @IBOutlet private weak var classicTimeLabel: UILabel!
     
-    @IBOutlet weak var norepeatBackgroundView: UIView!
-    @IBOutlet weak var norepeatMistakesIndicator: UIImageView!
-    @IBOutlet weak var norepeatMistakesLabel: UILabel!
-    @IBOutlet weak var norepeatTimeIndicator: UIImageView!
-    @IBOutlet weak var norepeatTimeLabel: UILabel!
+    @IBOutlet private weak var norepeatBackgroundView: UIView!
+    @IBOutlet private weak var norepeatMistakesIndicator: UIImageView!
+    @IBOutlet private weak var norepeatMistakesLabel: UILabel!
+    @IBOutlet private weak var norepeatTimeIndicator: UIImageView!
+    @IBOutlet private weak var norepeatTimeLabel: UILabel!
     
-    
-    // MARK: - UIViewController methods
+}
+
+// MARK: - View Controller Lifecycle
+
+extension OBHighscoreViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
-    
-    // MARK: - UI Configuration (Private) Methods
+}
+// MARK: - Private Methods
+
+extension OBHighscoreViewController {
     private func configureUI() {
         let backgroundCornerRadius: CGFloat = 20.0
         classicBackgroundView.layer.cornerRadius = backgroundCornerRadius
@@ -38,20 +43,20 @@ final class OBHighscoreViewController: UIViewController, OBDefaultsKeyControllab
         
         let jsonDecoder = JSONDecoder()
         
-        let timeStringPrefix = "Time:".localized()
+        let timeStringPrefix = Localized.LabelTextPrefix.time
         
         // Classic mode highscore view
         if let classicHighscoreData = standardDefaults.value(forKey: DefaultsKey.classicHighscore) as? Data, let classicHighscore: OBGame = try? jsonDecoder.decode(OBGame.self, from: classicHighscoreData) {
             
             let mistakesIndicatorName = classicHighscore.mistakesCount == 0 ? OBResources.ImageName.correctIcon : OBResources.ImageName.mistakesIcon
             classicMistakesIndicator.image = UIImage(named: mistakesIndicatorName)
-            classicMistakesLabel.text = "\("Mistakes:".localized()) \(classicHighscore.mistakesCount)"
+            classicMistakesLabel.text = "\(Localized.LabelTextPrefix.mistakes)\(Localized.wordsSeparator)\(classicHighscore.mistakesCount)"
             
             let timeString = OBGameTimeFormatter().string(for: classicHighscore.timePassed)
             classicTimeLabel.text = "\(timeStringPrefix) \(timeString)"
         } else {
-            for outlet in [classicMistakesIndicator, classicMistakesLabel, classicTimeIndicator, classicTimeLabel] {
-                outlet?.isHidden = true
+            [classicMistakesIndicator, classicMistakesLabel, classicTimeIndicator, classicTimeLabel].forEach {
+                $0?.isHidden = true
             }
         }
         
@@ -60,16 +65,30 @@ final class OBHighscoreViewController: UIViewController, OBDefaultsKeyControllab
             
             let mistakesIndicatorName = norepeatHighscore.mistakesCount == 0 ? OBResources.ImageName.correctIcon : OBResources.ImageName.mistakesIcon
             norepeatMistakesIndicator.image = UIImage(named: mistakesIndicatorName)
-            norepeatMistakesLabel.text = "\("Mistakes:".localized()) \(norepeatHighscore.mistakesCount)/\(norepeatHighscore.regions.count)"
+            norepeatMistakesLabel.text = "\(Localized.LabelTextPrefix.mistakes)\(Localized.wordsSeparator)\(norepeatHighscore.mistakesCount)\(Localized.resultOutOfTotalSeparator)\(norepeatHighscore.regions.count)"
             
             let timeString = OBGameTimeFormatter().string(for: norepeatHighscore.timePassed)
             norepeatTimeLabel.text = "\(timeStringPrefix) \(timeString)"
         } else {
-            for outlet in [norepeatMistakesIndicator, norepeatMistakesLabel, norepeatTimeIndicator, norepeatTimeLabel] {
-                outlet?.isHidden = true
+            [norepeatMistakesIndicator, norepeatMistakesLabel, norepeatTimeIndicator, norepeatTimeLabel].forEach {
+                $0?.isHidden = true
             }
         }
-        
-        
+    }
+}
+
+// MARK: - Localized Values
+
+extension OBHighscoreViewController {
+    struct Localized {
+        static let wordsSeparator = " ".localized()
+        static let resultOutOfTotalSeparator = "/".localized()
+    
+        struct LabelTextPrefix {
+            static let newHighscore = "New Highscore:".localized()
+            static let mode = "Mode:".localized()
+            static let mistakes = "Mistakes:".localized()
+            static let time = "Time:".localized()
+        }
     }
 }

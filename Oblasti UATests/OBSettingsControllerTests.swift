@@ -47,8 +47,8 @@ class OBSettingsControllerTests: XCTestCase {
         let allKeys = SettingKey.allKeys
         
         // 2. Act
-        for key in allKeys {
-            UserDefaults.standard.removeObject(forKey: key)
+        allKeys.forEach {
+            UserDefaults.standard.removeObject(forKey: $0)
         }
         settingsController.loadSettings()
         

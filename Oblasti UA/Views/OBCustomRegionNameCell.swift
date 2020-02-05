@@ -9,6 +9,8 @@
 import UIKit
 
 final class OBCustomRegionNameCell: UITableViewCell {
+    // MARK: - @IBOutlets
+    
     @IBOutlet weak var regionNameLabel: UILabel!
     @IBOutlet weak var customNameTextField: UITextField!
 }
