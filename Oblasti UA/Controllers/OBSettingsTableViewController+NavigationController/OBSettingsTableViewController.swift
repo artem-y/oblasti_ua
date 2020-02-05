@@ -66,7 +66,7 @@ final class OBSettingsTableViewController: UITableViewController {
         return gameInProgressGameMode ?? settings.gameMode
     }
     
-    private var exampleFooterText: String = ""
+    private var exampleFooterText = String()
 }
 
 // MARK: - View Controller Lifecycle
@@ -193,11 +193,10 @@ extension OBSettingsTableViewController {
         
         regionNamesUppercasedSwitch.setOn(settings.regionNamesUppercased, animated: true)
         
-        let forExampleText = "For example:".localized()
-        let ivanoFrankivskaTextUnprocessed = "Ivano-Frankivska".localized(in: settings.regionNameLanguageIdentifier, fromTable: OBResources.LocalizationTable.regionNames)
-        let ivanoFrankivskaText: String = settings.regionNamesUppercased ? ivanoFrankivskaTextUnprocessed.uppercased() : ivanoFrankivskaTextUnprocessed.capitalized
+        let localizedExampleRegionName = Default.footerExampleRegionName.localized(in: settings.regionNameLanguageIdentifier, fromTable: OBResources.LocalizationTable.regionNames)
+        let exampleRegionName: String = settings.regionNamesUppercased ? localizedExampleRegionName.uppercased() : localizedExampleRegionName.capitalized
         
-        exampleFooterText = "\(forExampleText) \(ivanoFrankivskaText)"
+        exampleFooterText = "\(Localized.FooterTextPart.forExamplePrefix)\(Localized.FooterTextPart.wordsSeparator)\(exampleRegionName)"
         
         // Defaults UI
         restoreDefaultsCell.isHidden = (settings == OBSettings.default)
@@ -213,5 +212,24 @@ extension OBSettingsTableViewController {
 extension OBSettingsTableViewController: OBRemovableObserver {
     func addToNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: .OBSettingsChanged, object: nil)
+    }
+}
+
+// MARK: - Default Values
+
+extension OBSettingsTableViewController {
+    struct Default {
+        static let footerExampleRegionName = "Ivano-Frankivska"
+    }
+}
+
+// MARK: - Localized Values
+
+extension OBSettingsTableViewController {
+    struct Localized {
+        struct FooterTextPart {
+            static let forExamplePrefix = "For example:".localized()
+            static let wordsSeparator = " ".localized()
+        }
     }
 }

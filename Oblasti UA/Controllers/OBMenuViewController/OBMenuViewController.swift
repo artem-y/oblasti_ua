@@ -103,8 +103,7 @@ extension OBMenuViewController: OBRemovableObserver {
 extension OBMenuViewController {
     @objc private func updateModeButtonTitle() {
         let modeDescription = settings.gameMode.rawValue.localized().lowercased()
-        let modeHint = "Mode:".localized()
-        modeButton.setTitle(modeHint + " " + modeDescription, for: .normal)
+        modeButton.setTitle(Localized.modeButtonTitleModeHintPrefix + Localized.wordsSeparator + modeDescription, for: .normal)
     }
     
     private func configureHighscoreButton() {
@@ -116,4 +115,13 @@ extension OBMenuViewController {
         highscoreButton.isEnabled = hasHighscore
     }
     
+}
+
+// MARK: - Localized Values
+
+extension OBMenuViewController {
+    struct Localized {
+        static let modeButtonTitleModeHintPrefix = "Mode:".localized()
+        static let wordsSeparator = " ".localized()
+    }
 }

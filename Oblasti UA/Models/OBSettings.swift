@@ -62,9 +62,17 @@ struct OBSettings: Equatable {
         if let regionNameLanguageIdentifier = regionNameLanguageIdentifier, Bundle.main.localizations.contains(regionNameLanguageIdentifier) {
             self.regionNameLanguageIdentifier = regionNameLanguageIdentifier
         } else {
-            self.regionNameLanguageIdentifier = "en"
+            self.regionNameLanguageIdentifier = Default.regionNameLanguageIdentifierEnglish
         }
         
     }
     
+}
+
+// MARK: - Default Values
+
+extension OBSettings {
+    struct Default {
+        static let regionNameLanguageIdentifierEnglish = "en"
+    }
 }

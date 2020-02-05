@@ -11,6 +11,7 @@ import UIKit
 final class OBConfirmationViewController: UIViewController, OBPresentationStyleAdjustable {
     
     // MARK: - @IBOutlets
+
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var confirmButton: OBRoundCornerButton!
@@ -34,6 +35,7 @@ final class OBConfirmationViewController: UIViewController, OBPresentationStyleA
     var confirmationHandler: (() -> ())?
     
     // MARK: - @IBActions
+
     @IBAction func didChooseAction(_ sender: OBRoundCornerButton) {
         dismiss(animated: true) { [unowned self, unowned sender] in
             guard sender == self.confirmButton else { return }
@@ -42,23 +44,38 @@ final class OBConfirmationViewController: UIViewController, OBPresentationStyleA
     }
     
     // MARK: - Private Methods
+
     private func updateUI() {
-        titleLabel.text = titleText ?? "Are you sure?".localized()
+        titleLabel.text = titleText ?? Localized.confirmationQuestion
         messageLabel.text = messageText
-        confirmButton.setTitle(confirmButtonText ?? "YES".localized(), for: .normal)
-        cancelButton.setTitle(cancelButtonText ?? "NO".localized(), for: .normal)
+        confirmButton.setTitle(confirmButtonText ?? Localized.Answer.yes, for: .normal)
+        cancelButton.setTitle(cancelButtonText ?? Localized.Answer.no, for: .normal)
     }
     
-    // MARK: - UIViewController methods
+    // MARK: - UIViewController Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
     }
     
     // MARK: - Initialization
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         adjustModalPresentationStyle()
     }
-    
+}
+
+// MARK: - Localized Values
+
+extension OBConfirmationViewController {
+    struct Localized {
+        static let confirmationQuestion = "Are you sure".localized()
+
+        struct Answer {
+            static let yes = "YES".localized()
+            static let no = "NO".localized()
+        }
+    }
 }

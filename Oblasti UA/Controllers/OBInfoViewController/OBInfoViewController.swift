@@ -30,10 +30,18 @@ extension OBInfoViewController {
         super.viewDidLoad()
 
         // Because of old Apple bug, textfields sometimes do not localize from storyboard
-        textView.text = "Please, notice: region boundaries and borders of Ukraine are depicted approximately and can be different from real proportions and geografic coordinates.".localized()
+        textView.text = Localized.textMessage
     }
 }
 
 // MARK: - OBPresentationStyleAdjustable
 
 extension OBInfoViewController: OBPresentationStyleAdjustable { }
+
+// MARK: - Localizable Values
+
+extension OBInfoViewController {
+    struct Localized {
+        static let textMessage = "Please, notice: region boundaries and borders of Ukraine are depicted approximately and can be different from real proportions and geografic coordinates.".localized()
+    }
+}

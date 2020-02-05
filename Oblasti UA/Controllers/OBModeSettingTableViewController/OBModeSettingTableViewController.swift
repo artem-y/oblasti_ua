@@ -32,7 +32,7 @@ final class OBModeSettingTableViewController: UITableViewController {
     /// Updates UI elements
     func updateUI(){
         tableView.reloadData()
-        navigationItem.title = "\("Mode:".localized()) \(mode.rawValue.localized())"
+        navigationItem.title = "\(Localized.NavigationItem.modePrefix)\(Localized.NavigationItem.wordsSeparator)\(mode.rawValue.localized())"
     }
 }
 
@@ -79,5 +79,15 @@ extension OBModeSettingTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         mode = availableModes[indexPath.row]
     }
-    
+}
+
+// MARK: - Localized Values
+
+extension OBModeSettingTableViewController {
+    struct Localized {
+        struct NavigationItem {
+            static let modePrefix = "Mode:".localized()
+            static let wordsSeparator = " ".localized()
+        }
+    }
 }
