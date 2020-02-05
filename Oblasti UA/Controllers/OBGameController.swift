@@ -41,7 +41,7 @@ final class OBGameController {
         // This makes function reusable (like when timer resumes after pausing the game)
         timerStartDate = Date().addingTimeInterval(-game.timePassed)
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { [weak self]
+        timer = Timer.scheduledTimer(withTimeInterval: Default.timerIntervar, repeats: true) { [weak self]
             (timer) in
             self?.timerValueDidChange()
         }
@@ -57,7 +57,7 @@ final class OBGameController {
     /// If there still are unfound regions left, randomly chooses one from them and sets current region to it. Otherwise, game ends.
     func nextQuestion() {
         
-        if game.regionsLeft.count > 0 {
+        if game.regionsLeft.count > .zero {
             currentRegion = game.regionsLeft.randomElement()
         } else {
             stopTimer()
@@ -156,11 +156,20 @@ extension OBGameController {
         
         if OBSettingsController.shared.settings.showsTime {
             // To improve performance, send changes to UI only when seconds change, not milliseconds
-            if game.timePassed.truncatingRemainder(dividingBy: 1) < 0.001 {
+            if game.timePassed.truncatingRemainder(dividingBy: Default.timeRemainderDivider) < Default.timerIntervar {
                 delegate?.reactToTimerValueChange()
             }
         }
         
     }
     
+}
+
+// MARK: - Default Values
+
+extension OBGameController {
+    struct Default {
+        static let timeRemainderDivider = 1.0
+        static let timerIntervar = 0.001
+    }
 }

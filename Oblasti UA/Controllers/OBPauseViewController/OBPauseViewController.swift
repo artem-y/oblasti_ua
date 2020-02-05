@@ -94,7 +94,7 @@ extension OBPauseViewController {
             topVC.gameInProgressGameMode = gameMode
         case OBResources.SegueIdentifier.exitConfirmationSegue:
             guard let destinationVC = segue.destination as? OBConfirmationViewController else { return }
-            destinationVC.messageText = "The game will not be saved".localized()
+            destinationVC.messageText = Localized.messageTextGameWillNotBeSaved
             destinationVC.confirmationHandler = { [unowned self] in
                 self.quitGame()
             }
@@ -129,5 +129,13 @@ extension OBPauseViewController {
             
             delegate?.quitGame()
         }
+    }
+}
+
+// MARK: - Localized Values
+
+extension OBPauseViewController {
+    struct Localized {
+        static let messageTextGameWillNotBeSaved = "The game will not be saved".localized()
     }
 }

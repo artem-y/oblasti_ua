@@ -54,7 +54,7 @@ extension OBCustomRegionNamesTableViewController {
             let regionKey: String = sortedRegionNameKeys[indexPath.row]
             regionNameCell.regionNameLabel.text = localizedRegionName(regionKey)
             regionNameCell.customNameTextField.delegate = self
-            regionNameCell.customNameTextField.placeholder = regionKey.localized(in: "en", fromTable: OBResources.LocalizationTable.regionNames)
+            regionNameCell.customNameTextField.placeholder = regionKey.localized(in: Default.regionNameLanguageIdentifierEnglish, fromTable: OBResources.LocalizationTable.regionNames)
             regionNameCell.customNameTextField.text = regionNames[regionKey]
         }
         return cell
@@ -83,7 +83,7 @@ extension OBCustomRegionNamesTableViewController: UITextFieldDelegate {
             else { return }
 
         let regionNameKey = sortedRegionNameKeys[indexPath.row]
-        regionNames[regionNameKey] = textField.text ?? ""
+        regionNames[regionNameKey] = textField.text ?? String()
             
     }
     
@@ -136,7 +136,7 @@ extension OBCustomRegionNamesTableViewController {
             {
                 jsonRegions.forEach {
                     if let regionName = $0.string(forKey: JSONKey.name), !regionName.isEmpty {
-                        newRegionNamesDict[regionName] = ""
+                        newRegionNamesDict[regionName] = String()
                     }
                 }
             }
@@ -153,8 +153,16 @@ extension OBCustomRegionNamesTableViewController {
     }
     
     private func localizedRegionName(_ name: String) -> String {
-        let currentLanguageCode: String = Locale.current.languageCode ?? "en"
+        let currentLanguageCode: String = Locale.current.languageCode ?? Default.regionNameLanguageIdentifierEnglish
         let regionNamesTableName: String = OBResources.LocalizationTable.regionNames
         return name.localized(in: currentLanguageCode, fromTable: regionNamesTableName)
+    }
+}
+
+// MARK: - Default Values
+
+extension OBCustomRegionNamesTableViewController {
+    struct Default {
+        static let regionNameLanguageIdentifierEnglish = "en"
     }
 }

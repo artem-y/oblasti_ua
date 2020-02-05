@@ -56,7 +56,7 @@ extension OBGameResultViewController: OBDefaultsKeyControllable { }
 extension OBGameResultViewController {
     private func checkHighscore() {
         guard let gameResult = gameResult else { return }
-        var highscoreKey = ""
+        var highscoreKey = String()
         
         switch gameResult.mode {
         case .classic:
@@ -90,21 +90,21 @@ extension OBGameResultViewController {
     private func loadUI() {
         guard let gameResult = gameResult else { return }
         
-        let headerTextStartIndex = isNewHighscore ? "New Highscore:" : "Mode:"
-        let headerText = "\(headerTextStartIndex.localized()) \(gameResult.mode.rawValue.localized())"
+        let headerTextPrefix = isNewHighscore ? Localized.LabelTextPrefix.newHighscore : Localized.LabelTextPrefix.mode
+        let headerText = "\(headerTextPrefix)\(Localized.wordsSeparator)\(gameResult.mode.rawValue.localized())"
         headerLabel.text = headerText
         headerLabel.textColor = isNewHighscore ? .correctSelectionColor : .selectedRegionColor
         
         let mistakesImageName: String = gameResult.mistakesCount == 0 ? OBResources.ImageName.correctIcon : OBResources.ImageName.mistakesIcon
         mistakesImageView.image = UIImage(named: mistakesImageName)
-        var mistakesText = "\("Mistakes:".localized()) \(gameResult.mistakesCount)"
+        var mistakesText = "\(Localized.LabelTextPrefix.mistakes)\(Localized.wordsSeparator)\(gameResult.mistakesCount)"
         if gameResult.mode == .norepeat {
-            mistakesText += "/\(gameResult.regions.count)"
+            mistakesText += "\(Localized.resultOutOfTotalSeparator)\(gameResult.regions.count)"
         }
         mistakesLabel.text = mistakesText
         
         let timeString = OBGameTimeFormatter().string(for: gameResult.timePassed)
-                timeLabel.text = "\("Time:".localized()) \(timeString)"
+        timeLabel.text = "\(Localized.LabelTextPrefix.time) \(timeString)"
         
         let timeImageName: String = isNewHighscore ? OBResources.ImageName.cupIcon : OBResources.ImageName.clockIcon
         timeImageView.image = UIImage(named: timeImageName)
@@ -116,6 +116,22 @@ extension OBGameResultViewController {
             soundController?.playNewHighscoreSound()
         } else {
             soundController?.playGameCompletionSound()
+        }
+    }
+}
+
+// MARK: - Localized Values
+
+extension OBGameResultViewController {
+    struct Localized {
+        static let wordsSeparator = " ".localized()
+        static let resultOutOfTotalSeparator = "/".localized()
+    
+        struct LabelTextPrefix {
+            static let newHighscore = "New Highscore:".localized()
+            static let mode = "Mode:".localized()
+            static let mistakes = "Mistakes:".localized()
+            static let time = "Time:".localized()
         }
     }
 }

@@ -37,7 +37,7 @@ final class OBSettingsController: NSObject {
     }
     
     /// Languages contain all available localizatons for region names and user-defined region names
-    var availableLanguages: [String] = Bundle.main.localizations.filter { $0 != "Base" } + [OBResources.LanguageCode.custom]
+    var availableLanguages: [String] = Bundle.main.localizations.filter { $0 != Default.baseLocalizationLanguageName } + [OBResources.LanguageCode.custom]
     
     // MARK: - Public Methods
     
@@ -108,5 +108,12 @@ extension OBSettingsController {
     private func standardDefaultsBool(forKey userDefaultsKey: String) -> Bool? {
         return standardDefaults.value(forKey: userDefaultsKey) as? Bool
     }
-    
+}
+
+// MARK: - Default Values
+
+extension OBSettingsController {
+    struct Default {
+        static let baseLocalizationLanguageName = "Base"
+    }
 }

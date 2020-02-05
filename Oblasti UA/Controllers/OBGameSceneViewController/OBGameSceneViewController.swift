@@ -42,7 +42,6 @@ final class OBGameSceneViewController: UIViewController, OBDefaultsKeyControllab
     // MARK: -
     
     private var customRegionNames: [String: String] = [:]
-    private let animationDuration: Double = 0.2
     private var singleTapRecognizer: UITapGestureRecognizer!
     private var isShowingSelectionResult = false
     private var isRunningGame = true {
@@ -203,14 +202,14 @@ extension OBGameSceneViewController {
     
     private func configureScrollView() {
         scrollView.delegate = self
-        scrollView.maximumZoomScale = 2.0
+        scrollView.maximumZoomScale = Default.scrollViewMaximumZoomScale
         scrollView.contentSize = view.frame.size
     }
     
     private func configureGestureRecognizers() {
         singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
-        singleTapRecognizer.numberOfTouchesRequired = 1
-        singleTapRecognizer.numberOfTapsRequired = 1
+        singleTapRecognizer.numberOfTouchesRequired = Default.SingleTapGesture.numberOfTouchesRequired
+        singleTapRecognizer.numberOfTapsRequired = Default.SingleTapGesture.numberOfTapsRequired
         view.addGestureRecognizer(singleTapRecognizer)
     }
     // MARK: -
@@ -222,7 +221,7 @@ extension OBGameSceneViewController {
             regionKeysAndPaths[region.name] = region.path
         }
         
-        mapView = OBMapView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 900.0, height: 610.0)), sublayerNamesAndPaths: regionKeysAndPaths)
+        mapView = OBMapView(frame: Default.mapViewFrame, sublayerNamesAndPaths: regionKeysAndPaths)
         
         view.setNeedsLayout()
         view.layoutIfNeeded()
@@ -250,13 +249,13 @@ extension OBGameSceneViewController {
     private func reloadCurrentRegionName() {
         if let currentRegion = gameController.currentRegion {
             let languageIdentifier = settings.regionNameLanguageIdentifier
-            var regionName = ""
+            var regionName = String()
             
             if languageIdentifier == OBResources.LanguageCode.custom {
                 if let customRegionName = customRegionNames[currentRegion.name], customRegionName.isEmpty == false {
                     regionName = customRegionName
                 } else {
-                    regionName = currentRegion.name.localized(in: "en", fromTable: OBResources.LocalizationTable.regionNames)
+                    regionName = currentRegion.name.localized(in: Default.regionNameLanguageIdentifierEnglish, fromTable: OBResources.LocalizationTable.regionNames)
                 }
             } else {
                 regionName = currentRegion.name.localized(in: languageIdentifier, fromTable: OBResources.LocalizationTable.regionNames)
@@ -265,13 +264,13 @@ extension OBGameSceneViewController {
             let regionNameText = settings.regionNamesUppercased ? regionName.uppercased() : regionName
             regionLabel.attributedText = whiteBorderAttributedText(regionNameText, regionLabel.textColor)
         } else {
-            regionLabel.text = ""
+            regionLabel.text = String()
         }
     }
     
     private func reloadTimerLabelTitle() {
         let timeFormatter = OBGameTimeFormatter()
-        timeFormatter.timeFormat = "mm:ss"
+        timeFormatter.timeFormat = Default.timeFormat
         let timeText = timeFormatter.string(for: gameController.gameResult.timePassed)
         timeLabel.attributedText = whiteBorderAttributedText(timeText, timeLabel.textColor)
     }
@@ -285,8 +284,8 @@ extension OBGameSceneViewController {
     
     private func whiteBorderAttributedText(_ text: String, _ textColor: UIColor) -> NSAttributedString {
         let attributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.strokeColor: UIColor.white,
-            NSAttributedString.Key.strokeWidth: -2.0,
+            NSAttributedString.Key.strokeColor: Default.WhiteBorderText.strokeColor,
+            NSAttributedString.Key.strokeWidth: Default.WhiteBorderText.strokeWidth,
             NSAttributedString.Key.foregroundColor: textColor
         ]
         return NSAttributedString(string: text, attributes: attributes)
@@ -330,7 +329,7 @@ extension OBGameSceneViewController {
                         bottomRightConfirmationView.frame = CGRect(origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y), size: oldFrame.size)
                         bottomRightConfirmationView.isHidden = false
                         
-                        UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseOut, animations: {
+                        UIView.animate(withDuration: Default.Animation.Duration.normal, delay: Default.Animation.delay, options: .curveEaseOut, animations: {
                             [unowned self] in
                             self.bottomRightConfirmationView.frame = oldFrame
                             // This prevents reenabling tap gestures after the game is finished
@@ -346,7 +345,7 @@ extension OBGameSceneViewController {
                 if regionsContainLocation {
                     if autoConfirmsSelection {
                         singleTapRecognizer.isEnabled = false
-                        perform(#selector(confirmSelection), with: nil, afterDelay: animationDuration * 1.5)
+                        perform(#selector(confirmSelection), with: nil, afterDelay: Default.Animation.Duration.slow)
                     }
                 } else {
                     if mapView.layer.contains(location) {
@@ -362,7 +361,7 @@ extension OBGameSceneViewController {
             singleTapRecognizer.isEnabled = false
             let oldFrame: CGRect = bottomRightConfirmationView.frame
             
-            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseIn, animations: { [unowned self] in
+            UIView.animate(withDuration: Default.Animation.Duration.normal, delay: Default.Animation.delay, options: .curveEaseIn, animations: { [unowned self] in
                 
                 self.bottomRightConfirmationView.frame = CGRect(origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y), size: oldFrame.size)
             }) { [unowned self]
@@ -393,7 +392,7 @@ extension OBGameSceneViewController {
         if showsButtons {
             let oldFrame = self.bottomLeftChoiceView.frame
             
-            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseIn, animations: { [unowned self] in
+            UIView.animate(withDuration: Default.Animation.Duration.normal, delay: Default.Animation.delay, options: .curveEaseIn, animations: { [unowned self] in
                 let newX: CGFloat = oldFrame.origin.x - oldFrame.width
                 
                 self.bottomLeftChoiceView.frame = CGRect(origin: CGPoint(x: newX, y: oldFrame.origin.y), size: oldFrame.size)
@@ -453,7 +452,7 @@ extension OBGameSceneViewController {
             let oldFrame = bottomLeftChoiceView.frame
             bottomLeftChoiceView.frame.origin = CGPoint(x: oldFrame.origin.x - oldFrame.width, y: oldFrame.origin.y)
             bottomLeftChoiceView.isHidden = false
-            UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseOut, animations: {
+            UIView.animate(withDuration: Default.Animation.Duration.normal, delay: Default.Animation.delay, options: .curveEaseOut, animations: {
                 [unowned self] in
                 self.bottomLeftChoiceView.frame = oldFrame
                 })
@@ -472,7 +471,37 @@ extension OBGameSceneViewController {
     private func completeShowingChoiceResult() {
         guard settings.changesRegionAutomatically else { return }
         singleTapRecognizer.isEnabled = false
-        perform(#selector(cancelSelection), with: nil, afterDelay: animationDuration * 1.5)
+        perform(#selector(cancelSelection), with: nil, afterDelay: Default.Animation.Duration.slow)
     }
     
+}
+
+// MARK: - Default Values
+
+extension OBGameSceneViewController {
+    struct Default {
+        struct Animation {
+            struct Duration {
+                static let normal = 0.2
+                static let slow = normal * 1.5
+            }
+
+            static let delay = 0.0
+        }
+
+        struct SingleTapGesture {
+            static let numberOfTouchesRequired = 1
+            static let numberOfTapsRequired = 1
+        }
+
+        struct WhiteBorderText {
+            static let strokeColor = UIColor.white
+            static let strokeWidth = -2.0
+        }
+
+        static let scrollViewMaximumZoomScale: CGFloat = 2.0
+        static let timeFormat = "mm:ss"
+        static let mapViewFrame = CGRect(origin: CGPoint.zero, size: CGSize(width: 900.0, height: 610.0))
+        static let regionNameLanguageIdentifierEnglish = "en"
+    }
 }

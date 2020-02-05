@@ -11,9 +11,11 @@ import UIKit
 final class OBLanguageSettingTableViewController: UITableViewController, OBDefaultsKeyControllable {
     
     // MARK: - @IBOutlets
+
     @IBOutlet var editBarButtonItem: UIBarButtonItem!
     
     // MARK: - Private Properties
+
     private let languages: [String] = OBSettingsController.shared.availableLanguages
     private var customRegionNames: [String] = []
     
@@ -57,7 +59,7 @@ extension OBLanguageSettingTableViewController {
         var detailText: String?
         if languageCode == OBResources.LanguageCode.custom {
             detailText = customRegionNames.reduce(into: String(), {
-                if !$0.isEmpty { $0 += ", " }
+                if !$0.isEmpty { $0 += Localized.listingWordsSeparator }
                 $0 += $1
             })
         } else {
@@ -86,5 +88,13 @@ extension OBLanguageSettingTableViewController {
         let jsonDecoder = JSONDecoder()
         guard let jsonData = standardDefaults.data(forKey: DefaultsKey.customRegionNames), let regionNamesDict = try? jsonDecoder.decode([String: String].self, from: jsonData) else { return }
         customRegionNames = regionNamesDict.values.filter { !$0.isEmpty }
+    }
+}
+
+// MARK: - Localized Values
+
+extension OBLanguageSettingTableViewController {
+    struct Localized {
+        static let listingWordsSeparator = ", ".localized()
     }
 }
