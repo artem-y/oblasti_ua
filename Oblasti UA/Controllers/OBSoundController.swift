@@ -20,15 +20,12 @@ final class OBSoundController {
     func playGameStartSound() {
         // TODO: Add game start sound (optional)
     } 
-    
-    /// Playes sound of correct choice.
-    func playCorrectChoiceSound() {
-        playSound(fromFileNamed: SoundFileName.correctAnswerBell)
-    }
-    
-    /// Playes sound of wrong choice.
-    func playWrongChoiceSound() {
-        playSound(fromFileNamed: SoundFileName.wrongAnswerStrings)
+
+    /// Playes the sound of choice.
+    /// - parameter isCorrect: Used to determine whether to play right or wrong choice sound.
+    func playChoiceSound(isCorrect: Bool) {
+        let soundFileName = isCorrect ? SoundFileName.correctAnswerBell : SoundFileName.wrongAnswerStrings
+        playSound(fromFileNamed: soundFileName)
     }
     
     /// Playes game completion sound.

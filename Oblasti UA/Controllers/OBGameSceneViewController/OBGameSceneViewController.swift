@@ -435,11 +435,7 @@ extension OBGameSceneViewController {
         
         // If sound is on, play sound
         if settings.playesSoundEffects {
-            if isCorrect {
-                soundController?.playCorrectChoiceSound()
-            } else {
-                soundController?.playWrongChoiceSound()
-            }
+            soundController?.playChoiceSound(isCorrect: isCorrect)
         }
         
         if showsButtons {
