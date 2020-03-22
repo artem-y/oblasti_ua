@@ -41,7 +41,7 @@ final class OBGameController {
         // This makes function reusable (like when timer resumes after pausing the game)
         timerStartDate = Date().addingTimeInterval(-game.timePassed)
         
-        timer = Timer.scheduledTimer(withTimeInterval: Default.timerIntervar, repeats: true) { [weak self]
+        timer = Timer.scheduledTimer(withTimeInterval: Default.timerInterval, repeats: true) { [weak self]
             (timer) in
             self?.timerValueDidChange()
         }
@@ -94,16 +94,14 @@ final class OBGameController {
     /// Saves current game instance in JSON format
     func saveGame() {
         let jsonEncoder = JSONEncoder()
-        if let jsonData = try? jsonEncoder.encode(gameResult) {
-            standardDefaults.set(jsonData, forKey: DefaultsKey.lastUnfinishedGame)
-        }
+        guard let jsonData = try? jsonEncoder.encode(gameResult) else { return }
+        standardDefaults.set(jsonData, forKey: DefaultsKey.lastUnfinishedGame)
     }
     
     /// If game mode is 'pointer', sets current region to nil.
     func clearCurrentRegionBasedOnMode() {
-        if game.mode == .pointer {
-            currentRegion = nil
-        }
+        guard game.mode == .pointer else { return }
+        currentRegion = nil
     }
     
        // MARK: - Initialization
@@ -154,13 +152,10 @@ extension OBGameController {
             game.timePassed = Date().timeIntervalSince(startDate)
         }
         
-        if OBSettingsController.shared.settings.showsTime {
-            // To improve performance, send changes to UI only when seconds change, not milliseconds
-            if game.timePassed.truncatingRemainder(dividingBy: Default.timeRemainderDivider) < Default.timerIntervar {
-                delegate?.reactToTimerValueChange()
-            }
-        }
-        
+        // To improve performance, send changes to UI only when seconds change, not milliseconds
+        guard OBSettingsController.shared.settings.showsTime &&
+            game.timePassed.truncatingRemainder(dividingBy: Default.timeRemainderDivider) < Default.timerInterval else { return }
+        delegate?.reactToTimerValueChange()
     }
     
 }
@@ -170,6 +165,6 @@ extension OBGameController {
 extension OBGameController {
     struct Default {
         static let timeRemainderDivider = 1.0
-        static let timerIntervar = 0.001
+        static let timerInterval = 0.001
     }
 }

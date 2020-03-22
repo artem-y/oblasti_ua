@@ -132,19 +132,19 @@ extension OBGameSceneViewController {
         
         switch segue.identifier {
         case OBResources.SegueIdentifier.pauseGameSegue:
-            if let destinationVC = segue.destination as? OBPauseViewController {
-                destinationVC.gameController = gameController
-                destinationVC.delegate = self
-            }
+            guard let destinationVC = segue.destination as? OBPauseViewController else { break }
+            destinationVC.gameController = gameController
+            destinationVC.delegate = self
+
         case OBResources.SegueIdentifier.showGameResultSegue:
-            if let destinationVC = segue.destination as? OBGameResultViewController {
-                mapView.isHidden = true
-                topRightInfoView.isHidden = true
-                regionLabel.isHidden = true
-                bottomLeftChoiceView.isHidden = true
-                bottomRightConfirmationView.isHidden = true
-                destinationVC.gameResult = gameController.gameResult
-            }
+            guard let destinationVC = segue.destination as? OBGameResultViewController else { break }
+            mapView.isHidden = true
+            topRightInfoView.isHidden = true
+            regionLabel.isHidden = true
+            bottomLeftChoiceView.isHidden = true
+            bottomRightConfirmationView.isHidden = true
+            destinationVC.gameResult = gameController.gameResult
+
         default:
             break
         }
@@ -246,25 +246,26 @@ extension OBGameSceneViewController {
     
     /// If game controller has current region, sets region label text to its translated and formatted name
     private func reloadCurrentRegionName() {
-        if let currentRegion = gameController.currentRegion {
-            let languageIdentifier = settings.regionNameLanguageIdentifier
-            var regionName = String()
-            
-            if languageIdentifier == OBResources.LanguageCode.custom {
-                if let customRegionName = customRegionNames[currentRegion.name], customRegionName.isEmpty == false {
-                    regionName = customRegionName
-                } else {
-                    regionName = currentRegion.name.localized(in: Default.regionNameLanguageIdentifierEnglish, fromTable: OBResources.LocalizationTable.regionNames)
-                }
-            } else {
-                regionName = currentRegion.name.localized(in: languageIdentifier, fromTable: OBResources.LocalizationTable.regionNames)
-            }
-            
-            let regionNameText = settings.regionNamesUppercased ? regionName.uppercased() : regionName
-            regionLabel.attributedText = whiteBorderAttributedText(regionNameText, regionLabel.textColor)
-        } else {
+        guard let currentRegion = gameController.currentRegion else {
             regionLabel.text = String()
+            return
         }
+        
+        let languageIdentifier = settings.regionNameLanguageIdentifier
+        var regionName = String()
+        
+        if languageIdentifier == OBResources.LanguageCode.custom {
+            if let customRegionName = customRegionNames[currentRegion.name], customRegionName.isEmpty == false {
+                regionName = customRegionName
+            } else {
+                regionName = currentRegion.name.localized(in: Default.regionNameLanguageIdentifierEnglish, fromTable: OBResources.LocalizationTable.regionNames)
+            }
+        } else {
+            regionName = currentRegion.name.localized(in: languageIdentifier, fromTable: OBResources.LocalizationTable.regionNames)
+        }
+        
+        let regionNameText = settings.regionNamesUppercased ? regionName.uppercased() : regionName
+        regionLabel.attributedText = whiteBorderAttributedText(regionNameText, regionLabel.textColor)
     }
     
     private func reloadTimerLabelTitle() {
