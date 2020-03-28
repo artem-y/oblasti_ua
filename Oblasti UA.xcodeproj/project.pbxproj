@@ -7,78 +7,78 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B0060EA9238DCAEF00638E13 /* OBPauseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EAC238DCAEF00638E13 /* OBPauseViewController.storyboard */; };
-		B0060EAA238DCAEF00638E13 /* OBPauseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EAC238DCAEF00638E13 /* OBPauseViewController.storyboard */; };
-		B0060EB6238DCC8400638E13 /* OBSettingsTableViewController+NavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EB9238DCC8400638E13 /* OBSettingsTableViewController+NavigationController.storyboard */; };
-		B0060EB7238DCC8400638E13 /* OBSettingsTableViewController+NavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EB9238DCC8400638E13 /* OBSettingsTableViewController+NavigationController.storyboard */; };
-		B0060EC0238DCEFD00638E13 /* OBGameResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EC3238DCEFD00638E13 /* OBGameResultViewController.storyboard */; };
-		B0060EC1238DCEFD00638E13 /* OBGameResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EC3238DCEFD00638E13 /* OBGameResultViewController.storyboard */; };
-		B0060ECA238DD3F600638E13 /* OBInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060ECD238DD3F600638E13 /* OBInfoViewController.storyboard */; };
-		B0060ECB238DD3F600638E13 /* OBInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060ECD238DD3F600638E13 /* OBInfoViewController.storyboard */; };
-		B0060ED4238DDB9C00638E13 /* OBHighscoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060ED7238DDB9C00638E13 /* OBHighscoreViewController.storyboard */; };
-		B0060ED5238DDB9C00638E13 /* OBHighscoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060ED7238DDB9C00638E13 /* OBHighscoreViewController.storyboard */; };
-		B0060EDE238DDC9E00638E13 /* OBCustomRegionNamesTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EE1238DDC9E00638E13 /* OBCustomRegionNamesTableViewController.storyboard */; };
-		B0060EDF238DDC9E00638E13 /* OBCustomRegionNamesTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EE1238DDC9E00638E13 /* OBCustomRegionNamesTableViewController.storyboard */; };
-		B0060EE8238DDD4600638E13 /* OBModeSettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EEB238DDD4600638E13 /* OBModeSettingTableViewController.storyboard */; };
-		B0060EE9238DDD4600638E13 /* OBModeSettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EEB238DDD4600638E13 /* OBModeSettingTableViewController.storyboard */; };
-		B0060EF2238DDE0F00638E13 /* OBLanguageSettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EF5238DDE0F00638E13 /* OBLanguageSettingTableViewController.storyboard */; };
-		B0060EF3238DDE0F00638E13 /* OBLanguageSettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EF5238DDE0F00638E13 /* OBLanguageSettingTableViewController.storyboard */; };
-		B0060EFC238DDEE900638E13 /* OBGameSceneViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EFF238DDEE900638E13 /* OBGameSceneViewController.storyboard */; };
-		B0060EFD238DDEE900638E13 /* OBGameSceneViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EFF238DDEE900638E13 /* OBGameSceneViewController.storyboard */; };
-		B0060F06238DDF4B00638E13 /* OBConfirmationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060F09238DDF4B00638E13 /* OBConfirmationViewController.storyboard */; };
-		B0060F07238DDF4B00638E13 /* OBConfirmationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060F09238DDF4B00638E13 /* OBConfirmationViewController.storyboard */; };
-		B008ED1522CD125D0024217F /* OBMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008ED1422CD125D0024217F /* OBMapViewTests.swift */; };
-		B01BA8D9229810270035ED9D /* OBCustomRegionNamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8D8229810270035ED9D /* OBCustomRegionNamesTableViewController.swift */; };
-		B01BA8DB2298230D0035ED9D /* OBCustomRegionNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8DA2298230D0035ED9D /* OBCustomRegionNameCell.swift */; };
+		B0060EA9238DCAEF00638E13 /* PauseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EAC238DCAEF00638E13 /* PauseViewController.storyboard */; };
+		B0060EAA238DCAEF00638E13 /* PauseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EAC238DCAEF00638E13 /* PauseViewController.storyboard */; };
+		B0060EB6238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EB9238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard */; };
+		B0060EB7238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EB9238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard */; };
+		B0060EC0238DCEFD00638E13 /* GameResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EC3238DCEFD00638E13 /* GameResultViewController.storyboard */; };
+		B0060EC1238DCEFD00638E13 /* GameResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EC3238DCEFD00638E13 /* GameResultViewController.storyboard */; };
+		B0060ECA238DD3F600638E13 /* InfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060ECD238DD3F600638E13 /* InfoViewController.storyboard */; };
+		B0060ECB238DD3F600638E13 /* InfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060ECD238DD3F600638E13 /* InfoViewController.storyboard */; };
+		B0060ED4238DDB9C00638E13 /* HighscoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060ED7238DDB9C00638E13 /* HighscoreViewController.storyboard */; };
+		B0060ED5238DDB9C00638E13 /* HighscoreViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060ED7238DDB9C00638E13 /* HighscoreViewController.storyboard */; };
+		B0060EDE238DDC9E00638E13 /* CustomRegionNamesTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EE1238DDC9E00638E13 /* CustomRegionNamesTableViewController.storyboard */; };
+		B0060EDF238DDC9E00638E13 /* CustomRegionNamesTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EE1238DDC9E00638E13 /* CustomRegionNamesTableViewController.storyboard */; };
+		B0060EE8238DDD4600638E13 /* ModeSettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EEB238DDD4600638E13 /* ModeSettingTableViewController.storyboard */; };
+		B0060EE9238DDD4600638E13 /* ModeSettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EEB238DDD4600638E13 /* ModeSettingTableViewController.storyboard */; };
+		B0060EF2238DDE0F00638E13 /* LanguageSettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EF5238DDE0F00638E13 /* LanguageSettingTableViewController.storyboard */; };
+		B0060EF3238DDE0F00638E13 /* LanguageSettingTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EF5238DDE0F00638E13 /* LanguageSettingTableViewController.storyboard */; };
+		B0060EFC238DDEE900638E13 /* GameSceneViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EFF238DDEE900638E13 /* GameSceneViewController.storyboard */; };
+		B0060EFD238DDEE900638E13 /* GameSceneViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EFF238DDEE900638E13 /* GameSceneViewController.storyboard */; };
+		B0060F06238DDF4B00638E13 /* ConfirmationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060F09238DDF4B00638E13 /* ConfirmationViewController.storyboard */; };
+		B0060F07238DDF4B00638E13 /* ConfirmationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060F09238DDF4B00638E13 /* ConfirmationViewController.storyboard */; };
+		B008ED1522CD125D0024217F /* MapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008ED1422CD125D0024217F /* MapViewTests.swift */; };
+		B01BA8D9229810270035ED9D /* CustomRegionNamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8D8229810270035ED9D /* CustomRegionNamesTableViewController.swift */; };
+		B01BA8DB2298230D0035ED9D /* CustomRegionNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8DA2298230D0035ED9D /* CustomRegionNameCell.swift */; };
 		B028F39122BAF66600133A8A /* New Highscore Wind Tunes.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B028F39022BAF66600133A8A /* New Highscore Wind Tunes.m4a */; };
-		B02EFFFB227B445900825656 /* OBMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02EFFFA227B445900825656 /* OBMenuViewController.swift */; };
-		B032668A22A5BE1000EA767B /* OBPauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B032668922A5BE1000EA767B /* OBPauseViewController.swift */; };
+		B02EFFFB227B445900825656 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02EFFFA227B445900825656 /* MenuViewController.swift */; };
+		B032668A22A5BE1000EA767B /* PauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B032668922A5BE1000EA767B /* PauseViewController.swift */; };
 		B040E8A0228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */; };
 		B040E8A2228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */; };
 		B042BEF7229C439400FE4A5C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B042BEF9229C439400FE4A5C /* InfoPlist.strings */; };
-		B043EB05227C2A9F00F87F1F /* OBInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB04227C2A9F00F87F1F /* OBInfoViewController.swift */; };
-		B043EB07227C312A00F87F1F /* OBRoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB06227C312A00F87F1F /* OBRoundCornerButton.swift */; };
-		B04DDB78228B4EB8008B9DD9 /* OBGameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DDB77228B4EB8008B9DD9 /* OBGameResultViewController.swift */; };
-		B04DE48022858F8D00939C4E /* OBModeSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE47F22858F8D00939C4E /* OBModeSettingTableViewController.swift */; };
-		B04DE4822285A6A500939C4E /* OBSettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE4812285A6A500939C4E /* OBSettingsNavigationController.swift */; };
+		B043EB05227C2A9F00F87F1F /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB04227C2A9F00F87F1F /* InfoViewController.swift */; };
+		B043EB07227C312A00F87F1F /* RoundCornerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043EB06227C312A00F87F1F /* RoundCornerButton.swift */; };
+		B04DDB78228B4EB8008B9DD9 /* GameResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DDB77228B4EB8008B9DD9 /* GameResultViewController.swift */; };
+		B04DE48022858F8D00939C4E /* ModeSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE47F22858F8D00939C4E /* ModeSettingTableViewController.swift */; };
+		B04DE4822285A6A500939C4E /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE4812285A6A500939C4E /* SettingsNavigationController.swift */; };
 		B04DE4842285B2A700939C4E /* UIViewController+dismissNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE4832285B2A700939C4E /* UIViewController+dismissNavigationController.swift */; };
 		B05844F9229BD7F7004836FE /* Custom Notification Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05844F8229BD7F7004836FE /* Custom Notification Names.swift */; };
-		B05A2AAE227A553400D8BA5C /* OBGameControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05A2AAD227A553400D8BA5C /* OBGameControllerDelegate.swift */; };
+		B05A2AAE227A553400D8BA5C /* GameControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05A2AAD227A553400D8BA5C /* GameControllerDelegate.swift */; };
 		B05A884D22C54DB50013F52F /* Ukraine.json in Resources */ = {isa = PBXBuildFile; fileRef = B05A884C22C54DB40013F52F /* Ukraine.json */; };
-		B05E15C222746C9C007C85AF /* OBGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E15C122746C9C007C85AF /* OBGameController.swift */; };
-		B05E15C422746CDF007C85AF /* OBRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E15C322746CDF007C85AF /* OBRegion.swift */; };
+		B05E15C222746C9C007C85AF /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E15C122746C9C007C85AF /* GameController.swift */; };
+		B05E15C422746CDF007C85AF /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05E15C322746CDF007C85AF /* Region.swift */; };
 		B063BE0F22C8D16B0070C9F9 /* JSONDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = B063BE0E22C8D16B0070C9F9 /* JSONDictionary.swift */; };
-		B06B4E7822A680B000C0797B /* OBPauseViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B4E7722A680B000C0797B /* OBPauseViewControllerDelegate.swift */; };
-		B06F0E54229AFCAF00AD9A25 /* OBDefaultsKeyControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F0E53229AFCAF00AD9A25 /* OBDefaultsKeyControllable.swift */; };
-		B07099AA2292B743005D0C3E /* OBGameTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07099A92292B743005D0C3E /* OBGameTimeFormatter.swift */; };
-		B07A9ED3227CFC4400C4D2F0 /* OBResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A9ED2227CFC4400C4D2F0 /* OBResources.swift */; };
-		B07C5F6D2280435D009059A7 /* OBGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C5F6C2280435D009059A7 /* OBGame.swift */; };
-		B07C5F6F22805F12009059A7 /* OBSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C5F6E22805F12009059A7 /* OBSettingsTableViewController.swift */; };
+		B06B4E7822A680B000C0797B /* PauseViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B4E7722A680B000C0797B /* PauseViewControllerDelegate.swift */; };
+		B06F0E54229AFCAF00AD9A25 /* DefaultsKeyControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F0E53229AFCAF00AD9A25 /* DefaultsKeyControllable.swift */; };
+		B07099AA2292B743005D0C3E /* GameTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07099A92292B743005D0C3E /* GameTimeFormatter.swift */; };
+		B07A9ED3227CFC4400C4D2F0 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A9ED2227CFC4400C4D2F0 /* Resources.swift */; };
+		B07C5F6D2280435D009059A7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C5F6C2280435D009059A7 /* Game.swift */; };
+		B07C5F6F22805F12009059A7 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C5F6E22805F12009059A7 /* SettingsTableViewController.swift */; };
 		B0904F93226F858E007842CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0904F92226F858E007842CA /* AppDelegate.swift */; };
-		B0904F95226F858E007842CA /* OBGameSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0904F94226F858E007842CA /* OBGameSceneViewController.swift */; };
-		B0904F98226F858E007842CA /* OBMenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0904F96226F858E007842CA /* OBMenuViewController.storyboard */; };
+		B0904F95226F858E007842CA /* GameSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0904F94226F858E007842CA /* GameSceneViewController.swift */; };
+		B0904F98226F858E007842CA /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0904F96226F858E007842CA /* MenuViewController.storyboard */; };
 		B0904F9A226F858F007842CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0904F99226F858F007842CA /* Assets.xcassets */; };
 		B0904F9D226F858F007842CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0904F9B226F858F007842CA /* LaunchScreen.storyboard */; };
-		B0904FA9226F8656007842CA /* OBMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0904FA8226F8656007842CA /* OBMapView.swift */; };
-		B09CF0CB22832ABA00BC7FED /* OBSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CA22832ABA00BC7FED /* OBSettings.swift */; };
+		B0904FA9226F8656007842CA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0904FA8226F8656007842CA /* MapView.swift */; };
+		B09CF0CB22832ABA00BC7FED /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CA22832ABA00BC7FED /* Settings.swift */; };
 		B09CF0CD2283391E00BC7FED /* String+localized(in language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */; };
-		B0AAE785228497BA002D7264 /* OBSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAE784228497BA002D7264 /* OBSettingsController.swift */; };
-		B0AD696022D3A16B0092FAEA /* OBGameControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AD695F22D3A16B0092FAEA /* OBGameControllerTests.swift */; };
-		B0BE6CC3238C99EB0012453D /* OBMenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0904F96226F858E007842CA /* OBMenuViewController.storyboard */; };
-		B0BFD4FA2297151E002EA6EF /* OBRemovableObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BFD4F92297151E002EA6EF /* OBRemovableObserver.swift */; };
+		B0AAE785228497BA002D7264 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAE784228497BA002D7264 /* SettingsController.swift */; };
+		B0AD696022D3A16B0092FAEA /* GameControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AD695F22D3A16B0092FAEA /* GameControllerTests.swift */; };
+		B0BE6CC3238C99EB0012453D /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0904F96226F858E007842CA /* MenuViewController.storyboard */; };
+		B0BFD4FA2297151E002EA6EF /* RemovableObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BFD4F92297151E002EA6EF /* RemovableObserver.swift */; };
 		B0C4168622BA45E40058633F /* Completion Bell.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B0C4168522BA45E30058633F /* Completion Bell.m4a */; };
 		B0C49DEB227A2B2400561892 /* GameColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */; };
-		B0C7D80F2288DA36006D8BE8 /* OBLanguageSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTableViewController.swift */; };
-		B0C95BD522A45135005A18A8 /* OBConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C95BD422A45135005A18A8 /* OBConfirmationViewController.swift */; };
+		B0C7D80F2288DA36006D8BE8 /* LanguageSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7D80E2288DA36006D8BE8 /* LanguageSettingTableViewController.swift */; };
+		B0C95BD522A45135005A18A8 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C95BD422A45135005A18A8 /* ConfirmationViewController.swift */; };
 		B0CFD85B22AD470E00AB3465 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B0CFD85A22AD470E00AB3465 /* Settings.bundle */; };
-		B0D0EA2C229E010000278597 /* OBPresentationStyleAdjustable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0EA2B229E010000278597 /* OBPresentationStyleAdjustable.swift */; };
-		B0E164B8228C4BD700615DC5 /* OBHighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E164B7228C4BD700615DC5 /* OBHighscoreViewController.swift */; };
+		B0D0EA2C229E010000278597 /* PresentationStyleAdjustable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D0EA2B229E010000278597 /* PresentationStyleAdjustable.swift */; };
+		B0E164B8228C4BD700615DC5 /* HighscoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E164B7228C4BD700615DC5 /* HighscoreViewController.swift */; };
 		B0E1846D2281AA21008E5C6D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0E1846F2281AA21008E5C6D /* Localizable.strings */; };
 		B0E1EE1822B680D9004640D6 /* Wrong Answer Strings.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B0E1EE1622B680D8004640D6 /* Wrong Answer Strings.m4a */; };
 		B0E1EE1922B680D9004640D6 /* Correct Answer Bell.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B0E1EE1722B680D9004640D6 /* Correct Answer Bell.m4a */; };
-		B0E1EE1C22B68156004640D6 /* OBSoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E1EE1B22B68156004640D6 /* OBSoundController.swift */; };
+		B0E1EE1C22B68156004640D6 /* SoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E1EE1B22B68156004640D6 /* SoundController.swift */; };
 		B0EF924B22898611000DC283 /* RegionNames.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0EF924D22898611000DC283 /* RegionNames.strings */; };
-		B0FE111222CDDCCF001B5246 /* OBSettingsControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE111122CDDCCF001B5246 /* OBSettingsControllerTests.swift */; };
+		B0FE111222CDDCCF001B5246 /* SettingsControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE111122CDDCCF001B5246 /* SettingsControllerTests.swift */; };
 		B0FE62A322C8119A004905B3 /* UIBezierPath+initFromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE62A222C8119A004905B3 /* UIBezierPath+initFromJSON.swift */; };
 		B0FE62A522C8203B004905B3 /* CGPoint+failableInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FE62A422C8203B004905B3 /* CGPoint+failableInit.swift */; };
 /* End PBXBuildFile section */
@@ -94,111 +94,111 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B0060EB1238DCB0400638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OBPauseViewController.storyboard; sourceTree = "<group>"; };
-		B0060EB3238DCB2300638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OBPauseViewController.strings; sourceTree = "<group>"; };
-		B0060EB4238DCB2700638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OBPauseViewController.strings; sourceTree = "<group>"; };
-		B0060EB5238DCB2B00638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/OBPauseViewController.strings; sourceTree = "<group>"; };
-		B0060EB8238DCC8400638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/OBSettingsTableViewController+NavigationController.storyboard"; sourceTree = "<group>"; };
-		B0060EBB238DCC8C00638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/OBSettingsTableViewController+NavigationController.strings"; sourceTree = "<group>"; };
-		B0060EBD238DCC9100638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "ru.lproj/OBSettingsTableViewController+NavigationController.strings"; sourceTree = "<group>"; };
-		B0060EBF238DCC9A00638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = "uk.lproj/OBSettingsTableViewController+NavigationController.strings"; sourceTree = "<group>"; };
-		B0060EC2238DCEFD00638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OBGameResultViewController.storyboard; sourceTree = "<group>"; };
-		B0060EC5238DCF0B00638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OBGameResultViewController.strings; sourceTree = "<group>"; };
-		B0060EC7238DCF0E00638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OBGameResultViewController.strings; sourceTree = "<group>"; };
-		B0060EC9238DCF1700638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/OBGameResultViewController.strings; sourceTree = "<group>"; };
-		B0060ECC238DD3F600638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OBInfoViewController.storyboard; sourceTree = "<group>"; };
-		B0060ECF238DD3FB00638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OBInfoViewController.strings; sourceTree = "<group>"; };
-		B0060ED1238DD3FF00638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OBInfoViewController.strings; sourceTree = "<group>"; };
-		B0060ED3238DD40400638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/OBInfoViewController.strings; sourceTree = "<group>"; };
-		B0060ED6238DDB9C00638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OBHighscoreViewController.storyboard; sourceTree = "<group>"; };
-		B0060ED9238DDBA300638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OBHighscoreViewController.strings; sourceTree = "<group>"; };
-		B0060EDB238DDBA700638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OBHighscoreViewController.strings; sourceTree = "<group>"; };
-		B0060EDD238DDBAD00638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/OBHighscoreViewController.strings; sourceTree = "<group>"; };
-		B0060EE0238DDC9E00638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OBCustomRegionNamesTableViewController.storyboard; sourceTree = "<group>"; };
-		B0060EE3238DDCA900638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OBCustomRegionNamesTableViewController.strings; sourceTree = "<group>"; };
-		B0060EE5238DDCAB00638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OBCustomRegionNamesTableViewController.strings; sourceTree = "<group>"; };
-		B0060EE7238DDCAE00638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/OBCustomRegionNamesTableViewController.strings; sourceTree = "<group>"; };
-		B0060EEA238DDD4600638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OBModeSettingTableViewController.storyboard; sourceTree = "<group>"; };
-		B0060EED238DDD4B00638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OBModeSettingTableViewController.strings; sourceTree = "<group>"; };
-		B0060EEF238DDD4E00638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OBModeSettingTableViewController.strings; sourceTree = "<group>"; };
-		B0060EF1238DDD5100638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/OBModeSettingTableViewController.strings; sourceTree = "<group>"; };
-		B0060EF4238DDE0F00638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OBLanguageSettingTableViewController.storyboard; sourceTree = "<group>"; };
-		B0060EF7238DDE1700638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OBLanguageSettingTableViewController.strings; sourceTree = "<group>"; };
-		B0060EF9238DDE1900638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OBLanguageSettingTableViewController.strings; sourceTree = "<group>"; };
-		B0060EFB238DDE1B00638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/OBLanguageSettingTableViewController.strings; sourceTree = "<group>"; };
-		B0060EFE238DDEE900638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OBGameSceneViewController.storyboard; sourceTree = "<group>"; };
-		B0060F01238DDEF100638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OBGameSceneViewController.strings; sourceTree = "<group>"; };
-		B0060F03238DDEF800638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OBGameSceneViewController.strings; sourceTree = "<group>"; };
-		B0060F05238DDEFA00638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/OBGameSceneViewController.strings; sourceTree = "<group>"; };
-		B0060F08238DDF4B00638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OBConfirmationViewController.storyboard; sourceTree = "<group>"; };
-		B0060F0B238DDF5000638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OBConfirmationViewController.strings; sourceTree = "<group>"; };
-		B0060F0D238DDF5500638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OBConfirmationViewController.strings; sourceTree = "<group>"; };
-		B0060F0F238DDF5600638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/OBConfirmationViewController.strings; sourceTree = "<group>"; };
-		B0060F11238DE04600638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OBMenuViewController.strings; sourceTree = "<group>"; };
-		B0060F13238DE06000638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/OBMenuViewController.strings; sourceTree = "<group>"; };
-		B0060F15238DE14500638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/OBMenuViewController.strings; sourceTree = "<group>"; };
+		B0060EB1238DCB0400638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PauseViewController.storyboard; sourceTree = "<group>"; };
+		B0060EB3238DCB2300638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PauseViewController.strings; sourceTree = "<group>"; };
+		B0060EB4238DCB2700638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PauseViewController.strings; sourceTree = "<group>"; };
+		B0060EB5238DCB2B00638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/PauseViewController.strings; sourceTree = "<group>"; };
+		B0060EB8238DCC8400638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/SettingsTableViewController+NavigationController.storyboard"; sourceTree = "<group>"; };
+		B0060EBB238DCC8C00638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/SettingsTableViewController+NavigationController.strings"; sourceTree = "<group>"; };
+		B0060EBD238DCC9100638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "ru.lproj/SettingsTableViewController+NavigationController.strings"; sourceTree = "<group>"; };
+		B0060EBF238DCC9A00638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = "uk.lproj/SettingsTableViewController+NavigationController.strings"; sourceTree = "<group>"; };
+		B0060EC2238DCEFD00638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GameResultViewController.storyboard; sourceTree = "<group>"; };
+		B0060EC5238DCF0B00638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/GameResultViewController.strings; sourceTree = "<group>"; };
+		B0060EC7238DCF0E00638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/GameResultViewController.strings; sourceTree = "<group>"; };
+		B0060EC9238DCF1700638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/GameResultViewController.strings; sourceTree = "<group>"; };
+		B0060ECC238DD3F600638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/InfoViewController.storyboard; sourceTree = "<group>"; };
+		B0060ECF238DD3FB00638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoViewController.strings; sourceTree = "<group>"; };
+		B0060ED1238DD3FF00638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoViewController.strings; sourceTree = "<group>"; };
+		B0060ED3238DD40400638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoViewController.strings; sourceTree = "<group>"; };
+		B0060ED6238DDB9C00638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/HighscoreViewController.storyboard; sourceTree = "<group>"; };
+		B0060ED9238DDBA300638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/HighscoreViewController.strings; sourceTree = "<group>"; };
+		B0060EDB238DDBA700638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/HighscoreViewController.strings; sourceTree = "<group>"; };
+		B0060EDD238DDBAD00638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/HighscoreViewController.strings; sourceTree = "<group>"; };
+		B0060EE0238DDC9E00638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CustomRegionNamesTableViewController.storyboard; sourceTree = "<group>"; };
+		B0060EE3238DDCA900638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CustomRegionNamesTableViewController.strings; sourceTree = "<group>"; };
+		B0060EE5238DDCAB00638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CustomRegionNamesTableViewController.strings; sourceTree = "<group>"; };
+		B0060EE7238DDCAE00638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/CustomRegionNamesTableViewController.strings; sourceTree = "<group>"; };
+		B0060EEA238DDD4600638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ModeSettingTableViewController.storyboard; sourceTree = "<group>"; };
+		B0060EED238DDD4B00638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ModeSettingTableViewController.strings; sourceTree = "<group>"; };
+		B0060EEF238DDD4E00638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ModeSettingTableViewController.strings; sourceTree = "<group>"; };
+		B0060EF1238DDD5100638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/ModeSettingTableViewController.strings; sourceTree = "<group>"; };
+		B0060EF4238DDE0F00638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LanguageSettingTableViewController.storyboard; sourceTree = "<group>"; };
+		B0060EF7238DDE1700638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LanguageSettingTableViewController.strings; sourceTree = "<group>"; };
+		B0060EF9238DDE1900638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LanguageSettingTableViewController.strings; sourceTree = "<group>"; };
+		B0060EFB238DDE1B00638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LanguageSettingTableViewController.strings; sourceTree = "<group>"; };
+		B0060EFE238DDEE900638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GameSceneViewController.storyboard; sourceTree = "<group>"; };
+		B0060F01238DDEF100638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/GameSceneViewController.strings; sourceTree = "<group>"; };
+		B0060F03238DDEF800638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/GameSceneViewController.strings; sourceTree = "<group>"; };
+		B0060F05238DDEFA00638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/GameSceneViewController.strings; sourceTree = "<group>"; };
+		B0060F08238DDF4B00638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ConfirmationViewController.storyboard; sourceTree = "<group>"; };
+		B0060F0B238DDF5000638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ConfirmationViewController.strings; sourceTree = "<group>"; };
+		B0060F0D238DDF5500638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ConfirmationViewController.strings; sourceTree = "<group>"; };
+		B0060F0F238DDF5600638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/ConfirmationViewController.strings; sourceTree = "<group>"; };
+		B0060F11238DE04600638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MenuViewController.strings; sourceTree = "<group>"; };
+		B0060F13238DE06000638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MenuViewController.strings; sourceTree = "<group>"; };
+		B0060F15238DE14500638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/MenuViewController.strings; sourceTree = "<group>"; };
 		B008ED0A22CD115C0024217F /* Oblasti UATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Oblasti UATests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B008ED0E22CD115C0024217F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B008ED1422CD125D0024217F /* OBMapViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBMapViewTests.swift; sourceTree = "<group>"; };
-		B01BA8D8229810270035ED9D /* OBCustomRegionNamesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBCustomRegionNamesTableViewController.swift; sourceTree = "<group>"; };
-		B01BA8DA2298230D0035ED9D /* OBCustomRegionNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBCustomRegionNameCell.swift; sourceTree = "<group>"; };
+		B008ED1422CD125D0024217F /* MapViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewTests.swift; sourceTree = "<group>"; };
+		B01BA8D8229810270035ED9D /* CustomRegionNamesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRegionNamesTableViewController.swift; sourceTree = "<group>"; };
+		B01BA8DA2298230D0035ED9D /* CustomRegionNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRegionNameCell.swift; sourceTree = "<group>"; };
 		B028F39022BAF66600133A8A /* New Highscore Wind Tunes.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "New Highscore Wind Tunes.m4a"; sourceTree = "<group>"; };
-		B02EFFFA227B445900825656 /* OBMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBMenuViewController.swift; sourceTree = "<group>"; };
-		B032668922A5BE1000EA767B /* OBPauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBPauseViewController.swift; sourceTree = "<group>"; };
+		B02EFFFA227B445900825656 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		B032668922A5BE1000EA767B /* PauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewController.swift; sourceTree = "<group>"; };
 		B040E89F228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+set(enabled.swift"; sourceTree = "<group>"; };
 		B040E8A1228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+set(hidden animationDuration.swift"; sourceTree = "<group>"; };
 		B042BEF8229C439400FE4A5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B042BEFA229C439800FE4A5C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B042BEFB229C439A00FE4A5C /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B043EB04227C2A9F00F87F1F /* OBInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBInfoViewController.swift; sourceTree = "<group>"; };
-		B043EB06227C312A00F87F1F /* OBRoundCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBRoundCornerButton.swift; sourceTree = "<group>"; };
-		B04DDB77228B4EB8008B9DD9 /* OBGameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGameResultViewController.swift; sourceTree = "<group>"; };
-		B04DE47F22858F8D00939C4E /* OBModeSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBModeSettingTableViewController.swift; sourceTree = "<group>"; };
-		B04DE4812285A6A500939C4E /* OBSettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettingsNavigationController.swift; sourceTree = "<group>"; };
+		B043EB04227C2A9F00F87F1F /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		B043EB06227C312A00F87F1F /* RoundCornerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerButton.swift; sourceTree = "<group>"; };
+		B04DDB77228B4EB8008B9DD9 /* GameResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResultViewController.swift; sourceTree = "<group>"; };
+		B04DE47F22858F8D00939C4E /* ModeSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSettingTableViewController.swift; sourceTree = "<group>"; };
+		B04DE4812285A6A500939C4E /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		B04DE4832285B2A700939C4E /* UIViewController+dismissNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissNavigationController.swift"; sourceTree = "<group>"; };
 		B05844F8229BD7F7004836FE /* Custom Notification Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Notification Names.swift"; sourceTree = "<group>"; };
-		B05A2AAD227A553400D8BA5C /* OBGameControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGameControllerDelegate.swift; sourceTree = "<group>"; };
+		B05A2AAD227A553400D8BA5C /* GameControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerDelegate.swift; sourceTree = "<group>"; };
 		B05A884C22C54DB40013F52F /* Ukraine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Ukraine.json; sourceTree = "<group>"; };
-		B05E15C122746C9C007C85AF /* OBGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGameController.swift; sourceTree = "<group>"; };
-		B05E15C322746CDF007C85AF /* OBRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBRegion.swift; sourceTree = "<group>"; };
+		B05E15C122746C9C007C85AF /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		B05E15C322746CDF007C85AF /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		B063BE0E22C8D16B0070C9F9 /* JSONDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDictionary.swift; sourceTree = "<group>"; };
-		B06B4E7722A680B000C0797B /* OBPauseViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBPauseViewControllerDelegate.swift; sourceTree = "<group>"; };
-		B06F0E53229AFCAF00AD9A25 /* OBDefaultsKeyControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBDefaultsKeyControllable.swift; sourceTree = "<group>"; };
-		B07099A92292B743005D0C3E /* OBGameTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGameTimeFormatter.swift; sourceTree = "<group>"; };
-		B07A9ED2227CFC4400C4D2F0 /* OBResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBResources.swift; sourceTree = "<group>"; };
-		B07C5F6C2280435D009059A7 /* OBGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGame.swift; sourceTree = "<group>"; };
-		B07C5F6E22805F12009059A7 /* OBSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettingsTableViewController.swift; sourceTree = "<group>"; };
+		B06B4E7722A680B000C0797B /* PauseViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewControllerDelegate.swift; sourceTree = "<group>"; };
+		B06F0E53229AFCAF00AD9A25 /* DefaultsKeyControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeyControllable.swift; sourceTree = "<group>"; };
+		B07099A92292B743005D0C3E /* GameTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTimeFormatter.swift; sourceTree = "<group>"; };
+		B07A9ED2227CFC4400C4D2F0 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		B07C5F6C2280435D009059A7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		B07C5F6E22805F12009059A7 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B082A4352289934B0029C1CF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RegionNames.strings"; sourceTree = "<group>"; };
 		B0904F8F226F858E007842CA /* Oblasti UA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Oblasti UA.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0904F92226F858E007842CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B0904F94226F858E007842CA /* OBGameSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGameSceneViewController.swift; sourceTree = "<group>"; };
-		B0904F97226F858E007842CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/OBMenuViewController.storyboard; sourceTree = "<group>"; };
+		B0904F94226F858E007842CA /* GameSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneViewController.swift; sourceTree = "<group>"; };
+		B0904F97226F858E007842CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MenuViewController.storyboard; sourceTree = "<group>"; };
 		B0904F99226F858F007842CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0904F9C226F858F007842CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B0904FA8226F8656007842CA /* OBMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBMapView.swift; sourceTree = "<group>"; };
-		B09CF0CA22832ABA00BC7FED /* OBSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettings.swift; sourceTree = "<group>"; };
+		B0904FA8226F8656007842CA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		B09CF0CA22832ABA00BC7FED /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized(in language.swift"; sourceTree = "<group>"; };
-		B0AAE784228497BA002D7264 /* OBSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettingsController.swift; sourceTree = "<group>"; };
-		B0AD695F22D3A16B0092FAEA /* OBGameControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBGameControllerTests.swift; sourceTree = "<group>"; };
-		B0BFD4F92297151E002EA6EF /* OBRemovableObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBRemovableObserver.swift; sourceTree = "<group>"; };
+		B0AAE784228497BA002D7264 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		B0AD695F22D3A16B0092FAEA /* GameControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerTests.swift; sourceTree = "<group>"; };
+		B0BFD4F92297151E002EA6EF /* RemovableObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovableObserver.swift; sourceTree = "<group>"; };
 		B0C4168522BA45E30058633F /* Completion Bell.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Completion Bell.m4a"; sourceTree = "<group>"; };
 		B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameColorExtensions.swift; sourceTree = "<group>"; };
-		B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBLanguageSettingTableViewController.swift; sourceTree = "<group>"; };
-		B0C95BD422A45135005A18A8 /* OBConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBConfirmationViewController.swift; sourceTree = "<group>"; };
+		B0C7D80E2288DA36006D8BE8 /* LanguageSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSettingTableViewController.swift; sourceTree = "<group>"; };
+		B0C95BD422A45135005A18A8 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
 		B0CFD85A22AD470E00AB3465 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		B0D0EA2B229E010000278597 /* OBPresentationStyleAdjustable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBPresentationStyleAdjustable.swift; sourceTree = "<group>"; };
-		B0E164B7228C4BD700615DC5 /* OBHighscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBHighscoreViewController.swift; sourceTree = "<group>"; };
+		B0D0EA2B229E010000278597 /* PresentationStyleAdjustable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationStyleAdjustable.swift; sourceTree = "<group>"; };
+		B0E164B7228C4BD700615DC5 /* HighscoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreViewController.swift; sourceTree = "<group>"; };
 		B0E1846E2281AA21008E5C6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0E184772281B6C6008E5C6D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0E184782281B6C6008E5C6D /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B0E1EE1622B680D8004640D6 /* Wrong Answer Strings.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Wrong Answer Strings.m4a"; sourceTree = "<group>"; };
 		B0E1EE1722B680D9004640D6 /* Correct Answer Bell.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Correct Answer Bell.m4a"; sourceTree = "<group>"; };
-		B0E1EE1B22B68156004640D6 /* OBSoundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSoundController.swift; sourceTree = "<group>"; };
+		B0E1EE1B22B68156004640D6 /* SoundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundController.swift; sourceTree = "<group>"; };
 		B0E8559722820D0A00265D68 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0EF924C22898611000DC283 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RegionNames.strings; sourceTree = "<group>"; };
 		B0EF924E2289862C000DC283 /* ru */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/RegionNames.strings; sourceTree = "<group>"; };
 		B0EF924F22898637000DC283 /* uk */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/RegionNames.strings; sourceTree = "<group>"; };
-		B0FE111122CDDCCF001B5246 /* OBSettingsControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBSettingsControllerTests.swift; sourceTree = "<group>"; };
+		B0FE111122CDDCCF001B5246 /* SettingsControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsControllerTests.swift; sourceTree = "<group>"; };
 		B0FE62A222C8119A004905B3 /* UIBezierPath+initFromJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+initFromJSON.swift"; sourceTree = "<group>"; };
 		B0FE62A422C8203B004905B3 /* CGPoint+failableInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+failableInit.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -224,8 +224,8 @@
 		B0060E9E238DC64100638E13 /* OBMenuViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B02EFFFA227B445900825656 /* OBMenuViewController.swift */,
-				B0904F96226F858E007842CA /* OBMenuViewController.storyboard */,
+				B02EFFFA227B445900825656 /* MenuViewController.swift */,
+				B0904F96226F858E007842CA /* MenuViewController.storyboard */,
 			);
 			path = OBMenuViewController;
 			sourceTree = "<group>";
@@ -233,8 +233,8 @@
 		B0060E9F238DC65A00638E13 /* OBPauseViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B032668922A5BE1000EA767B /* OBPauseViewController.swift */,
-				B0060EAC238DCAEF00638E13 /* OBPauseViewController.storyboard */,
+				B032668922A5BE1000EA767B /* PauseViewController.swift */,
+				B0060EAC238DCAEF00638E13 /* PauseViewController.storyboard */,
 			);
 			path = OBPauseViewController;
 			sourceTree = "<group>";
@@ -242,9 +242,9 @@
 		B0060EA0238DC67000638E13 /* OBSettingsTableViewController+NavigationController */ = {
 			isa = PBXGroup;
 			children = (
-				B07C5F6E22805F12009059A7 /* OBSettingsTableViewController.swift */,
-				B04DE4812285A6A500939C4E /* OBSettingsNavigationController.swift */,
-				B0060EB9238DCC8400638E13 /* OBSettingsTableViewController+NavigationController.storyboard */,
+				B07C5F6E22805F12009059A7 /* SettingsTableViewController.swift */,
+				B04DE4812285A6A500939C4E /* SettingsNavigationController.swift */,
+				B0060EB9238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard */,
 			);
 			path = "OBSettingsTableViewController+NavigationController";
 			sourceTree = "<group>";
@@ -252,8 +252,8 @@
 		B0060EA1238DC68900638E13 /* OBGameResultViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B04DDB77228B4EB8008B9DD9 /* OBGameResultViewController.swift */,
-				B0060EC3238DCEFD00638E13 /* OBGameResultViewController.storyboard */,
+				B04DDB77228B4EB8008B9DD9 /* GameResultViewController.swift */,
+				B0060EC3238DCEFD00638E13 /* GameResultViewController.storyboard */,
 			);
 			path = OBGameResultViewController;
 			sourceTree = "<group>";
@@ -261,8 +261,8 @@
 		B0060EA2238DC69900638E13 /* OBInfoViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B043EB04227C2A9F00F87F1F /* OBInfoViewController.swift */,
-				B0060ECD238DD3F600638E13 /* OBInfoViewController.storyboard */,
+				B043EB04227C2A9F00F87F1F /* InfoViewController.swift */,
+				B0060ECD238DD3F600638E13 /* InfoViewController.storyboard */,
 			);
 			path = OBInfoViewController;
 			sourceTree = "<group>";
@@ -270,8 +270,8 @@
 		B0060EA3238DC6A600638E13 /* OBHighscoreViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B0E164B7228C4BD700615DC5 /* OBHighscoreViewController.swift */,
-				B0060ED7238DDB9C00638E13 /* OBHighscoreViewController.storyboard */,
+				B0E164B7228C4BD700615DC5 /* HighscoreViewController.swift */,
+				B0060ED7238DDB9C00638E13 /* HighscoreViewController.storyboard */,
 			);
 			path = OBHighscoreViewController;
 			sourceTree = "<group>";
@@ -279,8 +279,8 @@
 		B0060EA4238DC6B200638E13 /* OBCustomRegionNamesTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B01BA8D8229810270035ED9D /* OBCustomRegionNamesTableViewController.swift */,
-				B0060EE1238DDC9E00638E13 /* OBCustomRegionNamesTableViewController.storyboard */,
+				B01BA8D8229810270035ED9D /* CustomRegionNamesTableViewController.swift */,
+				B0060EE1238DDC9E00638E13 /* CustomRegionNamesTableViewController.storyboard */,
 			);
 			path = OBCustomRegionNamesTableViewController;
 			sourceTree = "<group>";
@@ -288,8 +288,8 @@
 		B0060EA5238DC6BE00638E13 /* OBModeSettingTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B04DE47F22858F8D00939C4E /* OBModeSettingTableViewController.swift */,
-				B0060EEB238DDD4600638E13 /* OBModeSettingTableViewController.storyboard */,
+				B04DE47F22858F8D00939C4E /* ModeSettingTableViewController.swift */,
+				B0060EEB238DDD4600638E13 /* ModeSettingTableViewController.storyboard */,
 			);
 			path = OBModeSettingTableViewController;
 			sourceTree = "<group>";
@@ -297,8 +297,8 @@
 		B0060EA6238DC6C800638E13 /* OBLanguageSettingTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B0C7D80E2288DA36006D8BE8 /* OBLanguageSettingTableViewController.swift */,
-				B0060EF5238DDE0F00638E13 /* OBLanguageSettingTableViewController.storyboard */,
+				B0C7D80E2288DA36006D8BE8 /* LanguageSettingTableViewController.swift */,
+				B0060EF5238DDE0F00638E13 /* LanguageSettingTableViewController.storyboard */,
 			);
 			path = OBLanguageSettingTableViewController;
 			sourceTree = "<group>";
@@ -306,8 +306,8 @@
 		B0060EA7238DC6E000638E13 /* OBGameSceneViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B0904F94226F858E007842CA /* OBGameSceneViewController.swift */,
-				B0060EFF238DDEE900638E13 /* OBGameSceneViewController.storyboard */,
+				B0904F94226F858E007842CA /* GameSceneViewController.swift */,
+				B0060EFF238DDEE900638E13 /* GameSceneViewController.storyboard */,
 			);
 			path = OBGameSceneViewController;
 			sourceTree = "<group>";
@@ -315,8 +315,8 @@
 		B0060EA8238DC6F100638E13 /* OBConfirmationViewController */ = {
 			isa = PBXGroup;
 			children = (
-				B0C95BD422A45135005A18A8 /* OBConfirmationViewController.swift */,
-				B0060F09238DDF4B00638E13 /* OBConfirmationViewController.storyboard */,
+				B0C95BD422A45135005A18A8 /* ConfirmationViewController.swift */,
+				B0060F09238DDF4B00638E13 /* ConfirmationViewController.storyboard */,
 			);
 			path = OBConfirmationViewController;
 			sourceTree = "<group>";
@@ -324,9 +324,9 @@
 		B008ED0B22CD115C0024217F /* Oblasti UATests */ = {
 			isa = PBXGroup;
 			children = (
-				B008ED1422CD125D0024217F /* OBMapViewTests.swift */,
-				B0FE111122CDDCCF001B5246 /* OBSettingsControllerTests.swift */,
-				B0AD695F22D3A16B0092FAEA /* OBGameControllerTests.swift */,
+				B008ED1422CD125D0024217F /* MapViewTests.swift */,
+				B0FE111122CDDCCF001B5246 /* SettingsControllerTests.swift */,
+				B0AD695F22D3A16B0092FAEA /* GameControllerTests.swift */,
 				B008ED0E22CD115C0024217F /* Info.plist */,
 			);
 			path = "Oblasti UATests";
@@ -335,9 +335,9 @@
 		B05E15C522746CEF007C85AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B05E15C322746CDF007C85AF /* OBRegion.swift */,
-				B07C5F6C2280435D009059A7 /* OBGame.swift */,
-				B09CF0CA22832ABA00BC7FED /* OBSettings.swift */,
+				B05E15C322746CDF007C85AF /* Region.swift */,
+				B07C5F6C2280435D009059A7 /* Game.swift */,
+				B09CF0CA22832ABA00BC7FED /* Settings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -345,11 +345,11 @@
 		B05E15CA2274761F007C85AF /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				B05A2AAD227A553400D8BA5C /* OBGameControllerDelegate.swift */,
-				B06B4E7722A680B000C0797B /* OBPauseViewControllerDelegate.swift */,
-				B0BFD4F92297151E002EA6EF /* OBRemovableObserver.swift */,
-				B06F0E53229AFCAF00AD9A25 /* OBDefaultsKeyControllable.swift */,
-				B0D0EA2B229E010000278597 /* OBPresentationStyleAdjustable.swift */,
+				B05A2AAD227A553400D8BA5C /* GameControllerDelegate.swift */,
+				B06B4E7722A680B000C0797B /* PauseViewControllerDelegate.swift */,
+				B0BFD4F92297151E002EA6EF /* RemovableObserver.swift */,
+				B06F0E53229AFCAF00AD9A25 /* DefaultsKeyControllable.swift */,
+				B0D0EA2B229E010000278597 /* PresentationStyleAdjustable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -417,9 +417,9 @@
 		B0ECE4A82270A7DC00055349 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B0904FA8226F8656007842CA /* OBMapView.swift */,
-				B043EB06227C312A00F87F1F /* OBRoundCornerButton.swift */,
-				B01BA8DA2298230D0035ED9D /* OBCustomRegionNameCell.swift */,
+				B0904FA8226F8656007842CA /* MapView.swift */,
+				B043EB06227C312A00F87F1F /* RoundCornerButton.swift */,
+				B01BA8DA2298230D0035ED9D /* CustomRegionNameCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -438,9 +438,9 @@
 				B0060EA6238DC6C800638E13 /* OBLanguageSettingTableViewController */,
 				B0060EA7238DC6E000638E13 /* OBGameSceneViewController */,
 				B0060EA8238DC6F100638E13 /* OBConfirmationViewController */,
-				B05E15C122746C9C007C85AF /* OBGameController.swift */,
-				B0AAE784228497BA002D7264 /* OBSettingsController.swift */,
-				B0E1EE1B22B68156004640D6 /* OBSoundController.swift */,
+				B05E15C122746C9C007C85AF /* GameController.swift */,
+				B0AAE784228497BA002D7264 /* SettingsController.swift */,
+				B0E1EE1B22B68156004640D6 /* SoundController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -450,8 +450,8 @@
 			children = (
 				B0E8559722820D0A00265D68 /* Info.plist */,
 				B042BEF9229C439400FE4A5C /* InfoPlist.strings */,
-				B07A9ED2227CFC4400C4D2F0 /* OBResources.swift */,
-				B07099A92292B743005D0C3E /* OBGameTimeFormatter.swift */,
+				B07A9ED2227CFC4400C4D2F0 /* Resources.swift */,
+				B07099A92292B743005D0C3E /* GameTimeFormatter.swift */,
 				B0904F92226F858E007842CA /* AppDelegate.swift */,
 				B05A884C22C54DB40013F52F /* Ukraine.json */,
 				B0E1846F2281AA21008E5C6D /* Localizable.strings */,
@@ -546,17 +546,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0BE6CC3238C99EB0012453D /* OBMenuViewController.storyboard in Resources */,
-				B0060EB7238DCC8400638E13 /* OBSettingsTableViewController+NavigationController.storyboard in Resources */,
-				B0060F07238DDF4B00638E13 /* OBConfirmationViewController.storyboard in Resources */,
-				B0060EF3238DDE0F00638E13 /* OBLanguageSettingTableViewController.storyboard in Resources */,
-				B0060EE9238DDD4600638E13 /* OBModeSettingTableViewController.storyboard in Resources */,
-				B0060EAA238DCAEF00638E13 /* OBPauseViewController.storyboard in Resources */,
-				B0060ECB238DD3F600638E13 /* OBInfoViewController.storyboard in Resources */,
-				B0060EDF238DDC9E00638E13 /* OBCustomRegionNamesTableViewController.storyboard in Resources */,
-				B0060EC1238DCEFD00638E13 /* OBGameResultViewController.storyboard in Resources */,
-				B0060ED5238DDB9C00638E13 /* OBHighscoreViewController.storyboard in Resources */,
-				B0060EFD238DDEE900638E13 /* OBGameSceneViewController.storyboard in Resources */,
+				B0BE6CC3238C99EB0012453D /* MenuViewController.storyboard in Resources */,
+				B0060EB7238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard in Resources */,
+				B0060F07238DDF4B00638E13 /* ConfirmationViewController.storyboard in Resources */,
+				B0060EF3238DDE0F00638E13 /* LanguageSettingTableViewController.storyboard in Resources */,
+				B0060EE9238DDD4600638E13 /* ModeSettingTableViewController.storyboard in Resources */,
+				B0060EAA238DCAEF00638E13 /* PauseViewController.storyboard in Resources */,
+				B0060ECB238DD3F600638E13 /* InfoViewController.storyboard in Resources */,
+				B0060EDF238DDC9E00638E13 /* CustomRegionNamesTableViewController.storyboard in Resources */,
+				B0060EC1238DCEFD00638E13 /* GameResultViewController.storyboard in Resources */,
+				B0060ED5238DDB9C00638E13 /* HighscoreViewController.storyboard in Resources */,
+				B0060EFD238DDEE900638E13 /* GameSceneViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,28 +564,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0060EA9238DCAEF00638E13 /* OBPauseViewController.storyboard in Resources */,
-				B0060EF2238DDE0F00638E13 /* OBLanguageSettingTableViewController.storyboard in Resources */,
+				B0060EA9238DCAEF00638E13 /* PauseViewController.storyboard in Resources */,
+				B0060EF2238DDE0F00638E13 /* LanguageSettingTableViewController.storyboard in Resources */,
 				B0E1846D2281AA21008E5C6D /* Localizable.strings in Resources */,
-				B0060ED4238DDB9C00638E13 /* OBHighscoreViewController.storyboard in Resources */,
+				B0060ED4238DDB9C00638E13 /* HighscoreViewController.storyboard in Resources */,
 				B05A884D22C54DB50013F52F /* Ukraine.json in Resources */,
-				B0060EFC238DDEE900638E13 /* OBGameSceneViewController.storyboard in Resources */,
-				B0060EB6238DCC8400638E13 /* OBSettingsTableViewController+NavigationController.storyboard in Resources */,
+				B0060EFC238DDEE900638E13 /* GameSceneViewController.storyboard in Resources */,
+				B0060EB6238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard in Resources */,
 				B0E1EE1822B680D9004640D6 /* Wrong Answer Strings.m4a in Resources */,
-				B0060ECA238DD3F600638E13 /* OBInfoViewController.storyboard in Resources */,
+				B0060ECA238DD3F600638E13 /* InfoViewController.storyboard in Resources */,
 				B042BEF7229C439400FE4A5C /* InfoPlist.strings in Resources */,
 				B028F39122BAF66600133A8A /* New Highscore Wind Tunes.m4a in Resources */,
-				B0060EE8238DDD4600638E13 /* OBModeSettingTableViewController.storyboard in Resources */,
+				B0060EE8238DDD4600638E13 /* ModeSettingTableViewController.storyboard in Resources */,
 				B0904F9D226F858F007842CA /* LaunchScreen.storyboard in Resources */,
-				B0060EDE238DDC9E00638E13 /* OBCustomRegionNamesTableViewController.storyboard in Resources */,
-				B0060EC0238DCEFD00638E13 /* OBGameResultViewController.storyboard in Resources */,
+				B0060EDE238DDC9E00638E13 /* CustomRegionNamesTableViewController.storyboard in Resources */,
+				B0060EC0238DCEFD00638E13 /* GameResultViewController.storyboard in Resources */,
 				B0904F9A226F858F007842CA /* Assets.xcassets in Resources */,
 				B0C4168622BA45E40058633F /* Completion Bell.m4a in Resources */,
 				B0EF924B22898611000DC283 /* RegionNames.strings in Resources */,
 				B0CFD85B22AD470E00AB3465 /* Settings.bundle in Resources */,
-				B0060F06238DDF4B00638E13 /* OBConfirmationViewController.storyboard in Resources */,
+				B0060F06238DDF4B00638E13 /* ConfirmationViewController.storyboard in Resources */,
 				B0E1EE1922B680D9004640D6 /* Correct Answer Bell.m4a in Resources */,
-				B0904F98226F858E007842CA /* OBMenuViewController.storyboard in Resources */,
+				B0904F98226F858E007842CA /* MenuViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,9 +596,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0AD696022D3A16B0092FAEA /* OBGameControllerTests.swift in Sources */,
-				B008ED1522CD125D0024217F /* OBMapViewTests.swift in Sources */,
-				B0FE111222CDDCCF001B5246 /* OBSettingsControllerTests.swift in Sources */,
+				B0AD696022D3A16B0092FAEA /* GameControllerTests.swift in Sources */,
+				B008ED1522CD125D0024217F /* MapViewTests.swift in Sources */,
+				B0FE111222CDDCCF001B5246 /* SettingsControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,43 +607,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				B04DE4842285B2A700939C4E /* UIViewController+dismissNavigationController.swift in Sources */,
-				B04DE48022858F8D00939C4E /* OBModeSettingTableViewController.swift in Sources */,
-				B043EB07227C312A00F87F1F /* OBRoundCornerButton.swift in Sources */,
-				B0D0EA2C229E010000278597 /* OBPresentationStyleAdjustable.swift in Sources */,
-				B0904F95226F858E007842CA /* OBGameSceneViewController.swift in Sources */,
-				B0C95BD522A45135005A18A8 /* OBConfirmationViewController.swift in Sources */,
-				B0AAE785228497BA002D7264 /* OBSettingsController.swift in Sources */,
-				B07A9ED3227CFC4400C4D2F0 /* OBResources.swift in Sources */,
-				B05A2AAE227A553400D8BA5C /* OBGameControllerDelegate.swift in Sources */,
-				B04DDB78228B4EB8008B9DD9 /* OBGameResultViewController.swift in Sources */,
-				B07C5F6F22805F12009059A7 /* OBSettingsTableViewController.swift in Sources */,
-				B0BFD4FA2297151E002EA6EF /* OBRemovableObserver.swift in Sources */,
-				B07099AA2292B743005D0C3E /* OBGameTimeFormatter.swift in Sources */,
+				B04DE48022858F8D00939C4E /* ModeSettingTableViewController.swift in Sources */,
+				B043EB07227C312A00F87F1F /* RoundCornerButton.swift in Sources */,
+				B0D0EA2C229E010000278597 /* PresentationStyleAdjustable.swift in Sources */,
+				B0904F95226F858E007842CA /* GameSceneViewController.swift in Sources */,
+				B0C95BD522A45135005A18A8 /* ConfirmationViewController.swift in Sources */,
+				B0AAE785228497BA002D7264 /* SettingsController.swift in Sources */,
+				B07A9ED3227CFC4400C4D2F0 /* Resources.swift in Sources */,
+				B05A2AAE227A553400D8BA5C /* GameControllerDelegate.swift in Sources */,
+				B04DDB78228B4EB8008B9DD9 /* GameResultViewController.swift in Sources */,
+				B07C5F6F22805F12009059A7 /* SettingsTableViewController.swift in Sources */,
+				B0BFD4FA2297151E002EA6EF /* RemovableObserver.swift in Sources */,
+				B07099AA2292B743005D0C3E /* GameTimeFormatter.swift in Sources */,
 				B0FE62A522C8203B004905B3 /* CGPoint+failableInit.swift in Sources */,
-				B0904FA9226F8656007842CA /* OBMapView.swift in Sources */,
-				B01BA8D9229810270035ED9D /* OBCustomRegionNamesTableViewController.swift in Sources */,
+				B0904FA9226F8656007842CA /* MapView.swift in Sources */,
+				B01BA8D9229810270035ED9D /* CustomRegionNamesTableViewController.swift in Sources */,
 				B05844F9229BD7F7004836FE /* Custom Notification Names.swift in Sources */,
-				B0E164B8228C4BD700615DC5 /* OBHighscoreViewController.swift in Sources */,
+				B0E164B8228C4BD700615DC5 /* HighscoreViewController.swift in Sources */,
 				B0904F93226F858E007842CA /* AppDelegate.swift in Sources */,
-				B09CF0CB22832ABA00BC7FED /* OBSettings.swift in Sources */,
-				B043EB05227C2A9F00F87F1F /* OBInfoViewController.swift in Sources */,
+				B09CF0CB22832ABA00BC7FED /* Settings.swift in Sources */,
+				B043EB05227C2A9F00F87F1F /* InfoViewController.swift in Sources */,
 				B040E8A0228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift in Sources */,
-				B04DE4822285A6A500939C4E /* OBSettingsNavigationController.swift in Sources */,
-				B02EFFFB227B445900825656 /* OBMenuViewController.swift in Sources */,
-				B07C5F6D2280435D009059A7 /* OBGame.swift in Sources */,
+				B04DE4822285A6A500939C4E /* SettingsNavigationController.swift in Sources */,
+				B02EFFFB227B445900825656 /* MenuViewController.swift in Sources */,
+				B07C5F6D2280435D009059A7 /* Game.swift in Sources */,
 				B0C49DEB227A2B2400561892 /* GameColorExtensions.swift in Sources */,
-				B032668A22A5BE1000EA767B /* OBPauseViewController.swift in Sources */,
-				B01BA8DB2298230D0035ED9D /* OBCustomRegionNameCell.swift in Sources */,
+				B032668A22A5BE1000EA767B /* PauseViewController.swift in Sources */,
+				B01BA8DB2298230D0035ED9D /* CustomRegionNameCell.swift in Sources */,
 				B09CF0CD2283391E00BC7FED /* String+localized(in language.swift in Sources */,
-				B05E15C422746CDF007C85AF /* OBRegion.swift in Sources */,
-				B05E15C222746C9C007C85AF /* OBGameController.swift in Sources */,
+				B05E15C422746CDF007C85AF /* Region.swift in Sources */,
+				B05E15C222746C9C007C85AF /* GameController.swift in Sources */,
 				B063BE0F22C8D16B0070C9F9 /* JSONDictionary.swift in Sources */,
-				B06F0E54229AFCAF00AD9A25 /* OBDefaultsKeyControllable.swift in Sources */,
+				B06F0E54229AFCAF00AD9A25 /* DefaultsKeyControllable.swift in Sources */,
 				B0FE62A322C8119A004905B3 /* UIBezierPath+initFromJSON.swift in Sources */,
-				B0E1EE1C22B68156004640D6 /* OBSoundController.swift in Sources */,
+				B0E1EE1C22B68156004640D6 /* SoundController.swift in Sources */,
 				B040E8A2228AE74F009C05D8 /* UIView+set(hidden animationDuration.swift in Sources */,
-				B06B4E7822A680B000C0797B /* OBPauseViewControllerDelegate.swift in Sources */,
-				B0C7D80F2288DA36006D8BE8 /* OBLanguageSettingTableViewController.swift in Sources */,
+				B06B4E7822A680B000C0797B /* PauseViewControllerDelegate.swift in Sources */,
+				B0C7D80F2288DA36006D8BE8 /* LanguageSettingTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,7 +658,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B0060EAC238DCAEF00638E13 /* OBPauseViewController.storyboard */ = {
+		B0060EAC238DCAEF00638E13 /* PauseViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B0060EB1238DCB0400638E13 /* Base */,
@@ -666,10 +666,10 @@
 				B0060EB4238DCB2700638E13 /* ru */,
 				B0060EB5238DCB2B00638E13 /* uk */,
 			);
-			name = OBPauseViewController.storyboard;
+			name = PauseViewController.storyboard;
 			sourceTree = "<group>";
 		};
-		B0060EB9238DCC8400638E13 /* OBSettingsTableViewController+NavigationController.storyboard */ = {
+		B0060EB9238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B0060EB8238DCC8400638E13 /* Base */,
@@ -677,10 +677,10 @@
 				B0060EBD238DCC9100638E13 /* ru */,
 				B0060EBF238DCC9A00638E13 /* uk */,
 			);
-			name = "OBSettingsTableViewController+NavigationController.storyboard";
+			name = "SettingsTableViewController+NavigationController.storyboard";
 			sourceTree = "<group>";
 		};
-		B0060EC3238DCEFD00638E13 /* OBGameResultViewController.storyboard */ = {
+		B0060EC3238DCEFD00638E13 /* GameResultViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B0060EC2238DCEFD00638E13 /* Base */,
@@ -688,10 +688,10 @@
 				B0060EC7238DCF0E00638E13 /* ru */,
 				B0060EC9238DCF1700638E13 /* uk */,
 			);
-			name = OBGameResultViewController.storyboard;
+			name = GameResultViewController.storyboard;
 			sourceTree = "<group>";
 		};
-		B0060ECD238DD3F600638E13 /* OBInfoViewController.storyboard */ = {
+		B0060ECD238DD3F600638E13 /* InfoViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B0060ECC238DD3F600638E13 /* Base */,
@@ -699,10 +699,10 @@
 				B0060ED1238DD3FF00638E13 /* ru */,
 				B0060ED3238DD40400638E13 /* uk */,
 			);
-			name = OBInfoViewController.storyboard;
+			name = InfoViewController.storyboard;
 			sourceTree = "<group>";
 		};
-		B0060ED7238DDB9C00638E13 /* OBHighscoreViewController.storyboard */ = {
+		B0060ED7238DDB9C00638E13 /* HighscoreViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B0060ED6238DDB9C00638E13 /* Base */,
@@ -710,10 +710,10 @@
 				B0060EDB238DDBA700638E13 /* ru */,
 				B0060EDD238DDBAD00638E13 /* uk */,
 			);
-			name = OBHighscoreViewController.storyboard;
+			name = HighscoreViewController.storyboard;
 			sourceTree = "<group>";
 		};
-		B0060EE1238DDC9E00638E13 /* OBCustomRegionNamesTableViewController.storyboard */ = {
+		B0060EE1238DDC9E00638E13 /* CustomRegionNamesTableViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B0060EE0238DDC9E00638E13 /* Base */,
@@ -721,10 +721,10 @@
 				B0060EE5238DDCAB00638E13 /* ru */,
 				B0060EE7238DDCAE00638E13 /* uk */,
 			);
-			name = OBCustomRegionNamesTableViewController.storyboard;
+			name = CustomRegionNamesTableViewController.storyboard;
 			sourceTree = "<group>";
 		};
-		B0060EEB238DDD4600638E13 /* OBModeSettingTableViewController.storyboard */ = {
+		B0060EEB238DDD4600638E13 /* ModeSettingTableViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B0060EEA238DDD4600638E13 /* Base */,
@@ -732,10 +732,10 @@
 				B0060EEF238DDD4E00638E13 /* ru */,
 				B0060EF1238DDD5100638E13 /* uk */,
 			);
-			name = OBModeSettingTableViewController.storyboard;
+			name = ModeSettingTableViewController.storyboard;
 			sourceTree = "<group>";
 		};
-		B0060EF5238DDE0F00638E13 /* OBLanguageSettingTableViewController.storyboard */ = {
+		B0060EF5238DDE0F00638E13 /* LanguageSettingTableViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B0060EF4238DDE0F00638E13 /* Base */,
@@ -743,10 +743,10 @@
 				B0060EF9238DDE1900638E13 /* ru */,
 				B0060EFB238DDE1B00638E13 /* uk */,
 			);
-			name = OBLanguageSettingTableViewController.storyboard;
+			name = LanguageSettingTableViewController.storyboard;
 			sourceTree = "<group>";
 		};
-		B0060EFF238DDEE900638E13 /* OBGameSceneViewController.storyboard */ = {
+		B0060EFF238DDEE900638E13 /* GameSceneViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B0060EFE238DDEE900638E13 /* Base */,
@@ -754,10 +754,10 @@
 				B0060F03238DDEF800638E13 /* ru */,
 				B0060F05238DDEFA00638E13 /* uk */,
 			);
-			name = OBGameSceneViewController.storyboard;
+			name = GameSceneViewController.storyboard;
 			sourceTree = "<group>";
 		};
-		B0060F09238DDF4B00638E13 /* OBConfirmationViewController.storyboard */ = {
+		B0060F09238DDF4B00638E13 /* ConfirmationViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B0060F08238DDF4B00638E13 /* Base */,
@@ -765,7 +765,7 @@
 				B0060F0D238DDF5500638E13 /* ru */,
 				B0060F0F238DDF5600638E13 /* uk */,
 			);
-			name = OBConfirmationViewController.storyboard;
+			name = ConfirmationViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		B042BEF9229C439400FE4A5C /* InfoPlist.strings */ = {
@@ -778,7 +778,7 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		B0904F96226F858E007842CA /* OBMenuViewController.storyboard */ = {
+		B0904F96226F858E007842CA /* MenuViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B0904F97226F858E007842CA /* Base */,
@@ -786,7 +786,7 @@
 				B0060F13238DE06000638E13 /* ru */,
 				B0060F15238DE14500638E13 /* uk */,
 			);
-			name = OBMenuViewController.storyboard;
+			name = MenuViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		B0904F9B226F858F007842CA /* LaunchScreen.storyboard */ = {

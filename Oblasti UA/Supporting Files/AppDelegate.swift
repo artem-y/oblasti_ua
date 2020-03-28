@@ -25,10 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// Block of code that will be called (if set) when application 'resigns active', used to pause game tasks (for example, stop timers)
     var pauseApp: (() -> ())?
     
-    weak var settingsObserver: OBRemovableObserver?
-    weak var menuModeObserver: OBRemovableObserver?
-    weak var pauseScreenShowTimeObserver: OBRemovableObserver?
-    weak var settingsController: OBSettingsController?
+    weak var settingsObserver: RemovableObserver?
+    weak var menuModeObserver: RemovableObserver?
+    weak var pauseScreenShowTimeObserver: RemovableObserver?
+    weak var settingsController: SettingsController?
 }
 
 // MARK: - App Delegate Methods
