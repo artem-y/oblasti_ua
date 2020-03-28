@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Info View Controller-->
+        <scene sceneID="xdj-Zg-UQE">
+            <objects>
+                <viewController storyboardIdentifier="InfoViewController" modalPresentationStyle="pageSheet" id="GTk-12-6jW" customClass="InfoViewController" customModule="Oblasti_UA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iEi-JO-LXK">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GVI-oc-Pjk">
+                                <rect key="frame" x="102.5" y="50" width="819" height="476"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                </accessibility>
+                                <string key="text">Please, notice: region boundaries and borders of Ukraine are depicted approximately and can be different from real proportions and geografic coordinates.</string>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <variation key="heightClass=regular">
+                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                </variation>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekV-Rx-tJG" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
+                                <rect key="frame" x="437" y="634" width="150" height="54"/>
+                                <color key="backgroundColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="opH-WP-cuf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="aRZ-qR-zdQ" kind="unwind" unwindAction="unwindToMenuViewController:" id="Img-qS-IDl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GVI-oc-Pjk" firstAttribute="height" secondItem="iEi-JO-LXK" secondAttribute="height" multiplier="0.6" priority="750" id="7hW-7X-DPr">
+                                <variation key="heightClass=regular" constant="15"/>
+                            </constraint>
+                            <constraint firstItem="GVI-oc-Pjk" firstAttribute="top" secondItem="oxI-1h-42n" secondAttribute="top" constant="20" id="c2x-2v-6dr">
+                                <variation key="heightClass=regular" constant="50"/>
+                            </constraint>
+                            <constraint firstItem="GVI-oc-Pjk" firstAttribute="width" secondItem="iEi-JO-LXK" secondAttribute="width" multiplier="0.8" priority="750" id="jMG-ho-MAC"/>
+                            <constraint firstItem="GVI-oc-Pjk" firstAttribute="centerX" secondItem="iEi-JO-LXK" secondAttribute="centerX" id="qF1-ZU-zdE"/>
+                            <constraint firstItem="oxI-1h-42n" firstAttribute="bottom" secondItem="ekV-Rx-tJG" secondAttribute="bottom" constant="20" id="qU1-Kx-ySt">
+                                <variation key="heightClass=regular" constant="80"/>
+                            </constraint>
+                            <constraint firstItem="ekV-Rx-tJG" firstAttribute="centerX" secondItem="iEi-JO-LXK" secondAttribute="centerX" id="yin-fk-mHL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oxI-1h-42n"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="GVI-oc-Pjk" id="aSc-Qu-StC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="698-pm-bq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="aRZ-qR-zdQ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="785" y="-1076"/>
+        </scene>
+    </scenes>
+</document>

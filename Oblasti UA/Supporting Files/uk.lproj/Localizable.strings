@@ -2,13 +2,13 @@
 /* Game mode on main menu screen. For example, 'Mode: classic' */
 "Mode:" = "Режим:";
 
-/* OBGame.Mode.classic */
+/* Game.Mode.classic */
 "classicMode" = "Класичний";
 
-/* OBGame.Mode.pointer */
+/* Game.Mode.pointer */
 "pointerMode" = "Вказівка";
 
-/* OBGame.Mode.norepeat */
+/* Game.Mode.norepeat */
 "noRepeatMode" = "Без повторень";
 
 /* Description of region name format option "uppercasedRegionName": "Uppercased" */

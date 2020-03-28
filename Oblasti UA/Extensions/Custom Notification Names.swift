@@ -9,7 +9,7 @@
 import Foundation
 
 extension Notification.Name {
-    static let OBSettingsChanged = Notification.Name("OBSettingsChangedNotification")
-    static let OBGameModeChanged = Notification.Name("OBGameModeChangedNotification")
-    static let OBShowTimeSettingChanged = Notification.Name("OBShowTimeSettingChangedNotification")
+    static let SettingsChanged = Notification.Name("SettingsChangedNotification")
+    static let GameModeChanged = Notification.Name("GameModeChangedNotification")
+    static let ShowTimeSettingChanged = Notification.Name("ShowTimeSettingChangedNotification")
 }
