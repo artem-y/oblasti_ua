@@ -221,104 +221,104 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B0060E9E238DC64100638E13 /* OBMenuViewController */ = {
+		B0060E9E238DC64100638E13 /* MenuViewController */ = {
 			isa = PBXGroup;
 			children = (
 				B02EFFFA227B445900825656 /* MenuViewController.swift */,
 				B0904F96226F858E007842CA /* MenuViewController.storyboard */,
 			);
-			path = OBMenuViewController;
+			path = MenuViewController;
 			sourceTree = "<group>";
 		};
-		B0060E9F238DC65A00638E13 /* OBPauseViewController */ = {
+		B0060E9F238DC65A00638E13 /* PauseViewController */ = {
 			isa = PBXGroup;
 			children = (
 				B032668922A5BE1000EA767B /* PauseViewController.swift */,
 				B0060EAC238DCAEF00638E13 /* PauseViewController.storyboard */,
 			);
-			path = OBPauseViewController;
+			path = PauseViewController;
 			sourceTree = "<group>";
 		};
-		B0060EA0238DC67000638E13 /* OBSettingsTableViewController+NavigationController */ = {
+		B0060EA0238DC67000638E13 /* SettingsTableViewController+NavigationController */ = {
 			isa = PBXGroup;
 			children = (
 				B07C5F6E22805F12009059A7 /* SettingsTableViewController.swift */,
 				B04DE4812285A6A500939C4E /* SettingsNavigationController.swift */,
 				B0060EB9238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard */,
 			);
-			path = "OBSettingsTableViewController+NavigationController";
+			path = "SettingsTableViewController+NavigationController";
 			sourceTree = "<group>";
 		};
-		B0060EA1238DC68900638E13 /* OBGameResultViewController */ = {
+		B0060EA1238DC68900638E13 /* GameResultViewController */ = {
 			isa = PBXGroup;
 			children = (
 				B04DDB77228B4EB8008B9DD9 /* GameResultViewController.swift */,
 				B0060EC3238DCEFD00638E13 /* GameResultViewController.storyboard */,
 			);
-			path = OBGameResultViewController;
+			path = GameResultViewController;
 			sourceTree = "<group>";
 		};
-		B0060EA2238DC69900638E13 /* OBInfoViewController */ = {
+		B0060EA2238DC69900638E13 /* InfoViewController */ = {
 			isa = PBXGroup;
 			children = (
 				B043EB04227C2A9F00F87F1F /* InfoViewController.swift */,
 				B0060ECD238DD3F600638E13 /* InfoViewController.storyboard */,
 			);
-			path = OBInfoViewController;
+			path = InfoViewController;
 			sourceTree = "<group>";
 		};
-		B0060EA3238DC6A600638E13 /* OBHighscoreViewController */ = {
+		B0060EA3238DC6A600638E13 /* HighscoreViewController */ = {
 			isa = PBXGroup;
 			children = (
 				B0E164B7228C4BD700615DC5 /* HighscoreViewController.swift */,
 				B0060ED7238DDB9C00638E13 /* HighscoreViewController.storyboard */,
 			);
-			path = OBHighscoreViewController;
+			path = HighscoreViewController;
 			sourceTree = "<group>";
 		};
-		B0060EA4238DC6B200638E13 /* OBCustomRegionNamesTableViewController */ = {
+		B0060EA4238DC6B200638E13 /* CustomRegionNamesTableViewController */ = {
 			isa = PBXGroup;
 			children = (
 				B01BA8D8229810270035ED9D /* CustomRegionNamesTableViewController.swift */,
 				B0060EE1238DDC9E00638E13 /* CustomRegionNamesTableViewController.storyboard */,
 			);
-			path = OBCustomRegionNamesTableViewController;
+			path = CustomRegionNamesTableViewController;
 			sourceTree = "<group>";
 		};
-		B0060EA5238DC6BE00638E13 /* OBModeSettingTableViewController */ = {
+		B0060EA5238DC6BE00638E13 /* ModeSettingTableViewController */ = {
 			isa = PBXGroup;
 			children = (
 				B04DE47F22858F8D00939C4E /* ModeSettingTableViewController.swift */,
 				B0060EEB238DDD4600638E13 /* ModeSettingTableViewController.storyboard */,
 			);
-			path = OBModeSettingTableViewController;
+			path = ModeSettingTableViewController;
 			sourceTree = "<group>";
 		};
-		B0060EA6238DC6C800638E13 /* OBLanguageSettingTableViewController */ = {
+		B0060EA6238DC6C800638E13 /* LanguageSettingTableViewController */ = {
 			isa = PBXGroup;
 			children = (
 				B0C7D80E2288DA36006D8BE8 /* LanguageSettingTableViewController.swift */,
 				B0060EF5238DDE0F00638E13 /* LanguageSettingTableViewController.storyboard */,
 			);
-			path = OBLanguageSettingTableViewController;
+			path = LanguageSettingTableViewController;
 			sourceTree = "<group>";
 		};
-		B0060EA7238DC6E000638E13 /* OBGameSceneViewController */ = {
+		B0060EA7238DC6E000638E13 /* GameSceneViewController */ = {
 			isa = PBXGroup;
 			children = (
 				B0904F94226F858E007842CA /* GameSceneViewController.swift */,
 				B0060EFF238DDEE900638E13 /* GameSceneViewController.storyboard */,
 			);
-			path = OBGameSceneViewController;
+			path = GameSceneViewController;
 			sourceTree = "<group>";
 		};
-		B0060EA8238DC6F100638E13 /* OBConfirmationViewController */ = {
+		B0060EA8238DC6F100638E13 /* ConfirmationViewController */ = {
 			isa = PBXGroup;
 			children = (
 				B0C95BD422A45135005A18A8 /* ConfirmationViewController.swift */,
 				B0060F09238DDF4B00638E13 /* ConfirmationViewController.storyboard */,
 			);
-			path = OBConfirmationViewController;
+			path = ConfirmationViewController;
 			sourceTree = "<group>";
 		};
 		B008ED0B22CD115C0024217F /* Oblasti UATests */ = {
@@ -427,17 +427,17 @@
 		B0ECE4A92270ABE000055349 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B0060E9E238DC64100638E13 /* OBMenuViewController */,
-				B0060E9F238DC65A00638E13 /* OBPauseViewController */,
-				B0060EA0238DC67000638E13 /* OBSettingsTableViewController+NavigationController */,
-				B0060EA1238DC68900638E13 /* OBGameResultViewController */,
-				B0060EA2238DC69900638E13 /* OBInfoViewController */,
-				B0060EA3238DC6A600638E13 /* OBHighscoreViewController */,
-				B0060EA4238DC6B200638E13 /* OBCustomRegionNamesTableViewController */,
-				B0060EA5238DC6BE00638E13 /* OBModeSettingTableViewController */,
-				B0060EA6238DC6C800638E13 /* OBLanguageSettingTableViewController */,
-				B0060EA7238DC6E000638E13 /* OBGameSceneViewController */,
-				B0060EA8238DC6F100638E13 /* OBConfirmationViewController */,
+				B0060E9E238DC64100638E13 /* MenuViewController */,
+				B0060E9F238DC65A00638E13 /* PauseViewController */,
+				B0060EA0238DC67000638E13 /* SettingsTableViewController+NavigationController */,
+				B0060EA1238DC68900638E13 /* GameResultViewController */,
+				B0060EA2238DC69900638E13 /* InfoViewController */,
+				B0060EA3238DC6A600638E13 /* HighscoreViewController */,
+				B0060EA4238DC6B200638E13 /* CustomRegionNamesTableViewController */,
+				B0060EA5238DC6BE00638E13 /* ModeSettingTableViewController */,
+				B0060EA6238DC6C800638E13 /* LanguageSettingTableViewController */,
+				B0060EA7238DC6E000638E13 /* GameSceneViewController */,
+				B0060EA8238DC6F100638E13 /* ConfirmationViewController */,
 				B05E15C122746C9C007C85AF /* GameController.swift */,
 				B0AAE784228497BA002D7264 /* SettingsController.swift */,
 				B0E1EE1B22B68156004640D6 /* SoundController.swift */,
