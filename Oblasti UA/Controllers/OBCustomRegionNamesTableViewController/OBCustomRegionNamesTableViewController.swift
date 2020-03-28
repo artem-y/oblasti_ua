@@ -121,7 +121,7 @@ extension OBCustomRegionNamesTableViewController {
             case regions, name
         }
         // First, try to fetch names from UserDefaults
-        if let jsonData = standardDefaults.value(forKey: DefaultsKey.customRegionNames) as? Data, let savedRegionNames: [String: String] = try? JSONDecoder().decode([String: String].self, from: jsonData) {
+        if let savedRegionNames = decodeJSONValueFromUserDefaults(ofType: [String: String].self, forKey: DefaultsKey.customRegionNames) {
             regionNames = savedRegionNames
             
             // If there are no names in UserDefaults, list all region names with blank translations
@@ -135,9 +135,8 @@ extension OBCustomRegionNamesTableViewController {
                 let jsonRegions = jsonDict.dictionaries(forKey: JSONKey.regions)
             {
                 jsonRegions.forEach {
-                    if let regionName = $0.string(forKey: JSONKey.name), !regionName.isEmpty {
-                        newRegionNamesDict[regionName] = String()
-                    }
+                    guard let regionName = $0.string(forKey: JSONKey.name), !regionName.isEmpty else { return }
+                    newRegionNamesDict[regionName] = String()
                 }
             }
             regionNames = newRegionNamesDict
@@ -146,10 +145,7 @@ extension OBCustomRegionNamesTableViewController {
     }
     
     private func saveRegionNames() {
-        let jsonEncoder = JSONEncoder()
-        if let jsonData = try? jsonEncoder.encode(regionNames) {
-            standardDefaults.set(jsonData, forKey: DefaultsKey.customRegionNames)
-        }
+        saveDataToUserDefaultsJSON(encodedFrom: regionNames, forKey: DefaultsKey.customRegionNames)
     }
     
     private func localizedRegionName(_ name: String) -> String {

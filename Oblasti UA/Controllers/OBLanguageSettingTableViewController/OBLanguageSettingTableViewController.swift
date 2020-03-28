@@ -85,8 +85,7 @@ extension OBLanguageSettingTableViewController {
 
 extension OBLanguageSettingTableViewController {
     private func loadCustomRegionNames() {
-        let jsonDecoder = JSONDecoder()
-        guard let jsonData = standardDefaults.data(forKey: DefaultsKey.customRegionNames), let regionNamesDict = try? jsonDecoder.decode([String: String].self, from: jsonData) else { return }
+        guard let regionNamesDict = decodeJSONValueFromUserDefaults(ofType: [String: String].self, forKey: DefaultsKey.customRegionNames) else { return }
         customRegionNames = regionNamesDict.values.filter { !$0.isEmpty }
     }
 }

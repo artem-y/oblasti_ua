@@ -41,13 +41,10 @@ extension OBHighscoreViewController {
         classicBackgroundView.layer.cornerRadius = backgroundCornerRadius
         norepeatBackgroundView.layer.cornerRadius = backgroundCornerRadius
         
-        let jsonDecoder = JSONDecoder()
-        
         let timeStringPrefix = Localized.LabelTextPrefix.time
         
         // Classic mode highscore view
-        if let classicHighscoreData = standardDefaults.value(forKey: DefaultsKey.classicHighscore) as? Data, let classicHighscore: OBGame = try? jsonDecoder.decode(OBGame.self, from: classicHighscoreData) {
-            
+        if let classicHighscore = decodeJSONValueFromUserDefaults(ofType: OBGame.self, forKey: DefaultsKey.classicHighscore) {
             let mistakesIndicatorName = classicHighscore.mistakesCount == 0 ? OBResources.ImageName.correctIcon : OBResources.ImageName.mistakesIcon
             classicMistakesIndicator.image = UIImage(named: mistakesIndicatorName)
             classicMistakesLabel.text = "\(Localized.LabelTextPrefix.mistakes)\(Localized.wordsSeparator)\(classicHighscore.mistakesCount)"
@@ -61,8 +58,7 @@ extension OBHighscoreViewController {
         }
         
         // No Repetitions mode highscore view
-        if let norepeatHighscoreData = standardDefaults.value(forKey: DefaultsKey.norepeatHighscore) as? Data, let norepeatHighscore: OBGame = try? jsonDecoder.decode(OBGame.self, from: norepeatHighscoreData) {
-            
+        if let norepeatHighscore = decodeJSONValueFromUserDefaults(ofType: OBGame.self, forKey: DefaultsKey.norepeatHighscore) {
             let mistakesIndicatorName = norepeatHighscore.mistakesCount == 0 ? OBResources.ImageName.correctIcon : OBResources.ImageName.mistakesIcon
             norepeatMistakesIndicator.image = UIImage(named: mistakesIndicatorName)
             norepeatMistakesLabel.text = "\(Localized.LabelTextPrefix.mistakes)\(Localized.wordsSeparator)\(norepeatHighscore.mistakesCount)\(Localized.resultOutOfTotalSeparator)\(norepeatHighscore.regions.count)"

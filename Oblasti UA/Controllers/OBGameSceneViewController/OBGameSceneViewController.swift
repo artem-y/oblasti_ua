@@ -239,8 +239,7 @@ extension OBGameSceneViewController {
     
     /// Tries to fetch custom (user-defined) region names from UserDefaults.
     private func reloadCustomNames() {
-        let jsonDecoder = JSONDecoder()
-        guard let jsonData = standardDefaults.value(forKey: DefaultsKey.customRegionNames) as? Data, let regionNames = try? jsonDecoder.decode([String: String].self, from: jsonData) else { return }
+        guard let regionNames = decodeJSONValueFromUserDefaults(ofType: [String: String].self, forKey: DefaultsKey.customRegionNames) else { return }
         customRegionNames = regionNames
     }
     
@@ -368,14 +367,14 @@ extension OBGameSceneViewController {
             self.bottomRightConfirmationView.frame = CGRect(origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y), size: oldFrame.size)
         }) { [unowned self]
             (completed) in
-            if completed {
-                self.bottomRightConfirmationView.isHidden = true
-                self.bottomRightConfirmationView.frame = oldFrame
-                // This prevents reenabling tap gestures:
-                //  - if region auto-change is enabled and selection result (right/wrong) is still on the screen
-                //  - after the game is finished
-                self.singleTapRecognizer.isEnabled = (self.settings.changesRegionAutomatically && self.isShowingSelectionResult) ? false : self.isRunningGame
-            }
+            guard completed else { return }
+
+            self.bottomRightConfirmationView.isHidden = true
+            self.bottomRightConfirmationView.frame = oldFrame
+            // This prevents reenabling tap gestures:
+            //  - if region auto-change is enabled and selection result (right/wrong) is still on the screen
+            //  - after the game is finished
+            self.singleTapRecognizer.isEnabled = (self.settings.changesRegionAutomatically && self.isShowingSelectionResult) ? false : self.isRunningGame
         }
     }
     

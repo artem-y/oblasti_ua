@@ -67,23 +67,14 @@ extension OBGameResultViewController {
             break
         }
         
-        if let highscoreData = standardDefaults.value(forKey: highscoreKey) as? Data, let highscore = try? JSONDecoder().decode(OBGame.self, from: highscoreData) {
-            
+        if let highscore = decodeJSONValueFromUserDefaults(ofType: OBGame.self, forKey: highscoreKey) {
             if gameResult > highscore {
                 isNewHighscore = true
-                
-                let jsonEncoder = JSONEncoder()
-                if let jsonData = try? jsonEncoder.encode(gameResult) {
-                    standardDefaults.set(jsonData, forKey: highscoreKey)
-                }
+                saveDataToUserDefaultsJSON(encodedFrom: gameResult, forKey: highscoreKey)
             }
         } else {
             isNewHighscore = true
-            
-            let jsonEncoder = JSONEncoder()
-            if let jsonData = try? jsonEncoder.encode(gameResult) {
-                standardDefaults.set(jsonData, forKey: highscoreKey)
-            }
+            saveDataToUserDefaultsJSON(encodedFrom: gameResult, forKey: highscoreKey)
         }
     }
     

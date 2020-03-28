@@ -27,7 +27,7 @@ final class OBGameController {
     var currentRegion: OBRegion?
     
     // MARK: - Private Properties
-    private var game: OBGame
+    private var game: OBGame!
     private var timer: Timer!
     private var timerStartDate: Date?
     
@@ -93,9 +93,7 @@ final class OBGameController {
     
     /// Saves current game instance in JSON format
     func saveGame() {
-        let jsonEncoder = JSONEncoder()
-        guard let jsonData = try? jsonEncoder.encode(gameResult) else { return }
-        standardDefaults.set(jsonData, forKey: DefaultsKey.lastUnfinishedGame)
+        saveDataToUserDefaultsJSON(encodedFrom: gameResult, forKey: DefaultsKey.lastUnfinishedGame)
     }
     
     /// If game mode is 'pointer', sets current region to nil.
@@ -104,38 +102,33 @@ final class OBGameController {
         currentRegion = nil
     }
     
-       // MARK: - Initialization
-       init(game: OBGame? = nil){
-           if let game = game {
-               self.game = game
-           } else {
-               let savedGameKey = DefaultsKey.lastUnfinishedGame
-               let jsonDecoder = JSONDecoder()
-               
-               if let savedGameData = UserDefaults.standard.data(forKey: savedGameKey),
-                   let savedGame = try? jsonDecoder.decode(OBGame.self, from: savedGameData)
-               {
-                   let regions: [OBRegion] = OBResources.shared.loadRegions(withNames: savedGame.regions.map({ $0.name }), fromFileNamed: OBResources.FileName.ukraine)
-                   let regionsLeft: [OBRegion] = OBResources.shared.loadRegions(withNames: savedGame.regionsLeft.map({ $0.name }), fromFileNamed: OBResources.FileName.ukraine)
-                   guard !regions.isEmpty && !regionsLeft.isEmpty else {
-                       self.game = OBGame.defaultForCurrentMode
-                       return
-                   }
-                   // Creation of a copy of the saved game is necessary to replace regions and regions left with just keys by regions with real UIBezier paths
-                   self.game = OBGame(mode: savedGame.mode, regions: regions, regionsLeft: regionsLeft, timePassed: savedGame.timePassed, mistakesCount: savedGame.mistakesCount)
-               } else {
-                   self.game = OBGame.defaultForCurrentMode
-               }
-    
-           }
-           UserDefaults.standard.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
-
-           if game?.mode != .pointer {
-               nextQuestion()
-               self.startTimer()
-           }
-           
-       }
+    // MARK: - Initialization
+    init(game: OBGame? = nil){
+        if let game = game {
+            self.game = game
+        } else {
+            let savedGameKey = DefaultsKey.lastUnfinishedGame
+            
+            if let savedGame = decodeJSONValueFromUserDefaults(ofType: OBGame.self, forKey: savedGameKey) {
+                let regions: [OBRegion] = OBResources.shared.loadRegions(withNames: savedGame.regions.map({ $0.name }), fromFileNamed: OBResources.FileName.ukraine)
+                let regionsLeft: [OBRegion] = OBResources.shared.loadRegions(withNames: savedGame.regionsLeft.map({ $0.name }), fromFileNamed: OBResources.FileName.ukraine)
+                guard !regions.isEmpty && !regionsLeft.isEmpty else {
+                    self.game = OBGame.defaultForCurrentMode
+                    return
+                }
+                // Creation of a copy of the saved game is necessary to replace regions and regions left with just keys by regions with real UIBezier paths
+                self.game = OBGame(mode: savedGame.mode, regions: regions, regionsLeft: regionsLeft, timePassed: savedGame.timePassed, mistakesCount: savedGame.mistakesCount)
+            } else {
+                self.game = OBGame.defaultForCurrentMode
+            }
+            
+        }
+        UserDefaults.standard.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
+        
+        guard game?.mode != .pointer else { return }
+        nextQuestion()
+        startTimer()
+    }
 }
 
 // MARK: - OBDefaultsKeyControllable
