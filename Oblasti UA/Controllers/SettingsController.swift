@@ -70,7 +70,8 @@ final class SettingsController: NSObject {
     
     // MARK: - Initialization
     
-    override init(){
+    /// Instance properties and methods of`SettingsController` should only be accessed through its static `shared` property.
+    private override init(){
         super.init()
         loadSettings()
         AppDelegate.shared.settingsController = self

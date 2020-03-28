@@ -13,6 +13,11 @@ struct Resources {
     
     static let shared = Resources()
     
+    // MARK: - Initialization
+
+    /// Instance properties and methods of`Resources` should only be accessed through its static `shared` property.
+    private init() {}
+    
     // MARK: - Nested Types
     
     // MARK: -
