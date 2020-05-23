@@ -30,6 +30,8 @@
 		B008ED1522CD125D0024217F /* MapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008ED1422CD125D0024217F /* MapViewTests.swift */; };
 		B01BA8D9229810270035ED9D /* CustomRegionNamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8D8229810270035ED9D /* CustomRegionNamesTableViewController.swift */; };
 		B01BA8DB2298230D0035ED9D /* CustomRegionNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8DA2298230D0035ED9D /* CustomRegionNameCell.swift */; };
+		B01E784A2479DBD900A0CC7E /* SettingsNavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01E78492479DBD900A0CC7E /* SettingsNavigationContainer.swift */; };
+		B01E784B2479DBD900A0CC7E /* SettingsNavigationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01E78492479DBD900A0CC7E /* SettingsNavigationContainer.swift */; };
 		B028F39122BAF66600133A8A /* New Highscore Wind Tunes.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B028F39022BAF66600133A8A /* New Highscore Wind Tunes.m4a */; };
 		B02EFFFB227B445900825656 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02EFFFA227B445900825656 /* MenuViewController.swift */; };
 		B032668A22A5BE1000EA767B /* PauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B032668922A5BE1000EA767B /* PauseViewController.swift */; };
@@ -142,6 +144,7 @@
 		B008ED1422CD125D0024217F /* MapViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewTests.swift; sourceTree = "<group>"; };
 		B01BA8D8229810270035ED9D /* CustomRegionNamesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRegionNamesTableViewController.swift; sourceTree = "<group>"; };
 		B01BA8DA2298230D0035ED9D /* CustomRegionNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRegionNameCell.swift; sourceTree = "<group>"; };
+		B01E78492479DBD900A0CC7E /* SettingsNavigationContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationContainer.swift; sourceTree = "<group>"; };
 		B028F39022BAF66600133A8A /* New Highscore Wind Tunes.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "New Highscore Wind Tunes.m4a"; sourceTree = "<group>"; };
 		B02EFFFA227B445900825656 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B032668922A5BE1000EA767B /* PauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewController.swift; sourceTree = "<group>"; };
@@ -350,6 +353,7 @@
 				B0BFD4F92297151E002EA6EF /* RemovableObserver.swift */,
 				B06F0E53229AFCAF00AD9A25 /* DefaultsKeyControllable.swift */,
 				B0D0EA2B229E010000278597 /* PresentationStyleAdjustable.swift */,
+				B01E78492479DBD900A0CC7E /* SettingsNavigationContainer.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -596,6 +600,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B01E784B2479DBD900A0CC7E /* SettingsNavigationContainer.swift in Sources */,
 				B0AD696022D3A16B0092FAEA /* GameControllerTests.swift in Sources */,
 				B008ED1522CD125D0024217F /* MapViewTests.swift in Sources */,
 				B0FE111222CDDCCF001B5246 /* SettingsControllerTests.swift in Sources */,
@@ -625,6 +630,7 @@
 				B05844F9229BD7F7004836FE /* Custom Notification Names.swift in Sources */,
 				B0E164B8228C4BD700615DC5 /* HighscoreViewController.swift in Sources */,
 				B0904F93226F858E007842CA /* AppDelegate.swift in Sources */,
+				B01E784A2479DBD900A0CC7E /* SettingsNavigationContainer.swift in Sources */,
 				B09CF0CB22832ABA00BC7FED /* Settings.swift in Sources */,
 				B043EB05227C2A9F00F87F1F /* InfoViewController.swift in Sources */,
 				B040E8A0228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift in Sources */,

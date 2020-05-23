@@ -19,6 +19,15 @@ final class SettingsNavigationController: UINavigationController {
     
 }
 
+// MARK: - SettingsNavigationContainer
+
+extension SettingsNavigationController: SettingsNavigationContainer {
+    func navigateToSettings() {
+        let segueIdentifier = Resources.SegueIdentifier.showOnlyModeSettingSegue
+        performSegue(withIdentifier: segueIdentifier, sender: nil)
+    }
+}
+
 // MARK: - UIGestureRecognizerDelegate
 
 extension SettingsNavigationController: UIGestureRecognizerDelegate { }

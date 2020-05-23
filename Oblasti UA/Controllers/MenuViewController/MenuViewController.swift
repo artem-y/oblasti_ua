@@ -75,8 +75,8 @@ extension MenuViewController {
         
         switch segue.identifier {
         case Resources.SegueIdentifier.presentSettingsSegue:
-            guard let destinationVC = segue.destination as? SettingsNavigationController, (sender as? UIButton) == modeButton else { return }
-            destinationVC.performSegue(withIdentifier: Resources.SegueIdentifier.showOnlyModeSettingSegue, sender: nil)
+            guard let settingsNavigationContainer = segue.destination as? SettingsNavigationContainer, (sender as? UIButton) == modeButton else { return }
+            settingsNavigationContainer.navigateToSettings()
 
         default:
             break

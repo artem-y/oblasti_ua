@@ -34,7 +34,7 @@ class SettingsControllerTests: XCTestCase {
         
         // 2. Act
         settingsController.settings = newSettings
-        let newSettingsController = SettingsController() // has to load with changes applied
+        let newSettingsController = SettingsController.shared // has to load with changes applied
 
         // 3. Assert
         XCTAssertEqual(newSettingsController.settings, settingsController.settings)
