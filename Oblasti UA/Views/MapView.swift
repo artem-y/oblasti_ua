@@ -17,12 +17,16 @@ class MapView: UIImageView {
     /// Current selected layer.
     var selectedLayer: CAShapeLayer? {
         didSet {
-            layer.sublayers?
-                .compactMap { $0 as? CAShapeLayer }
-                .forEach {
-                    $0.fillColor = ($0 == selectedLayer) ? .selectedRegionColor : .unselectedRegionColor
+            shapeLayers.forEach {
+                $0.fillColor = ($0 == selectedLayer) ? .selectedRegionColor : .unselectedRegionColor
             }
         }
+    }
+    
+    // MARK: - Private Properties
+    
+    private var shapeLayers: [CAShapeLayer] {
+        layer.sublayers?.compactMap { $0 as? CAShapeLayer } ?? []
     }
     
     // MARK: - Public Methods
@@ -32,8 +36,38 @@ class MapView: UIImageView {
     ///   - named: A string with the name of sublayer to look for.
     /// - Returns: A map sublayer (instance of CAShapeLayer) with the name passed as an argument, or nil if there isn't one.
     func sublayer(named name: String) -> CAShapeLayer? {
-        guard let sublayers = layer.sublayers else { return nil }
-        return sublayers.compactMap { $0 as? CAShapeLayer }.first { $0.name == name }
+        return shapeLayers.first { $0.name == name }
+    }
+    
+    /**
+     Checks if map view's layer with given name contains the point.
+     - Parameters:
+        - point: A point to check for being contained by the layer with given name.
+        - layerName: Name of the layer that should be checked for containing the given point.
+     */
+    func contains(_ point: CGPoint, inLayerNamed layerName: String) -> Bool {
+        guard let sublayer = sublayer(named: layerName) else { return false }
+        let convertedPoint = layer.convert(point, to: sublayer)
+        return sublayer.path?.contains(convertedPoint) == true
+    }
+    
+    /**
+     Constructs map region layers from names and corresponding region paths, and adds them to map view.
+     - parameter namesAndPathsDict: Dictionary with names and paths used for region layer construction.
+     */
+    func addRegionLayers(from namesAndPathsDict: [String: UIBezierPath]) {
+        namesAndPathsDict.forEach {
+            addRegionLayer(named: $0.key, withPath: $0.value)
+        }
+    }
+    
+    // MARK: - Lifecycle
+    
+    override func layoutSubviews() {
+        layer.sublayers?
+            .compactMap { $0 as? CAShapeLayer }
+            .forEach(resize)
+        super.layoutSubviews()
     }
     
     // MARK: - Initialization
@@ -60,10 +94,20 @@ extension MapView {
         layer.addSublayer(shapeLayer)
     }
     
-    private func addRegionLayers(from namesAndPathsDict: [String: UIBezierPath]) {
-        namesAndPathsDict.forEach {
-            addRegionLayer(named: $0.key, withPath: $0.value)
-        }
+    private func resize(_ layer: CALayer) {
+        let widthScale: CGFloat = self.frame.width / Default.size.width
+        let heightScale: CGFloat = self.frame.height / Default.size.height
+        let scale: CGFloat = (widthScale < heightScale) ? widthScale : heightScale
+        
+        let layerTransform = CGAffineTransform(scaleX: scale, y: scale)
+        layer.setAffineTransform(layerTransform)
     }
-    
+}
+
+// MARK: - Default Values
+
+extension MapView {
+    struct Default {
+        static let size = CGSize(width: 900, height: 610)
+    }
 }

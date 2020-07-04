@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Avl-hu-Vya">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Avl-hu-Vya">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,21 +20,38 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0su-GX-9NL">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rff-rm-ai2">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCD-o3-AUa">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1dF-sr-1ak" userLabel="Game View">
-                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="653"/>
+                                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="1dF-sr-1ak" userLabel="Game View">
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                                <subviews>
+                                                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="B67-Jo-Sqk" customClass="MapView" customModule="Oblasti_UA" customModuleProvider="target">
+                                                        <rect key="frame" x="2" y="0.0" width="1020" height="691"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="B67-Jo-Sqk" secondAttribute="height" multiplier="900:610" id="ZMR-0b-c6m"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="B67-Jo-Sqk" firstAttribute="centerX" secondItem="1dF-sr-1ak" secondAttribute="centerX" id="2yp-Gj-95T"/>
+                                                    <constraint firstItem="B67-Jo-Sqk" firstAttribute="top" secondItem="1dF-sr-1ak" secondAttribute="top" id="fA0-6Q-Z9n"/>
+                                                    <constraint firstItem="B67-Jo-Sqk" firstAttribute="height" secondItem="1dF-sr-1ak" secondAttribute="height" multiplier="0.9" id="uhI-Re-ZWW"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="1dF-sr-1ak" secondAttribute="trailing" id="HyL-Kk-dJn"/>
-                                            <constraint firstItem="1dF-sr-1ak" firstAttribute="top" secondItem="rff-rm-ai2" secondAttribute="top" priority="250" id="aPR-Re-mEO"/>
-                                            <constraint firstItem="1dF-sr-1ak" firstAttribute="leading" secondItem="rff-rm-ai2" secondAttribute="leading" id="d5a-Nr-hpK"/>
-                                            <constraint firstAttribute="bottom" secondItem="1dF-sr-1ak" secondAttribute="bottom" priority="250" id="lCh-7g-8vO"/>
-                                            <constraint firstItem="1dF-sr-1ak" firstAttribute="width" secondItem="rff-rm-ai2" secondAttribute="width" priority="250" id="vpK-68-9xO"/>
-                                            <constraint firstItem="1dF-sr-1ak" firstAttribute="height" secondItem="rff-rm-ai2" secondAttribute="height" multiplier="0.85" priority="250" id="xhq-wI-BBf"/>
+                                            <constraint firstItem="1dF-sr-1ak" firstAttribute="leading" secondItem="HOX-Dw-oq9" secondAttribute="leading" id="0dO-dW-52c"/>
+                                            <constraint firstItem="1dF-sr-1ak" firstAttribute="trailing" secondItem="HOX-Dw-oq9" secondAttribute="trailing" id="CHr-Oo-56I"/>
+                                            <constraint firstItem="1dF-sr-1ak" firstAttribute="top" secondItem="HOX-Dw-oq9" secondAttribute="top" id="SKb-Lh-ry6"/>
+                                            <constraint firstItem="1dF-sr-1ak" firstAttribute="width" secondItem="CmZ-9U-BCI" secondAttribute="width" id="fqj-wF-B94"/>
+                                            <constraint firstItem="1dF-sr-1ak" firstAttribute="height" secondItem="CmZ-9U-BCI" secondAttribute="height" id="ugq-xG-NcS"/>
+                                            <constraint firstItem="1dF-sr-1ak" firstAttribute="bottom" secondItem="HOX-Dw-oq9" secondAttribute="bottom" id="waf-Kk-utJ"/>
                                         </constraints>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="HOX-Dw-oq9"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="CmZ-9U-BCI"/>
                                     </scrollView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="igm-Bc-BxV">
                                         <rect key="frame" x="0.0" y="691" width="1024" height="77"/>
@@ -150,21 +167,20 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="rff-rm-ai2" secondAttribute="trailing" id="1FV-Ot-6D8"/>
                                     <constraint firstAttribute="trailing" secondItem="nl0-qy-wut" secondAttribute="trailing" id="81j-qN-Gbu"/>
+                                    <constraint firstAttribute="trailing" secondItem="BCD-o3-AUa" secondAttribute="trailing" id="BdT-6v-fJS"/>
                                     <constraint firstItem="tMc-bI-8uX" firstAttribute="leading" secondItem="0su-GX-9NL" secondAttribute="leading" id="KNv-Dd-1ch">
                                         <variation key="heightClass=compact-widthClass=regular" constant="-50"/>
                                     </constraint>
                                     <constraint firstAttribute="trailing" secondItem="igm-Bc-BxV" secondAttribute="trailing" id="MW7-2I-m4K"/>
-                                    <constraint firstAttribute="bottom" secondItem="rff-rm-ai2" secondAttribute="bottom" id="NK1-CX-Ali"/>
+                                    <constraint firstItem="BCD-o3-AUa" firstAttribute="leading" secondItem="0su-GX-9NL" secondAttribute="leading" id="OYr-Oq-FVG"/>
                                     <constraint firstItem="tMc-bI-8uX" firstAttribute="height" secondItem="0su-GX-9NL" secondAttribute="height" multiplier="0.24" id="PbZ-i4-2Ki"/>
                                     <constraint firstItem="tMc-bI-8uX" firstAttribute="width" secondItem="0su-GX-9NL" secondAttribute="width" multiplier="0.28" id="SDo-Xw-E39"/>
                                     <constraint firstItem="Wjx-y9-xaN" firstAttribute="width" secondItem="0su-GX-9NL" secondAttribute="width" multiplier="0.19" id="XF3-Un-Ej2"/>
+                                    <constraint firstItem="BCD-o3-AUa" firstAttribute="top" secondItem="0su-GX-9NL" secondAttribute="top" id="XPM-YU-OLg"/>
                                     <constraint firstItem="tMc-bI-8uX" firstAttribute="centerY" secondItem="0su-GX-9NL" secondAttribute="centerY" multiplier="1.4" id="d0I-fa-Sv1"/>
                                     <constraint firstItem="nl0-qy-wut" firstAttribute="top" secondItem="0su-GX-9NL" secondAttribute="top" id="dXq-lI-3cn"/>
                                     <constraint firstItem="igm-Bc-BxV" firstAttribute="height" secondItem="0su-GX-9NL" secondAttribute="height" multiplier="0.1" id="dpc-2n-vCa"/>
-                                    <constraint firstItem="rff-rm-ai2" firstAttribute="top" secondItem="0su-GX-9NL" secondAttribute="top" id="fTj-bD-fiS"/>
-                                    <constraint firstItem="rff-rm-ai2" firstAttribute="leading" secondItem="0su-GX-9NL" secondAttribute="leading" id="gb3-HA-8HQ"/>
                                     <constraint firstItem="Wjx-y9-xaN" firstAttribute="height" secondItem="0su-GX-9NL" secondAttribute="height" multiplier="0.18" id="nfP-Hg-B3n"/>
                                     <constraint firstAttribute="trailing" secondItem="Wjx-y9-xaN" secondAttribute="trailing" id="oBt-Wq-IsY">
                                         <variation key="heightClass=compact-widthClass=regular" constant="-50"/>
@@ -179,6 +195,7 @@
                                         <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
                                     </constraint>
                                     <constraint firstItem="Wjx-y9-xaN" firstAttribute="centerY" secondItem="0su-GX-9NL" secondAttribute="centerY" multiplier="1.5" id="tFs-Ii-Xln"/>
+                                    <constraint firstAttribute="bottom" secondItem="BCD-o3-AUa" secondAttribute="bottom" id="uoc-jc-nrR"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -198,9 +215,10 @@
                         <outlet property="bottomRightConfirmationView" destination="Wjx-y9-xaN" id="qWN-nY-jlV"/>
                         <outlet property="confirmButton" destination="6dV-FM-D4L" id="JL6-RP-LeI"/>
                         <outlet property="gameView" destination="1dF-sr-1ak" id="wpQ-Gy-jHl"/>
+                        <outlet property="mapView" destination="B67-Jo-Sqk" id="fIH-RC-Pfh"/>
                         <outlet property="pauseButton" destination="QZ1-fE-hy2" id="ZWX-bj-j6c"/>
                         <outlet property="regionLabel" destination="vRZ-B3-9Yy" id="D4g-dX-qpv"/>
-                        <outlet property="scrollView" destination="rff-rm-ai2" id="53f-8J-KAS"/>
+                        <outlet property="scrollView" destination="BCD-o3-AUa" id="QSh-hF-z1A"/>
                         <outlet property="timeLabel" destination="bEG-ia-Kn8" id="GqX-Al-XVH"/>
                         <outlet property="topRightInfoView" destination="nl0-qy-wut" id="AcZ-ve-Cat"/>
                         <segue destination="jzW-gI-fIR" kind="unwind" identifier="unwindToMainMenuSegue" unwindAction="unwindToMenuViewController:" id="gSf-9z-RlA"/>

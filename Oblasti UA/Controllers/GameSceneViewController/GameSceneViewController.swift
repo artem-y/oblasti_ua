@@ -15,6 +15,7 @@ final class GameSceneViewController: UIViewController, DefaultsKeyControllable {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var backgroundView: UIView!
     @IBOutlet private weak var gameView: UIView!
+    @IBOutlet private weak var mapView: MapView!
     @IBOutlet private weak var regionLabel: UILabel!
     @IBOutlet private weak var confirmButton: UIButton!
     @IBOutlet private weak var pauseButton: UIButton!
@@ -27,7 +28,7 @@ final class GameSceneViewController: UIViewController, DefaultsKeyControllable {
     // MARK: - Private Properties
     private var gameController = GameController()
     private var soundController: SoundController?
-    private var mapView: MapView!
+//    private var mapView: MapView!
     
     // MARK: -
     // 'Convenience' properties
@@ -221,20 +222,7 @@ extension GameSceneViewController {
             regionKeysAndPaths[region.name] = region.path
         }
         
-        mapView = MapView(frame: Default.mapViewFrame, sublayerNamesAndPaths: regionKeysAndPaths)
-        
-        view.setNeedsLayout()
-        view.layoutIfNeeded()
-        
-        let widthScale: CGFloat = gameView.frame.width / mapView.frame.width
-        let heightScale: CGFloat = gameView.frame.height / mapView.frame.height
-        let scale: CGFloat = (widthScale < heightScale) ? widthScale : heightScale
-        
-        mapView.transform = CGAffineTransform(scaleX: scale, y: scale)
-        mapView.center = gameView.center
-        
-        gameView.addSubview(mapView)
-        
+        mapView.addRegionLayers(from: regionKeysAndPaths)
     }
     
     /// Tries to fetch custom (user-defined) region names from UserDefaults.
@@ -291,14 +279,14 @@ extension GameSceneViewController {
     }
     // MARK: -
     
-    @objc private func didTap(_ sender: UITapGestureRecognizer){
+    @objc private func didTap(_ sender: UITapGestureRecognizer) {
         guard sender.state == .ended else { return }
         
         if isShowingSelectionResult {
             gameController.nextQuestion()
             cancelSelection()
         } else {
-            let location = gameView.convert(sender.location(in: gameView), to: mapView)
+            let location = sender.location(in: mapView)
             
             // Check if it is second tap on already selected layer. If yes, confirm selection and return
             if let selectedRegionPath = mapView.selectedLayer?.path, selectedRegionPath.contains(location) {
@@ -313,7 +301,7 @@ extension GameSceneViewController {
             var regionsContainLocation = false
             
             for region in gameController.regions {
-                guard region.path.contains(location) else { continue }
+                guard mapView.contains(location, inLayerNamed: region.name) else { continue }
                 
                 mapView.selectedLayer = mapView.sublayer(named: region.name)
                 if gameMode == .pointer {

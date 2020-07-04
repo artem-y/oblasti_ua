@@ -983,6 +983,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Oblasti UA/Oblasti UA.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZG5795UF78;
 				INFOPLIST_FILE = "$(SRCROOT)/Oblasti UA/Supporting Files/Info.plist";
@@ -993,6 +995,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.artemyelizarov.OblastiUA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1002,6 +1005,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Oblasti UA/Oblasti UA.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZG5795UF78;
 				INFOPLIST_FILE = "$(SRCROOT)/Oblasti UA/Supporting Files/Info.plist";
@@ -1012,6 +1017,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.artemyelizarov.OblastiUA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
