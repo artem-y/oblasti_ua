@@ -62,6 +62,7 @@
 		B0904FA9226F8656007842CA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0904FA8226F8656007842CA /* MapView.swift */; };
 		B09CF0CB22832ABA00BC7FED /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CA22832ABA00BC7FED /* Settings.swift */; };
 		B09CF0CD2283391E00BC7FED /* String+localized(in language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */; };
+		B0A3109224B1510600F55BAE /* UILabel+setMonospaceDigitFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A3109124B1510500F55BAE /* UILabel+setMonospaceDigitFont.swift */; };
 		B0AAE785228497BA002D7264 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AAE784228497BA002D7264 /* SettingsController.swift */; };
 		B0AD696022D3A16B0092FAEA /* GameControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AD695F22D3A16B0092FAEA /* GameControllerTests.swift */; };
 		B0BE6CC3238C99EB0012453D /* MenuViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0904F96226F858E007842CA /* MenuViewController.storyboard */; };
@@ -178,6 +179,7 @@
 		B0904FA8226F8656007842CA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		B09CF0CA22832ABA00BC7FED /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized(in language.swift"; sourceTree = "<group>"; };
+		B0A3109124B1510500F55BAE /* UILabel+setMonospaceDigitFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+setMonospaceDigitFont.swift"; sourceTree = "<group>"; };
 		B0AAE784228497BA002D7264 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		B0AD695F22D3A16B0092FAEA /* GameControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerTests.swift; sourceTree = "<group>"; };
 		B0BFD4F92297151E002EA6EF /* RemovableObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemovableObserver.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				B09CF0CC2283391E00BC7FED /* String+localized(in language.swift */,
 				B0C49DEA227A2B2400561892 /* GameColorExtensions.swift */,
 				B05844F8229BD7F7004836FE /* Custom Notification Names.swift */,
+				B0A3109124B1510500F55BAE /* UILabel+setMonospaceDigitFont.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				B0FE62A522C8203B004905B3 /* CGPoint+failableInit.swift in Sources */,
 				B0904FA9226F8656007842CA /* MapView.swift in Sources */,
 				B01BA8D9229810270035ED9D /* CustomRegionNamesTableViewController.swift in Sources */,
+				B0A3109224B1510600F55BAE /* UILabel+setMonospaceDigitFont.swift in Sources */,
 				B05844F9229BD7F7004836FE /* Custom Notification Names.swift in Sources */,
 				B0E164B8228C4BD700615DC5 /* HighscoreViewController.swift in Sources */,
 				B0904F93226F858E007842CA /* AppDelegate.swift in Sources */,

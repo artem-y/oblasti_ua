@@ -138,7 +138,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5f-KM-kj5" userLabel="Top Right Info View">
                                 <rect key="frame" x="737.5" y="0.0" width="286.5" height="122"/>
                                 <subviews>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79Y-n6-huD">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79Y-n6-huD">
                                         <rect key="frame" x="55.5" y="20" width="143" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="msb-kr-Kh8"/>
@@ -146,7 +146,7 @@
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
-                                        <variation key="widthClass=compact">
+                                        <variation key="heightClass=compact">
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
                                         </variation>
                                     </label>

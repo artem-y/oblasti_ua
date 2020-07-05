@@ -97,6 +97,7 @@ extension GameSceneViewController {
         // Game views configuration
         loadMapView()
         configureScrollView()
+        configureTimeLabel()
         
         // Controllers configuration
         soundController = SoundController()
@@ -205,6 +206,10 @@ extension GameSceneViewController {
         scrollView.delegate = self
         scrollView.maximumZoomScale = Default.scrollViewMaximumZoomScale
         scrollView.contentSize = view.frame.size
+    }
+    
+    private func configureTimeLabel() {
+        timeLabel.setMonospacedDigitSystemFont(weight: .semibold)
     }
     
     private func configureGestureRecognizers() {
