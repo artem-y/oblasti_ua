@@ -257,14 +257,25 @@ extension GameSceneViewController {
         }
         
         let regionNameText = settings.regionNamesUppercased ? regionName.uppercased() : regionName
-        regionLabel.attributedText = whiteBorderAttributedText(regionNameText, regionLabel.textColor)
+        regionLabel.attributedText = createWhiteBorderAttributedText(regionNameText,
+                                                                     regionLabel.textColor)
     }
     
     private func reloadTimerLabelTitle() {
         let timeFormatter = GameTimeFormatter()
         timeFormatter.timeFormat = Default.timeFormat
         let timeText = timeFormatter.string(for: gameController.gameResult.timePassed)
-        timeLabel.attributedText = whiteBorderAttributedText(timeText, timeLabel.textColor)
+        let fontSize = timeLabel.font.pointSize
+        
+        let attributedTimeText = createWhiteBorderAttributedText(timeText,
+                                                                 timeLabel.textColor)
+        
+        let font: UIFont = UIFont.monospacedDigitSystemFont(ofSize: fontSize,
+                                                            weight: .semibold)
+        let range: NSRange = NSRange(location: .zero, length: timeText.count)
+        
+        attributedTimeText.addAttributes([.font: font], range: range)
+        timeLabel.attributedText = attributedTimeText
     }
     
     @objc private func updateTimerLabel() {
@@ -274,13 +285,15 @@ extension GameSceneViewController {
         timeLabel.isHidden = !showsTime
     }
     
-    private func whiteBorderAttributedText(_ text: String, _ textColor: UIColor) -> NSAttributedString {
+    private func createWhiteBorderAttributedText(_ text: String,
+                                                 _ textColor: UIColor) -> NSMutableAttributedString {
+        
         let attributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.strokeColor: Default.WhiteBorderText.strokeColor,
-            NSAttributedString.Key.strokeWidth: Default.WhiteBorderText.strokeWidth,
-            NSAttributedString.Key.foregroundColor: textColor
+            .strokeColor: Default.WhiteBorderText.strokeColor,
+            .strokeWidth: Default.WhiteBorderText.strokeWidth,
+            .foregroundColor: textColor
         ]
-        return NSAttributedString(string: text, attributes: attributes)
+        return NSMutableAttributedString(string: text, attributes: attributes)
     }
     // MARK: -
     
