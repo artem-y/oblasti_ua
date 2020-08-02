@@ -6,7 +6,7 @@
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct Game {
     
@@ -125,11 +125,11 @@ extension Game: Codable {
 
         let gameRegionsNames = try values.decode([String].self, forKey: .gameRegions)
         gameRegions = gameRegionsNames
-            .map { Region(name: $0, path: UIBezierPath()) }
+            .map { Region(name: $0, pathInfo: []) }
     
         let regionsLeftNames = try values.decode([String].self, forKey: .regionsLeft)
         regionsLeft = regionsLeftNames
-            .map { Region(name: $0, path: UIBezierPath()) }
+            .map { Region(name: $0, pathInfo: []) }
         
         mistakesCount = try values.decode(Int.self, forKey: .mistakesCount)
         timePassed = try values.decode(TimeInterval.self, forKey: .timePassed)

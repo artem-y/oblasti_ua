@@ -222,11 +222,13 @@ extension GameSceneViewController {
     
     /// Initializes and configures mapView. Has to be called after gameController is already initialized.
     private func loadMapView() {
-        var regionKeysAndPaths: [String: UIBezierPath] = [:]
+        var regionKeysAndPathInfos: [String: [JSONDictionary]] = [:]
         gameController.regions.forEach { (region) in
-            regionKeysAndPaths[region.name] = region.path
+            regionKeysAndPathInfos[region.name] = region.pathInfo
         }
         
+        let regionKeysAndPaths: [String: UIBezierPath] = regionKeysAndPathInfos
+            .mapValues(UIBezierPath.init(json:))
         mapView.addRegionLayers(from: regionKeysAndPaths)
     }
     
