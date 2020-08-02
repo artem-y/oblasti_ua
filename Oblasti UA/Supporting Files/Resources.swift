@@ -125,9 +125,9 @@ struct Resources {
                 let pathData = $0.dictionaries(forKey: JSONKey.path)
                 else { return }
             
-            let path = UIBezierPath(json: pathData)
-            guard !path.isEmpty else { return }
-            let region = Region(name: regionName, path: path)
+            guard !pathData.isEmpty else { return }
+            
+            let region = Region(name: regionName, pathInfo: pathData)
             regions.append(region)
             
         }
