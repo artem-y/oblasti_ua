@@ -53,7 +53,8 @@ final class GameController {
         timer?.invalidate()
     }
 
-    /// If there still are unfound regions left, randomly chooses one from them and sets current region to it. Otherwise, game ends.
+    /// If there still are unfound regions left, randomly chooses one from them and sets current region to it.
+    /// Otherwise, game ends.
     func nextQuestion() {
 
         if game.regionsLeft.count > .zero {
@@ -109,14 +110,30 @@ final class GameController {
             let savedGameKey = DefaultsKey.lastUnfinishedGame
 
             if let savedGame = decodeJSONValueFromUserDefaults(ofType: Game.self, forKey: savedGameKey) {
-                let regions: [Region] = Resources.shared.loadRegions(withNames: savedGame.regions.map({ $0.name }), fromFileNamed: Resources.FileName.ukraine)
-                let regionsLeft: [Region] = Resources.shared.loadRegions(withNames: savedGame.regionsLeft.map({ $0.name }), fromFileNamed: Resources.FileName.ukraine)
+
+                let regions: [Region] = Resources.shared.loadRegions(
+                    withNames: savedGame.regions.map({ $0.name }),
+                    fromFileNamed: Resources.FileName.ukraine
+                )
+
+                let regionsLeft: [Region] = Resources.shared.loadRegions(
+                    withNames: savedGame.regionsLeft.map({ $0.name }),
+                    fromFileNamed: Resources.FileName.ukraine
+                )
+
                 guard !regions.isEmpty && !regionsLeft.isEmpty else {
                     self.game = Game.defaultForCurrentMode
                     return
                 }
-                // Creation of a copy of the saved game is necessary to replace regions and regions left with just keys by regions with real UIBezier paths
-                self.game = Game(mode: savedGame.mode, regions: regions, regionsLeft: regionsLeft, timePassed: savedGame.timePassed, mistakesCount: savedGame.mistakesCount)
+
+                // This will replace regions and regions left with just keys by regions with real UIBezier paths
+                self.game = Game(
+                    mode: savedGame.mode,
+                    regions: regions,
+                    regionsLeft: regionsLeft,
+                    timePassed: savedGame.timePassed,
+                    mistakesCount: savedGame.mistakesCount
+                )
             } else {
                 self.game = Game.defaultForCurrentMode
             }
@@ -145,11 +162,13 @@ extension GameController {
         }
 
         // To improve performance, send changes to UI only when seconds change, not milliseconds
-        guard SettingsController.shared.settings.showsTime &&
-            game.timePassed.truncatingRemainder(dividingBy: Default.timeRemainderDivider) < Default.timerInterval else { return }
-        delegate?.reactToTimerValueChange()
-    }
+        let timeWithoutRemainder: Double = game.timePassed.truncatingRemainder(dividingBy: Default.timeRemainderDivider)
+        let secondsDidChange: Bool = timeWithoutRemainder < Default.timerInterval
 
+        if SettingsController.shared.settings.showsTime && secondsDidChange {
+            delegate?.reactToTimerValueChange()
+        }
+    }
 }
 
 // MARK: - Default Values

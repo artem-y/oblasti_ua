@@ -87,7 +87,8 @@ struct Resources {
 
         // Settings
         struct Setting {
-            static let lastGameMode = "lastGameModeSetting" // Should only be changed from within app's inner settings menu
+            /// Should only be changed from within app's inner settings menu
+            static let lastGameMode = "lastGameModeSetting"
             static let showsTime = "showsTimeSetting"
             static let showsButtons = "showsButtonsSetting"
             static let autoConfirmsSelection = "autoConfirmsSelectionSetting"
@@ -101,11 +102,14 @@ struct Resources {
 
     // MARK: - Public Methods
 
-    /// Loads regions with their paths from file.
-    /// - Parameters:
-    ///   - regionKeys: Optional array of region keys. Default value is 'nil'.
-    ///   - fileName: String, containing the name of file in to search for regions paths data.
-    /// - Returns: Array of regions, that were successfully parsed from file or an empty array, if there weren't any. If no region keys specified, tries to look for and return all possible regions.
+    /**
+     Loads regions with their paths from file.
+     - Parameters:
+     - regionKeys: Optional array of region keys. Default value is 'nil'.
+     - fileName: String, containing the name of file in to search for regions paths data.
+     - Returns: Array of regions, that were successfully parsed from file or an empty array, if there weren't any.
+     If no region keys specified, tries to look for and return all possible regions.
+     */
     func loadRegions(withNames regionNames: [String]? = nil, fromFileNamed fileName: String) -> [Region] {
 
         enum JSONKey: String {

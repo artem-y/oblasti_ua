@@ -47,14 +47,20 @@ extension CustomRegionNamesTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Resources.CellIdentifier.customRegionNameCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: Resources.CellIdentifier.customRegionNameCell,
+            for: indexPath
+        )
 
         // Configure cell
         if let regionNameCell = cell as? CustomRegionNameCell {
             let regionKey: String = sortedRegionNameKeys[indexPath.row]
             regionNameCell.regionNameLabel.text = localizedRegionName(regionKey)
             regionNameCell.customNameTextField.delegate = self
-            regionNameCell.customNameTextField.placeholder = regionKey.localized(in: Default.regionNameLanguageIdentifierEnglish, fromTable: Resources.LocalizationTable.regionNames)
+            regionNameCell.customNameTextField.placeholder = regionKey.localized(
+                in: Default.regionNameLanguageIdentifierEnglish,
+                fromTable: Resources.LocalizationTable.regionNames
+            )
             regionNameCell.customNameTextField.text = regionNames[regionKey]
         }
         return cell
@@ -121,7 +127,11 @@ extension CustomRegionNamesTableViewController {
             case regions, name
         }
         // First, try to fetch names from UserDefaults
-        if let savedRegionNames = decodeJSONValueFromUserDefaults(ofType: [String: String].self, forKey: DefaultsKey.customRegionNames) {
+        if let savedRegionNames = decodeJSONValueFromUserDefaults(
+            ofType: [String: String].self,
+            forKey: DefaultsKey.customRegionNames
+            ) {
+
             regionNames = savedRegionNames
 
             // If there are no names in UserDefaults, list all region names with blank translations
@@ -129,9 +139,15 @@ extension CustomRegionNamesTableViewController {
             // Temporary copy is necessary to prevent from multiple calls to region names dict's 'didSet' method
             var newRegionNamesDict: [String: String] = [:]
             if
-                let defaultNamesUrl = Bundle.main.url(forResource: Resources.FileName.ukraine, withExtension: Resources.FileExtension.json),
+                let defaultNamesUrl = Bundle.main.url(
+                    forResource: Resources.FileName.ukraine,
+                    withExtension: Resources.FileExtension.json
+                ),
                 let data = try? Data(contentsOf: defaultNamesUrl),
-                let jsonDict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? JSONDictionary,
+                let jsonDict = try? JSONSerialization.jsonObject(
+                    with: data,
+                    options: .mutableContainers
+                    ) as? JSONDictionary,
                 let jsonRegions = jsonDict.dictionaries(forKey: JSONKey.regions)
             {
                 jsonRegions.forEach {

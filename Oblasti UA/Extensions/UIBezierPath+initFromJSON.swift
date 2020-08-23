@@ -42,7 +42,8 @@ extension UIBezierPath {
         self.init()
 
         json.forEach { elementData in
-            guard let elementTypeString = elementData.string(forKey: JSONKey.type), let elementType = ElementType(rawValue: elementTypeString) else { return }
+            guard let elementTypeString = elementData.string(forKey: JSONKey.type),
+                let elementType = ElementType(rawValue: elementTypeString) else { return }
 
             let x = elementData.cgFloat(forKey: JSONKey.x)
             let y = elementData.cgFloat(forKey: JSONKey.y)

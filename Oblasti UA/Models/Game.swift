@@ -13,18 +13,31 @@ struct Game {
     // MARK: - Static Properties
 
     /// Immutable default game instance.
-    static let `default` = Game(mode: Settings.default.gameMode, regions: Resources.shared.loadRegions(fromFileNamed: Resources.FileName.ukraine), regionsLeft: Resources.shared.loadRegions(fromFileNamed: Resources.FileName.ukraine))
+    static let `default` = Game(
+        mode: Settings.default.gameMode,
+        regions: Resources.shared.loadRegions(
+            fromFileNamed: Resources.FileName.ukraine
+        ),
+        regionsLeft: Resources.shared.loadRegions(
+            fromFileNamed: Resources.FileName.ukraine
+        )
+    )
 
     /// Default game instance with game mode changed to mode from current settings.
     static var defaultForCurrentMode: Game {
-        return Game(mode: SettingsController.shared.settings.gameMode, regions: `default`.regions, regionsLeft: `default`.regionsLeft)
+        return Game(
+            mode: SettingsController.shared.settings.gameMode,
+            regions: `default`.regions,
+            regionsLeft: `default`.regionsLeft
+        )
     }
 
     // MARK: - Nested Types
 
     /// Game mode type
     enum Mode: String, CaseIterable, Codable {
-        /// User is finding regions on the map until all regions are found. Regions that were guessed wrong will still be appearing.
+        /// User is finding regions on the map until all regions are found.
+        /// Regions that were guessed wrong will still be appearing.
         case classic = "classicMode"
 
         /// Every region is only shown once. If confirmed wrong selection, user will not have a chance to find it again.
@@ -85,11 +98,17 @@ struct Game {
 // MARK: - 'Equatable' Protocol Methods
 extension Game: Equatable {
     static func == (lhs: Game, rhs: Game) -> Bool {
-        return (lhs.gameMode == rhs.gameMode) && (lhs.gameRegions == rhs.gameRegions) && (lhs.mistakesCount == rhs.mistakesCount) && (lhs.timePassed == rhs.timePassed)
+        return (lhs.gameMode == rhs.gameMode)
+            && (lhs.gameRegions == rhs.gameRegions)
+            && (lhs.mistakesCount == rhs.mistakesCount)
+            && (lhs.timePassed == rhs.timePassed)
     }
 
     static func != (lhs: Game, rhs: Game) -> Bool {
-        return (lhs.gameMode != rhs.gameMode) || (lhs.gameRegions != rhs.gameRegions) || (lhs.mistakesCount != rhs.mistakesCount) || (lhs.timePassed != rhs.timePassed)
+        return (lhs.gameMode != rhs.gameMode)
+            || (lhs.gameRegions != rhs.gameRegions)
+            || (lhs.mistakesCount != rhs.mistakesCount)
+            || (lhs.timePassed != rhs.timePassed)
     }
 
 }
@@ -100,10 +119,20 @@ extension Game: Comparable {
 
     static func < (lhs: Game, rhs: Game) -> Bool {
 
-        let lhsMistakesPercent: Double = lhs.mistakesCount == 0 ? 0.0 : Double(lhs.mistakesCount) / Double(lhs.gameRegions.count)
-        let rhsMistakesPercent: Double = rhs.mistakesCount == 0 ? 0.0 : Double(rhs.mistakesCount) / Double(rhs.gameRegions.count)
+        var lhsMistakesPercent: Double = 0
+        var rhsMistakesPercent: Double = 0
 
-        return (lhsMistakesPercent == rhsMistakesPercent) ? lhs.timePassed > rhs.timePassed : lhsMistakesPercent > rhsMistakesPercent
+        if lhs.mistakesCount > 0 {
+            lhsMistakesPercent = Double(lhs.mistakesCount) / Double(lhs.gameRegions.count)
+        }
+
+        if rhs.mistakesCount > 0 {
+            rhsMistakesPercent = Double(rhs.mistakesCount) / Double(rhs.gameRegions.count)
+        }
+
+        let hasEqualMistakesPercent: Bool = (lhsMistakesPercent == rhsMistakesPercent)
+
+        return hasEqualMistakesPercent ? lhs.timePassed > rhs.timePassed : lhsMistakesPercent > rhsMistakesPercent
     }
 }
 

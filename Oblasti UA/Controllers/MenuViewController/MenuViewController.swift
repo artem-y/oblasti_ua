@@ -75,7 +75,8 @@ extension MenuViewController {
 
         switch segue.identifier {
         case Resources.SegueIdentifier.presentSettingsSegue:
-            guard let destinationVC = segue.destination as? SettingsNavigationController, (sender as? UIButton) == modeButton else { return }
+            guard let destinationVC = segue.destination as? SettingsNavigationController,
+                (sender as? UIButton) == modeButton else { return }
             destinationVC.performSegue(withIdentifier: Resources.SegueIdentifier.showOnlyModeSettingSegue, sender: nil)
 
         default:
@@ -93,7 +94,12 @@ extension MenuViewController: DefaultsKeyControllable { }
 
 extension MenuViewController: RemovableObserver {
     func addToNotificationCenter() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateModeButtonTitle), name: .GameModeChanged, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateModeButtonTitle),
+            name: .GameModeChanged,
+            object: nil
+        )
     }
 
 }
@@ -104,7 +110,10 @@ extension MenuViewController {
     @objc
     private func updateModeButtonTitle() {
         let modeDescription = settings.gameMode.rawValue.localized().lowercased()
-        modeButton.setTitle(Localized.modeButtonTitleModeHintPrefix + Localized.wordsSeparator + modeDescription, for: .normal)
+        modeButton.setTitle(
+            Localized.modeButtonTitleModeHintPrefix + Localized.wordsSeparator + modeDescription,
+            for: .normal
+        )
     }
 
     private func configureHighscoreButton() {

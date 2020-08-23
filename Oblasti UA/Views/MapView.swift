@@ -34,7 +34,7 @@ class MapView: UIImageView {
     /// Finds and returns sublayer with a matching name or nil.
     /// - Parameters:
     ///   - named: A string with the name of sublayer to look for.
-    /// - Returns: A map sublayer (instance of CAShapeLayer) with the name passed as an argument, or nil if there isn't one.
+    /// - Returns: A map sublayer (shape layer) with the name passed as an argument, or nil if there isn't one.
     func sublayer(named name: String) -> CAShapeLayer? {
         return shapeLayers.first { $0.name == name }
     }

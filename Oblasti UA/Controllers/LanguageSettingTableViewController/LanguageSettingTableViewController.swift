@@ -35,10 +35,8 @@ final class LanguageSettingTableViewController: UITableViewController, DefaultsK
 extension LanguageSettingTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadCustomRegionNames()
-        tableView.reloadData()
-
-        navigationItem.rightBarButtonItem = (regionNameLanguage == Resources.LanguageCode.custom) ? editBarButtonItem : nil
+        configureTableView()
+        configureNavigationItem()
     }
 }
 
@@ -53,8 +51,12 @@ extension LanguageSettingTableViewController {
 
         let languageCode = languages[indexPath.row]
         let languageNativeLocale = Locale(identifier: languageCode)
-        let languageCell = tableView.dequeueReusableCell(withIdentifier: Resources.CellIdentifier.languageCell, for: indexPath)
-        languageCell.textLabel?.text = languageNativeLocale.localizedString(forLanguageCode: languageCode)?.capitalized ?? languageCode.localized()
+        let languageCell = tableView.dequeueReusableCell(
+            withIdentifier: Resources.CellIdentifier.languageCell,
+            for: indexPath
+        )
+        let localizedText: String? = languageNativeLocale.localizedString(forLanguageCode: languageCode)?.capitalized
+        languageCell.textLabel?.text = localizedText ?? languageCode.localized()
 
         var detailText: String?
         if languageCode == Resources.LanguageCode.custom {
@@ -85,8 +87,21 @@ extension LanguageSettingTableViewController {
 
 extension LanguageSettingTableViewController {
     private func loadCustomRegionNames() {
-        guard let regionNamesDict = decodeJSONValueFromUserDefaults(ofType: [String: String].self, forKey: DefaultsKey.customRegionNames) else { return }
+        guard let regionNamesDict = decodeJSONValueFromUserDefaults(
+            ofType: [String: String].self,
+            forKey: DefaultsKey.customRegionNames
+            ) else { return }
         customRegionNames = regionNamesDict.values.filter { !$0.isEmpty }
+    }
+
+    private func configureTableView() {
+        loadCustomRegionNames()
+        tableView.reloadData()
+    }
+
+    private func configureNavigationItem() {
+        let isCustomRegionNameLanguage: Bool = (regionNameLanguage == Resources.LanguageCode.custom)
+        navigationItem.rightBarButtonItem = isCustomRegionNameLanguage ? editBarButtonItem : nil
     }
 }
 

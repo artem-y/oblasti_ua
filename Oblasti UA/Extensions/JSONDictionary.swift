@@ -9,7 +9,8 @@
 import Foundation
 import CoreGraphics
 
-/// Convenience type (structure) that can be subscribed by enum or `String` key and has convenience methods for getting values of different types.
+/// Convenience typealias that can be subscribed by enum or `String` key.
+/// Has convenience methods for getting typed values.
 typealias JSONDictionary = [String: Any]
 
 extension JSONDictionary {

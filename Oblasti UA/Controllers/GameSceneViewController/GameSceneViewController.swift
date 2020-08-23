@@ -122,7 +122,6 @@ extension GameSceneViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // This is needed to prevent memory leak caused by holding a reference to this instance of GameSceneViewController in app delegate
         AppDelegate.shared.pauseApp = nil
     }
 }
@@ -235,7 +234,11 @@ extension GameSceneViewController {
 
     /// Tries to fetch custom (user-defined) region names from UserDefaults.
     private func reloadCustomNames() {
-        guard let regionNames = decodeJSONValueFromUserDefaults(ofType: [String: String].self, forKey: DefaultsKey.customRegionNames) else { return }
+        guard let regionNames = decodeJSONValueFromUserDefaults(
+            ofType: [String: String].self,
+            forKey: DefaultsKey.customRegionNames
+            ) else { return }
+
         customRegionNames = regionNames
     }
 
@@ -253,10 +256,16 @@ extension GameSceneViewController {
             if let customRegionName = customRegionNames[currentRegion.name], customRegionName.isEmpty == false {
                 regionName = customRegionName
             } else {
-                regionName = currentRegion.name.localized(in: Default.regionNameLanguageIdentifierEnglish, fromTable: Resources.LocalizationTable.regionNames)
+                regionName = currentRegion.name.localized(
+                    in: Default.regionNameLanguageIdentifierEnglish,
+                    fromTable: Resources.LocalizationTable.regionNames
+                )
             }
         } else {
-            regionName = currentRegion.name.localized(in: languageIdentifier, fromTable: Resources.LocalizationTable.regionNames)
+            regionName = currentRegion.name.localized(
+                in: languageIdentifier,
+                fromTable: Resources.LocalizationTable.regionNames
+            )
         }
 
         let regionNameText = settings.regionNamesUppercased ? regionName.uppercased() : regionName
@@ -337,15 +346,23 @@ extension GameSceneViewController {
                     // Animation: View with 'confirm' button slides out into the screen from the right
                     singleTapRecognizer.isEnabled = false
                     let oldFrame = bottomRightConfirmationView.frame
-                    bottomRightConfirmationView.frame = CGRect(origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y), size: oldFrame.size)
+                    bottomRightConfirmationView.frame = CGRect(
+                        origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y),
+                        size: oldFrame.size
+                    )
                     bottomRightConfirmationView.isHidden = false
 
-                    UIView.animate(withDuration: Default.Animation.Duration.normal, delay: Default.Animation.delay, options: .curveEaseOut, animations: {
-                        [unowned self] in
-                        self.bottomRightConfirmationView.frame = oldFrame
-                        // This prevents reenabling tap gestures after the game is finished
-                        self.singleTapRecognizer.isEnabled = self.isRunningGame
-                    })
+                    UIView.animate(
+                        withDuration: Default.Animation.Duration.normal,
+                        delay: Default.Animation.delay,
+                        options: .curveEaseOut,
+                        animations: {
+                            [unowned self] in
+                            self.bottomRightConfirmationView.frame = oldFrame
+                            // This prevents reenabling tap gestures after the game is finished
+                            self.singleTapRecognizer.isEnabled = self.isRunningGame
+                        }
+                    )
                 }
 
                 regionsContainLocation = true
@@ -373,18 +390,31 @@ extension GameSceneViewController {
         singleTapRecognizer.isEnabled = false
         let oldFrame: CGRect = bottomRightConfirmationView.frame
 
-        UIView.animate(withDuration: Default.Animation.Duration.normal, delay: Default.Animation.delay, options: .curveEaseIn, animations: { [unowned self] in
+        UIView.animate(
+            withDuration: Default.Animation.Duration.normal,
+            delay: Default.Animation.delay,
+            options: .curveEaseIn,
+            animations: { [unowned self] in
 
-            self.bottomRightConfirmationView.frame = CGRect(origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y), size: oldFrame.size)
-        }) { [unowned self] (completed) in
+                self.bottomRightConfirmationView.frame = CGRect(
+                    origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y),
+                    size: oldFrame.size
+                )
+            }
+        ) { [unowned self] (completed) in
             guard completed else { return }
 
             self.bottomRightConfirmationView.isHidden = true
             self.bottomRightConfirmationView.frame = oldFrame
+
             // This prevents reenabling tap gestures:
             //  - if region auto-change is enabled and selection result (right/wrong) is still on the screen
             //  - after the game is finished
-            self.singleTapRecognizer.isEnabled = (self.settings.changesRegionAutomatically && self.isShowingSelectionResult) ? false : self.isRunningGame
+            if self.settings.changesRegionAutomatically && self.isShowingSelectionResult {
+                self.singleTapRecognizer.isEnabled = false
+            } else {
+                self.singleTapRecognizer.isEnabled = self.isRunningGame
+            }
         }
     }
 
@@ -402,12 +432,20 @@ extension GameSceneViewController {
         if showsButtons {
             let oldFrame = self.bottomLeftChoiceView.frame
 
-            UIView.animate(withDuration: Default.Animation.Duration.normal, delay: Default.Animation.delay, options: .curveEaseIn, animations: { [unowned self] in
-                let newX: CGFloat = oldFrame.origin.x - oldFrame.width
+            UIView.animate(
+                withDuration: Default.Animation.Duration.normal,
+                delay: Default.Animation.delay,
+                options: .curveEaseIn,
+                animations: { [unowned self] in
+                    let newX: CGFloat = oldFrame.origin.x - oldFrame.width
 
-                self.bottomLeftChoiceView.frame = CGRect(origin: CGPoint(x: newX, y: oldFrame.origin.y), size: oldFrame.size)
+                    self.bottomLeftChoiceView.frame = CGRect(
+                        origin: CGPoint(x: newX, y: oldFrame.origin.y),
+                        size: oldFrame.size
+                    )
 
-            }) { [unowned self] (completed) in
+                }
+            ) { [unowned self] (completed) in
 
                 if completed {
                     self.bottomLeftChoiceView.isHidden = true

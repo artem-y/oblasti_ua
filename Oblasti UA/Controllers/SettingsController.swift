@@ -37,7 +37,14 @@ final class SettingsController: NSObject {
     }
 
     /// Languages contain all available localizatons for region names and user-defined region names
-    var availableLanguages: [String] = Bundle.main.localizations.filter { $0 != Default.baseLocalizationLanguageName } + [Resources.LanguageCode.custom]
+    lazy var availableLanguages: [String] = {
+
+        let baseLocalizationName: String = Default.baseLocalizationLanguageName
+        let allLocalizationsExceptBase: [String] = Bundle.main.localizations.filter { $0 != baseLocalizationName }
+        let customLanguageCodes: [String] = [Resources.LanguageCode.custom]
+
+        return allLocalizationsExceptBase + customLanguageCodes
+    }()
 
     // MARK: - Public Methods
 
@@ -46,25 +53,52 @@ final class SettingsController: NSObject {
 
         let defaultGameMode: Game.Mode = Settings.default.gameMode
         let gameModeString: String? = standardDefaults.string(forKey: SettingKey.lastGameMode)
-        let gameMode: Game.Mode = (gameModeString == nil) ? defaultGameMode : Game.Mode(rawValue: gameModeString!) ?? defaultGameMode
+
+        let gameMode: Game.Mode
+
+        if let gameModeString = gameModeString {
+            gameMode = Game.Mode(rawValue: gameModeString) ?? defaultGameMode
+        } else {
+            gameMode = defaultGameMode
+        }
 
         let showsTime: Bool = standardDefaultsBool(forKey: SettingKey.showsTime) ?? Settings.default.showsTime
         let showsButtons: Bool = standardDefaultsBool(forKey: SettingKey.showsButtons) ?? Settings.default.showsButtons
-        let autoConfirmsSelection: Bool = standardDefaultsBool(forKey: SettingKey.autoConfirmsSelection) ?? Settings.default.autoConfirmsSelection
-        let automaticRegionChange: Bool = standardDefaultsBool(forKey: SettingKey.automaticRegionChange) ?? Settings.default.changesRegionAutomatically
-        let regionNamesUppercased: Bool = standardDefaultsBool(forKey: SettingKey.regionNamesUppercased) ?? Settings.default.regionNamesUppercased
 
-        let showsCorrectAnswer: Bool = standardDefaultsBool(forKey: SettingKey.showsCorrectAnswer) ?? Settings.default.showsCorrectAnswer
+        let savedAutoConfirmsSelection: Bool? = standardDefaultsBool(forKey: SettingKey.autoConfirmsSelection)
+        let autoConfirmsSelection: Bool = savedAutoConfirmsSelection ?? Settings.default.autoConfirmsSelection
 
-        let playesSoundEffects: Bool = standardDefaultsBool(forKey: SettingKey.playesSoundEffects) ?? Settings.default.playesSoundEffects
+        let savedAutomaticRegionChange: Bool? = standardDefaultsBool(forKey: SettingKey.automaticRegionChange)
+        let automaticRegionChange: Bool = savedAutomaticRegionChange ?? Settings.default.changesRegionAutomatically
+
+        let savedRegionNamesUppercased: Bool? = standardDefaultsBool(forKey: SettingKey.regionNamesUppercased)
+        let regionNamesUppercased: Bool = savedRegionNamesUppercased ?? Settings.default.regionNamesUppercased
+
+        let savedShowsCorrectAnswer: Bool? = standardDefaultsBool(forKey: SettingKey.showsCorrectAnswer)
+        let showsCorrectAnswer: Bool = savedShowsCorrectAnswer ?? Settings.default.showsCorrectAnswer
+
+        let savedPlayesSoundEffects: Bool? = standardDefaultsBool(forKey: SettingKey.playesSoundEffects)
+        let playesSoundEffects: Bool = savedPlayesSoundEffects ?? Settings.default.playesSoundEffects
 
         var currentLanguageIdentifier = Settings.default.regionNameLanguageIdentifier
         if let currentLanguageCode = Locale.current.languageCode, availableLanguages.contains(currentLanguageCode) {
             currentLanguageIdentifier = currentLanguageCode
         }
-        let regionNameLanguage: String = standardDefaults.string(forKey: SettingKey.regionNameLanguage) ?? currentLanguageIdentifier
 
-        settings = Settings(gameMode: gameMode, regionNamesUppercased: regionNamesUppercased, showsTime: showsTime, showsButtons: showsButtons, autoConfirmsSelection: autoConfirmsSelection, changesRegionAutomatically: automaticRegionChange, showsCorrectAnswer: showsCorrectAnswer, playesSoundEffects: playesSoundEffects, regionNameLanguageIdentifier: regionNameLanguage)
+        let savedRegionNameLanguage: String? = standardDefaults.string(forKey: SettingKey.regionNameLanguage)
+        let regionNameLanguage: String = savedRegionNameLanguage ?? currentLanguageIdentifier
+
+        settings = Settings(
+            gameMode: gameMode,
+            regionNamesUppercased: regionNamesUppercased,
+            showsTime: showsTime,
+            showsButtons: showsButtons,
+            autoConfirmsSelection: autoConfirmsSelection,
+            changesRegionAutomatically: automaticRegionChange,
+            showsCorrectAnswer: showsCorrectAnswer,
+            playesSoundEffects: playesSoundEffects,
+            regionNameLanguageIdentifier: regionNameLanguage
+        )
 
     }
 

@@ -46,7 +46,10 @@ final class SoundController {
 // MARK: - Private Methods
 
 extension SoundController {
-    private func playSound(fromFileNamed fileName: String, withExtension fileExtension: String = Resources.FileExtension.m4a) {
+    private func playSound(
+        fromFileNamed fileName: String,
+        withExtension fileExtension: String = Resources.FileExtension.m4a
+    ) {
         guard let url = Bundle.main.url(forResource: fileName, withExtension: fileExtension) else { return }
 
         soundPlayer = try? AVAudioPlayer(contentsOf: url)

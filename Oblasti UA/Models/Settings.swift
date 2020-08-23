@@ -14,7 +14,17 @@ struct Settings: Equatable {
     // MARK: - General
 
     /// Immutable default settings instance.
-    static let `default` = Settings(gameMode: .classic, regionNamesUppercased: false, showsTime: true, showsButtons: true, autoConfirmsSelection: true, changesRegionAutomatically: true, showsCorrectAnswer: true, playesSoundEffects: true, regionNameLanguageIdentifier: Locale.current.languageCode)
+    static let `default` = Settings(
+        gameMode: .classic,
+        regionNamesUppercased: false,
+        showsTime: true,
+        showsButtons: true,
+        autoConfirmsSelection: true,
+        changesRegionAutomatically: true,
+        showsCorrectAnswer: true,
+        playesSoundEffects: true,
+        regionNameLanguageIdentifier: Locale.current.languageCode
+    )
 
     /// Game mode from last saved user settings. Should not be changed from device settings app.
     var gameMode: Game.Mode = .classic
@@ -31,7 +41,8 @@ struct Settings: Equatable {
     /// Tells the app whether to automatically confirm selection after region is chosen with single tap
     var autoConfirmsSelection: Bool
 
-    /// Tells the app whether to automatically switch to next region after a brief display of 'right/wrong' result. If app shows buttons, should also tell the app whether to hide 'right/wrong' result indicators automatically
+    /// Tells the app whether to automatically switch to next region after a brief display of 'right/wrong' result.
+    /// If app shows buttons, should also tell the app whether to hide 'right/wrong' result indicators automatically
     var changesRegionAutomatically: Bool
 
     /// Tells the app whether to show where was the correct region, if wrong region was selected
@@ -44,12 +55,24 @@ struct Settings: Equatable {
 
     // MARK: - Defaults
 
-    /// Tells the app only the language in which region names are presented during the game. Should not affect app's menu language
+    /// Tells the app only the language in which region names are presented during the game.
+    /// Does not affect app's menu language
     var regionNameLanguageIdentifier: String
 
     // MARK: - Initialization
 
-    init(gameMode: Game.Mode, regionNamesUppercased: Bool, showsTime: Bool, showsButtons: Bool, autoConfirmsSelection: Bool, changesRegionAutomatically: Bool, showsCorrectAnswer: Bool, playesSoundEffects: Bool, regionNameLanguageIdentifier: String?) {
+    init(
+        gameMode: Game.Mode,
+        regionNamesUppercased: Bool,
+        showsTime: Bool,
+        showsButtons: Bool,
+        autoConfirmsSelection: Bool,
+        changesRegionAutomatically: Bool,
+        showsCorrectAnswer: Bool,
+        playesSoundEffects: Bool,
+        regionNameLanguageIdentifier: String?
+    ) {
+
         self.gameMode = gameMode
         self.regionNamesUppercased = regionNamesUppercased
         self.showsTime = showsTime
@@ -59,7 +82,8 @@ struct Settings: Equatable {
         self.showsCorrectAnswer = showsCorrectAnswer
         self.playesSoundEffects = playesSoundEffects
 
-        if let regionNameLanguageIdentifier = regionNameLanguageIdentifier, Bundle.main.localizations.contains(regionNameLanguageIdentifier) {
+        if let regionNameLanguageIdentifier = regionNameLanguageIdentifier,
+            Bundle.main.localizations.contains(regionNameLanguageIdentifier) {
             self.regionNameLanguageIdentifier = regionNameLanguageIdentifier
         } else {
             self.regionNameLanguageIdentifier = Default.regionNameLanguageIdentifierEnglish

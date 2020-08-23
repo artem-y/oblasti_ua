@@ -86,8 +86,13 @@ extension GameResultViewController {
         headerLabel.text = headerText
         headerLabel.textColor = isNewHighscore ? .correctSelectionColor : .selectedRegionColor
 
-        let mistakesImageName: String = gameResult.mistakesCount == 0 ? Resources.ImageName.correctIcon : Resources.ImageName.mistakesIcon
+        let hasNoMistakes: Bool = gameResult.mistakesCount == 0
+        let correctImageIcon: String = Resources.ImageName.correctIcon
+        let mistakesImageIcon: String = Resources.ImageName.mistakesIcon
+
+        let mistakesImageName: String = hasNoMistakes ? correctImageIcon : mistakesImageIcon
         mistakesImageView.image = UIImage(named: mistakesImageName)
+
         var mistakesText = "\(Localized.LabelTextPrefix.mistakes)\(Localized.wordsSeparator)\(gameResult.mistakesCount)"
         if gameResult.mode == .norepeat {
             mistakesText += "\(Localized.resultOutOfTotalSeparator)\(gameResult.regions.count)"

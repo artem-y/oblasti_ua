@@ -91,7 +91,8 @@ extension PauseViewController {
 
         switch segue.identifier {
         case Resources.SegueIdentifier.showSettingsFromGamePauseSegue:
-            guard let destinationVC = segue.destination as? SettingsNavigationController, let topVC = destinationVC.topViewController as? SettingsTableViewController else { return }
+            guard let destinationVC = segue.destination as? SettingsNavigationController,
+                let topVC = destinationVC.topViewController as? SettingsTableViewController else { return }
             topVC.gameInProgressGameMode = gameMode
         case Resources.SegueIdentifier.exitConfirmationSegue:
             guard let destinationVC = segue.destination as? ConfirmationViewController else { return }
@@ -110,7 +111,12 @@ extension PauseViewController {
 
 extension PauseViewController: RemovableObserver {
     func addToNotificationCenter() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTimeLabel), name: .ShowTimeSettingChanged, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateTimeLabel),
+            name: .ShowTimeSettingChanged,
+            object: nil
+        )
     }
 }
 

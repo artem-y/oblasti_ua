@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    /// Block of code that will be called (if set) when application 'resigns active', used to pause game tasks (for example, stop timers)
+    /// Block of code that will used to pause game tasks when needed (for example, stop timers)
     var pauseApp: (() -> Void)?
 
     weak var settingsObserver: RemovableObserver?
@@ -34,7 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - App Delegate Methods
 
 extension AppDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
 
         return true
     }

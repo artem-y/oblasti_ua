@@ -19,7 +19,7 @@ class GameControllerTests: XCTestCase {
     var gameController: GameController!
     var regionsOfUkraine: [Region]! // Regions supposed to be in Ukraine.json file
 
-    // TODO: Fix logic so this delegate could be weak
+    // swiftlint:disable weak_delegate
     var delegate: TestGameControllerDelegate!
 
     // MARK: - Test Case Lifecycle Methods
@@ -72,7 +72,11 @@ class GameControllerTests: XCTestCase {
     // MARK: - Current Region Tests
     func test_CurrentRegion_AfterInitInPointerMode_EqualsNil() {
         // 1. Arrange
-        let gameInPointerMode = Game(mode: .pointer, regions: Game.default.regions, regionsLeft: Game.default.regionsLeft)
+        let gameInPointerMode = Game(
+            mode: .pointer,
+            regions: Game.default.regions,
+            regionsLeft: Game.default.regionsLeft
+        )
 
         // 2. Act
         gameController = GameController(game: gameInPointerMode)
@@ -84,10 +88,15 @@ class GameControllerTests: XCTestCase {
     // MARK: - Regions Left Tests
     func test_CheckSelection_WithCorrectNameInClassicMode_RemovesCheckedRegion() {
         // 1. Arrange
-        gameController = GameController(game: Game(mode: .classic, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine))
+        gameController = GameController(
+            game: Game(mode: .classic, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine)
+        )
 
         // 2. Act
-        guard let currentRegion = gameController.currentRegion else { XCTFail(FailMessage.gameControllerHasNoCurrentRegion); return }
+        guard let currentRegion = gameController.currentRegion else {
+            XCTFail(FailMessage.gameControllerHasNoCurrentRegion)
+            return
+        }
         gameController.checkSelection(named: currentRegion.name)
 
         // 3. Assert
@@ -96,11 +105,18 @@ class GameControllerTests: XCTestCase {
 
     func test_CheckSelection_WithWrongNameInNorepeatMode_DoesNotRemoveCheckedRegion() {
         // 1. Arrange
-        gameController = GameController(game: Game(mode: .classic, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine))
-        let wrongRegion: Region = (gameController.currentRegion == regionsOfUkraine[0]) ? regionsOfUkraine[1] : regionsOfUkraine[0]
+        gameController = GameController(
+            game: Game(mode: .classic, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine)
+        )
+
+        let currentRegionIsFirst: Bool = (gameController.currentRegion == regionsOfUkraine[0])
+        let wrongRegion: Region = currentRegionIsFirst ? regionsOfUkraine[1] : regionsOfUkraine[0]
 
         // 2. Act
-        guard let currentRegion = gameController.currentRegion else { XCTFail(FailMessage.gameControllerHasNoCurrentRegion); return }
+        guard let currentRegion = gameController.currentRegion else {
+            XCTFail(FailMessage.gameControllerHasNoCurrentRegion)
+            return
+        }
         gameController.checkSelection(named: wrongRegion.name)
 
         // 3. Assert
@@ -109,10 +125,15 @@ class GameControllerTests: XCTestCase {
 
     func test_CheckSelection_WithCorrectNameInNorepeatMode_RemovesCheckedRegion() {
         // 1. Arrange
-        gameController = GameController(game: Game(mode: .norepeat, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine))
+        gameController = GameController(
+            game: Game(mode: .norepeat, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine)
+        )
 
         // 2. Act
-        guard let currentRegion = gameController.currentRegion else { XCTFail(FailMessage.gameControllerHasNoCurrentRegion); return }
+        guard let currentRegion = gameController.currentRegion else {
+            XCTFail(FailMessage.gameControllerHasNoCurrentRegion)
+            return
+        }
         gameController.checkSelection(named: currentRegion.name)
 
         // 3. Assert
@@ -121,11 +142,18 @@ class GameControllerTests: XCTestCase {
 
     func test_CheckSelection_WithWrongNameInNorepeatMode_RemovesCheckedRegion() {
         // 1. Arrange
-        gameController = GameController(game: Game(mode: .norepeat, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine))
-        let wrongRegion: Region = (gameController.currentRegion == regionsOfUkraine[0]) ? regionsOfUkraine[1] : regionsOfUkraine[0]
+        gameController = GameController(
+            game: Game(mode: .norepeat, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine)
+        )
+
+        let currentRegionIsFirst: Bool = (gameController.currentRegion == regionsOfUkraine[0])
+        let wrongRegion: Region = currentRegionIsFirst ? regionsOfUkraine[1] : regionsOfUkraine[0]
 
         // 2. Act
-        guard let currentRegion = gameController.currentRegion else { XCTFail(FailMessage.gameControllerHasNoCurrentRegion); return }
+        guard let currentRegion = gameController.currentRegion else {
+            XCTFail(FailMessage.gameControllerHasNoCurrentRegion)
+            return
+        }
         gameController.checkSelection(named: wrongRegion.name)
 
         // 3. Assert
@@ -135,9 +163,13 @@ class GameControllerTests: XCTestCase {
     // MARK: - Mistakes Count Tests
     func test_CheckSelection_WithWrongNameInClassicMode_MistakesCountIncrementsByOne() {
         // 1. Arrange
-        gameController = GameController(game: Game(mode: .classic, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine))
+        gameController = GameController(
+            game: Game(mode: .classic, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine)
+        )
         let initialMistakesCount = gameController.gameResult.mistakesCount
-        let wrongRegion = (gameController.currentRegion == regionsOfUkraine[0]) ? regionsOfUkraine[1] : regionsOfUkraine[0]
+
+        let currentRegionIsFirst: Bool = (gameController.currentRegion == regionsOfUkraine[0])
+        let wrongRegion = currentRegionIsFirst ? regionsOfUkraine[1] : regionsOfUkraine[0]
 
         // 2. Act
         gameController.checkSelection(named: wrongRegion.name)
@@ -148,11 +180,16 @@ class GameControllerTests: XCTestCase {
 
     func test_CheckSelection_WithCorrectNameInClassicMode_MistakesCountDoesNotChange() {
         // 1. Arrange
-        gameController = GameController(game: Game(mode: .classic, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine))
+        gameController = GameController(
+            game: Game(mode: .classic, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine)
+        )
         let initialMistakesCount = gameController.gameResult.mistakesCount
 
         // 2. Act
-        guard let currentRegion = gameController.currentRegion else { XCTFail(FailMessage.gameControllerHasNoCurrentRegion); return }
+        guard let currentRegion = gameController.currentRegion else {
+            XCTFail(FailMessage.gameControllerHasNoCurrentRegion)
+            return
+        }
         gameController.checkSelection(named: currentRegion.name)
 
         // 3. Assert
@@ -161,9 +198,12 @@ class GameControllerTests: XCTestCase {
 
     func test_CheckSelection_WithWrongNameInNorepeatMode_MistakesCountIncrementsByOne() {
         // 1. Arrange
-        gameController = GameController(game: Game(mode: .norepeat, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine))
+        gameController = GameController(
+            game: Game(mode: .norepeat, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine)
+        )
         let initialMistakesCount = gameController.gameResult.mistakesCount
-        let wrongRegion = (gameController.currentRegion == regionsOfUkraine[0]) ? regionsOfUkraine[1] : regionsOfUkraine[0]
+        let currentRegionIsFirst: Bool = (gameController.currentRegion == regionsOfUkraine[0])
+        let wrongRegion = currentRegionIsFirst ? regionsOfUkraine[1] : regionsOfUkraine[0]
 
         // 2. Act
         gameController.checkSelection(named: wrongRegion.name)
@@ -174,11 +214,16 @@ class GameControllerTests: XCTestCase {
 
     func test_CheckSelection_WithCorrectNameInNorepeatMode_MistakesCountDoesNotChange() {
         // 1. Arrange
-        gameController = GameController(game: Game(mode: .norepeat, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine))
+        gameController = GameController(
+            game: Game(mode: .norepeat, regions: regionsOfUkraine, regionsLeft: regionsOfUkraine)
+        )
         let initialMistakesCount = gameController.gameResult.mistakesCount
 
         // 2. Act
-        guard let currentRegion = gameController.currentRegion else { XCTFail(FailMessage.gameControllerHasNoCurrentRegion); return }
+        guard let currentRegion = gameController.currentRegion else {
+            XCTFail(FailMessage.gameControllerHasNoCurrentRegion)
+            return
+        }
         gameController.checkSelection(named: currentRegion.name)
 
         // 3. Assert
@@ -198,7 +243,8 @@ class GameControllerTests: XCTestCase {
 
     func test_Delegate_OnCheckingWrongName_ReactsToWrongChoice() {
         // 1. Arrange
-        let wrongRegionName = (gameController.currentRegion == regionsOfUkraine.first) ? regionsOfUkraine[1].name : regionsOfUkraine[0].name
+        let currentRegionIsFirst: Bool = (gameController.currentRegion == regionsOfUkraine[0])
+        let wrongRegionName = currentRegionIsFirst ? regionsOfUkraine[1].name : regionsOfUkraine[0].name
 
         // 2. Act
         gameController.checkSelection(named: wrongRegionName)
@@ -298,7 +344,9 @@ class TestGameControllerDelegate: GameControllerDelegate {
     var didReactToWrongChoice = false
     var didReactToEndOfGame = false
 
-    let reactToTimerValueChangedExpectation = XCTestExpectation(description: "Game controller delegate expected to react to timer value change")
+    let reactToTimerValueChangedExpectation = XCTestExpectation(
+        description: "Game controller delegate expected to react to timer value change"
+    )
 
     // MARK: -
     // GameControllerDelegate Protocol Methods

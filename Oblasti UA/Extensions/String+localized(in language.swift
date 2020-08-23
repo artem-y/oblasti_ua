@@ -9,10 +9,14 @@
 import Foundation
 
 extension String {
-    /// Returns corresponding localization string from .strings files in 'language'.lproj forder. If unable to find translation, returns untranslated string
-    /// - parameters:
-    ///   - language: Language code, in the format of .lproj folder name without extension (for example, "en" for "en.lproj"). If 'language' is nil, returns standard localization
-    ///   - tableName: Optional localization table name, where to look for string localization. If not specified, will look in the default table (most likely, 'Localizable')
+    /**
+     Returns corresponding localization string from .strings files in 'language'.lproj forder.
+     If unable to find translation, returns untranslated string
+     - parameter language: Language code, format is .lproj folder name without extension (like "en" for "en.lproj").
+     If 'language' is nil, returns standard localization
+     - parameter tableName: Optional localization table name, where to look for string localization.
+     If not specified, will look in the default table (most likely, 'Localizable')
+     */
     func localized(in language: String? = nil, fromTable tableName: String? = nil) -> String {
 
         // swiftlint:disable nslocalizedstring_key

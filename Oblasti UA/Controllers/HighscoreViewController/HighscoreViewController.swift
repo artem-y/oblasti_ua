@@ -44,10 +44,15 @@ extension HighscoreViewController {
         let timeStringPrefix = Localized.LabelTextPrefix.time
 
         // Classic mode highscore view
-        if let classicHighscore = decodeJSONValueFromUserDefaults(ofType: Game.self, forKey: DefaultsKey.classicHighscore) {
-            let mistakesIndicatorName = classicHighscore.mistakesCount == 0 ? Resources.ImageName.correctIcon : Resources.ImageName.mistakesIcon
-            classicMistakesIndicator.image = UIImage(named: mistakesIndicatorName)
-            classicMistakesLabel.text = "\(Localized.LabelTextPrefix.mistakes)\(Localized.wordsSeparator)\(classicHighscore.mistakesCount)"
+        if let classicHighscore = decodeJSONValueFromUserDefaults(
+            ofType: Game.self,
+            forKey: DefaultsKey.classicHighscore
+            ) {
+
+            classicMistakesIndicator.image = getMistakesIndicatorImage(for: classicHighscore.mistakesCount)
+            classicMistakesLabel.text = Localized.LabelTextPrefix.mistakes
+                + Localized.wordsSeparator
+                + "\(classicHighscore.mistakesCount)"
 
             let timeString = GameTimeFormatter().string(for: classicHighscore.timePassed)
             classicTimeLabel.text = "\(timeStringPrefix) \(timeString)"
@@ -58,10 +63,17 @@ extension HighscoreViewController {
         }
 
         // No Repetitions mode highscore view
-        if let norepeatHighscore = decodeJSONValueFromUserDefaults(ofType: Game.self, forKey: DefaultsKey.norepeatHighscore) {
-            let mistakesIndicatorName = norepeatHighscore.mistakesCount == 0 ? Resources.ImageName.correctIcon : Resources.ImageName.mistakesIcon
-            norepeatMistakesIndicator.image = UIImage(named: mistakesIndicatorName)
-            norepeatMistakesLabel.text = "\(Localized.LabelTextPrefix.mistakes)\(Localized.wordsSeparator)\(norepeatHighscore.mistakesCount)\(Localized.resultOutOfTotalSeparator)\(norepeatHighscore.regions.count)"
+        if let norepeatHighscore = decodeJSONValueFromUserDefaults(
+            ofType: Game.self,
+            forKey: DefaultsKey.norepeatHighscore
+            ) {
+
+            norepeatMistakesIndicator.image = getMistakesIndicatorImage(for: norepeatHighscore.mistakesCount)
+            norepeatMistakesLabel.text = Localized.LabelTextPrefix.mistakes
+                + Localized.wordsSeparator
+                + "\(norepeatHighscore.mistakesCount)"
+                + Localized.resultOutOfTotalSeparator
+                + "\(norepeatHighscore.regions.count)"
 
             let timeString = GameTimeFormatter().string(for: norepeatHighscore.timePassed)
             norepeatTimeLabel.text = "\(timeStringPrefix) \(timeString)"
@@ -70,6 +82,12 @@ extension HighscoreViewController {
                 $0?.isHidden = true
             }
         }
+    }
+
+    private func getMistakesIndicatorImage(for mistakesCount: Int) -> UIImage? {
+        let hasMistakes: Bool = (mistakesCount == 0)
+        let mistakesIndicatorName = hasMistakes ? Resources.ImageName.mistakesIcon : Resources.ImageName.correctIcon
+        return UIImage(named: mistakesIndicatorName)
     }
 }
 

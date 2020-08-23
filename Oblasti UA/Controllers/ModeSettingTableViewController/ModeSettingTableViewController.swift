@@ -32,7 +32,9 @@ final class ModeSettingTableViewController: UITableViewController {
     /// Updates UI elements
     func updateUI() {
         tableView.reloadData()
-        navigationItem.title = "\(Localized.NavigationItem.modePrefix)\(Localized.NavigationItem.wordsSeparator)\(mode.rawValue.localized())"
+        navigationItem.title = Localized.NavigationItem.modePrefix
+            + Localized.NavigationItem.wordsSeparator
+            + "\(mode.rawValue.localized())"
     }
 }
 
@@ -67,7 +69,10 @@ extension ModeSettingTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Resources.CellIdentifier.gameModeCell, for: IndexPath(row: 0, section: 0))
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: Resources.CellIdentifier.gameModeCell,
+            for: IndexPath(row: 0, section: 0)
+        )
         let cellMode = availableModes[indexPath.row]
         cell.textLabel?.text = cellMode.rawValue.localized()
         cell.detailTextLabel?.text = cellMode.description.localized()

@@ -66,7 +66,8 @@ class SettingsControllerTests: XCTestCase {
         settingsController.loadSettings()
 
         // 3. Assert
-        let hasOneDefaultSetting = (settingsController.settings.playesSoundEffects == Settings.default.playesSoundEffects)
+        let playesSoundEffects: Bool = settingsController.settings.playesSoundEffects
+        let hasOneDefaultSetting = (playesSoundEffects == Settings.default.playesSoundEffects)
         settingsController.settings.playesSoundEffects = nonDefaultSettings.playesSoundEffects
         let hasAllOtherSettingsNonDefault = (settingsController.settings == nonDefaultSettings)
         let hasOnlyOneDefaultSetting = hasOneDefaultSetting && hasAllOtherSettingsNonDefault

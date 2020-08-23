@@ -47,7 +47,8 @@ final class SettingsTableViewController: UITableViewController {
 
     // MARK: - Public Properties
 
-    /// This value should only be passed to settings view controller only if it is called from game pause menu. It will be used to disable mode change within the same game.
+    /// This value should only be passed to settings view controller only if it is called from game pause menu.
+    /// It will be used to disable mode change within the same game.
     var gameInProgressGameMode: Game.Mode?
 
     // MARK: - Private Properties
@@ -61,7 +62,9 @@ final class SettingsTableViewController: UITableViewController {
             SettingsController.shared.settings = newValue
         }
     }
-    // 'Convenience' property. If 'gameInProgressGameMode' is not nil, it means there is a game in progress, and settings viewcontroller was called from within it - and it cannot be changed till the end of/quitting from current game.
+    /**
+     'Convenience' property. If 'gameInProgressGameMode' is not nil, it means there is a game in progress.
+     */
     private var currentGameMode: Game.Mode {
         return gameInProgressGameMode ?? settings.gameMode
     }
@@ -150,6 +153,14 @@ extension SettingsTableViewController {
     }
 }
 
+// MARK: - RemovableObserver protocol methods
+
+extension SettingsTableViewController: RemovableObserver {
+    func addToNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: .SettingsChanged, object: nil)
+    }
+}
+
 // MARK: - Private Methods
 
 extension SettingsTableViewController {
@@ -190,14 +201,20 @@ extension SettingsTableViewController {
 
         // Region Names UI
         modeNameLabel.text = currentGameMode.rawValue.localized()
-        languageNameLagel.text = Locale.current.localizedString(forLanguageCode: settings.regionNameLanguageIdentifier) ?? settings.regionNameLanguageIdentifier.localized()
+
+        let regionNameLanguageIdentifier: String = settings.regionNameLanguageIdentifier
+
+        let localizedLanguageNameText: String? = Locale.current.localizedString(
+            forLanguageCode: regionNameLanguageIdentifier
+        )
+        languageNameLagel.text = localizedLanguageNameText ?? settings.regionNameLanguageIdentifier.localized()
 
         regionNamesUppercasedSwitch.setOn(settings.regionNamesUppercased, animated: true)
 
-        let localizedExampleRegionName = Default.footerExampleRegionName.localized(in: settings.regionNameLanguageIdentifier, fromTable: Resources.LocalizationTable.regionNames)
-        let exampleRegionName: String = settings.regionNamesUppercased ? localizedExampleRegionName.uppercased() : localizedExampleRegionName.capitalized
-
-        exampleFooterText = "\(Localized.FooterTextPart.forExamplePrefix)\(Localized.FooterTextPart.wordsSeparator)\(exampleRegionName)"
+        updateExampleFooter(
+            uppercased: settings.regionNamesUppercased,
+            localizedIn: regionNameLanguageIdentifier
+        )
 
         // Defaults UI
         restoreDefaultsCell.isHidden = (settings == Settings.default)
@@ -206,14 +223,23 @@ extension SettingsTableViewController {
 
     }
 
-}
+    func updateExampleFooter(
+        uppercased: Bool,
+        localizedIn language: String
+    ) {
+        var exampleName = Default.footerExampleRegionName.localized(
+            in: language,
+            fromTable: Resources.LocalizationTable.regionNames
+        )
 
-// MARK: - RemovableObserver protocol methods
+        exampleName = settings.regionNamesUppercased ? exampleName.uppercased() : exampleName.capitalized
 
-extension SettingsTableViewController: RemovableObserver {
-    func addToNotificationCenter() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: .SettingsChanged, object: nil)
+        let examplePrefix: String = Localized.FooterTextPart.forExamplePrefix
+        let exampleWordSeparator: String = Localized.FooterTextPart.wordsSeparator
+
+        exampleFooterText = "\(examplePrefix)\(exampleWordSeparator)\(exampleName)"
     }
+
 }
 
 // MARK: - Default Values
