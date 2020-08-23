@@ -10,21 +10,21 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+
     // MARK: - Static Properties
-    
+
     /// Returns delegate of UIApplication's shared instance, casted to AppDelegate
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
-    
+
     // MARK: - Public Properties
-    
+
     var window: UIWindow?
-    
+
     /// Block of code that will be called (if set) when application 'resigns active', used to pause game tasks (for example, stop timers)
-    var pauseApp: (() -> ())?
-    
+    var pauseApp: (() -> Void)?
+
     weak var settingsObserver: RemovableObserver?
     weak var menuModeObserver: RemovableObserver?
     weak var pauseScreenShowTimeObserver: RemovableObserver?
@@ -38,17 +38,17 @@ extension AppDelegate {
 
         return true
     }
-    
+
     func applicationWillResignActive(_ application: UIApplication) {
         removeObservers()
         pauseApp?()
     }
-    
+
     func applicationDidBecomeActive(_ application: UIApplication) {
         addObservers()
         settingsController?.loadSettings()
     }
-    
+
     func applicationWillTerminate(_ application: UIApplication) {
         removeObservers()
     }
@@ -62,11 +62,10 @@ extension AppDelegate {
         menuModeObserver?.addToNotificationCenter()
         pauseScreenShowTimeObserver?.addToNotificationCenter()
     }
-    
+
     private func removeObservers() {
         settingsObserver?.removeFromNotificationCenter()
         menuModeObserver?.removeFromNotificationCenter()
         pauseScreenShowTimeObserver?.removeFromNotificationCenter()
     }
 }
-

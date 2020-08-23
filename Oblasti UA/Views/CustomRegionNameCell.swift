@@ -10,7 +10,7 @@ import UIKit
 
 final class CustomRegionNameCell: UITableViewCell {
     // MARK: - @IBOutlets
-    
+
     @IBOutlet weak var regionNameLabel: UILabel!
     @IBOutlet weak var customNameTextField: UITextField!
 }

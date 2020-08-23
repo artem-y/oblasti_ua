@@ -14,7 +14,7 @@ extension DefaultsKeyControllable {
     var standardDefaults: UserDefaults {
         return UserDefaults.standard
     }
-    
+
     typealias DefaultsKey = Resources.UserDefaultsKey
 
     /**

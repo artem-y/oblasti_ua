@@ -8,7 +8,7 @@
 
 import UIKit
 /// Protocol with implemented methods for autoadjusting presentation style
-protocol PresentationStyleAdjustable: class {
+protocol PresentationStyleAdjustable: AnyObject {
     var modalPresentationStyle: UIModalPresentationStyle { get set }
 }
 

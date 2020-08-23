@@ -10,13 +10,13 @@ import UIKit
 
 final class ModeSettingTableViewController: UITableViewController {
     // MARK: - Public Properties
-    
+
     /// Determines if the navigation bar will hide the 'back' (left) item
     var hidesBackButton = true
-    
+
     // MARK: - Private Properties
     private let availableModes: [Game.Mode] = Game.Mode.allCases
-    
+
     private var mode: Game.Mode {
         get {
             return SettingsController.shared.settings.gameMode
@@ -26,11 +26,11 @@ final class ModeSettingTableViewController: UITableViewController {
             updateUI()
         }
     }
-    
+
     // MARK: - Public Methods
-    
+
     /// Updates UI elements
-    func updateUI(){
+    func updateUI() {
         tableView.reloadData()
         navigationItem.title = "\(Localized.NavigationItem.modePrefix)\(Localized.NavigationItem.wordsSeparator)\(mode.rawValue.localized())"
     }
@@ -39,10 +39,10 @@ final class ModeSettingTableViewController: UITableViewController {
 // MARK: - @IBActions
 
 extension ModeSettingTableViewController {
-    @IBAction func dismiss(_ sender: Any) {
+    @IBAction private func dismiss(_ sender: Any) {
         navigationController?.dismiss(animated: true, completion: nil)
     }
-    
+
 }
 
 // MARK: - View Controller Lifecycle
@@ -61,11 +61,11 @@ extension ModeSettingTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return availableModes.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Resources.CellIdentifier.gameModeCell, for: IndexPath(row: 0, section: 0))
         let cellMode = availableModes[indexPath.row]
@@ -75,7 +75,7 @@ extension ModeSettingTableViewController {
         cell.textLabel?.textColor = (cellMode == mode) ? .selectedRegionColor : .darkText
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         mode = availableModes[indexPath.row]
     }

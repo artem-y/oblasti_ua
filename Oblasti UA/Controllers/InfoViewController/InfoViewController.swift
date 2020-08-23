@@ -9,13 +9,13 @@
 import UIKit
 
 final class InfoViewController: UIViewController {
-    
+
     // MARK: - @IBOutlets
-    
+
     @IBOutlet private weak var textView: UITextView!
-    
+
     // MARK: - Initialization
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         adjustModalPresentationStyle()

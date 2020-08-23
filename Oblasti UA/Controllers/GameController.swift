@@ -9,63 +9,62 @@
 import Foundation
 
 final class GameController {
-    
+
     // MARK: - Public Properties
     /// Game controller delegate, responsible for UI reaction to game events.
     weak var delegate: GameControllerDelegate?
-    
+
     /// Immutable copy of current game instance.
     var gameResult: Game { return game }
-    
+
     /// Immutable array of all regions in current game instance.
     var regions: [Region] { return game.regions }
-    
+
     /// Get-only mistakes count from current game instance.
     var mistakesCount: Int { return game.mistakesCount }
-    
+
     /// Region, that has to be found.
     var currentRegion: Region?
-    
+
     // MARK: - Private Properties
     private var game: Game!
     private var timer: Timer!
     private var timerStartDate: Date?
-    
+
     // MARK: - Public Methods
     /// Method, used to start the timer of game controller, or restart it after pause
     /// - Note: In 'pointer' mode, does nothing.
     func startTimer() {
-        
+
         guard game.mode != .pointer else { return }
-        
+
         // This makes function reusable (like when timer resumes after pausing the game)
         timerStartDate = Date().addingTimeInterval(-game.timePassed)
-        
-        timer = Timer.scheduledTimer(withTimeInterval: Default.timerInterval, repeats: true) { [weak self]
-            (timer) in
+
+        timer = Timer.scheduledTimer(withTimeInterval: Default.timerInterval, repeats: true) { [weak self] _ in
             self?.timerValueDidChange()
         }
-        
+
         delegate?.reactToTimerValueChange()
     }
-    
+
     /// Stops the game controller's timer
     func stopTimer() {
         timer?.invalidate()
     }
-    
+
     /// If there still are unfound regions left, randomly chooses one from them and sets current region to it. Otherwise, game ends.
     func nextQuestion() {
-        
+
         if game.regionsLeft.count > .zero {
             currentRegion = game.regionsLeft.randomElement()
         } else {
             stopTimer()
             delegate?.reactToEndOfGame()
         }
-        
+
     }
-    
+
     /// Checks whether the guess was correct and calls appropriate delegate reaction method based on the result
     func checkSelection(named name: String) {
         if currentRegion?.name == name {
@@ -82,7 +81,7 @@ final class GameController {
         guard game.mode != .pointer else { return }
         nextQuestion()
     }
-    
+
     /// Removes region that equals current region from the collection of regions left
     func removeCurrentRegion() {
         // TODO: Maybe replace with other way of removal
@@ -90,25 +89,25 @@ final class GameController {
             return currentRegion == region
         }
     }
-    
+
     /// Saves current game instance in JSON format
     func saveGame() {
         saveDataToUserDefaultsJSON(encodedFrom: gameResult, forKey: DefaultsKey.lastUnfinishedGame)
     }
-    
+
     /// If game mode is 'pointer', sets current region to nil.
     func clearCurrentRegionBasedOnMode() {
         guard game.mode == .pointer else { return }
         currentRegion = nil
     }
-    
+
     // MARK: - Initialization
-    init(game: Game? = nil){
+    init(game: Game? = nil) {
         if let game = game {
             self.game = game
         } else {
             let savedGameKey = DefaultsKey.lastUnfinishedGame
-            
+
             if let savedGame = decodeJSONValueFromUserDefaults(ofType: Game.self, forKey: savedGameKey) {
                 let regions: [Region] = Resources.shared.loadRegions(withNames: savedGame.regions.map({ $0.name }), fromFileNamed: Resources.FileName.ukraine)
                 let regionsLeft: [Region] = Resources.shared.loadRegions(withNames: savedGame.regionsLeft.map({ $0.name }), fromFileNamed: Resources.FileName.ukraine)
@@ -121,10 +120,10 @@ final class GameController {
             } else {
                 self.game = Game.defaultForCurrentMode
             }
-            
+
         }
         UserDefaults.standard.removeObject(forKey: DefaultsKey.lastUnfinishedGame)
-        
+
         guard game?.mode != .pointer else { return }
         nextQuestion()
         startTimer()
@@ -134,7 +133,7 @@ final class GameController {
 // MARK: - DefaultsKeyControllable
 
 extension GameController: DefaultsKeyControllable { }
-    
+
     // MARK: - Private Methods
 
 extension GameController {
@@ -144,13 +143,13 @@ extension GameController {
         if let startDate = timerStartDate {
             game.timePassed = Date().timeIntervalSince(startDate)
         }
-        
+
         // To improve performance, send changes to UI only when seconds change, not milliseconds
         guard SettingsController.shared.settings.showsTime &&
             game.timePassed.truncatingRemainder(dividingBy: Default.timeRemainderDivider) < Default.timerInterval else { return }
         delegate?.reactToTimerValueChange()
     }
-    
+
 }
 
 // MARK: - Default Values
