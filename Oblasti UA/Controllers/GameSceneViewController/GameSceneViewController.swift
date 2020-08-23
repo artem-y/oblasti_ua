@@ -309,7 +309,7 @@ extension GameSceneViewController {
             let location = sender.location(in: mapView)
             
             // Check if it is second tap on already selected layer. If yes, confirm selection and return
-            if let selectedRegionPath = mapView.selectedLayer?.path, selectedRegionPath.contains(location) {
+            if mapView.containsInSelectedLayer(location) {
                 if gameMode == .pointer {
                     cancelSelection()
                 } else {
