@@ -18,7 +18,7 @@ final class SoundController {
 
     /// Playes game start sound
     func playGameStartSound() {
-        // TODO: Add game start sound (optional)
+        // Add game start sound (optional)
     }
 
     /// Playes the sound of choice.

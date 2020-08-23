@@ -9,7 +9,9 @@
 import UIKit
 
 extension UIBezierPath {
+
     // MARK: - Private Nested Types
+
     private enum JSONKey: String {
         case type, x, y, x1, y1, x2, y2
     }
@@ -25,6 +27,7 @@ extension UIBezierPath {
     }
 
     // MARK: - Initialization
+
     /**
      Initializes from array of json dictionaries with information about elements of the path.
  
@@ -60,28 +63,32 @@ extension UIBezierPath {
             case .moveTo: // M
                 guard let point = point else { break }
                 self.move(to: point)
+
             case .lineTo: // L
                 guard let point = point else { break }
                 self.addLine(to: point)
+
             case .curveTo: // C
                 guard let point = point, let point1 = point1, let point2 = point2 else { break }
                 self.addCurve(to: point, controlPoint1: point1, controlPoint2: point2)
+
             case .quadraticTo: // Q
                 guard let point = point, let point1 = point1 else { break }
                 self.addQuadCurve(to: point, controlPoint: point1)
+
             case .horizontal: // H
                 guard let x = x else { break }
                 let destinationPoint = CGPoint(x: x, y: self.currentPoint.y)
                 self.addLine(to: destinationPoint)
+
             case .vertical: // V
                 guard let y = y else { break }
                 let destinationPoint = CGPoint(x: self.currentPoint.x, y: y)
                 self.addLine(to: destinationPoint)
+
             case .close: // Z
                 self.close()
             }
         }
-
     }
-
 }

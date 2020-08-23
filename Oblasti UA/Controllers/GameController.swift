@@ -85,7 +85,6 @@ final class GameController {
 
     /// Removes region that equals current region from the collection of regions left
     func removeCurrentRegion() {
-        // TODO: Maybe replace with other way of removal
         game.regionsLeft.removeAll { (region) -> Bool in
             return currentRegion == region
         }

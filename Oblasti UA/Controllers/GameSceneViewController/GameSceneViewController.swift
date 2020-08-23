@@ -28,7 +28,6 @@ final class GameSceneViewController: UIViewController, DefaultsKeyControllable {
     // MARK: - Private Properties
     private var gameController = GameController()
     private var soundController: SoundController?
-//    private var mapView: MapView!
 
     // MARK: -
     // 'Convenience' properties
