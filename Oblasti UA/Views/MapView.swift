@@ -50,6 +50,15 @@ class MapView: UIImageView {
         let convertedPoint = layer.convert(point, to: sublayer)
         return sublayer.path?.contains(convertedPoint) == true
     }
+
+    /**
+     Checks if map view's selected layer contains the point.
+     - parameter point: A point to check for being contained by map view's selected layer if there is one.
+     */
+    func containsInSelectedLayer(_ point: CGPoint) -> Bool {
+        guard let selectedLayerName = selectedLayer?.name else { return false }
+        return contains(point, inLayerNamed: selectedLayerName)
+    }
     
     /**
      Constructs map region layers from names and corresponding region paths, and adds them to map view.
