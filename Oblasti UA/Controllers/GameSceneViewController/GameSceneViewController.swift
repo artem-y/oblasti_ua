@@ -319,65 +319,69 @@ extension GameSceneViewController {
             cancelSelection()
         } else {
             let location = sender.location(in: mapView)
+            handleTap(at: location)
+        }
+    }
 
-            // Check if it is second tap on already selected layer. If yes, confirm selection and return
-            if mapView.containsInSelectedLayer(location) {
-                if gameMode == .pointer {
-                    cancelSelection()
-                } else {
-                    confirmSelection()
-                }
-                return
-            }
+    private func handleTap(at location: CGPoint) {
 
-            var regionsContainLocation = false
-
-            for region in gameController.regions {
-                guard mapView.contains(location, inLayerNamed: region.name) else { continue }
-
-                mapView.selectedLayer = mapView.sublayer(named: region.name)
-                if gameMode == .pointer {
-                    gameController.currentRegion = region
-                }
-                reloadCurrentRegionName()
-                regionLabel.textColor = .selectedRegionColor
-
-                if showsButtons && !autoConfirmsSelection {
-                    // Animation: View with 'confirm' button slides out into the screen from the right
-                    singleTapRecognizer.isEnabled = false
-                    let oldFrame = bottomRightConfirmationView.frame
-                    bottomRightConfirmationView.frame = CGRect(
-                        origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y),
-                        size: oldFrame.size
-                    )
-                    bottomRightConfirmationView.isHidden = false
-
-                    UIView.animate(
-                        withDuration: Default.Animation.Duration.normal,
-                        delay: Default.Animation.delay,
-                        options: .curveEaseOut,
-                        animations: {
-                            [unowned self] in
-                            self.bottomRightConfirmationView.frame = oldFrame
-                            // This prevents reenabling tap gestures after the game is finished
-                            self.singleTapRecognizer.isEnabled = self.isRunningGame
-                        }
-                    )
-                }
-
-                regionsContainLocation = true
-                break
-            }
-
-            // Check if tapped anywhere outside the regions
-            if regionsContainLocation {
-                if autoConfirmsSelection {
-                    singleTapRecognizer.isEnabled = false
-                    perform(#selector(confirmSelection), with: nil, afterDelay: Default.Animation.Duration.slow)
-                }
-            } else if mapView.layer.contains(location) {
+        // Check if it is second tap on already selected layer. If yes, confirm selection and return
+        if mapView.containsInSelectedLayer(location) {
+            if gameMode == .pointer {
                 cancelSelection()
+            } else {
+                confirmSelection()
             }
+            return
+        }
+
+        var regionsContainLocation = false
+
+        for region in gameController.regions {
+            guard mapView.contains(location, inLayerNamed: region.name) else { continue }
+
+            mapView.selectedLayer = mapView.sublayer(named: region.name)
+            if gameMode == .pointer {
+                gameController.currentRegion = region
+            }
+            reloadCurrentRegionName()
+            regionLabel.textColor = .selectedRegionColor
+
+            if showsButtons && !autoConfirmsSelection {
+                // Animation: View with 'confirm' button slides out into the screen from the right
+                singleTapRecognizer.isEnabled = false
+                let oldFrame = bottomRightConfirmationView.frame
+                bottomRightConfirmationView.frame = CGRect(
+                    origin: CGPoint(x: oldFrame.maxX, y: oldFrame.origin.y),
+                    size: oldFrame.size
+                )
+                bottomRightConfirmationView.isHidden = false
+
+                UIView.animate(
+                    withDuration: Default.Animation.Duration.normal,
+                    delay: Default.Animation.delay,
+                    options: .curveEaseOut,
+                    animations: {
+                        [unowned self] in
+                        self.bottomRightConfirmationView.frame = oldFrame
+                        // This prevents reenabling tap gestures after the game is finished
+                        self.singleTapRecognizer.isEnabled = self.isRunningGame
+                    }
+                )
+            }
+
+            regionsContainLocation = true
+            break
+        }
+
+        // Check if tapped anywhere outside the regions
+        if regionsContainLocation {
+            if autoConfirmsSelection {
+                singleTapRecognizer.isEnabled = false
+                perform(#selector(confirmSelection), with: nil, afterDelay: Default.Animation.Duration.slow)
+            }
+        } else if mapView.layer.contains(location) {
+            cancelSelection()
         }
     }
 
