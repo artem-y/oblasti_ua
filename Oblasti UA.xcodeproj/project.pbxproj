@@ -490,6 +490,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0904FA1226F858F007842CA /* Build configuration list for PBXNativeTarget "Oblasti UA" */;
 			buildPhases = (
+				B0642B0124F25E9600E0B8EB /* SwiftLint */,
 				B0904F8B226F858E007842CA /* Sources */,
 				B0904F8C226F858E007842CA /* Frameworks */,
 				B0904F8D226F858E007842CA /* Resources */,
@@ -593,6 +594,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B0642B0124F25E9600E0B8EB /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint --lenient\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint or install using Homebrew, Mint or Cocoapods\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B008ED0622CD115C0024217F /* Sources */ = {
