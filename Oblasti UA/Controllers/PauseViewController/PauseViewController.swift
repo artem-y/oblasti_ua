@@ -69,11 +69,11 @@ extension PauseViewController {
 extension PauseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        AppDelegate.shared.pauseScreenShowTimeObserver = self
-        addToNotificationCenter()
+        configureObservers()
         
-        blurView.effect = UIBlurEffect(style: .extraLight)
-        saveAndExitButton.isHidden = (gameMode == .pointer)
+        configureBlur()
+        configureTimeLabel()
+        configureExitButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -129,6 +129,23 @@ extension PauseViewController {
             
             delegate?.quitGame()
         }
+    }
+    
+    private func configureObservers() {
+        AppDelegate.shared.pauseScreenShowTimeObserver = self
+        addToNotificationCenter()
+    }
+    
+    private func configureBlur() {
+        blurView.effect = UIBlurEffect(style: .extraLight)
+    }
+    
+    private func configureTimeLabel() {
+        timeLabel.setMonospacedDigitSystemFont(weight: .semibold)
+    }
+    
+    private func configureExitButton() {
+        saveAndExitButton.isHidden = (gameMode == .pointer)
     }
 }
 

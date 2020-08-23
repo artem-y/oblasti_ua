@@ -71,7 +71,7 @@ final class ConfirmationViewController: UIViewController, PresentationStyleAdjus
 
 extension ConfirmationViewController {
     struct Localized {
-        static let confirmationQuestion = "Are you sure".localized()
+        static let confirmationQuestion = "Are you sure?".localized()
 
         struct Answer {
             static let yes = "YES".localized()

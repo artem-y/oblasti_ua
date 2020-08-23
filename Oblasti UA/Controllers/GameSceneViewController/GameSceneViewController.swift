@@ -15,6 +15,7 @@ final class GameSceneViewController: UIViewController, DefaultsKeyControllable {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var backgroundView: UIView!
     @IBOutlet private weak var gameView: UIView!
+    @IBOutlet private weak var mapView: MapView!
     @IBOutlet private weak var regionLabel: UILabel!
     @IBOutlet private weak var confirmButton: UIButton!
     @IBOutlet private weak var pauseButton: UIButton!
@@ -27,7 +28,7 @@ final class GameSceneViewController: UIViewController, DefaultsKeyControllable {
     // MARK: - Private Properties
     private var gameController = GameController()
     private var soundController: SoundController?
-    private var mapView: MapView!
+//    private var mapView: MapView!
     
     // MARK: -
     // 'Convenience' properties
@@ -96,6 +97,7 @@ extension GameSceneViewController {
         // Game views configuration
         loadMapView()
         configureScrollView()
+        configureTimeLabel()
         
         // Controllers configuration
         soundController = SoundController()
@@ -206,6 +208,10 @@ extension GameSceneViewController {
         scrollView.contentSize = view.frame.size
     }
     
+    private func configureTimeLabel() {
+        timeLabel.setMonospacedDigitSystemFont(weight: .semibold)
+    }
+    
     private func configureGestureRecognizers() {
         singleTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTap))
         singleTapRecognizer.numberOfTouchesRequired = Default.SingleTapGesture.numberOfTouchesRequired
@@ -216,25 +222,14 @@ extension GameSceneViewController {
     
     /// Initializes and configures mapView. Has to be called after gameController is already initialized.
     private func loadMapView() {
-        var regionKeysAndPaths: [String: UIBezierPath] = [:]
+        var regionKeysAndPathInfos: [String: [JSONDictionary]] = [:]
         gameController.regions.forEach { (region) in
-            regionKeysAndPaths[region.name] = region.path
+            regionKeysAndPathInfos[region.name] = region.pathInfo
         }
         
-        mapView = MapView(frame: Default.mapViewFrame, sublayerNamesAndPaths: regionKeysAndPaths)
-        
-        view.setNeedsLayout()
-        view.layoutIfNeeded()
-        
-        let widthScale: CGFloat = gameView.frame.width / mapView.frame.width
-        let heightScale: CGFloat = gameView.frame.height / mapView.frame.height
-        let scale: CGFloat = (widthScale < heightScale) ? widthScale : heightScale
-        
-        mapView.transform = CGAffineTransform(scaleX: scale, y: scale)
-        mapView.center = gameView.center
-        
-        gameView.addSubview(mapView)
-        
+        let regionKeysAndPaths: [String: UIBezierPath] = regionKeysAndPathInfos
+            .mapValues(UIBezierPath.init(json:))
+        mapView.addRegionLayers(from: regionKeysAndPaths)
     }
     
     /// Tries to fetch custom (user-defined) region names from UserDefaults.
@@ -264,14 +259,25 @@ extension GameSceneViewController {
         }
         
         let regionNameText = settings.regionNamesUppercased ? regionName.uppercased() : regionName
-        regionLabel.attributedText = whiteBorderAttributedText(regionNameText, regionLabel.textColor)
+        regionLabel.attributedText = createWhiteBorderAttributedText(regionNameText,
+                                                                     regionLabel.textColor)
     }
     
     private func reloadTimerLabelTitle() {
         let timeFormatter = GameTimeFormatter()
         timeFormatter.timeFormat = Default.timeFormat
         let timeText = timeFormatter.string(for: gameController.gameResult.timePassed)
-        timeLabel.attributedText = whiteBorderAttributedText(timeText, timeLabel.textColor)
+        let fontSize = timeLabel.font.pointSize
+        
+        let attributedTimeText = createWhiteBorderAttributedText(timeText,
+                                                                 timeLabel.textColor)
+        
+        let font: UIFont = UIFont.monospacedDigitSystemFont(ofSize: fontSize,
+                                                            weight: .semibold)
+        let range: NSRange = NSRange(location: .zero, length: timeText.count)
+        
+        attributedTimeText.addAttributes([.font: font], range: range)
+        timeLabel.attributedText = attributedTimeText
     }
     
     @objc private func updateTimerLabel() {
@@ -281,27 +287,29 @@ extension GameSceneViewController {
         timeLabel.isHidden = !showsTime
     }
     
-    private func whiteBorderAttributedText(_ text: String, _ textColor: UIColor) -> NSAttributedString {
+    private func createWhiteBorderAttributedText(_ text: String,
+                                                 _ textColor: UIColor) -> NSMutableAttributedString {
+        
         let attributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.strokeColor: Default.WhiteBorderText.strokeColor,
-            NSAttributedString.Key.strokeWidth: Default.WhiteBorderText.strokeWidth,
-            NSAttributedString.Key.foregroundColor: textColor
+            .strokeColor: Default.WhiteBorderText.strokeColor,
+            .strokeWidth: Default.WhiteBorderText.strokeWidth,
+            .foregroundColor: textColor
         ]
-        return NSAttributedString(string: text, attributes: attributes)
+        return NSMutableAttributedString(string: text, attributes: attributes)
     }
     // MARK: -
     
-    @objc private func didTap(_ sender: UITapGestureRecognizer){
+    @objc private func didTap(_ sender: UITapGestureRecognizer) {
         guard sender.state == .ended else { return }
         
         if isShowingSelectionResult {
             gameController.nextQuestion()
             cancelSelection()
         } else {
-            let location = gameView.convert(sender.location(in: gameView), to: mapView)
+            let location = sender.location(in: mapView)
             
             // Check if it is second tap on already selected layer. If yes, confirm selection and return
-            if let selectedRegionPath = mapView.selectedLayer?.path, selectedRegionPath.contains(location) {
+            if mapView.containsInSelectedLayer(location) {
                 if gameMode == .pointer {
                     cancelSelection()
                 } else {
@@ -313,7 +321,7 @@ extension GameSceneViewController {
             var regionsContainLocation = false
             
             for region in gameController.regions {
-                guard region.path.contains(location) else { continue }
+                guard mapView.contains(location, inLayerNamed: region.name) else { continue }
                 
                 mapView.selectedLayer = mapView.sublayer(named: region.name)
                 if gameMode == .pointer {

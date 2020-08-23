@@ -6,7 +6,7 @@
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct Region {
     
@@ -15,19 +15,19 @@ struct Region {
     /// Region's name
     var name: String
     
-    /// Region's path
-    var path: UIBezierPath
+    /// Region's path json
+    var pathInfo: [JSONDictionary]
     
 }
 
 // MARK: - Equatable Methods
 
 extension Region: Equatable {
-    static func ==(_ lhs: Region?, rhs: Region) -> Bool {
-        return (lhs?.name == rhs.name) && (lhs?.path == rhs.path)
+    static func == (lhs: Region, rhs: Region) -> Bool {
+        return (lhs.name == rhs.name)
     }
     
     static func !=(_ lhs: Region?, rhs: Region) -> Bool {
-        return (lhs?.name != rhs.name) || (lhs?.path != rhs.path)
+        return (lhs?.name != rhs.name)
     }
 }
