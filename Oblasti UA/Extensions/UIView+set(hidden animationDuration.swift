@@ -15,16 +15,18 @@ extension UIView {
     ///   - withDuration: Duration of alpha change animation.
     func animateSet(hidden: Bool, withDuration animationDuration: TimeInterval) {
         let oldAlphaValue = self.alpha
-        
+
         if hidden == false {
             self.alpha = 0.0
             self.isHidden = false
         }
-        
+
         UIView.animate(withDuration: animationDuration, animations: { [unowned self] in
             self.alpha = hidden ? 0.0 : oldAlphaValue
-        }) { [unowned self]
-            (complete) in
+        }) { [unowned self] (complete) in
+
+            guard complete else { return }
+
             self.isHidden = hidden
             self.alpha = oldAlphaValue
         }

@@ -9,9 +9,12 @@
 import UIKit
 
 extension UIViewController {
-    /// If presented in navigation controller, dismisses that navigation controller. If viewcontroller is not imbedded in navigation controller, nothing will happen.
-    /// - Note: This will most likely lead to all stack of viewcontrollers, presented by the navigation controller being dismissed.
-    @IBAction func dismissNavigationController(_ sender: Any) {
+    /**
+     If presented in navigation controller, dismisses that navigation controller.
+     If viewcontroller is not imbedded in navigation controller, nothing will happen.
+     - Note: This will most likely dismiss all stack of viewcontrollers, presented by the navigation controller.
+     */
+    @IBAction private func dismissNavigationController(_ sender: Any) {
         navigationController?.dismiss(animated: true, completion: nil)
     }
 }

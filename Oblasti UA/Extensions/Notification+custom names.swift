@@ -1,5 +1,5 @@
 //
-//  Custom Notification Names.swift
+//  Notification+custom names.swift
 //  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/27/19.
