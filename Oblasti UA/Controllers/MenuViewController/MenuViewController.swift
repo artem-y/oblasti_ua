@@ -16,9 +16,23 @@ final class MenuViewController: UIViewController {
     @IBOutlet private weak var continueButton: RoundCornerButton!
     @IBOutlet private weak var startButton: RoundCornerButton!
     @IBOutlet private weak var highscoreButton: UIButton!
+    @IBOutlet private weak var settingsButton: UIButton!
+    @IBOutlet private weak var infoButton: UIButton!
+
+    // MARK: - Public Properties
+
+    var animationController: AnimationController?
 
     // MARK: - Private Properties
 
+    private var didAnimateSecondaryButtons: Bool = false
+    private var secondaryButtons: [UIButton] {
+        return [
+            highscoreButton,
+            settingsButton,
+            infoButton
+        ]
+    }
     private var settings: Settings {
         get {
             return SettingsController.shared.settings
@@ -65,6 +79,12 @@ extension MenuViewController {
 
         configureHighscoreButton()
         continueButton.isHidden = standardDefaults.value(forKey: DefaultsKey.lastUnfinishedGame) == nil
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        animateSecondaryButtons()
     }
 }
 
@@ -125,6 +145,38 @@ extension MenuViewController {
         highscoreButton.isEnabled = hasHighscore
     }
 
+    private func animateSecondaryButtons() {
+        guard !didAnimateSecondaryButtons else { return }
+
+        secondaryButtons
+            .enumerated()
+            .forEach { (offset, b: UIButton) in
+
+                animationController?
+                    .animateScale(
+                        b,
+                        toValue: Default.secondaryButtonScale,
+                        delay: Default.stepBetweenAnimations(offset),
+                        duration: Default.secondaryButtonAnimationDuration,
+                        autoreverses: true
+                )
+        }
+
+        didAnimateSecondaryButtons = true
+    }
+}
+
+// MARK: - Default Values
+
+extension MenuViewController {
+    struct Default {
+        static let secondaryButtonScale: CGFloat = 1.2
+        static let secondaryButtonAnimationDuration: Double = 0.35
+
+        static func stepBetweenAnimations(_ elementNumber: Int) -> Double {
+            return Double(elementNumber) / 10.0
+        }
+    }
 }
 
 // MARK: - Localized Values

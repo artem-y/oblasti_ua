@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4HK-7n-0Pl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4HK-7n-0Pl">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -213,7 +213,9 @@
                     <connections>
                         <outlet property="continueButton" destination="aNY-Rc-yXA" id="5gT-u7-yVV"/>
                         <outlet property="highscoreButton" destination="tZ5-78-1wO" id="wH5-Ub-hYo"/>
+                        <outlet property="infoButton" destination="7fh-uD-60M" id="axR-Yp-Of3"/>
                         <outlet property="modeButton" destination="qpi-uT-xOU" id="ulU-JW-hr6"/>
+                        <outlet property="settingsButton" destination="zZd-9v-sXi" id="wdF-8c-H1r"/>
                         <outlet property="startButton" destination="yyv-Uh-ZBL" id="1Kl-Bh-Jfv"/>
                         <segue destination="sN7-9y-cYG" kind="presentation" identifier="startGameSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="7U5-eO-ycW"/>
                     </connections>

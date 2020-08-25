@@ -30,6 +30,7 @@
 		B008ED1522CD125D0024217F /* MapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008ED1422CD125D0024217F /* MapViewTests.swift */; };
 		B01BA8D9229810270035ED9D /* CustomRegionNamesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8D8229810270035ED9D /* CustomRegionNamesTableViewController.swift */; };
 		B01BA8DB2298230D0035ED9D /* CustomRegionNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01BA8DA2298230D0035ED9D /* CustomRegionNameCell.swift */; };
+		B01E335424F4D32E00F763B1 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01E335324F4D32E00F763B1 /* AnimationController.swift */; };
 		B028F39122BAF66600133A8A /* New Highscore Wind Tunes.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B028F39022BAF66600133A8A /* New Highscore Wind Tunes.m4a */; };
 		B02EFFFB227B445900825656 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02EFFFA227B445900825656 /* MenuViewController.swift */; };
 		B032668A22A5BE1000EA767B /* PauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B032668922A5BE1000EA767B /* PauseViewController.swift */; };
@@ -143,6 +144,7 @@
 		B008ED1422CD125D0024217F /* MapViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewTests.swift; sourceTree = "<group>"; };
 		B01BA8D8229810270035ED9D /* CustomRegionNamesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRegionNamesTableViewController.swift; sourceTree = "<group>"; };
 		B01BA8DA2298230D0035ED9D /* CustomRegionNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRegionNameCell.swift; sourceTree = "<group>"; };
+		B01E335324F4D32E00F763B1 /* AnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 		B028F39022BAF66600133A8A /* New Highscore Wind Tunes.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "New Highscore Wind Tunes.m4a"; sourceTree = "<group>"; };
 		B02EFFFA227B445900825656 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B032668922A5BE1000EA767B /* PauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseViewController.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				B05E15C122746C9C007C85AF /* GameController.swift */,
 				B0AAE784228497BA002D7264 /* SettingsController.swift */,
 				B0E1EE1B22B68156004640D6 /* SoundController.swift */,
+				B01E335324F4D32E00F763B1 /* AnimationController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				B043EB05227C2A9F00F87F1F /* InfoViewController.swift in Sources */,
 				B040E8A0228AD6F3009C05D8 /* UITableViewCell+set(enabled.swift in Sources */,
 				B04DE4822285A6A500939C4E /* SettingsNavigationController.swift in Sources */,
+				B01E335424F4D32E00F763B1 /* AnimationController.swift in Sources */,
 				B02EFFFB227B445900825656 /* MenuViewController.swift in Sources */,
 				B07C5F6D2280435D009059A7 /* Game.swift in Sources */,
 				B0C49DEB227A2B2400561892 /* GameColorExtensions.swift in Sources */,

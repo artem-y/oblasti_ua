@@ -39,6 +39,8 @@ extension AppDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
 
+        (window?.rootViewController as? MenuViewController)?.animationController = AnimationController()
+
         return true
     }
 
