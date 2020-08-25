@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T8F-8Y-z9t">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T8F-8Y-z9t">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -193,6 +193,7 @@
                         <outlet property="exitToMenuButton" destination="YwX-Lf-brq" id="g91-Za-bbm"/>
                         <outlet property="playButton" destination="pox-lh-9Nb" id="zLE-WR-Pcb"/>
                         <outlet property="saveAndExitButton" destination="deA-rb-you" id="Df6-b9-ZdJ"/>
+                        <outlet property="settingsButton" destination="8Sd-OY-Nkx" id="gwB-gE-Of5"/>
                         <outlet property="timeLabel" destination="79Y-n6-huD" id="GMK-Kn-evc"/>
                         <segue destination="5di-pa-idX" kind="presentation" identifier="exitConfirmationSegue" id="NXJ-eY-bvS"/>
                     </connections>

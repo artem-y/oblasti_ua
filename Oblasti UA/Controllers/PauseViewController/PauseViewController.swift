@@ -15,16 +15,32 @@ final class PauseViewController: UIViewController {
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var playButton: UIButton!
     @IBOutlet private weak var continueButton: RoundCornerButton!
+    @IBOutlet private weak var settingsButton: RoundCornerButton!
     @IBOutlet private weak var saveAndExitButton: RoundCornerButton!
     @IBOutlet private weak var exitToMenuButton: RoundCornerButton!
 
     // MARK: - Public Properties
+
+    /// Responsible for animations within the viewcontroller.
+    var animationController: AnimationController?
 
     /// Delegate, used to react to actinos of pause view controller.
     weak var delegate: PauseViewControllerDelegate?
 
     /// Game controller instance, used to configure pause view controller and/or save the game.
     weak var gameController: GameController?
+
+    // MARK: - Private Properties
+
+    private var didAnimateOptionButtons: Bool = false
+    private var optionButtons: [UIButton] {
+        return [
+            continueButton,
+            settingsButton,
+            saveAndExitButton,
+            exitToMenuButton
+        ]
+    }
 
     // MARK: - Public Methods
 
@@ -80,6 +96,7 @@ extension PauseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateTimeLabel()
+        animateOptionButtons()
     }
 }
 
@@ -153,6 +170,40 @@ extension PauseViewController {
 
     private func configureExitButton() {
         saveAndExitButton.isHidden = (gameMode == .pointer)
+    }
+
+    private func animateOptionButtons() {
+        guard !didAnimateOptionButtons else { return }
+
+        optionButtons
+            .enumerated()
+            .forEach { (offset, b: UIButton) in
+
+                animationController?
+                    .animateScale(
+                        b,
+                        toValue: Default.optionButtonScale,
+                        timingFunctionName: .easeIn,
+                        delay: Default.stepBetweenAnimations(offset),
+                        duration: Default.optionButtonAnimationDuration,
+                        autoreverses: true
+                )
+        }
+
+        didAnimateOptionButtons = true
+    }
+}
+
+// MARK: - Default Values
+
+extension PauseViewController {
+    struct Default {
+        static let optionButtonScale: CGFloat = 1.02
+        static let optionButtonAnimationDuration: Double = 0.1
+
+        static func stepBetweenAnimations(_ elementNumber: Int) -> Double {
+            return Double(elementNumber) / 20.0
+        }
     }
 }
 

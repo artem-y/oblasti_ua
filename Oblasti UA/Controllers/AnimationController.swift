@@ -38,6 +38,7 @@ class AnimationController {
         fromValue: CGFloat? = nil,
         byValue: CGFloat? = nil,
         toValue: CGFloat,
+        timingFunctionName: CAMediaTimingFunctionName = .easeInEaseOut,
         delay: Double,
         duration: Double? = nil,
         autoreverses: Bool = false
@@ -54,7 +55,7 @@ class AnimationController {
 
         scale.toValue = toValue
         scale.autoreverses = autoreverses
-        scale.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        scale.timingFunction = CAMediaTimingFunction(name: timingFunctionName)
         scale.beginTime = CACurrentMediaTime() + delay
 
         if let duration = duration {

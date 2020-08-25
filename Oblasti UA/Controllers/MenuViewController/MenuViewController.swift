@@ -21,6 +21,7 @@ final class MenuViewController: UIViewController {
 
     // MARK: - Public Properties
 
+    /// Responsible for animations within the viewcontroller.
     var animationController: AnimationController?
 
     // MARK: - Private Properties
@@ -170,11 +171,11 @@ extension MenuViewController {
 
 extension MenuViewController {
     struct Default {
-        static let secondaryButtonScale: CGFloat = 1.2
-        static let secondaryButtonAnimationDuration: Double = 0.35
+        static let secondaryButtonScale: CGFloat = 1.15
+        static let secondaryButtonAnimationDuration: Double = 0.3
 
         static func stepBetweenAnimations(_ elementNumber: Int) -> Double {
-            return Double(elementNumber) / 10.0
+            return Double(elementNumber) / 15.0
         }
     }
 }

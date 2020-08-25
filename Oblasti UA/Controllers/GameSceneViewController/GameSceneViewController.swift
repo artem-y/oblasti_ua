@@ -135,6 +135,7 @@ extension GameSceneViewController {
         case Resources.SegueIdentifier.pauseGameSegue:
             guard let destinationVC = segue.destination as? PauseViewController else { break }
             destinationVC.gameController = gameController
+            destinationVC.animationController = AnimationController()
             destinationVC.delegate = self
 
         case Resources.SegueIdentifier.showGameResultSegue:
