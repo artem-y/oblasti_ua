@@ -43,6 +43,8 @@
 		B04DE48022858F8D00939C4E /* ModeSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE47F22858F8D00939C4E /* ModeSettingTableViewController.swift */; };
 		B04DE4822285A6A500939C4E /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE4812285A6A500939C4E /* SettingsNavigationController.swift */; };
 		B04DE4842285B2A700939C4E /* UIViewController+dismissNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04DE4832285B2A700939C4E /* UIViewController+dismissNavigationController.swift */; };
+		B051F55E24F5A8F6006185EA /* TimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B051F55D24F5A8F6006185EA /* TimeView.swift */; };
+		B051F56024F5A90E006185EA /* TimeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B051F55F24F5A90E006185EA /* TimeView.xib */; };
 		B05844F9229BD7F7004836FE /* Notification+custom names.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05844F8229BD7F7004836FE /* Notification+custom names.swift */; };
 		B05A2AAE227A553400D8BA5C /* GameControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05A2AAD227A553400D8BA5C /* GameControllerDelegate.swift */; };
 		B05A884D22C54DB50013F52F /* Ukraine.json in Resources */ = {isa = PBXBuildFile; fileRef = B05A884C22C54DB40013F52F /* Ukraine.json */; };
@@ -159,6 +161,8 @@
 		B04DE47F22858F8D00939C4E /* ModeSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSettingTableViewController.swift; sourceTree = "<group>"; };
 		B04DE4812285A6A500939C4E /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
 		B04DE4832285B2A700939C4E /* UIViewController+dismissNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+dismissNavigationController.swift"; sourceTree = "<group>"; };
+		B051F55D24F5A8F6006185EA /* TimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeView.swift; sourceTree = "<group>"; };
+		B051F55F24F5A90E006185EA /* TimeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeView.xib; sourceTree = "<group>"; };
 		B05844F8229BD7F7004836FE /* Notification+custom names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+custom names.swift"; sourceTree = "<group>"; };
 		B05A2AAD227A553400D8BA5C /* GameControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameControllerDelegate.swift; sourceTree = "<group>"; };
 		B05A884C22C54DB40013F52F /* Ukraine.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Ukraine.json; sourceTree = "<group>"; };
@@ -425,6 +429,8 @@
 				B0904FA8226F8656007842CA /* MapView.swift */,
 				B043EB06227C312A00F87F1F /* RoundCornerButton.swift */,
 				B01BA8DA2298230D0035ED9D /* CustomRegionNameCell.swift */,
+				B051F55D24F5A8F6006185EA /* TimeView.swift */,
+				B051F55F24F5A90E006185EA /* TimeView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -588,6 +594,7 @@
 				B0060EC0238DCEFD00638E13 /* GameResultViewController.storyboard in Resources */,
 				B0904F9A226F858F007842CA /* Assets.xcassets in Resources */,
 				B0C4168622BA45E40058633F /* Completion Bell.m4a in Resources */,
+				B051F56024F5A90E006185EA /* TimeView.xib in Resources */,
 				B0EF924B22898611000DC283 /* RegionNames.strings in Resources */,
 				B0CFD85B22AD470E00AB3465 /* Settings.bundle in Resources */,
 				B0060F06238DDF4B00638E13 /* ConfirmationViewController.storyboard in Resources */,
@@ -645,6 +652,7 @@
 				B05A2AAE227A553400D8BA5C /* GameControllerDelegate.swift in Sources */,
 				B04DDB78228B4EB8008B9DD9 /* GameResultViewController.swift in Sources */,
 				B07C5F6F22805F12009059A7 /* SettingsTableViewController.swift in Sources */,
+				B051F55E24F5A8F6006185EA /* TimeView.swift in Sources */,
 				B0BFD4FA2297151E002EA6EF /* RemovableObserver.swift in Sources */,
 				B07099AA2292B743005D0C3E /* GameTimeFormatter.swift in Sources */,
 				B0FE62A522C8203B004905B3 /* CGPoint+failableInit.swift in Sources */,

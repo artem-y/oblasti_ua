@@ -11,9 +11,8 @@ import UIKit
 final class PauseViewController: UIViewController {
 
     // MARK: - @IBOutlets
+
     @IBOutlet private weak var blurView: UIVisualEffectView!
-    @IBOutlet private weak var timeLabel: UILabel!
-    @IBOutlet private weak var playButton: UIButton!
     @IBOutlet private weak var continueButton: RoundCornerButton!
     @IBOutlet private weak var settingsButton: RoundCornerButton!
     @IBOutlet private weak var saveAndExitButton: RoundCornerButton!
@@ -42,28 +41,28 @@ final class PauseViewController: UIViewController {
         ]
     }
 
-    // MARK: - Public Methods
-
-    @objc
-    func updateTimeLabel() {
-        if showsTime, let gameController = gameController {
-            let timeFormatter = GameTimeFormatter()
-            timeFormatter.timeFormat = "mm:ss"
-            timeLabel.text = timeFormatter.string(for: gameController.gameResult.timePassed)
-        }
-        timeLabel.isHidden = !showsTime
-    }
-
-    // MARK: - Private Properties
+    private var timeView: TimeView = .initFromNib()!
     private var settings: Settings { return SettingsController.shared.settings }
     private var gameMode: Game.Mode? { return gameController?.gameResult.mode }
     private var showsTime: Bool { return gameMode == .pointer ? false : settings.showsTime }
+
+    // MARK: - Public Methods
+
+    @objc
+    func updateTimeView() {
+        if showsTime, let gameController = gameController {
+            let timeFormatter = GameTimeFormatter()
+            timeFormatter.timeFormat = "mm:ss"
+            timeView.timeText = timeFormatter.string(for: gameController.gameResult.timePassed)
+        }
+        timeView.isTimeLabelHidden = !showsTime
+    }
 }
 
 // MARK: - @IBActions
 
 extension PauseViewController {
-    @IBAction private func continueButtonTapped(_ sender: UIButton) {
+    @IBAction private func continueButtonTapped(_ sender: RoundCornerButton) {
         resumeGame()
     }
 
@@ -88,14 +87,15 @@ extension PauseViewController {
         super.viewDidLoad()
         configureObservers()
 
+        addSubviews()
         configureBlur()
-        configureTimeLabel()
+        configureTimeView()
         configureExitButton()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateTimeLabel()
+        updateTimeView()
         animateOptionButtons()
     }
 }
@@ -111,17 +111,26 @@ extension PauseViewController {
             guard let destinationVC = segue.destination as? SettingsNavigationController,
                 let topVC = destinationVC.topViewController as? SettingsTableViewController else { return }
             topVC.gameInProgressGameMode = gameMode
+
         case Resources.SegueIdentifier.exitConfirmationSegue:
             guard let destinationVC = segue.destination as? ConfirmationViewController else { return }
             destinationVC.messageText = Localized.messageTextGameWillNotBeSaved
             destinationVC.confirmationHandler = { [unowned self] in
                 self.quitGame()
             }
+
         default:
             break
         }
     }
+}
 
+// MARK: - TimeView Delegate
+
+extension PauseViewController: TimeViewDelegate {
+    func timeViewDidPressPlayButton(_ timeView: TimeView) {
+        resumeGame()
+    }
 }
 
 // MARK: - RemovableObserver Methods
@@ -130,7 +139,7 @@ extension PauseViewController: RemovableObserver {
     func addToNotificationCenter() {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(updateTimeLabel),
+            selector: #selector(updateTimeView),
             name: .ShowTimeSettingChanged,
             object: nil
         )
@@ -162,10 +171,16 @@ extension PauseViewController {
 
     private func configureBlur() {
         blurView.effect = UIBlurEffect(style: .extraLight)
+        blurView.alpha = Default.blurAlpha
     }
 
-    private func configureTimeLabel() {
-        timeLabel.setMonospacedDigitSystemFont(weight: .semibold)
+    private func addSubviews() {
+        view.addSubview(timeView)
+    }
+
+    private func configureTimeView() {
+        timeView.delegate = self
+        setupTimeViewConstraints()
     }
 
     private func configureExitButton() {
@@ -192,6 +207,17 @@ extension PauseViewController {
 
         didAnimateOptionButtons = true
     }
+
+    private func setupTimeViewConstraints() {
+        timeView.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints: [NSLayoutConstraint] = [
+            timeView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            timeView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
 }
 
 // MARK: - Default Values
@@ -204,6 +230,8 @@ extension PauseViewController {
         static func stepBetweenAnimations(_ elementNumber: Int) -> Double {
             return Double(elementNumber) / 20.0
         }
+
+        static let blurAlpha: CGFloat = 0.9
     }
 }
 

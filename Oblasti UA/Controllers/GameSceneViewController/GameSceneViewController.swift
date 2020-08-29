@@ -18,16 +18,15 @@ final class GameSceneViewController: UIViewController, DefaultsKeyControllable {
     @IBOutlet private weak var mapView: MapView!
     @IBOutlet private weak var regionLabel: UILabel!
     @IBOutlet private weak var confirmButton: UIButton!
-    @IBOutlet private weak var pauseButton: UIButton!
-    @IBOutlet private weak var topRightInfoView: UIView!
     @IBOutlet private weak var bottomRightConfirmationView: UIView!
     @IBOutlet private weak var bottomLeftChoiceView: UIView!
     @IBOutlet private weak var bottomLeftIndicator: UIImageView!
-    @IBOutlet private weak var timeLabel: UILabel!
 
     // MARK: - Private Properties
+
     private var gameController = GameController()
     private var soundController: SoundController?
+    private let timeView: TimeView = .initFromNib()!
 
     // MARK: -
     // 'Convenience' properties
@@ -77,10 +76,6 @@ extension GameSceneViewController {
         confirmSelection()
     }
 
-    @IBAction private func pauseButtonTapped(_ sender: UIButton) {
-        pauseGame()
-    }
-
     @IBAction private func dismissGameSceneViewController(_ segue: UIStoryboardSegue? = nil) {
 
         backgroundView.isHidden = true
@@ -94,10 +89,12 @@ extension GameSceneViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        addSubviews()
+
         // Game views configuration
         loadMapView()
         configureScrollView()
-        configureTimeLabel()
+        configureTimeView()
 
         // Controllers configuration
         soundController = SoundController()
@@ -141,7 +138,7 @@ extension GameSceneViewController {
         case Resources.SegueIdentifier.showGameResultSegue:
             guard let destinationVC = segue.destination as? GameResultViewController else { break }
             mapView.isHidden = true
-            topRightInfoView.isHidden = true
+            timeView.isHidden = true
             regionLabel.isHidden = true
             bottomLeftChoiceView.isHidden = true
             bottomRightConfirmationView.isHidden = true
@@ -164,7 +161,7 @@ extension GameSceneViewController: GameControllerDelegate {
     }
 
     func reactToTimerValueChange() {
-        reloadTimerLabelTitle()
+        reloadTimerTitle()
     }
 
     func reactToEndOfGame() {
@@ -194,9 +191,22 @@ extension GameSceneViewController: UIScrollViewDelegate {
     }
 }
 
+// MARK: - TimeView Delegate Methods
+
+extension GameSceneViewController: TimeViewDelegate {
+    func timeViewDidPressPlayButton(_ timeView: TimeView) {
+        pauseGame()
+    }
+}
+
 // MARK: - Private Methods
 
 extension GameSceneViewController {
+
+    private func addSubviews() {
+        view.addSubview(timeView)
+    }
+
     private func configureGameController() {
         gameController.delegate = self
         gameController.clearCurrentRegionBasedOnMode()
@@ -208,8 +218,10 @@ extension GameSceneViewController {
         scrollView.contentSize = view.frame.size
     }
 
-    private func configureTimeLabel() {
-        timeLabel.setMonospacedDigitSystemFont(weight: .semibold)
+    private func configureTimeView() {
+        timeView.setPlayState(to: .pause)
+        timeView.delegate = self
+        setupTimeViewConstraints()
     }
 
     private func configureGestureRecognizers() {
@@ -273,29 +285,31 @@ extension GameSceneViewController {
                                                                      regionLabel.textColor)
     }
 
-    private func reloadTimerLabelTitle() {
+    private func setupTimeViewConstraints() {
+        timeView.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints: [NSLayoutConstraint] = [
+            timeView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            timeView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    private func reloadTimerTitle() {
         let timeFormatter = GameTimeFormatter()
         timeFormatter.timeFormat = Default.timeFormat
+
         let timeText = timeFormatter.string(for: gameController.gameResult.timePassed)
-        let fontSize = timeLabel.font.pointSize
-
-        let attributedTimeText = createWhiteBorderAttributedText(timeText,
-                                                                 timeLabel.textColor)
-
-        let font: UIFont = .monospacedDigitSystemFont(ofSize: fontSize,
-                                                            weight: .semibold)
-        let range: NSRange = .init(location: .zero, length: timeText.count)
-
-        attributedTimeText.addAttributes([.font: font], range: range)
-        timeLabel.attributedText = attributedTimeText
+        timeView.timeText = timeText
     }
 
     @objc
     private func updateTimerLabel() {
         if showsTime {
-            reloadTimerLabelTitle()
+            reloadTimerTitle()
         }
-        timeLabel.isHidden = !showsTime
+        timeView.isTimeLabelHidden = !showsTime
     }
 
     private func createWhiteBorderAttributedText(_ text: String,
