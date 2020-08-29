@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T8F-8Y-z9t">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T8F-8Y-z9t">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -13,299 +13,133 @@
         <scene sceneID="UbG-YE-rSS">
             <objects>
                 <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="T8F-8Y-z9t" customClass="PauseViewController" customModule="Oblasti_UA" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="TGG-ps-y4Z">
+                    <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="TGG-ps-y4Z">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vy4-FV-rc0" userLabel="Background View">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dr2-2N-loh">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                <subviews>
-                                    <view clearsContextBeforeDrawing="NO" tag="10101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgg-g4-vJJ" customClass="UIVisualEffectView">
-                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                    </view>
-                                    <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cvi-XD-m4Q">
-                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                                        <subviews>
-                                            <stackView clearsContextBeforeDrawing="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wto-t4-1Qh">
-                                                <rect key="frame" x="287" y="253.5" width="450" height="261"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eg7-5D-p5n" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="450" height="54"/>
-                                                        <color key="backgroundColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" title="CONTINUE">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <variation key="heightClass=regular">
-                                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                        </variation>
-                                                        <connections>
-                                                            <action selector="continueButtonTapped:" destination="T8F-8Y-z9t" eventType="touchUpInside" id="ySr-Yp-P5e"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sd-OY-Nkx" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="69" width="450" height="54"/>
-                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="SETTINGS">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <variation key="heightClass=regular">
-                                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                        </variation>
-                                                        <connections>
-                                                            <segue destination="GSm-1e-QJX" kind="show" identifier="showSettingsFromGamePauseSegue" id="wt9-4P-Yku"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deA-rb-you" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="138" width="450" height="54"/>
-                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="SAVE AND EXIT">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <variation key="heightClass=regular">
-                                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                        </variation>
-                                                        <connections>
-                                                            <action selector="saveAndExitButtonTapped:" destination="T8F-8Y-z9t" eventType="touchUpInside" id="kJQ-CF-aDH"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwX-Lf-brq" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="207" width="450" height="54"/>
-                                                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="EXIT WITHOUT SAVING">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
-                                                                <real key="value" value="15"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <variation key="heightClass=regular">
-                                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                                        </variation>
-                                                        <connections>
-                                                            <action selector="exitToMenuButtonTapped:" destination="T8F-8Y-z9t" eventType="touchUpInside" id="Vvu-cX-zLn"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="450" id="6hQ-qy-9QU">
-                                                        <variation key="heightClass=compact" constant="360"/>
-                                                    </constraint>
-                                                </constraints>
-                                                <variation key="widthClass=regular" spacing="15"/>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="wto-t4-1Qh" firstAttribute="centerY" secondItem="Cvi-XD-m4Q" secondAttribute="centerY" id="irw-S1-eXv"/>
-                                            <constraint firstItem="wto-t4-1Qh" firstAttribute="centerX" secondItem="Cvi-XD-m4Q" secondAttribute="centerX" id="jat-hm-bZk"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Cvi-XD-m4Q" firstAttribute="leading" secondItem="Vy4-FV-rc0" secondAttribute="leading" id="Dam-TJ-GyK"/>
-                                    <constraint firstAttribute="bottom" secondItem="Cvi-XD-m4Q" secondAttribute="bottom" id="Klz-eq-l2X"/>
-                                    <constraint firstItem="Fgg-g4-vJJ" firstAttribute="leading" secondItem="Vy4-FV-rc0" secondAttribute="leading" id="Rtn-fe-iJ7"/>
-                                    <constraint firstAttribute="trailing" secondItem="Fgg-g4-vJJ" secondAttribute="trailing" id="VFB-hC-crp"/>
-                                    <constraint firstAttribute="trailing" secondItem="Cvi-XD-m4Q" secondAttribute="trailing" id="ZFT-cM-SaF"/>
-                                    <constraint firstAttribute="bottom" secondItem="Fgg-g4-vJJ" secondAttribute="bottom" id="a36-BY-ZG0"/>
-                                    <constraint firstItem="Cvi-XD-m4Q" firstAttribute="top" secondItem="Vy4-FV-rc0" secondAttribute="top" id="mrm-LY-6YQ"/>
-                                    <constraint firstItem="Fgg-g4-vJJ" firstAttribute="top" secondItem="Vy4-FV-rc0" secondAttribute="top" id="rvL-kb-bAh"/>
-                                </constraints>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5f-KM-kj5" userLabel="Top Right Info View">
-                                <rect key="frame" x="737.5" y="0.0" width="286.5" height="122"/>
-                                <subviews>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79Y-n6-huD">
-                                        <rect key="frame" x="55.5" y="20" width="143" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="msb-kr-Kh8"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="heightClass=compact">
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="35"/>
-                                        </variation>
-                                    </label>
-                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pox-lh-9Nb">
-                                        <rect key="frame" x="206.5" y="20" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="D1p-aZ-aWn">
-                                                <variation key="heightClass=compact" constant="40"/>
-                                            </constraint>
-                                            <constraint firstAttribute="width" secondItem="pox-lh-9Nb" secondAttribute="height" multiplier="1:1" id="N9j-7d-QjC"/>
-                                        </constraints>
-                                        <color key="tintColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
-                                        <state key="normal" image="playButton"/>
-                                        <connections>
-                                            <action selector="continueButtonTapped:" destination="T8F-8Y-z9t" eventType="touchUpInside" id="Mb6-PN-SaX"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="79Y-n6-huD" firstAttribute="centerY" secondItem="pox-lh-9Nb" secondAttribute="centerY" id="53V-QL-Mde"/>
-                                    <constraint firstItem="pox-lh-9Nb" firstAttribute="leading" secondItem="79Y-n6-huD" secondAttribute="trailing" constant="8" symbolic="YES" id="b6L-ff-gxw"/>
-                                    <constraint firstAttribute="trailing" secondItem="pox-lh-9Nb" secondAttribute="trailing" constant="20" symbolic="YES" id="bjz-s6-0SM">
-                                        <variation key="widthClass=compact" constant="15"/>
-                                    </constraint>
-                                    <constraint firstItem="pox-lh-9Nb" firstAttribute="top" secondItem="b5f-KM-kj5" secondAttribute="top" constant="20" symbolic="YES" id="kVe-zm-Bgj"/>
-                                </constraints>
-                            </view>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uA3-a2-Abb">
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <stackView clearsContextBeforeDrawing="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wto-t4-1Qh">
+                                            <rect key="frame" x="287" y="253.5" width="450" height="261"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eg7-5D-p5n" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="450" height="54"/>
+                                                    <color key="backgroundColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="CONTINUE">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
+                                                            <real key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="heightClass=regular">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="continueButtonTapped:" destination="T8F-8Y-z9t" eventType="touchUpInside" id="ySr-Yp-P5e"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sd-OY-Nkx" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="69" width="450" height="54"/>
+                                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="SETTINGS">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
+                                                            <real key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="heightClass=regular">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                    </variation>
+                                                    <connections>
+                                                        <segue destination="GSm-1e-QJX" kind="show" identifier="showSettingsFromGamePauseSegue" id="wt9-4P-Yku"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deA-rb-you" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="138" width="450" height="54"/>
+                                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="SAVE AND EXIT">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
+                                                            <real key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="heightClass=regular">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="saveAndExitButtonTapped:" destination="T8F-8Y-z9t" eventType="touchUpInside" id="kJQ-CF-aDH"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwX-Lf-brq" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="207" width="450" height="54"/>
+                                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="EXIT WITHOUT SAVING">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
+                                                            <real key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <variation key="heightClass=regular">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="exitToMenuButtonTapped:" destination="T8F-8Y-z9t" eventType="touchUpInside" id="Vvu-cX-zLn"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="450" id="6hQ-qy-9QU">
+                                                    <variation key="heightClass=compact" constant="360"/>
+                                                </constraint>
+                                            </constraints>
+                                            <variation key="widthClass=regular" spacing="15"/>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="wto-t4-1Qh" firstAttribute="centerX" secondItem="uA3-a2-Abb" secondAttribute="centerX" id="eS0-RO-Rvd"/>
+                                        <constraint firstItem="wto-t4-1Qh" firstAttribute="centerY" secondItem="uA3-a2-Abb" secondAttribute="centerY" id="k2O-iB-2h0"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" secondItem="Vy4-FV-rc0" secondAttribute="height" id="0aP-RT-SfJ"/>
-                            <constraint firstItem="SZF-IC-PvM" firstAttribute="bottom" secondItem="Vy4-FV-rc0" secondAttribute="bottom" id="BVm-D6-qxk"/>
-                            <constraint firstItem="b5f-KM-kj5" firstAttribute="top" secondItem="SZF-IC-PvM" secondAttribute="top" id="Iej-mn-lPP"/>
-                            <constraint firstItem="b5f-KM-kj5" firstAttribute="width" secondItem="Vy4-FV-rc0" secondAttribute="width" multiplier="0.28" id="JUy-6u-5mc"/>
-                            <constraint firstItem="b5f-KM-kj5" firstAttribute="height" secondItem="Vy4-FV-rc0" secondAttribute="height" multiplier="0.25" constant="-70" id="aCO-Ci-UCB"/>
-                            <constraint firstItem="Vy4-FV-rc0" firstAttribute="leading" secondItem="SZF-IC-PvM" secondAttribute="leading" id="g51-Xd-v9F"/>
-                            <constraint firstItem="SZF-IC-PvM" firstAttribute="trailing" secondItem="Vy4-FV-rc0" secondAttribute="trailing" id="jpB-Ny-IUr"/>
-                            <constraint firstItem="SZF-IC-PvM" firstAttribute="trailing" secondItem="b5f-KM-kj5" secondAttribute="trailing" id="lJA-v2-Tyl"/>
+                            <constraint firstItem="dr2-2N-loh" firstAttribute="leading" secondItem="TGG-ps-y4Z" secondAttribute="leading" id="HN9-Im-fv5"/>
+                            <constraint firstItem="dr2-2N-loh" firstAttribute="top" secondItem="SZF-IC-PvM" secondAttribute="top" id="feC-3r-ZPu"/>
+                            <constraint firstItem="dr2-2N-loh" firstAttribute="bottom" secondItem="TGG-ps-y4Z" secondAttribute="bottom" id="jds-u1-eGu"/>
+                            <constraint firstItem="dr2-2N-loh" firstAttribute="trailing" secondItem="TGG-ps-y4Z" secondAttribute="trailing" id="sWV-ez-aKG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SZF-IC-PvM"/>
                     </view>
                     <connections>
-                        <outlet property="blurView" destination="Fgg-g4-vJJ" id="xTC-zD-Qin"/>
+                        <outlet property="blurView" destination="dr2-2N-loh" id="qKq-QW-vWa"/>
                         <outlet property="continueButton" destination="Eg7-5D-p5n" id="XgA-Wy-pP9"/>
                         <outlet property="exitToMenuButton" destination="YwX-Lf-brq" id="g91-Za-bbm"/>
-                        <outlet property="playButton" destination="pox-lh-9Nb" id="zLE-WR-Pcb"/>
                         <outlet property="saveAndExitButton" destination="deA-rb-you" id="Df6-b9-ZdJ"/>
-                        <outlet property="timeLabel" destination="79Y-n6-huD" id="GMK-Kn-evc"/>
                         <segue destination="5di-pa-idX" kind="presentation" identifier="exitConfirmationSegue" id="NXJ-eY-bvS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FmS-Pq-68A" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view hidden="YES" contentMode="scaleToFill" id="W7h-Oy-oKZ">
-                    <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <view tag="10101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KwT-vh-M7x" customClass="UIVisualEffectView">
-                            <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
-                        </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Tg-oX-IJe">
-                            <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="E95-j8-WqO">
-                                    <rect key="frame" x="287" y="243.5" width="450" height="261"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEt-Ji-ftC" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="450" height="54"/>
-                                            <color key="backgroundColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                            <color key="tintColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <state key="normal" title="ПРОДОВЖИТИ">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
-                                                    <real key="value" value="15"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <variation key="heightClass=regular">
-                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                            </variation>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9b4-Og-W0F" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="69" width="450" height="54"/>
-                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" title="НАЛАШТУВАННЯ">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
-                                                    <real key="value" value="15"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <variation key="heightClass=regular">
-                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                            </variation>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hF0-vT-x61" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="138" width="450" height="54"/>
-                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" title="ВИЙТИ І ЗБЕРЕГТИ">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
-                                                    <real key="value" value="15"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <variation key="heightClass=regular">
-                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                            </variation>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQe-F3-n2X" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="207" width="450" height="54"/>
-                                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" title="ВИЙТИ НЕ ЗБЕРІГАЮЧИ">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRaius">
-                                                    <real key="value" value="15"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <variation key="heightClass=regular">
-                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                            </variation>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="450" id="R7o-dQ-hvk">
-                                            <variation key="heightClass=compact" constant="360"/>
-                                        </constraint>
-                                    </constraints>
-                                    <variation key="widthClass=regular" spacing="15"/>
-                                </stackView>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="E95-j8-WqO" firstAttribute="centerY" secondItem="9Tg-oX-IJe" secondAttribute="centerY" id="NUN-Za-aeg"/>
-                                <constraint firstItem="E95-j8-WqO" firstAttribute="centerX" secondItem="9Tg-oX-IJe" secondAttribute="centerX" id="Wov-v2-FcK"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="KwT-vh-M7x" secondAttribute="trailing" id="271-XX-vyo"/>
-                        <constraint firstItem="KwT-vh-M7x" firstAttribute="top" secondItem="W7h-Oy-oKZ" secondAttribute="top" id="DUD-4O-aeE"/>
-                        <constraint firstAttribute="bottom" secondItem="9Tg-oX-IJe" secondAttribute="bottom" id="Dox-N5-L67"/>
-                        <constraint firstItem="9Tg-oX-IJe" firstAttribute="leading" secondItem="W7h-Oy-oKZ" secondAttribute="leading" id="MkU-iY-Ci0"/>
-                        <constraint firstItem="9Tg-oX-IJe" firstAttribute="top" secondItem="W7h-Oy-oKZ" secondAttribute="top" id="VS4-U7-gAb"/>
-                        <constraint firstAttribute="bottom" secondItem="KwT-vh-M7x" secondAttribute="bottom" id="oRI-FU-lz6"/>
-                        <constraint firstAttribute="trailing" secondItem="9Tg-oX-IJe" secondAttribute="trailing" id="vOM-zD-Tiq"/>
-                        <constraint firstItem="KwT-vh-M7x" firstAttribute="leading" secondItem="W7h-Oy-oKZ" secondAttribute="leading" id="w5x-g7-XZO"/>
-                    </constraints>
-                    <viewLayoutGuide key="safeArea" id="pMU-66-Iii"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="1766" y="41"/>
         </scene>
@@ -328,7 +162,4 @@
             <point key="canvasLocation" x="1384" y="489"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="playButton" width="250" height="250"/>
-    </resources>
 </document>
