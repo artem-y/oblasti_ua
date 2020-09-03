@@ -30,15 +30,3 @@ In addition to the above languages, region names can also be displayed in *Spani
 There is also an option of adding custom region names, which can be used as an extra localization.
 
 
----
-
-## Installation
-
-You will need Xcode to install this app on your iOS device or a simulator.
-To install Oblasti UA:
-
-1. Clone the project to your Mac.
-2. Open *Oblasti UA.xcodeproj*.
-3. Run unit tests first to check everything works.
-4. Build and run the app on your device or simulator.
-
