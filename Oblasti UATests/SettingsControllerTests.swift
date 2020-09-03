@@ -11,7 +11,7 @@ import XCTest
 
 class SettingsControllerTests: XCTestCase {
     typealias SettingKey = Resources.UserDefaultsKey.Setting
-    
+
     // MARK: - Unit Under Test & Necessary Variables
     var settingsController: SettingsController!
 
@@ -26,12 +26,12 @@ class SettingsControllerTests: XCTestCase {
     }
 
     // MARK: - Tests
-    
+
     func test_Settings_WithAllValuesChanged_LoadAndApplyChangesFromUserDefaults() {
         // 1. Arrange
         let oldSettings = settingsController.settings!
         let newSettings = settings(allDifferentFrom: oldSettings)
-        
+
         // 2. Act
         settingsController.settings = newSettings
         let newSettingsController = SettingsController.shared // has to load with changes applied
@@ -39,41 +39,42 @@ class SettingsControllerTests: XCTestCase {
         // 3. Assert
         XCTAssertEqual(newSettingsController.settings, settingsController.settings)
     }
-    
+
     func test_LoadSettings_WithAllSettingsAbsentInUserDefaults_LoadsDefualtValues() {
         // 1. Arrange
         let nonDefaultSettings = settings(allDifferentFrom: Settings.default)
         settingsController.settings = nonDefaultSettings
         let allKeys = SettingKey.allKeys
-        
+
         // 2. Act
         allKeys.forEach {
             UserDefaults.standard.removeObject(forKey: $0)
         }
         settingsController.loadSettings()
-        
+
         // 3. Assert
         XCTAssertEqual(settingsController.settings, Settings.default)
     }
-    
+
     func test_LoadSettings_WithOneSettingAbsentInUserDefaults_ChangesOnlyOneAbsentSettingToDefaultValue() {
         // 1. Arrange
         let nonDefaultSettings = settings(allDifferentFrom: Settings.default)
         settingsController.settings = nonDefaultSettings
-        
+
         // 2. Act
         UserDefaults.standard.removeObject(forKey: SettingKey.playesSoundEffects)
         settingsController.loadSettings()
-        
+
         // 3. Assert
-        let hasOneDefaultSetting = (settingsController.settings.playesSoundEffects == Settings.default.playesSoundEffects)
+        let playesSoundEffects: Bool = settingsController.settings.playesSoundEffects
+        let hasOneDefaultSetting = (playesSoundEffects == Settings.default.playesSoundEffects)
         settingsController.settings.playesSoundEffects = nonDefaultSettings.playesSoundEffects
         let hasAllOtherSettingsNonDefault = (settingsController.settings == nonDefaultSettings)
         let hasOnlyOneDefaultSetting = hasOneDefaultSetting && hasAllOtherSettingsNonDefault
         XCTAssertTrue(hasOnlyOneDefaultSetting)
-        
+
     }
-    
+
     // MARK: - Convenience Methods
     func settings(allDifferentFrom oldSettings: Settings) -> Settings {
         let newGameMode: Game.Mode = (oldSettings.gameMode == .classic) ? .norepeat : .classic
@@ -96,7 +97,7 @@ class SettingsControllerTests: XCTestCase {
 #if DEBUG
 extension Resources.UserDefaultsKey.Setting {
     typealias SelfType = Resources.UserDefaultsKey.Setting
-    
+
     static var allKeys: [String] {
         let keys: [String] = [
             SelfType.autoConfirmsSelection,

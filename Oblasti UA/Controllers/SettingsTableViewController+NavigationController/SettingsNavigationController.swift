@@ -9,14 +9,14 @@
 import UIKit
 
 final class SettingsNavigationController: UINavigationController {
-    
+
     // MARK: - Initialization
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         adjustModalPresentationStyle()
     }
-    
+
 }
 
 // MARK: - SettingsNavigationContainer

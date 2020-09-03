@@ -6,7 +6,7 @@
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
 //
 
-protocol PauseViewControllerDelegate: class {
+protocol PauseViewControllerDelegate: AnyObject {
     func continueGame()
     func quitGame()
 }

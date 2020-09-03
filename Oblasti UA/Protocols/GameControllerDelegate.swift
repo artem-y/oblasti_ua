@@ -6,7 +6,7 @@
 //  Copyright © 2019 Artem Yelizarov. All rights reserved.
 //
 
-protocol GameControllerDelegate: class {
+protocol GameControllerDelegate: AnyObject {
     func reactToCorrectChoice()
     func reactToWrongChoice()
     func reactToTimerValueChange()

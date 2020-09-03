@@ -10,12 +10,12 @@ import Foundation
 
 final class GameTimeFormatter {
     // MARK: - Public Properties
-    
+
     /// Time format, used to convert time interval into readable string. Default is 'mm:ss:SSS'
     var timeFormat: String = Default.timeFormat
-    
+
     // MARK: - Public Methods
-    
+
     /// Returns string for time interval, converted into time format, stored in this formatter's 'timeFormat property.
     /// - Parameters:
     ///   - timeInterval: TimeInterval value to be converted into readable string.
