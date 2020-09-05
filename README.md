@@ -15,7 +15,8 @@ Currently, game supports three modes:
 
 ---
 ## Development
-Using SwiftLint is a must! If you don't have it on your machine, install it before working on this project.
+* This project's language (including comments, reviews and communication on GitHub) is English.
+* Using SwiftLint is a must! If you don't have it on your machine, install it before working on this project.
 
 ---
 ## Localizations
