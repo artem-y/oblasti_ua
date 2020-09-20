@@ -59,6 +59,7 @@ struct Resources {
         static let showModeSettingFromSettingsControllerSegue = "showModeSettingFromSettingsControllerSegue"
         static let showSettingsFromGamePauseSegue = "showSettingsFromGamePauseSegue"
         static let showGameResultSegue = "showGameResultSegue"
+        static let showRegionNameLanguageSettingSegue = "showRegionNameLanguageSettingSegue"
     }
 
     // MARK: -
@@ -66,6 +67,7 @@ struct Resources {
         static let gameModeCell = "gameModeCell"
         static let languageCell = "languageCell"
         static let customRegionNameCell = "customRegionNameCell"
+        static let booleanSettingCell = "BooleanSettingCell"
     }
 
     // MARK: -
@@ -84,20 +86,6 @@ struct Resources {
         static let norepeatHighscore = "norepeatHighscore"
         static let lastUnfinishedGame = "lastUnfinishedGame"
         static let customRegionNames = "customRegionNames"
-
-        // Settings
-        struct Setting {
-            /// Should only be changed from within app's inner settings menu
-            static let lastGameMode = "lastGameModeSetting"
-            static let showsTime = "showsTimeSetting"
-            static let showsButtons = "showsButtonsSetting"
-            static let autoConfirmsSelection = "autoConfirmsSelectionSetting"
-            static let automaticRegionChange = "automaticRegionChangeSetting"
-            static let regionNameLanguage = "regionNameLanguageSetting"
-            static let showsCorrectAnswer = "showsCorrectAnswerSetting"
-            static let playesSoundEffects = "playesSoundEffectsSetting"
-            static let regionNamesUppercased = "regionNamesUppercasedSetting"
-        }
     }
 
     // MARK: - Public Methods

@@ -10,40 +10,94 @@ import UIKit
 
 final class SettingsTableViewController: UITableViewController {
 
-    // MARK: - @IBOutlets
+    // MARK: - Typealiases
 
-    // General
-    @IBOutlet private weak var modeCell: UITableViewCell!
+    typealias SettingCellKey = Settings.Key
 
-    @IBOutlet private weak var showTimeCell: UITableViewCell!
-    @IBOutlet private weak var showTimeSwitch: UISwitch!
+    // MARK: - Nested Types
 
-    @IBOutlet private weak var showButtonsCell: UITableViewCell!
-    @IBOutlet private weak var showButtonsSwitch: UISwitch!
+    struct SettingsSection: Equatable {
+        var header: String?
+        var cells: [SettingCellKey]
+        var footer: String?
 
-    @IBOutlet private weak var modeNameLabel: UILabel!
+        init(
+            header: String? = nil,
+            cells: [SettingCellKey],
+            footer: String? = nil
+        ) {
 
-    @IBOutlet private weak var autoConfirmationCell: UITableViewCell!
-    @IBOutlet private weak var autoConfirmationSwitch: UISwitch!
+            self.header = header
+            self.cells = cells
+            self.footer = footer
+        }
+    }
 
-    @IBOutlet private weak var automaticNextRegionCell: UITableViewCell!
-    @IBOutlet private weak var automaticNextRegionSwitch: UISwitch!
+    let generalCells: [SettingCellKey] = [
+        .gameMode,
+        .showTime,
+        .showButtons,
+        .autoConfirmSelection,
+        .autoChangeToNextRegion,
+        .showCorrectAnswer
+    ]
+    lazy var generalSection: SettingsSection = .init(
+        header: Localized.HeaderText.general,
+        cells: generalCells
+    )
 
-    @IBOutlet private weak var showCorrectAnswerCell: UITableViewCell!
-    @IBOutlet private weak var showCorrectAnswerSwitch: UISwitch!
+    let soundCells: [SettingCellKey] = [
+        .soundEffectsOn
+    ]
+    lazy var soundSection: SettingsSection = .init(
+        header: Localized.HeaderText.sound,
+        cells: soundCells
+    )
 
-    // Sound
-    @IBOutlet private weak var soundEffectsCell: UITableViewCell!
-    @IBOutlet private weak var soundEffectsSwitch: UISwitch!
+    let regionNameCells: [SettingCellKey] = [
+        .regionNameLanguage,
+        .regionNameUppercased
+    ]
+    lazy var regionNamesSection: SettingsSection = {
+        let regionNameLanguageIdentifier: String = settings.regionNameLanguageIdentifier
 
-    // Region Names
-    @IBOutlet private weak var languageNameLagel: UILabel!
+        var exampleName = Default.footerExampleRegionName.localized(
+            in: regionNameLanguageIdentifier,
+            fromTable: Resources.LocalizationTable.regionNames
+        )
 
-    @IBOutlet private weak var regionNamesUppercasedCell: UITableViewCell!
-    @IBOutlet private weak var regionNamesUppercasedSwitch: UISwitch!
+        exampleName = settings.regionNamesUppercased ? exampleName.uppercased() : exampleName.capitalized
 
-    // Defaults
-    @IBOutlet private weak var restoreDefaultsCell: UITableViewCell!
+        let examplePrefix: String = Localized.FooterTextPart.forExamplePrefix
+        let exampleWordSeparator: String = Localized.FooterTextPart.wordsSeparator
+
+        return SettingsSection(
+            header: Localized.HeaderText.regionNames,
+            cells: regionNameCells,
+            footer: "\(examplePrefix)\(exampleWordSeparator)\(exampleName)"
+        )
+    }()
+
+    let defaultSettingsCells: [SettingCellKey] = [
+        .restoreDefaults
+    ]
+    lazy var defaultSettingsSection: SettingsSection = .init(
+        cells: defaultSettingsCells
+    )
+
+    var sections: [SettingsSection] {
+        var sections: [SettingsSection] = [
+            generalSection,
+            soundSection,
+            regionNamesSection
+        ]
+
+        if settings != Settings.default {
+            sections.append(defaultSettingsSection)
+        }
+
+        return sections
+    }
 
     // MARK: - Public Properties
 
@@ -83,9 +137,10 @@ extension SettingsTableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        updateUI()
         addToNotificationCenter()
+        reloadGameModeCell()
+        updateExampleFooter()
+        reloadRegionNamesSection()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -109,7 +164,7 @@ extension SettingsTableViewController {
         case Resources.SegueIdentifier.restoreDefaultsConfirmationSegue:
             guard let destinationVC = segue.destination as? ConfirmationViewController else { return }
 
-            destinationVC.messageText = "Settings will be reset to defaults. This action cannot be undone.".localized()
+            destinationVC.messageText = Localized.messageWillResetToDefaultsCannotBeUndone
             destinationVC.confirmationHandler = { [unowned self] in
                 self.settings = Settings.default
             }
@@ -125,31 +180,119 @@ extension SettingsTableViewController {
 extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // No need to tableView.deselectRow here because UI will be updated on these properties' didSet event
-        switch tableView.cellForRow(at: indexPath) {
-        case showTimeCell:
-            settings.showsTime.toggle()
-        case showButtonsCell:
-            settings.showsButtons.toggle()
-        case automaticNextRegionCell:
-            settings.changesRegionAutomatically.toggle()
-        case autoConfirmationCell:
-            settings.autoConfirmsSelection.toggle()
-        case regionNamesUppercasedCell:
-            settings.regionNamesUppercased.toggle()
-        case showCorrectAnswerCell:
-            settings.showsCorrectAnswer.toggle()
-        case soundEffectsCell:
-            settings.playesSoundEffects.toggle()
-        case restoreDefaultsCell:
-            performSegue(withIdentifier: Resources.SegueIdentifier.restoreDefaultsConfirmationSegue, sender: self)
+        let section: SettingsSection = sections[indexPath.section]
+        let cellKey: SettingCellKey = section.cells[indexPath.row]
+
+        switch cellKey {
+        case .gameMode:
+            performSegue(
+                withIdentifier: Resources.SegueIdentifier.showModeSettingFromSettingsControllerSegue,
+                sender: self
+            )
+
+        case .regionNameLanguage:
+            performSegue(
+                withIdentifier: Resources.SegueIdentifier.showRegionNameLanguageSettingSegue,
+                sender: self
+            )
+
+        case .restoreDefaults:
+            performSegue(
+                withIdentifier: Resources.SegueIdentifier.restoreDefaultsConfirmationSegue,
+                sender: self
+            )
             tableView.deselectRow(at: indexPath, animated: true)
+
         default:
-            break
+            try? SettingsController.shared.toggleBoolSetting(forKey: cellKey)
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
 
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].header
+    }
+
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return section == 2 ? exampleFooterText : nil
+        return sections[section].footer
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sections[section].cells.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let setting: SettingCellKey = sections[indexPath.section].cells[indexPath.row]
+
+        var cell: UITableViewCell
+
+        switch setting {
+        case .gameMode:
+            let modeCell = tableView.dequeueReusableCell(SelectableSettingCell.self)
+
+            modeCell.labelSelectionText.text = currentGameMode.rawValue.localized()
+
+            // This happens only if there is a game in progress
+            if gameInProgressGameMode != nil {
+                modeCell.animateSet(enabled: false)
+                modeCell.labelSelectionText.textColor = .darkText
+            }
+
+            cell = modeCell
+
+        case .autoChangeToNextRegion,
+             .autoConfirmSelection,
+             .showButtons,
+             .showCorrectAnswer,
+             .showTime,
+             .regionNameUppercased,
+             .soundEffectsOn:
+
+            guard var settingValue = try? settings.getBoolSetting(forKey: setting) else {
+                cell = UITableViewCell()
+                break
+            }
+
+            let boolSettingCell = tableView.dequeueReusableCell(BooleanSettingCell.self)
+
+            if gameInProgressGameMode != nil,
+                generalSection.cells.contains(setting) {
+
+                let isPointerMode = currentGameMode == .pointer
+
+                if isPointerMode {
+                    settingValue = false
+                }
+
+                boolSettingCell.animateSet(enabled: !isPointerMode)
+            }
+
+            boolSettingCell.configure(with: settingValue)
+            cell = boolSettingCell
+
+        case .regionNameLanguage:
+            let regionLanguageCell = tableView.dequeueReusableCell(SelectableSettingCell.self)
+
+            let regionNameLanguageIdentifier: String = settings.regionNameLanguageIdentifier
+
+            let languageNameText: String? = Locale.current.localizedString(
+                forLanguageCode: regionNameLanguageIdentifier
+            )
+
+            regionLanguageCell.labelSelectionText.text = languageNameText ?? regionNameLanguageIdentifier.localized()
+            cell = regionLanguageCell
+
+        case .restoreDefaults:
+            cell = tableView.dequeueReusableCell(ButtonSettingCell.self)
+        }
+
+        (cell as? ViewWithStaticTitle)?.labelStaticTitle.text = Localized.staticValueDescription(forKey: setting)
+        return cell
     }
 }
 
@@ -157,7 +300,12 @@ extension SettingsTableViewController {
 
 extension SettingsTableViewController: RemovableObserver {
     func addToNotificationCenter() {
-        NotificationCenter.default.addObserver(self, selector: #selector(updateUI), name: .SettingsChanged, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateUI),
+            name: .SettingsChanged,
+            object: nil
+        )
     }
 }
 
@@ -165,69 +313,46 @@ extension SettingsTableViewController: RemovableObserver {
 
 extension SettingsTableViewController {
     @objc
-    private func updateUI() {
-        // This happens only if there is a game in progress
-        if gameInProgressGameMode != nil {
-            modeCell.animateSet(enabled: false)
-            modeNameLabel.textColor = .darkText
+    private func updateUI(with notification: Notification) {
+
+        if let settingInfo = notification.userInfo {
+           let keys = settingInfo.keys.compactMap({ $0 as? Settings.Key })
+
+            keys.forEach { key in
+                if let boolSetting = settingInfo[key] as? Bool {
+
+                    if let cellIndexPath = getCellIndexPath(forKey: key) {
+
+                        if let settingCell = tableView.cellForRow(at: cellIndexPath) as? BooleanSettingCell {
+                            if key == .regionNameUppercased {
+                                updateExampleFooter()
+                                reloadSections(at: [cellIndexPath.section])
+                            } else {
+                                settingCell.configure(with: boolSetting)
+                            }
+                        }
+                    }
+
+                } else if key == .regionNameLanguage,
+                          let cellIndexPath = getCellIndexPath(forKey: key) {
+
+                    updateExampleFooter()
+                    reloadSections(at: [cellIndexPath.section])
+
+                } else if key == .gameMode, gameInProgressGameMode == nil {
+                    reloadGameModeCell()
+                }
+
+            }
+
+        } else {
+            tableView.reloadData()
         }
-
-        let isPointerMode = currentGameMode == .pointer
-        let isShowingTime = isPointerMode ? false : settings.showsTime
-        let isShowingButtons = isPointerMode ? false : settings.showsButtons
-        let isAutoConfirmingSelection = isPointerMode ? false : settings.autoConfirmsSelection
-        let isChangingNextRegionAutomatically = isPointerMode ? false : settings.changesRegionAutomatically
-        let isShowingCorrectAnswer = isPointerMode ? false : settings.showsCorrectAnswer
-
-        // General UI
-        showTimeCell.animateSet(enabled: !isPointerMode)
-        showTimeSwitch.setOn(isShowingTime, animated: true)
-
-        showButtonsCell.animateSet(enabled: !isPointerMode)
-        showButtonsSwitch.setOn(isShowingButtons, animated: true)
-
-        autoConfirmationCell.animateSet(enabled: !isPointerMode)
-        autoConfirmationSwitch.setOn(isAutoConfirmingSelection, animated: true)
-
-        automaticNextRegionCell.animateSet(enabled: !isPointerMode)
-        automaticNextRegionSwitch.setOn(isChangingNextRegionAutomatically, animated: true)
-
-        showCorrectAnswerCell.animateSet(enabled: !isPointerMode)
-        showCorrectAnswerSwitch.setOn(isShowingCorrectAnswer, animated: true)
-
-        // Sound UI
-        soundEffectsSwitch.setOn(settings.playesSoundEffects, animated: true)
-
-        // Region Names UI
-        modeNameLabel.text = currentGameMode.rawValue.localized()
-
-        let regionNameLanguageIdentifier: String = settings.regionNameLanguageIdentifier
-
-        let localizedLanguageNameText: String? = Locale.current.localizedString(
-            forLanguageCode: regionNameLanguageIdentifier
-        )
-        languageNameLagel.text = localizedLanguageNameText ?? settings.regionNameLanguageIdentifier.localized()
-
-        regionNamesUppercasedSwitch.setOn(settings.regionNamesUppercased, animated: true)
-
-        updateExampleFooter(
-            uppercased: settings.regionNamesUppercased,
-            localizedIn: regionNameLanguageIdentifier
-        )
-
-        // Defaults UI
-        restoreDefaultsCell.isHidden = (settings == Settings.default)
-
-        tableView.reloadData()
-
     }
 
-    func updateExampleFooter(
-        uppercased: Bool,
-        localizedIn language: String
-    ) {
+    private func updateExampleFooter() {
         var exampleName = Default.footerExampleRegionName.localized(
-            in: language,
+            in: settings.regionNameLanguageIdentifier,
             fromTable: Resources.LocalizationTable.regionNames
         )
 
@@ -236,9 +361,38 @@ extension SettingsTableViewController {
         let examplePrefix: String = Localized.FooterTextPart.forExamplePrefix
         let exampleWordSeparator: String = Localized.FooterTextPart.wordsSeparator
 
-        exampleFooterText = "\(examplePrefix)\(exampleWordSeparator)\(exampleName)"
+        regionNamesSection.footer = "\(examplePrefix)\(exampleWordSeparator)\(exampleName)"
     }
 
+    private func reloadSections(
+        at indexSet: IndexSet,
+        with animation: UITableView.RowAnimation = .automatic
+    ) {
+        tableView.beginUpdates()
+        tableView.reloadSections(indexSet, with: animation)
+        tableView.endUpdates()
+    }
+
+    private func reloadRegionNamesSection() {
+        guard let sectionIndex = sections.firstIndex(where: { $0 == regionNamesSection }) else { return }
+        reloadSections(at: [sectionIndex])
+    }
+
+    private func reloadGameModeCell() {
+        guard let cellIndexPath = getCellIndexPath(forKey: .gameMode) else { return }
+        tableView.beginUpdates()
+        tableView.reloadRows(at: [cellIndexPath], with: .automatic)
+        tableView.endUpdates()
+    }
+
+    private func getCellIndexPath(forKey key: Settings.Key) -> IndexPath? {
+        for (sectionIndex, section) in sections.enumerated() {
+            if let cellIndex = section.cells.firstIndex(where: { $0 == key }) {
+                return IndexPath(row: cellIndex, section: sectionIndex)
+            }
+        }
+        return nil
+    }
 }
 
 // MARK: - Default Values
@@ -253,9 +407,54 @@ extension SettingsTableViewController {
 
 extension SettingsTableViewController {
     struct Localized {
+        struct HeaderText {
+            static let general: String = "General".localized()
+            static let sound: String = "Sound".localized()
+            static let regionNames: String = "Region Names".localized()
+        }
+
         struct FooterTextPart {
-            static let forExamplePrefix = "For example:".localized()
-            static let wordsSeparator = " ".localized()
+            static let forExamplePrefix: String = "For example:".localized()
+            static let wordsSeparator: String = " ".localized()
+        }
+
+        static let messageWillResetToDefaultsCannotBeUndone: String = """
+            Settings will be reset to defaults. This action cannot be undone.
+            """.localized()
+
+        static func staticValueDescription(forKey key: SettingCellKey) -> String {
+            switch key {
+
+            case .autoChangeToNextRegion:
+                return "Automatic region change".localized()
+
+            case .autoConfirmSelection:
+                return "Automatic confirmation".localized()
+
+            case .gameMode:
+                return "Mode".localized()
+
+            case .regionNameLanguage:
+                return "Language".localized()
+
+            case .regionNameUppercased:
+                return "All caps".localized()
+
+            case .restoreDefaults:
+                return "Restore default settings".localized()
+
+            case .showButtons:
+                return "Game with buttons".localized()
+
+            case .showCorrectAnswer:
+                return "Show correct answer".localized()
+
+            case .showTime:
+                return "Show time".localized()
+
+            case .soundEffectsOn:
+                return "Sound Effects".localized()
+            }
         }
     }
 }

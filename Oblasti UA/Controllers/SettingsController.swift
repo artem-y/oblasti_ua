@@ -13,10 +13,6 @@ final class SettingsController: NSObject {
 
     static let shared = SettingsController()
 
-    // MARK: - Typealiases
-
-    typealias SettingKey = DefaultsKey.Setting
-
     // MARK: - Public Properties
 
     /// Game settings. Send notifications on value change
@@ -25,13 +21,25 @@ final class SettingsController: NSObject {
             guard oldValue != settings else { return }
 
             saveSettings()
-            NotificationCenter.default.post(Notification(name: .SettingsChanged))
 
             if oldValue?.gameMode != settings.gameMode {
-                NotificationCenter.default.post(Notification(name: .GameModeChanged))
+                postNotification(named: .GameModeChanged)
+                postNotification(
+                    named: .SettingsChanged,
+                    with: [Settings.Key.gameMode: settings.gameMode]
+                )
             }
             if oldValue?.showsTime != settings.showsTime {
-                NotificationCenter.default.post(Notification(name: .ShowTimeSettingChanged))
+                postNotification(named: .ShowTimeSettingChanged)
+            }
+
+            if oldValue?.regionNameLanguageIdentifier != settings.regionNameLanguageIdentifier {
+                postNotification(
+                    named: .SettingsChanged,
+                    with: [
+                        Settings.Key.regionNameLanguage: settings.regionNameLanguageIdentifier
+                    ]
+                )
             }
         }
     }
@@ -50,56 +58,43 @@ final class SettingsController: NSObject {
 
     /// Tries to load settings from UserDefaults, sets missing values to defaults.
     func loadSettings() {
+        var settings = Settings.default
 
-        let defaultGameMode: Game.Mode = Settings.default.gameMode
-        let gameModeString: String? = standardDefaults.string(forKey: SettingKey.lastGameMode)
+        Settings.Key.allCases.forEach {
+            settingTypeSwitch:switch $0 {
+            case .gameMode:
+                if let gameModeRawValue = standardDefaults.string(forKey: $0.rawValue),
+                   let gameMode = Game.Mode(rawValue: gameModeRawValue) {
+                    settings.gameMode = gameMode
+                }
 
-        let gameMode: Game.Mode
+            case .regionNameLanguage:
+                if let regionNameLanguageIdentifier = standardDefaults.string(forKey: $0.rawValue) {
+                    settings.regionNameLanguageIdentifier = regionNameLanguageIdentifier
+                }
 
-        if let gameModeString = gameModeString {
-            gameMode = Game.Mode(rawValue: gameModeString) ?? defaultGameMode
-        } else {
-            gameMode = defaultGameMode
+            default:
+                guard let boolSetting = standardDefaultsBool(forKey: $0) else { break settingTypeSwitch }
+                try? settings.set(boolSettingValue: boolSetting, forKey: $0)
+
+            }
         }
 
-        let showsTime: Bool = standardDefaultsBool(forKey: SettingKey.showsTime) ?? Settings.default.showsTime
-        let showsButtons: Bool = standardDefaultsBool(forKey: SettingKey.showsButtons) ?? Settings.default.showsButtons
+        self.settings = settings
 
-        let savedAutoConfirmsSelection: Bool? = standardDefaultsBool(forKey: SettingKey.autoConfirmsSelection)
-        let autoConfirmsSelection: Bool = savedAutoConfirmsSelection ?? Settings.default.autoConfirmsSelection
+    }
 
-        let savedAutomaticRegionChange: Bool? = standardDefaultsBool(forKey: SettingKey.automaticRegionChange)
-        let automaticRegionChange: Bool = savedAutomaticRegionChange ?? Settings.default.changesRegionAutomatically
-
-        let savedRegionNamesUppercased: Bool? = standardDefaultsBool(forKey: SettingKey.regionNamesUppercased)
-        let regionNamesUppercased: Bool = savedRegionNamesUppercased ?? Settings.default.regionNamesUppercased
-
-        let savedShowsCorrectAnswer: Bool? = standardDefaultsBool(forKey: SettingKey.showsCorrectAnswer)
-        let showsCorrectAnswer: Bool = savedShowsCorrectAnswer ?? Settings.default.showsCorrectAnswer
-
-        let savedPlayesSoundEffects: Bool? = standardDefaultsBool(forKey: SettingKey.playesSoundEffects)
-        let playesSoundEffects: Bool = savedPlayesSoundEffects ?? Settings.default.playesSoundEffects
-
-        var currentLanguageIdentifier = Settings.default.regionNameLanguageIdentifier
-        if let currentLanguageCode = Locale.current.languageCode, availableLanguages.contains(currentLanguageCode) {
-            currentLanguageIdentifier = currentLanguageCode
+    /// Toggles value of boolean setting for the specified key.
+    /// - Parameter key: Key to look up the boolean setting that should be changed.
+    func toggleBoolSetting(forKey key: Settings.Key) throws {
+        do {
+            var setting = try settings.getBoolSetting(forKey: key)
+            setting.toggle()
+            try settings.set(boolSettingValue: setting, forKey: key)
+            postNotification(named: .SettingsChanged, with: [key: setting])
+        } catch {
+            throw error
         }
-
-        let savedRegionNameLanguage: String? = standardDefaults.string(forKey: SettingKey.regionNameLanguage)
-        let regionNameLanguage: String = savedRegionNameLanguage ?? currentLanguageIdentifier
-
-        settings = Settings(
-            gameMode: gameMode,
-            regionNamesUppercased: regionNamesUppercased,
-            showsTime: showsTime,
-            showsButtons: showsButtons,
-            autoConfirmsSelection: autoConfirmsSelection,
-            changesRegionAutomatically: automaticRegionChange,
-            showsCorrectAnswer: showsCorrectAnswer,
-            playesSoundEffects: playesSoundEffects,
-            regionNameLanguageIdentifier: regionNameLanguage
-        )
-
     }
 
     // MARK: - Initialization
@@ -123,24 +118,37 @@ extension SettingsController {
     /// Should only be called on 'settings' variable value change
     private func saveSettings() {
 
-        standardDefaults.set(settings.gameMode.rawValue, forKey: SettingKey.lastGameMode)
-        standardDefaults.set(settings.showsTime, forKey: SettingKey.showsTime)
-        standardDefaults.set(settings.showsButtons, forKey: SettingKey.showsButtons)
-        standardDefaults.set(settings.autoConfirmsSelection, forKey: SettingKey.autoConfirmsSelection)
-        standardDefaults.set(settings.changesRegionAutomatically, forKey: SettingKey.automaticRegionChange)
-        standardDefaults.set(settings.regionNamesUppercased, forKey: SettingKey.regionNamesUppercased)
-        standardDefaults.set(settings.showsCorrectAnswer, forKey: SettingKey.showsCorrectAnswer)
-        standardDefaults.set(settings.playesSoundEffects, forKey: SettingKey.playesSoundEffects)
-        standardDefaults.set(settings.regionNameLanguageIdentifier, forKey: SettingKey.regionNameLanguage)
+        Settings.Key.allCases.forEach {
+            switch $0 {
+            case .gameMode:
+                let gameModeRawValue = settings.gameMode.rawValue
+                standardDefaults.set(gameModeRawValue, forKey: $0.rawValue)
 
+            case .regionNameLanguage:
+                let regionNameLanguageIdentifier = settings.regionNameLanguageIdentifier
+                standardDefaults.set(regionNameLanguageIdentifier, forKey: $0.rawValue)
+
+            default:
+                guard let setting = try? settings.getBoolSetting(forKey: $0) else { return }
+                standardDefaults.set(setting, forKey: $0.rawValue)
+            }
+        }
     }
 
     /// This method is necessary to avoid 'false' as default if there is no value stored
     /// - Parameters:
     ///   - forKey: String key, that was used to store boolean value in standard user defaults
     /// - Returns: Nullable boolean value for key from standard User Defaults.
-    private func standardDefaultsBool(forKey userDefaultsKey: String) -> Bool? {
-        return standardDefaults.value(forKey: userDefaultsKey) as? Bool
+    private func standardDefaultsBool(forKey userDefaultsKey: Settings.Key) -> Bool? {
+        return standardDefaults.value(forKey: userDefaultsKey.rawValue) as? Bool
+    }
+
+    private func postNotification(
+        named notificationName: Notification.Name,
+        with userInfo: [AnyHashable: Any]? = nil
+    ) {
+        let notification: Notification = .init(name: notificationName, userInfo: userInfo)
+        NotificationCenter.default.post(notification)
     }
 }
 
