@@ -24,11 +24,8 @@ final class SettingsController: NSObject {
 
             if oldValue?.gameMode != settings.gameMode {
                 postNotification(named: .GameModeChanged)
-                postNotification(
-                    named: .SettingsChanged,
-                    with: [Settings.Key.gameMode: settings.gameMode]
-                )
             }
+
             if oldValue?.showsTime != settings.showsTime {
                 postNotification(named: .ShowTimeSettingChanged)
             }

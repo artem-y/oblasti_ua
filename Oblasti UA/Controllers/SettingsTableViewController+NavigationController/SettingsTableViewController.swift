@@ -306,6 +306,13 @@ extension SettingsTableViewController: RemovableObserver {
             name: .SettingsChanged,
             object: nil
         )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(reloadGameModeCell),
+            name: .GameModeChanged,
+            object: nil
+        )
     }
 }
 
@@ -339,10 +346,7 @@ extension SettingsTableViewController {
                     updateExampleFooter()
                     reloadSections(at: [cellIndexPath.section])
 
-                } else if key == .gameMode, gameInProgressGameMode == nil {
-                    reloadGameModeCell()
                 }
-
             }
 
         } else {
@@ -378,6 +382,7 @@ extension SettingsTableViewController {
         reloadSections(at: [sectionIndex])
     }
 
+    @objc
     private func reloadGameModeCell() {
         guard let cellIndexPath = getCellIndexPath(forKey: .gameMode) else { return }
         tableView.beginUpdates()
