@@ -333,7 +333,7 @@ extension SettingsTableViewController {
                         if let settingCell = tableView.cellForRow(at: cellIndexPath) as? BooleanSettingCell {
                             if key == .regionNameUppercased {
                                 updateExampleFooter()
-                                reloadSections(at: [cellIndexPath.section])
+                                tableView.reloadData()
                             } else {
                                 settingCell.configure(with: boolSetting)
                             }
