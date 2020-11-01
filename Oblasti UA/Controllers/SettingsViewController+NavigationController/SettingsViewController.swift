@@ -329,10 +329,10 @@ extension SettingsViewController {
 
             if isPointerMode {
                 settingValue = false
+                cell.animateSet(enabled: !shouldDisable)
             }
         }
 
-        cell.animateSet(enabled: shouldDisable)
         cell.configure(with: settingValue)
     }
 
