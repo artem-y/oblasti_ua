@@ -1,5 +1,5 @@
 //
-//  SettingsTableViewController.swift
+//  SettingsViewController.swift
 //  Oblasti UA
 //
 //  Created by Artem Yelizarov on 5/6/19.
@@ -8,7 +8,11 @@
 
 import UIKit
 
-final class SettingsTableViewController: UITableViewController {
+final class SettingsViewController: UIViewController {
+
+    // MARK: - @IBOutlets
+
+    @IBOutlet private weak var tableView: UITableView!
 
     // MARK: - Typealiases
 
@@ -128,19 +132,18 @@ final class SettingsTableViewController: UITableViewController {
 
 // MARK: - View Controller Lifecycle
 
-extension SettingsTableViewController {
+extension SettingsViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configureTableView()
         AppDelegate.shared.settingsObserver = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addToNotificationCenter()
-        reloadGameModeCell()
         updateExampleFooter()
-        reloadRegionNamesSection()
+        reloadTableView()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -151,7 +154,7 @@ extension SettingsTableViewController {
 
 // MARK: - Navigation
 
-extension SettingsTableViewController {
+extension SettingsViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
@@ -175,10 +178,10 @@ extension SettingsTableViewController {
     }
 }
 
-// MARK: - UITableView Delegate and DataSource Methods
+// MARK: - UITableViewDelegate
 
-extension SettingsTableViewController {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension SettingsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // No need to tableView.deselectRow here because UI will be updated on these properties' didSet event
         let section: SettingsSection = sections[indexPath.section]
         let cellKey: SettingCellKey = section.cells[indexPath.row]
@@ -208,24 +211,29 @@ extension SettingsTableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
+}
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+// MARK: - UITableViewDataSource
+
+extension SettingsViewController: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].header
     }
 
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return sections[section].footer
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].cells.count
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let setting: SettingCellKey = sections[indexPath.section].cells[indexPath.row]
 
@@ -234,15 +242,7 @@ extension SettingsTableViewController {
         switch setting {
         case .gameMode:
             let modeCell = tableView.dequeueReusableCell(SelectableSettingCell.self)
-
-            modeCell.labelSelectionText.text = currentGameMode.rawValue.localized()
-
-            // This happens only if there is a game in progress
-            if gameInProgressGameMode != nil {
-                modeCell.animateSet(enabled: false)
-                modeCell.labelSelectionText.textColor = .darkText
-            }
-
+            configureModeCell(modeCell)
             cell = modeCell
 
         case .autoChangeToNextRegion,
@@ -253,38 +253,19 @@ extension SettingsTableViewController {
              .regionNameUppercased,
              .soundEffectsOn:
 
-            guard var settingValue = try? settings.getBoolSetting(forKey: setting) else {
+            guard let settingValue = try? settings.getBoolSetting(forKey: setting) else {
                 cell = UITableViewCell()
                 break
             }
 
             let boolSettingCell = tableView.dequeueReusableCell(BooleanSettingCell.self)
-
-            if gameInProgressGameMode != nil,
-                generalSection.cells.contains(setting) {
-
-                let isPointerMode = currentGameMode == .pointer
-
-                if isPointerMode {
-                    settingValue = false
-                }
-
-                boolSettingCell.animateSet(enabled: !isPointerMode)
-            }
-
-            boolSettingCell.configure(with: settingValue)
+            configure(boolSettingCell, withValue: settingValue, for: setting)
             cell = boolSettingCell
 
         case .regionNameLanguage:
             let regionLanguageCell = tableView.dequeueReusableCell(SelectableSettingCell.self)
 
-            let regionNameLanguageIdentifier: String = settings.regionNameLanguageIdentifier
-
-            let languageNameText: String? = Locale.current.localizedString(
-                forLanguageCode: regionNameLanguageIdentifier
-            )
-
-            regionLanguageCell.labelSelectionText.text = languageNameText ?? regionNameLanguageIdentifier.localized()
+            configureRegionNameLanguageCell(regionLanguageCell)
             cell = regionLanguageCell
 
         case .restoreDefaults:
@@ -298,7 +279,7 @@ extension SettingsTableViewController {
 
 // MARK: - RemovableObserver protocol methods
 
-extension SettingsTableViewController: RemovableObserver {
+extension SettingsViewController: RemovableObserver {
     func addToNotificationCenter() {
         NotificationCenter.default.addObserver(
             self,
@@ -318,7 +299,58 @@ extension SettingsTableViewController: RemovableObserver {
 
 // MARK: - Private Methods
 
-extension SettingsTableViewController {
+extension SettingsViewController {
+    private func configureTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+
+    private func configureModeCell(_ cell: SelectableSettingCell) {
+
+        cell.labelSelectionText.text = currentGameMode.rawValue.localized()
+
+        // This happens only if there is a game in progress
+        if gameInProgressGameMode != nil {
+            cell.animateSet(enabled: false)
+            cell.labelSelectionText.textColor = .darkText
+        }
+    }
+
+    private func configure(_ cell: BooleanSettingCell, withValue value: Bool, for settingKey: SettingCellKey) {
+
+        var settingValue = value
+
+        let shouldDisable: Bool = gameInProgressGameMode != nil &&
+            generalSection.cells.contains(settingKey)
+
+        if shouldDisable {
+
+            let isPointerMode = currentGameMode == .pointer
+
+            if isPointerMode {
+                settingValue = false
+            }
+        }
+
+        cell.animateSet(enabled: shouldDisable)
+        cell.configure(with: settingValue)
+    }
+
+    private func configureRegionNameLanguageCell(_ cell: SelectableSettingCell) {
+        let regionNameLanguageIdentifier: String = settings.regionNameLanguageIdentifier
+
+        let languageNameText: String? = Locale.current.localizedString(
+            forLanguageCode: regionNameLanguageIdentifier
+        )
+
+        cell.labelSelectionText.text = languageNameText ?? regionNameLanguageIdentifier.localized()
+        cell.animateSet(enabled: true)
+    }
+
+    private func reloadTableView() {
+        tableView.reloadData()
+    }
+
     @objc
     private func updateUI(with notification: Notification) {
 
@@ -402,7 +434,7 @@ extension SettingsTableViewController {
 
 // MARK: - Default Values
 
-extension SettingsTableViewController {
+extension SettingsViewController {
     struct Default {
         static let footerExampleRegionName = "Ivano-Frankivska"
     }
@@ -410,7 +442,7 @@ extension SettingsTableViewController {
 
 // MARK: - Localized Values
 
-extension SettingsTableViewController {
+extension SettingsViewController {
     struct Localized {
         struct HeaderText {
             static let general: String = "General".localized()

@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Restore default settings"; ObjectID = "Ob3-Oo-D7c"; */
+"Ob3-Oo-D7c.text" = "Восстановить значения по умолчанию";
+
+/* Class = "UILabel"; text = "Classic"; ObjectID = "PgA-YM-8w5"; */
+"PgA-YM-8w5.text" = "Классический";
+
+/* Class = "UILabel"; text = "Ukrainian"; ObjectID = "TUj-2p-Wqo"; */
+"TUj-2p-Wqo.text" = "Украинский";
+
+/* Class = "UILabel"; text = "Mode"; ObjectID = "0RO-Gk-hjh"; */
+"0RO-Gk-hjh.text" = "Режим";
+
+/* Class = "UILabel"; text = "Show time"; ObjectID = "QQ3-Xw-xJm"; */
+"QQ3-Xw-xJm.text" = "Показывать время";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "kc5-Bp-f9i"; */
+"kc5-Bp-f9i.title" = "Настройки";
+
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "bsv-Kk-PeR"; */
+"bsv-Kk-PeR.title" = "Закрыть";

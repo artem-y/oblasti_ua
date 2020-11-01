@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4HK-7n-0Pl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4HK-7n-0Pl">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,10 +17,10 @@
             </objects>
             <point key="canvasLocation" x="585" y="-90"/>
         </scene>
-        <!--SettingsTableViewController+NavigationController-->
+        <!--SettingsViewController+NavigationController-->
         <scene sceneID="UdC-FG-zJ4">
             <objects>
-                <viewControllerPlaceholder storyboardName="SettingsTableViewController+NavigationController" id="TNm-dR-8ud" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="SettingsViewController+NavigationController" id="TNm-dR-8ud" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="9TA-vC-7gI"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QRM-CC-WO6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -55,8 +55,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bqg-XE-UUs">
                                         <rect key="frame" x="0.0" y="271" width="538" height="116"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpi-uT-xOU">
-                                                <rect key="frame" x="107" y="0.0" width="324" height="54"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qpi-uT-xOU">
+                                                <rect key="frame" x="107.5" y="0.0" width="323" height="54"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                 <state key="normal" title="Mode: No Repetitions">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -71,7 +71,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5s3-QV-FJ1">
                                                 <rect key="frame" x="0.0" y="62" width="538" height="54"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNY-Rc-yXA" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNY-Rc-yXA" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="54"/>
                                                         <color key="backgroundColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -99,7 +99,7 @@
                                                             <action selector="startGame:" destination="4HK-7n-0Pl" eventType="touchUpInside" id="EpU-og-uw0"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyv-Uh-ZBL" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyv-Uh-ZBL" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
                                                         <rect key="frame" x="288" y="0.0" width="250" height="54"/>
                                                         <color key="backgroundColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -193,6 +193,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="MS0-s0-nUq"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Bpi-EO-O3S" firstAttribute="centerX" secondItem="dgH-7I-NlQ" secondAttribute="centerX" id="9dl-C3-n7O"/>
@@ -208,7 +209,6 @@
                                 <variation key="heightClass=compact" constant="10"/>
                             </constraint>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="MS0-s0-nUq"/>
                     </view>
                     <connections>
                         <outlet property="continueButton" destination="aNY-Rc-yXA" id="5gT-u7-yVV"/>
@@ -231,6 +231,14 @@
             <point key="canvasLocation" x="599" y="-209"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="aNY-Rc-yXA">
+            <size key="intrinsicContentSize" width="174" height="54"/>
+        </designable>
+        <designable name="yyv-Uh-ZBL">
+            <size key="intrinsicContentSize" width="182" height="54"/>
+        </designable>
+    </designables>
     <resources>
         <image name="UkraineLogo_351_246" width="351" height="246"/>
         <image name="alertButtonBlue" width="200" height="200"/>

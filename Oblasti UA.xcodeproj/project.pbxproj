@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		B0060EA9238DCAEF00638E13 /* PauseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EAC238DCAEF00638E13 /* PauseViewController.storyboard */; };
 		B0060EAA238DCAEF00638E13 /* PauseViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EAC238DCAEF00638E13 /* PauseViewController.storyboard */; };
-		B0060EB6238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EB9238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard */; };
-		B0060EB7238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EB9238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard */; };
+		B0060EB6238DCC8400638E13 /* SettingsViewController+NavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EB9238DCC8400638E13 /* SettingsViewController+NavigationController.storyboard */; };
+		B0060EB7238DCC8400638E13 /* SettingsViewController+NavigationController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EB9238DCC8400638E13 /* SettingsViewController+NavigationController.storyboard */; };
 		B0060EC0238DCEFD00638E13 /* GameResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EC3238DCEFD00638E13 /* GameResultViewController.storyboard */; };
 		B0060EC1238DCEFD00638E13 /* GameResultViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060EC3238DCEFD00638E13 /* GameResultViewController.storyboard */; };
 		B0060ECA238DD3F600638E13 /* InfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0060ECD238DD3F600638E13 /* InfoViewController.storyboard */; };
@@ -55,7 +55,7 @@
 		B07099AA2292B743005D0C3E /* GameTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07099A92292B743005D0C3E /* GameTimeFormatter.swift */; };
 		B07A9ED3227CFC4400C4D2F0 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A9ED2227CFC4400C4D2F0 /* Resources.swift */; };
 		B07C5F6D2280435D009059A7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C5F6C2280435D009059A7 /* Game.swift */; };
-		B07C5F6F22805F12009059A7 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C5F6E22805F12009059A7 /* SettingsTableViewController.swift */; };
+		B07C5F6F22805F12009059A7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07C5F6E22805F12009059A7 /* SettingsViewController.swift */; };
 		B0844B262504ED2300DB3564 /* BooleanSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0844B252504ED2300DB3564 /* BooleanSettingCell.swift */; };
 		B0844B282504F29A00DB3564 /* SelectableSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0844B272504F29A00DB3564 /* SelectableSettingCell.swift */; };
 		B0844B2A2504F3E100DB3564 /* ClassNameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0844B292504F3E100DB3564 /* ClassNameProvider.swift */; };
@@ -107,10 +107,10 @@
 		B0060EB3238DCB2300638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PauseViewController.strings; sourceTree = "<group>"; };
 		B0060EB4238DCB2700638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/PauseViewController.strings; sourceTree = "<group>"; };
 		B0060EB5238DCB2B00638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/PauseViewController.strings; sourceTree = "<group>"; };
-		B0060EB8238DCC8400638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/SettingsTableViewController+NavigationController.storyboard"; sourceTree = "<group>"; };
-		B0060EBB238DCC8C00638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/SettingsTableViewController+NavigationController.strings"; sourceTree = "<group>"; };
-		B0060EBD238DCC9100638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "ru.lproj/SettingsTableViewController+NavigationController.strings"; sourceTree = "<group>"; };
-		B0060EBF238DCC9A00638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = "uk.lproj/SettingsTableViewController+NavigationController.strings"; sourceTree = "<group>"; };
+		B0060EB8238DCC8400638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/SettingsViewController+NavigationController.storyboard"; sourceTree = "<group>"; };
+		B0060EBB238DCC8C00638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/SettingsViewController+NavigationController.strings"; sourceTree = "<group>"; };
+		B0060EBD238DCC9100638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = "ru.lproj/SettingsViewController+NavigationController.strings"; sourceTree = "<group>"; };
+		B0060EBF238DCC9A00638E13 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = "uk.lproj/SettingsViewController+NavigationController.strings"; sourceTree = "<group>"; };
 		B0060EC2238DCEFD00638E13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GameResultViewController.storyboard; sourceTree = "<group>"; };
 		B0060EC5238DCF0B00638E13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/GameResultViewController.strings; sourceTree = "<group>"; };
 		B0060EC7238DCF0E00638E13 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/GameResultViewController.strings; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 		B07099A92292B743005D0C3E /* GameTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTimeFormatter.swift; sourceTree = "<group>"; };
 		B07A9ED2227CFC4400C4D2F0 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		B07C5F6C2280435D009059A7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		B07C5F6E22805F12009059A7 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		B07C5F6E22805F12009059A7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B082A4352289934B0029C1CF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RegionNames.strings"; sourceTree = "<group>"; };
 		B0844B252504ED2300DB3564 /* BooleanSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanSettingCell.swift; sourceTree = "<group>"; };
 		B0844B272504F29A00DB3564 /* SelectableSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableSettingCell.swift; sourceTree = "<group>"; };
@@ -257,14 +257,14 @@
 			path = PauseViewController;
 			sourceTree = "<group>";
 		};
-		B0060EA0238DC67000638E13 /* SettingsTableViewController+NavigationController */ = {
+		B0060EA0238DC67000638E13 /* SettingsViewController+NavigationController */ = {
 			isa = PBXGroup;
 			children = (
-				B07C5F6E22805F12009059A7 /* SettingsTableViewController.swift */,
+				B07C5F6E22805F12009059A7 /* SettingsViewController.swift */,
 				B04DE4812285A6A500939C4E /* SettingsNavigationController.swift */,
-				B0060EB9238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard */,
+				B0060EB9238DCC8400638E13 /* SettingsViewController+NavigationController.storyboard */,
 			);
-			path = "SettingsTableViewController+NavigationController";
+			path = "SettingsViewController+NavigationController";
 			sourceTree = "<group>";
 		};
 		B0060EA1238DC68900638E13 /* GameResultViewController */ = {
@@ -456,7 +456,7 @@
 			children = (
 				B0060E9E238DC64100638E13 /* MenuViewController */,
 				B0060E9F238DC65A00638E13 /* PauseViewController */,
-				B0060EA0238DC67000638E13 /* SettingsTableViewController+NavigationController */,
+				B0060EA0238DC67000638E13 /* SettingsViewController+NavigationController */,
 				B0060EA1238DC68900638E13 /* GameResultViewController */,
 				B0060EA2238DC69900638E13 /* InfoViewController */,
 				B0060EA3238DC6A600638E13 /* HighscoreViewController */,
@@ -575,7 +575,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0BE6CC3238C99EB0012453D /* MenuViewController.storyboard in Resources */,
-				B0060EB7238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard in Resources */,
+				B0060EB7238DCC8400638E13 /* SettingsViewController+NavigationController.storyboard in Resources */,
 				B0060F07238DDF4B00638E13 /* ConfirmationViewController.storyboard in Resources */,
 				B0060EF3238DDE0F00638E13 /* LanguageSettingTableViewController.storyboard in Resources */,
 				B0060EE9238DDD4600638E13 /* ModeSettingTableViewController.storyboard in Resources */,
@@ -598,7 +598,7 @@
 				B0060ED4238DDB9C00638E13 /* HighscoreViewController.storyboard in Resources */,
 				B05A884D22C54DB50013F52F /* Ukraine.json in Resources */,
 				B0060EFC238DDEE900638E13 /* GameSceneViewController.storyboard in Resources */,
-				B0060EB6238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard in Resources */,
+				B0060EB6238DCC8400638E13 /* SettingsViewController+NavigationController.storyboard in Resources */,
 				B0E1EE1822B680D9004640D6 /* Wrong Answer Strings.m4a in Resources */,
 				B0060ECA238DD3F600638E13 /* InfoViewController.storyboard in Resources */,
 				B042BEF7229C439400FE4A5C /* InfoPlist.strings in Resources */,
@@ -671,7 +671,7 @@
 				B07A9ED3227CFC4400C4D2F0 /* Resources.swift in Sources */,
 				B05A2AAE227A553400D8BA5C /* GameControllerDelegate.swift in Sources */,
 				B04DDB78228B4EB8008B9DD9 /* GameResultViewController.swift in Sources */,
-				B07C5F6F22805F12009059A7 /* SettingsTableViewController.swift in Sources */,
+				B07C5F6F22805F12009059A7 /* SettingsViewController.swift in Sources */,
 				B051F55E24F5A8F6006185EA /* TimeView.swift in Sources */,
 				B0844B2A2504F3E100DB3564 /* ClassNameProvider.swift in Sources */,
 				B0BFD4FA2297151E002EA6EF /* RemovableObserver.swift in Sources */,
@@ -727,7 +727,7 @@
 			name = PauseViewController.storyboard;
 			sourceTree = "<group>";
 		};
-		B0060EB9238DCC8400638E13 /* SettingsTableViewController+NavigationController.storyboard */ = {
+		B0060EB9238DCC8400638E13 /* SettingsViewController+NavigationController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B0060EB8238DCC8400638E13 /* Base */,
@@ -735,7 +735,7 @@
 				B0060EBD238DCC9100638E13 /* ru */,
 				B0060EBF238DCC9A00638E13 /* uk */,
 			);
-			name = "SettingsTableViewController+NavigationController.storyboard";
+			name = "SettingsViewController+NavigationController.storyboard";
 			sourceTree = "<group>";
 		};
 		B0060EC3238DCEFD00638E13 /* GameResultViewController.storyboard */ = {
