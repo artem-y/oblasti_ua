@@ -18,113 +18,22 @@ final class SettingsViewController: UIViewController {
 
     typealias SettingCellKey = Settings.Key
 
-    // MARK: - Nested Types
-
-    struct SettingsSection: Equatable {
-        var header: String?
-        var cells: [SettingCellKey]
-        var footer: String?
-
-        init(
-            header: String? = nil,
-            cells: [SettingCellKey],
-            footer: String? = nil
-        ) {
-
-            self.header = header
-            self.cells = cells
-            self.footer = footer
-        }
-    }
-
-    let generalCells: [SettingCellKey] = [
-        .gameMode,
-        .showTime,
-        .showButtons,
-        .autoConfirmSelection,
-        .autoChangeToNextRegion,
-        .showCorrectAnswer
-    ]
-    lazy var generalSection: SettingsSection = .init(
-        header: Localized.HeaderText.general,
-        cells: generalCells
-    )
-
-    let soundCells: [SettingCellKey] = [
-        .soundEffectsOn
-    ]
-    lazy var soundSection: SettingsSection = .init(
-        header: Localized.HeaderText.sound,
-        cells: soundCells
-    )
-
-    let regionNameCells: [SettingCellKey] = [
-        .regionNameLanguage,
-        .regionNameUppercased
-    ]
-    lazy var regionNamesSection: SettingsSection = {
-        let regionNameLanguageIdentifier: String = settings.regionNameLanguageIdentifier
-
-        var exampleName = Default.footerExampleRegionName.localized(
-            in: regionNameLanguageIdentifier,
-            fromTable: Resources.LocalizationTable.regionNames
-        )
-
-        exampleName = settings.regionNamesUppercased ? exampleName.uppercased() : exampleName.capitalized
-
-        let examplePrefix: String = Localized.FooterTextPart.forExamplePrefix
-        let exampleWordSeparator: String = Localized.FooterTextPart.wordsSeparator
-
-        return SettingsSection(
-            header: Localized.HeaderText.regionNames,
-            cells: regionNameCells,
-            footer: "\(examplePrefix)\(exampleWordSeparator)\(exampleName)"
-        )
-    }()
-
-    let defaultSettingsCells: [SettingCellKey] = [
-        .restoreDefaults
-    ]
-    lazy var defaultSettingsSection: SettingsSection = .init(
-        cells: defaultSettingsCells
-    )
-
-    var sections: [SettingsSection] {
-        var sections: [SettingsSection] = [
-            generalSection,
-            soundSection,
-            regionNamesSection
-        ]
-
-        if settings != Settings.default {
-            sections.append(defaultSettingsSection)
-        }
-
-        return sections
-    }
-
     // MARK: - Public Properties
 
     /// This value should only be passed to settings view controller only if it is called from game pause menu.
     /// It will be used to disable mode change within the same game.
     var gameInProgressGameMode: Game.Mode?
 
+    /// Provides data for population of settings tableview.
+    var staticDataSource = StaticDataSource()
+
     // MARK: - Private Properties
 
-    private var settings: Settings {
-        get {
-            return SettingsController.shared.settings
-        }
-        set {
-            guard SettingsController.shared.settings != newValue else { return }
-            SettingsController.shared.settings = newValue
-        }
-    }
     /**
      'Convenience' property. If 'gameInProgressGameMode' is not nil, it means there is a game in progress.
      */
     private var currentGameMode: Game.Mode {
-        return gameInProgressGameMode ?? settings.gameMode
+        return gameInProgressGameMode ?? staticDataSource.settings.gameMode
     }
 
     private var exampleFooterText = String()
@@ -169,7 +78,7 @@ extension SettingsViewController {
 
             destinationVC.messageText = Localized.messageWillResetToDefaultsCannotBeUndone
             destinationVC.confirmationHandler = { [unowned self] in
-                self.settings = Settings.default
+                self.staticDataSource.settings = Settings.default
             }
 
         default:
@@ -183,7 +92,7 @@ extension SettingsViewController {
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // No need to tableView.deselectRow here because UI will be updated on these properties' didSet event
-        let section: SettingsSection = sections[indexPath.section]
+        let section: SettingsSection = staticDataSource.sections[indexPath.section]
         let cellKey: SettingCellKey = section.cells[indexPath.row]
 
         switch cellKey {
@@ -218,24 +127,24 @@ extension SettingsViewController: UITableViewDelegate {
 extension SettingsViewController: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        return staticDataSource.sections.count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section].header
+        return staticDataSource.sections[section].header
     }
 
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return sections[section].footer
+        return staticDataSource.sections[section].footer
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].cells.count
+        return staticDataSource.sections[section].cells.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let setting: SettingCellKey = sections[indexPath.section].cells[indexPath.row]
+        let setting: SettingCellKey = staticDataSource.sections[indexPath.section].cells[indexPath.row]
 
         var cell: UITableViewCell
 
@@ -253,7 +162,7 @@ extension SettingsViewController: UITableViewDataSource {
              .regionNameUppercased,
              .soundEffectsOn:
 
-            guard let settingValue = try? settings.getBoolSetting(forKey: setting) else {
+            guard let settingValue = try? staticDataSource.settings.getBoolSetting(forKey: setting) else {
                 cell = UITableViewCell()
                 break
             }
@@ -321,7 +230,7 @@ extension SettingsViewController {
         var settingValue = value
 
         let shouldDisable: Bool = gameInProgressGameMode != nil &&
-            generalSection.cells.contains(settingKey)
+            staticDataSource.generalSection.cells.contains(settingKey)
 
         if shouldDisable {
 
@@ -337,7 +246,7 @@ extension SettingsViewController {
     }
 
     private func configureRegionNameLanguageCell(_ cell: SelectableSettingCell) {
-        let regionNameLanguageIdentifier: String = settings.regionNameLanguageIdentifier
+        let regionNameLanguageIdentifier: String = staticDataSource.settings.regionNameLanguageIdentifier
 
         let languageNameText: String? = Locale.current.localizedString(
             forLanguageCode: regionNameLanguageIdentifier
@@ -388,16 +297,16 @@ extension SettingsViewController {
 
     private func updateExampleFooter() {
         var exampleName = Default.footerExampleRegionName.localized(
-            in: settings.regionNameLanguageIdentifier,
+            in: staticDataSource.settings.regionNameLanguageIdentifier,
             fromTable: Resources.LocalizationTable.regionNames
         )
 
-        exampleName = settings.regionNamesUppercased ? exampleName.uppercased() : exampleName.capitalized
+        exampleName = staticDataSource.settings.regionNamesUppercased ? exampleName.uppercased() : exampleName.capitalized
 
         let examplePrefix: String = Localized.FooterTextPart.forExamplePrefix
         let exampleWordSeparator: String = Localized.FooterTextPart.wordsSeparator
 
-        regionNamesSection.footer = "\(examplePrefix)\(exampleWordSeparator)\(exampleName)"
+        staticDataSource.regionNamesSection.footer = "\(examplePrefix)\(exampleWordSeparator)\(exampleName)"
     }
 
     private func reloadSections(
@@ -410,7 +319,7 @@ extension SettingsViewController {
     }
 
     private func reloadRegionNamesSection() {
-        guard let sectionIndex = sections.firstIndex(where: { $0 == regionNamesSection }) else { return }
+        guard let sectionIndex = staticDataSource.sections.firstIndex(where: { $0 == staticDataSource.regionNamesSection }) else { return }
         reloadSections(at: [sectionIndex])
     }
 
@@ -423,7 +332,7 @@ extension SettingsViewController {
     }
 
     private func getCellIndexPath(forKey key: Settings.Key) -> IndexPath? {
-        for (sectionIndex, section) in sections.enumerated() {
+        for (sectionIndex, section) in staticDataSource.sections.enumerated() {
             if let cellIndex = section.cells.firstIndex(where: { $0 == key }) {
                 return IndexPath(row: cellIndex, section: sectionIndex)
             }
@@ -437,61 +346,5 @@ extension SettingsViewController {
 extension SettingsViewController {
     struct Default {
         static let footerExampleRegionName = "Ivano-Frankivska"
-    }
-}
-
-// MARK: - Localized Values
-
-extension SettingsViewController {
-    struct Localized {
-        struct HeaderText {
-            static let general: String = "General".localized()
-            static let sound: String = "Sound".localized()
-            static let regionNames: String = "Region Names".localized()
-        }
-
-        struct FooterTextPart {
-            static let forExamplePrefix: String = "For example:".localized()
-            static let wordsSeparator: String = " ".localized()
-        }
-
-        static let messageWillResetToDefaultsCannotBeUndone: String = """
-            Settings will be reset to defaults. This action cannot be undone.
-            """.localized()
-
-        static func staticValueDescription(forKey key: SettingCellKey) -> String {
-            switch key {
-
-            case .autoChangeToNextRegion:
-                return "Automatic region change".localized()
-
-            case .autoConfirmSelection:
-                return "Automatic confirmation".localized()
-
-            case .gameMode:
-                return "Mode".localized()
-
-            case .regionNameLanguage:
-                return "Language".localized()
-
-            case .regionNameUppercased:
-                return "All caps".localized()
-
-            case .restoreDefaults:
-                return "Restore default settings".localized()
-
-            case .showButtons:
-                return "Game with buttons".localized()
-
-            case .showCorrectAnswer:
-                return "Show correct answer".localized()
-
-            case .showTime:
-                return "Show time".localized()
-
-            case .soundEffectsOn:
-                return "Sound Effects".localized()
-            }
-        }
     }
 }

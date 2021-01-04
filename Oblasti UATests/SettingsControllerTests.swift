@@ -10,7 +10,7 @@ import XCTest
 @testable import Oblasti_UA
 
 class SettingsControllerTests: XCTestCase {
-    typealias SettingKey = Resources.UserDefaultsKey.Setting
+    typealias SettingKey = Settings.Key
 
     // MARK: - Unit Under Test & Necessary Variables
     var settingsController: SettingsController!
@@ -22,7 +22,7 @@ class SettingsControllerTests: XCTestCase {
 
     override func tearDown() {
         settingsController = nil
-        UserDefaults.standard.removeObject(forKey: SettingKey.lastGameMode)
+        UserDefaults.standard.removeObject(forKey: SettingKey.gameMode.rawValue)
     }
 
     // MARK: - Tests
@@ -62,7 +62,7 @@ class SettingsControllerTests: XCTestCase {
         settingsController.settings = nonDefaultSettings
 
         // 2. Act
-        UserDefaults.standard.removeObject(forKey: SettingKey.playesSoundEffects)
+        UserDefaults.standard.removeObject(forKey: SettingKey.soundEffectsOn.rawValue)
         settingsController.loadSettings()
 
         // 3. Assert
@@ -95,20 +95,20 @@ class SettingsControllerTests: XCTestCase {
 }
 
 #if DEBUG
-extension Resources.UserDefaultsKey.Setting {
-    typealias SelfType = Resources.UserDefaultsKey.Setting
+extension Settings.Key {
+    typealias SelfType = Settings.Key
 
     static var allKeys: [String] {
         let keys: [String] = [
-            SelfType.autoConfirmsSelection,
-            SelfType.automaticRegionChange,
-            SelfType.lastGameMode,
-            SelfType.playesSoundEffects,
-            SelfType.regionNameLanguage,
-            SelfType.regionNamesUppercased,
-            SelfType.showsButtons,
-            SelfType.showsCorrectAnswer,
-            SelfType.showsTime
+            SelfType.autoConfirmSelection.rawValue,
+            SelfType.autoChangeToNextRegion.rawValue,
+            SelfType.gameMode.rawValue,
+            SelfType.soundEffectsOn.rawValue,
+            SelfType.regionNameLanguage.rawValue,
+            SelfType.regionNameUppercased.rawValue,
+            SelfType.showButtons.rawValue,
+            SelfType.showCorrectAnswer.rawValue,
+            SelfType.showTime.rawValue
         ]
         return keys
     }
