@@ -199,7 +199,7 @@ extension SettingsViewController: RemovableObserver {
 
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(reloadGameModeCell),
+            selector: #selector(updateUI),
             name: .GameModeChanged,
             object: nil
         )
@@ -275,8 +275,12 @@ extension SettingsViewController {
                             if key == .regionNameUppercased {
                                 updateExampleFooter()
                                 tableView.reloadData()
+                                return
                             } else {
+                                tableView.beginUpdates()
                                 settingCell.configure(with: boolSetting)
+                                updateRestoreDefaultsCell()
+                                tableView.endUpdates()
                             }
                         }
                     }
@@ -301,7 +305,8 @@ extension SettingsViewController {
             fromTable: Resources.LocalizationTable.regionNames
         )
 
-        exampleName = staticDataSource.settings.regionNamesUppercased ? exampleName.uppercased() : exampleName.capitalized
+        let isUppercased = staticDataSource.settings.regionNamesUppercased
+        exampleName = isUppercased ? exampleName.uppercased() : exampleName.capitalized
 
         let examplePrefix: String = Localized.FooterTextPart.forExamplePrefix
         let exampleWordSeparator: String = Localized.FooterTextPart.wordsSeparator
@@ -319,16 +324,11 @@ extension SettingsViewController {
     }
 
     private func reloadRegionNamesSection() {
-        guard let sectionIndex = staticDataSource.sections.firstIndex(where: { $0 == staticDataSource.regionNamesSection }) else { return }
-        reloadSections(at: [sectionIndex])
-    }
+        guard let sectionIndex = staticDataSource.sections.firstIndex(where: {
+            $0 == staticDataSource.regionNamesSection
+        }) else { return }
 
-    @objc
-    private func reloadGameModeCell() {
-        guard let cellIndexPath = getCellIndexPath(forKey: .gameMode) else { return }
-        tableView.beginUpdates()
-        tableView.reloadRows(at: [cellIndexPath], with: .automatic)
-        tableView.endUpdates()
+        reloadSections(at: [sectionIndex])
     }
 
     private func getCellIndexPath(forKey key: Settings.Key) -> IndexPath? {
@@ -338,6 +338,17 @@ extension SettingsViewController {
             }
         }
         return nil
+    }
+
+    private func updateRestoreDefaultsCell() {
+        let sections = staticDataSource.sections
+        let numberOfSections = tableView.numberOfSections
+
+        if numberOfSections > sections.count {
+            tableView.deleteSections([sections.count - 1], with: .fade)
+        } else if sections.count > numberOfSections {
+            tableView.insertSections([sections.count - 1], with: .fade)
+        }
     }
 }
 

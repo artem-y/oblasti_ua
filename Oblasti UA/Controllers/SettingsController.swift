@@ -38,6 +38,10 @@ final class SettingsController: NSObject {
                     ]
                 )
             }
+
+            if settings == Settings.default {
+                postNotification(named: .SettingsChanged)
+            }
         }
     }
 
