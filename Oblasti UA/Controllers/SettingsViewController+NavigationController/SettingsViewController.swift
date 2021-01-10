@@ -269,28 +269,13 @@ extension SettingsViewController {
             keys.forEach { key in
                 if let boolSetting = settingInfo[key] as? Bool {
 
-                    if let cellIndexPath = getCellIndexPath(forKey: key) {
-
-                        if let settingCell = tableView.cellForRow(at: cellIndexPath) as? BooleanSettingCell {
-                            if key == .regionNameUppercased {
-                                updateExampleFooter()
-                                tableView.reloadData()
-                                return
-                            } else {
-                                tableView.beginUpdates()
-                                settingCell.configure(with: boolSetting)
-                                updateRestoreDefaultsCell()
-                                tableView.endUpdates()
-                            }
-                        }
-                    }
+                    updateTableView(with: boolSetting, forKey: key)
 
                 } else if key == .regionNameLanguage,
                           let cellIndexPath = getCellIndexPath(forKey: key) {
 
                     updateExampleFooter()
                     reloadSections(at: [cellIndexPath.section])
-
                 }
             }
 
@@ -348,6 +333,25 @@ extension SettingsViewController {
             tableView.deleteSections([sections.count - 1], with: .fade)
         } else if sections.count > numberOfSections {
             tableView.insertSections([sections.count - 1], with: .fade)
+        }
+    }
+
+    private func updateTableView(
+        with boolSetting: Bool,
+        forKey key: Settings.Key
+    ) {
+        guard let cellIndexPath = getCellIndexPath(forKey: key),
+              let settingCell = tableView.cellForRow(at: cellIndexPath) as? BooleanSettingCell else { return }
+
+        if key == .regionNameUppercased {
+            updateExampleFooter()
+            tableView.reloadData()
+            return
+        } else {
+            tableView.beginUpdates()
+            settingCell.configure(with: boolSetting)
+            updateRestoreDefaultsCell()
+            tableView.endUpdates()
         }
     }
 }
