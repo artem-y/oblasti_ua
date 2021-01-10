@@ -11,8 +11,8 @@ import UIKit
 final class ModeSettingTableViewController: UITableViewController {
     // MARK: - Public Properties
 
-    /// Determines if the navigation bar will hide the 'back' (left) item
-    var hidesBackButton = true
+    /// Controlls whether to dismiss its navigation container on close.
+    var dismissesNavigationStackOnClose = true
 
     // MARK: - Private Properties
     private let availableModes: [Game.Mode] = Game.Mode.allCases
@@ -42,7 +42,7 @@ final class ModeSettingTableViewController: UITableViewController {
 
 extension ModeSettingTableViewController {
     @IBAction private func dismiss(_ sender: Any) {
-        navigationController?.dismiss(animated: true, completion: nil)
+        close()
     }
 
 }
@@ -52,7 +52,7 @@ extension ModeSettingTableViewController {
 extension ModeSettingTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.hidesBackButton = hidesBackButton
+        navigationItem.hidesBackButton = dismissesNavigationStackOnClose
         updateUI()
     }
 }
@@ -83,6 +83,19 @@ extension ModeSettingTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         mode = availableModes[indexPath.row]
+        close()
+    }
+}
+
+// MARK: - Private Method
+
+extension ModeSettingTableViewController {
+    private func close() {
+        if dismissesNavigationStackOnClose {
+            navigationController?.dismiss(animated: true, completion: nil)
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
 }
 

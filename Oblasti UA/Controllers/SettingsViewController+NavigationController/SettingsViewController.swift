@@ -71,7 +71,7 @@ extension SettingsViewController {
         case Resources.SegueIdentifier.showModeSettingFromSettingsControllerSegue:
             guard let destinationVC = segue.destination as? ModeSettingTableViewController else { return }
 
-            destinationVC.hidesBackButton = false
+            destinationVC.dismissesNavigationStackOnClose = false
 
         case Resources.SegueIdentifier.restoreDefaultsConfirmationSegue:
             guard let destinationVC = segue.destination as? ConfirmationViewController else { return }
