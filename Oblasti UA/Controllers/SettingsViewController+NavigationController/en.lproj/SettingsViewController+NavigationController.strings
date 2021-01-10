@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "Restore default settings"; ObjectID = "NKk-yi-WN3"; */
+"NKk-yi-WN3.text" = "Restore default settings";
+
+/* Class = "UILabel"; text = "Classic"; ObjectID = "PgA-YM-8w5"; */
+"PgA-YM-8w5.text" = "Classic";
+
+/* Class = "UILabel"; text = "Automatic confirmation"; ObjectID = "THM-ey-4Kc"; */
+"THM-ey-4Kc.text" = "Automatic confirmation";
+
+/* Class = "UILabel"; text = "Ukrainian"; ObjectID = "TUj-2p-Wqo"; */
+"TUj-2p-Wqo.text" = "Ukrainian";
+
+/* Class = "UILabel"; text = "Mode"; ObjectID = "0RO-Gk-hjh"; */
+"0RO-Gk-hjh.text" = "Mode";
+
+/* Class = "UILabel"; text = "Show time"; ObjectID = "QQ3-Xw-xJm"; */
+"QQ3-Xw-xJm.text" = "Show time";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "kc5-Bp-f9i"; */
+"kc5-Bp-f9i.title" = "Settings";
+
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "bsv-Kk-PeR"; */
+"bsv-Kk-PeR.title" = "Close";

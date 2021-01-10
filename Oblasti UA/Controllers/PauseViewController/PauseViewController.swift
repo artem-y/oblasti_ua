@@ -90,7 +90,7 @@ extension PauseViewController {
         switch segue.identifier {
         case Resources.SegueIdentifier.showSettingsFromGamePauseSegue:
             guard let destinationVC = segue.destination as? SettingsNavigationController,
-                let topVC = destinationVC.topViewController as? SettingsTableViewController else { return }
+                let topVC = destinationVC.topViewController as? SettingsViewController else { return }
             topVC.gameInProgressGameMode = gameMode
 
         case Resources.SegueIdentifier.exitConfirmationSegue:

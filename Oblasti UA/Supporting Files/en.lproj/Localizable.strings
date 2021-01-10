@@ -58,3 +58,22 @@
 
 /* Game info (warning) screen text. */
 "Please, notice: region boundaries and borders of Ukraine are depicted approximately and can be different from real proportions and geografic coordinates." = "Please, notice: region boundaries and borders of Ukraine are depicted approximately and can be different from real proportions and geografic coordinates.";
+
+"Mode" = "Mode";
+"Show time" = "Show time";
+"Show buttons" = "Show buttons";
+"Automatic confirmation" = "Automatic confirmation";
+"Automatic region change" = "Automatic region change";
+"Show correct answer" = "Show correct answer";
+"General" = "General";
+"Sound" = "Sound";
+"Sound Effects" = "Sound Effects";
+"Region Names" = "Region Names";
+"Language" = "Language";
+"Ukrainian" = "Ukrainian";
+"English" = "English";
+"Russian" = "Russian";
+"Chinese (simplified)" = "Chinese (simplified)";
+"Custom region names" = "Custom region names";
+"All caps" = "All caps";
+"Restore default settings" = "Restore default settings";

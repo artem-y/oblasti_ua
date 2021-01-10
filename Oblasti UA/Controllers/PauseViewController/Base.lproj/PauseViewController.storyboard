@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T8F-8Y-z9t">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T8F-8Y-z9t">
     <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,7 +26,7 @@
                                         <stackView clearsContextBeforeDrawing="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wto-t4-1Qh">
                                             <rect key="frame" x="287" y="253.5" width="450" height="261"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eg7-5D-p5n" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eg7-5D-p5n" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="450" height="54"/>
                                                     <color key="backgroundColor" red="0.1333333333" green="0.29803921570000003" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -46,7 +46,7 @@
                                                         <action selector="continueButtonTapped:" destination="T8F-8Y-z9t" eventType="touchUpInside" id="ySr-Yp-P5e"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sd-OY-Nkx" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Sd-OY-Nkx" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="69" width="450" height="54"/>
                                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -66,7 +66,7 @@
                                                         <segue destination="GSm-1e-QJX" kind="show" identifier="showSettingsFromGamePauseSegue" id="wt9-4P-Yku"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deA-rb-you" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deA-rb-you" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="138" width="450" height="54"/>
                                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -86,7 +86,7 @@
                                                         <action selector="saveAndExitButtonTapped:" destination="T8F-8Y-z9t" eventType="touchUpInside" id="kJQ-CF-aDH"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwX-Lf-brq" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwX-Lf-brq" customClass="RoundCornerButton" customModule="Oblasti_UA" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="207" width="450" height="54"/>
                                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -123,13 +123,13 @@
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="SZF-IC-PvM"/>
                         <constraints>
                             <constraint firstItem="dr2-2N-loh" firstAttribute="leading" secondItem="TGG-ps-y4Z" secondAttribute="leading" id="HN9-Im-fv5"/>
                             <constraint firstItem="dr2-2N-loh" firstAttribute="top" secondItem="SZF-IC-PvM" secondAttribute="top" id="feC-3r-ZPu"/>
                             <constraint firstItem="dr2-2N-loh" firstAttribute="bottom" secondItem="TGG-ps-y4Z" secondAttribute="bottom" id="jds-u1-eGu"/>
                             <constraint firstItem="dr2-2N-loh" firstAttribute="trailing" secondItem="TGG-ps-y4Z" secondAttribute="trailing" id="sWV-ez-aKG"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="SZF-IC-PvM"/>
                     </view>
                     <connections>
                         <outlet property="blurView" destination="dr2-2N-loh" id="qKq-QW-vWa"/>
@@ -151,10 +151,10 @@
             </objects>
             <point key="canvasLocation" x="2352" y="12"/>
         </scene>
-        <!--SettingsTableViewController+NavigationController-->
+        <!--SettingsViewController+NavigationController-->
         <scene sceneID="C9f-j8-dnR">
             <objects>
-                <viewControllerPlaceholder storyboardName="SettingsTableViewController+NavigationController" id="GSm-1e-QJX" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="SettingsViewController+NavigationController" id="GSm-1e-QJX" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="hWx-9m-32H"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F3W-k4-9oh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -162,4 +162,18 @@
             <point key="canvasLocation" x="1384" y="489"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="8Sd-OY-Nkx">
+            <size key="intrinsicContentSize" width="162" height="54"/>
+        </designable>
+        <designable name="Eg7-5D-p5n">
+            <size key="intrinsicContentSize" width="174" height="54"/>
+        </designable>
+        <designable name="YwX-Lf-brq">
+            <size key="intrinsicContentSize" width="366" height="54"/>
+        </designable>
+        <designable name="deA-rb-you">
+            <size key="intrinsicContentSize" width="242" height="54"/>
+        </designable>
+    </designables>
 </document>

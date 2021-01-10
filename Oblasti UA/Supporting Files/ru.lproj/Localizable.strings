@@ -58,3 +58,22 @@
 
 /* Game info (warning) screen text. */
 "Please, notice: region boundaries and borders of Ukraine are depicted approximately and can be different from real proportions and geografic coordinates." = "Пожалуйста, обратите внимание: границы регионов и Украины изображены приблизительно и могут не совпадать с реальными пропорциями и географическими координатами.";
+
+"Mode" = "Режим";
+"Show time" = "Показывать время";
+"Game with buttons" = "Игра с кнопками";
+"Automatic confirmation" = "Автоматическое подтверждение";
+"Automatic region change" = "Автоматическая смена области";
+"Show correct answer" = "Показывать правильный ответ";
+"General" = "Общие";
+"Sound" = "Звук";
+"Sound Effects" = "Звуковые эффекты";
+"Region Names" = "Названия областей";
+"Language" = "Язык";
+"Ukrainian" = "Украинский";
+"English" = "Английский";
+"Russian" = "Русский";
+"Chinese (simplified)" = "Китайский (упрощенный)";
+"Custom region names" = "Свой вариант названий";
+"All caps" = "Все буквы большие";
+"Restore default settings" = "Восстановить значения по умолчанию";

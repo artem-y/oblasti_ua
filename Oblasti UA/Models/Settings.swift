@@ -11,6 +11,25 @@ import Foundation
 /// Game settings model
 struct Settings: Equatable {
 
+    // MARK: - Nested Types
+
+    enum Key: String, CaseIterable {
+        case autoConfirmSelection
+        case autoChangeToNextRegion
+        case gameMode
+        case regionNameLanguage
+        case regionNameUppercased
+        case restoreDefaults
+        case showButtons
+        case showTime
+        case showCorrectAnswer
+        case soundEffectsOn
+    }
+
+    enum SettingError: Error {
+        case wrongSettingType
+    }
+
     // MARK: - General
 
     /// Immutable default settings instance.
@@ -90,7 +109,79 @@ struct Settings: Equatable {
         }
 
     }
+}
 
+// MARK: - Public Methods
+
+extension Settings {
+
+    /**
+     Returns a boolean setting, associated with given key. Will throw an error if queried for non-boolean setting.
+     - parameter key: A key associated with boolean setting.
+     */
+    func getBoolSetting(forKey key: Key) throws -> Bool {
+
+        switch key {
+        case .autoChangeToNextRegion:
+            return changesRegionAutomatically
+
+        case .autoConfirmSelection:
+            return autoConfirmsSelection
+
+        case .regionNameUppercased:
+            return regionNamesUppercased
+
+        case .showButtons:
+            return showsButtons
+
+        case .showCorrectAnswer:
+            return showsCorrectAnswer
+
+        case .showTime:
+            return showsTime
+
+        case .soundEffectsOn:
+            return playesSoundEffects
+
+        default:
+            throw SettingError.wrongSettingType
+        }
+    }
+
+    /**
+     Sets boolean setting, associated with given key, to given value.
+     Will throw an error if the setting for the given key is not boolean.
+     - parameter boolSettingValue: New value of to assign to boolean setting, associated with the given key.
+     - parameter key: A key associated with boolean setting.
+     */
+    mutating func set(boolSettingValue: Bool, forKey key: Key) throws {
+
+        switch key {
+        case .autoChangeToNextRegion:
+            changesRegionAutomatically = boolSettingValue
+
+        case .autoConfirmSelection:
+            autoConfirmsSelection = boolSettingValue
+
+        case .regionNameUppercased:
+            regionNamesUppercased = boolSettingValue
+
+        case .showButtons:
+            showsButtons = boolSettingValue
+
+        case .showCorrectAnswer:
+            showsCorrectAnswer = boolSettingValue
+
+        case .showTime:
+            showsTime = boolSettingValue
+
+        case .soundEffectsOn:
+            playesSoundEffects = boolSettingValue
+
+        default:
+            throw SettingError.wrongSettingType
+        }
+    }
 }
 
 // MARK: - Default Values
