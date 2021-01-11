@@ -12,7 +12,7 @@ final class LanguageSettingTableViewController: UITableViewController, DefaultsK
 
     // MARK: - @IBOutlets
 
-    @IBOutlet weak var editBarButtonItem: UIBarButtonItem!
+    @IBOutlet var editBarButtonItem: UIBarButtonItem!
 
     // MARK: - Private Properties
 
@@ -27,6 +27,10 @@ final class LanguageSettingTableViewController: UITableViewController, DefaultsK
             SettingsController.shared.settings.regionNameLanguageIdentifier = newValue
             tableView.reloadData()
         }
+    }
+
+    private var isCustomRegionNameLanguage: Bool {
+        return regionNameLanguage == Resources.LanguageCode.custom
     }
 }
 
@@ -76,11 +80,10 @@ extension LanguageSettingTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let language = languages[indexPath.row]
-        regionNameLanguage = language
-        navigationItem.rightBarButtonItem = (language == Resources.LanguageCode.custom) ? editBarButtonItem : nil
+        updateLanguage(from: indexPath)
+        configureNavigationItem()
+        closeIfNeeded()
     }
-
 }
 
 // MARK: - Private Methods
@@ -100,8 +103,18 @@ extension LanguageSettingTableViewController {
     }
 
     private func configureNavigationItem() {
-        let isCustomRegionNameLanguage: Bool = (regionNameLanguage == Resources.LanguageCode.custom)
-        navigationItem.rightBarButtonItem = isCustomRegionNameLanguage ? editBarButtonItem : nil
+        let rightBarButtonItem = isCustomRegionNameLanguage ? editBarButtonItem : nil
+        navigationItem.setRightBarButton(rightBarButtonItem, animated: true)
+    }
+
+    private func updateLanguage(from indexPath: IndexPath) {
+        let language = languages[indexPath.row]
+        regionNameLanguage = language
+    }
+
+    private func closeIfNeeded() {
+        guard !isCustomRegionNameLanguage else { return }
+        navigationController?.popViewController(animated: true)
     }
 }
 
